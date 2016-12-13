@@ -95,6 +95,7 @@
 						);");
 	        //status : 2=visitor 3=subscriber 4=author 5=admin
 	        if (!($query->execute())) {return false;}
+	        $query->closeCursor();
 
 	        $query = $this->conn->prepare("CREATE TABLE IF NOT EXISTS 
 	        	authors('id_author' INTEGER PRIMARY KEY NOT NULL,
@@ -105,17 +106,19 @@
 						FOREIGN KEY(user) REFERENCES users(id_user)
 						);");
 	        if (!($query->execute())) {return false;}
+	        $query->closeCursor();
 
 	        $query = $this->conn->prepare("CREATE TABLE IF NOT EXISTS 
 	        	books(	'id_book' INTEGER PRIMARY KEY NOT NULL,
 	        			'title' TEXT UNIQUE NOT NULL,
-	        			'author' INTEGER,		        			
+	        			'authors' TEXT NOT NULL,	        			
 	        			'collection' TEXT NOT NULL,						
 						'year' INTEGER NOT NULL,
 						'is_full' INTEGER CHECK (is_full > 1 AND is_full < 4), 
-						'captions_filename' TEXT,
-						FOREIGN KEY(author) REFERENCES authors(id_author)
+						'captions_filename' TEXT						
 						);");
+	        //le champ authors est un array des ids des auteurs serialisé
+	        //les ids des auteurs devraient être des clefs étrangères, mais comme ils sont en string dans la BDD c'est pas possible...
 			//le champs is_full vaut 2 si le livre est complet ou 3 si c'est un extrait
 
 			/* TO DO : gérer la question de est-ce qu'un livre peut avoir plusieurs auteurs
@@ -124,13 +127,6 @@
 			et je devrais donc ensuite remettre les ids_authors dans une array (de la classe Author)
 			et faire une boucle dessus
 			ou éventuellemnt vérifier qu'il y a qu'un auteur
-
-	        if (!($query->execute())) {return false;}
-
-	        $query = $this->conn->prepare("CREATE TABLE IF NOT EXISTS 
-	        	written('authors' TEXT NOT NULL,
-	        			'book' INTEGER REFERENCES books(id_book),
-	        			PRIMARY KEY(author, book)
 			*/
 
 	    	return $query->execute();
@@ -171,7 +167,6 @@
 
 	    /**
 	     * Méthode qui ajoute un livre dans la table books de la base de donnée 
-	     * puis ajoute l'id du livre et l'id de l'auteur dans la table written
 	     * 
 	     *
 	     * @param $book : un objet de la classe Book.php
@@ -180,42 +175,52 @@
 	    public function addBook($book)
 	    {
 	    	//Je vais ajouter mon livre à ma table books
-	    	$query = $this->conn->prepare("INSERT INTO books(title, author, collection, year, is_full, captions_filename) VALUES(?,?,?,?,?,?);");
-	    	$query-> bindValue(1,$book->getBookTitle());
-	    	$query-> bindValue(2,$book->getBookAuthor());
-	    	$query-> bindValue(3,$book->getBookCollection());
-	    	$query-> bindValue(4,$book->getBookYear());
-	    	$query-> bindValue(5,$book->getBookIsFull());
-	    	$query-> bindValue(6,$book->getBookCaptions());
-	    	
-			/* TO DO : à supprimer si j'utilise plus la table written
-			problèmatique de plusieurs auteurs pour un livre
-	    	if (!($query->execute())) {return false;}
-	    	
-	    	//Je met le livre et son/ses auteur(s) dans ma table written
+	    	//On va commencer par vérifier que chaque auteur du book existe
+	    	//A cause de la façon de stocker le champ authors dans books, je peux pas les définir comme clef étrangère de la table authors
+	    	//Du coup je fais la vérification à la main...
+	    	$authorsExistsArray = array();
+	    	$authors_ids = $book->getBookAuthors();
+	    	foreach ($book->getBookAuthors() as $key => $author_id) {
+	    		$curAuthorExists = FALSE;
+	    		//echo "<br>un id d'auteur cherche=".$author_id;
+	    		$query = $this->conn->prepare("SELECT 1 FROM authors WHERE id_author=?;");
+	    		$query-> bindValue(1,$author_id);
+			    if ($query->execute()) {
+			    	while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+			    		$curAuthorExists = TRUE;
+			    	}
+			    	$authorsExistsArray[] = $curAuthorExists;
+			    }
+	    	}
 
-	    	//on récupère les id des book et auteurs pour les mettre dans la table written
-	    	//problème: si un livre est écrit par plusieurs auteurs
-	    	$id_book = getBookIdByTitle($book->getBookTitle());
-	    	$query = $this->conn->prepare("INSERT INTO written VALUES(?,?);");
-	    	$query-> bindValue(1,$book->getBookAuthor());
-	    	$query-> bindValue(2,$book->$id_book);
-			*/
-
-	    	return $query->execute();
+	    	if (count($authors_ids) === count ($authorsExistsArray)) {
+	    		//les deux listes ont la même taille
+	    		if (in_array(FALSE, $authorsExistsArray, true)) {
+	    			//echo "<br>IL Y A UN FALSE DANS L'ARRAY!";
+	    			//il y a un FALSE, donc au moins un auteur n'a pas été trouvé
+	    		} else {
+	    			$query = $this->conn->prepare("INSERT INTO books(title, authors, collection, year, is_full, captions_filename) VALUES(?,?,?,?,?,?);");
+			    	$query-> bindValue(1,$book->getBookTitle());
+			    	$query-> bindValue(2,serialize($book->getBookAuthors()));
+			    	$query-> bindValue(3,$book->getBookCollection());
+			    	$query-> bindValue(4,$book->getBookYear());
+			    	$query-> bindValue(5,$book->getBookIsFull());
+			    	$query-> bindValue(6,$book->getBookCaptions());
+			    	return $query->execute();
+	    		}		    	
+	    	} 
+	    	//un des auteurs du champ "authors" du livre existe pas dans la base
+	    	return FALSE;	    	
 	    }
 
-
-	    //TO DO : à supprimer si j'utilise plus la table written
-		//problèmatique de plusieurs auteurs pour un livre
 	    /**
 	    * Méthode qui retourne l'id d'un livre en effectuant une recherche sur les titres
 	    * 
 	    * @param string : le titre du livre cherché
 	    * @return int : l'id du livre cherché
 	    */
-	    /*
-	    public function getBookIdByTitle ($book_title)
+		/*
+	    public function getBookIDByTitle ($book_title)
 	    {
 	    	$query = $this->conn->prepare("SELECT id_book FROM books WHERE title=?;");
 	    	$query-> bindValue($book_title);;
@@ -228,7 +233,7 @@
 	    	}
 	    	return $id_book;
 	    }
-	    */
+	   
 
 	     /**
 	     * Méthode qui récupère un user en le cherchant grâce à son mail
@@ -244,17 +249,11 @@
 	    	$query-> bindValue(1,$mail);
 	    	if ($query->execute()) 
 	    	{
-	    		echo "dans le if de la requete mail= réussie";
-	    		echo "<br>";
 	    		while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-	    			echo "dans le while de getUSerByMail";
 	    			$user = new User($row['id_user'], $row['mail'], $row['status'], $row['subscription_date']);
 	    			$user_serialized = serialize($user);
 	    		}
 	    	}
-	    	echo "a la fin de ma fct, user_serialized a pour valeur:";
-	    	echo "<br>";
-	    	echo $user_serialized;
 	    	return $user_serialized;
 	    }
 
@@ -273,7 +272,7 @@
 	    	if ($query->execute()) 
 	    	{
 	    		while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-	    			$author = new Author($row['id_author'], $row['name'], $row['user'], $row['$description_filename'], $row['$news_filename']);
+	    			$author = new Author($row['id_author'], $row['name'], $row['user'], $row['description_filename'], $row['news_filename']);
 	    			$author_serialized = serialize($author);
 	    		}
 	    	}
@@ -295,12 +294,133 @@
 	    	if ($query->execute()) 
 	    	{
 	    		while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-	    			$book = new Book($row['id_book'], $row['title'], $row['author'], $row['$collection'], $row['$year'], $row['$is_full'],  $row['$captions_filename']);
+	    			$book = new Book($row['id_book'], $row['title'], unserialize($row['authors']), $row['collection'], $row['year'], $row['is_full'],  $row['captions_filename']);
 	    			$book_serialized = serialize($book);
 	    		}
 	    	}
 	    	return $book_serialized;
 	    }
+
+	    /**
+	     * Méthode qui modifie le mail d'un utilisateur dans la table users de la base de donnée
+	     *
+	     * @param $user : un objet de la classe User.php
+	     * @param string : $new_mail - le nouveau mail de l'utilisateur 
+	     * @return bool : True si l'ajout est réussi, False sinon
+	     */
+	    public function setUserMail($user, $new_mail)
+	    {
+	    	$query = $this->conn->prepare("UPDATE users SET mail = ? WHERE id_user = ?");
+	    	$query-> bindValue(1,$new_mail); 	
+	    	$query-> bindValue(2,$user->getUserID());
+	    	return $query->execute();
+	    }
+
+	    /**
+	     * Méthode qui modifie le mot de passe d'un utilisateur dans la table users de la base de donnée
+	     *
+	     * @param $user : un objet de la classe User.php
+	     * @param string : $new_pswd - le nouveau mot de passe de l'utilisateur 
+	     * @return bool : True si l'ajout est réussi, False sinon
+	     */
+	    public function setUserPassword($user, $new_pswd)
+	    {
+	    	$query = $this->conn->prepare("UPDATE users SET password = ? WHERE id_user = ?");
+	    	$query-> bindValue(1,$new_pswd); 	
+	    	$query-> bindValue(2,$user->getUserID());
+	    	return $query->execute();
+	    }
+
+	    /**
+	     * Méthode qui modifie le statut d'un utilisateur dans la table users de la base de donnée
+	     *
+	     * @param $user : un objet de la classe User.php
+	     * @param string : $new_status - le nouveau statut de l'utilisateur 
+	     * @return bool : True si l'ajout est réussi, False sinon
+	     */
+	    public function setUserStatus($user, $new_status)
+	    {
+	    	$query = $this->conn->prepare("UPDATE users SET status = ? WHERE id_user = ?");
+	    	$query-> bindValue(1,$new_status); 	
+	    	$query-> bindValue(2,$user->getUserID());
+	    	return $query->execute();
+	    }
+
+	    /**
+	     * Méthode qui modifie le statut d'un utilisateur dans la table users de la base de donnée
+	     *
+	     * @param $user : un objet de la classe User.php
+	     * @param string : $new_sub_date - la date de la dernière cotisation de l'utilisateur 
+	     * @return bool : True si l'ajout est réussi, False sinon
+	     */
+	    public function setUserSubscriptionDate($user, $new_sub_date)
+	    {
+	    	$query = $this->conn->prepare("UPDATE users SET subscription_date = ? WHERE id_user = ?");
+	    	$query-> bindValue(1,$new_sub_date); 	
+	    	$query-> bindValue(2,$user->getUserID());
+	    	return $query->execute();
+	    }
+
+	    /**
+	     * Méthode qui modifie le champ nom d'un auteur de la table authors de la base de donnée
+	     *
+	     * @param $author : un objet de la classe Author.php
+	     * @param string : $new_name - le nouveau nom de l'auteur
+	     * @return bool : True si l'ajout est réussi, False sinon
+	     */
+	    public function setAuthorName($author, $new_name)
+	    {
+	    	$query = $this->conn->prepare("UPDATE authors SET name = ? WHERE id_author = ?");
+	    	$query-> bindValue(1,$new_name); 	
+	    	$query-> bindValue(2,$author->getAuthorID());
+	    	return $query->execute();
+	    }
+
+	    /**
+	     * Méthode qui modifie l'id de l'utilisateur associé à l'élément de la table authors de la base de donnée
+	     *
+	     * @param $author : un objet de la classe Author.php
+	     * @param string : $new_user_id - le nouveau id de l'utilisateur associé à l'auteur
+	     * @return bool : True si l'ajout est réussi, False sinon
+	     */
+	    public function setAuthorUser($author, $new_user_id)
+	    {
+	    	$query = $this->conn->prepare("UPDATE authors SET user = ? WHERE id_author = ?");
+	    	$query-> bindValue(1,$new_user_id); 	
+	    	$query-> bindValue(2,$author->getAuthorID());
+	    	return $query->execute();
+	    }
+
+	    /**
+	     * Méthode qui modifie le lien vers le fichier de description associé à un auteur de la table authors de la base de donnée
+	     *
+	     * @param $author : un objet de la classe Author.php
+	     * @param string : $new_description_filename - le lien vers le fichier de description associé à l'auteur
+	     * @return bool : True si l'ajout est réussi, False sinon
+	     */
+	    public function setAuthorDescription($author, $new_description_filename)
+	    {
+	    	$query = $this->conn->prepare("UPDATE authors SET description_filename = ? WHERE id_author = ?");
+	    	$query-> bindValue(1,$new_description_filename); 	
+	    	$query-> bindValue(2,$author->getAuthorID());
+	    	return $query->execute();
+	    }
+
+	    /**
+	     * Méthode qui modifie le lien vers le fichier d'actualité associé à un auteur de la table authors de la base de donnée
+	     *
+	     * @param $author : un objet de la classe Author.php
+	     * @param string : $new_news_filename - le lien vers le fichier d'actualité associé à l'auteur
+	     * @return bool : True si l'ajout est réussi, False sinon
+	     */
+	    public function setAuthorNews($author, $new_news_filename)
+	    {
+	    	$query = $this->conn->prepare("UPDATE authors SET news_filename = ? WHERE id_author = ?");
+	    	$query-> bindValue(1,$new_news_filename); 	
+	    	$query-> bindValue(2,$author->getAuthorID());
+	    	return $query->execute();
+	    }
+	   
 
 	    /*Structure de ma BDD :
 	    Tables :

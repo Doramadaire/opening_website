@@ -22,12 +22,12 @@
 		private $title;
 
 	    /** 
-	     * L'id de l'auteur du livre
+	     * Une array contenant les ids du/des auteur(s) du livre
 	     *
-	     * @var int
+	     * @var array[int]
 	     * @access private
 	     */
-		private $author;	  
+		private $authors;	  
 
 		/** 
 	     * La collection à laquelle appartient le livre
@@ -71,11 +71,11 @@
 		*
 		* @return void
 		*/
-		function __construct($id, $title, $author, $collection, $year, $is_full, $captions_filename)
+		function __construct($id, $title, $authors, $collection, $year, $is_full, $captions_filename)
 		{
 			$this->id = $id;
 			$this->title = $title;
-			$this->author = $author;
+			$this->authors = $authors;//Une array contenant les ids du/des auteur(s) du livre
 			$this->collection = $collection;
 			$this->year = $year;
 			$this->is_full = $is_full;
@@ -103,13 +103,13 @@
 		}
 
 		/**
-		* Retourne l'id de l'auteur du livre
+		* Retourne l'array contenant le(s) id(s) de(s) l'auteur(s) du livre
 		*
-		* @return int
+		* @return array[int]
 		*/
-		public function getBookAuthor()
+		public function getBookAuthors()
 		{
-			return $this->name;
+			return $this->authors;
 		}
 
 		/**
@@ -171,9 +171,9 @@
 		* @param int
 		* @return void
 		*/
-		public function setBookAuthor($author)
+		public function setBookAuthors($authors)
 		{
-			$this->$author = $author;
+			$this->$authors = $authors;
 		}
 
 		/**
