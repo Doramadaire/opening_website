@@ -199,6 +199,7 @@
 	    			//echo "<br>IL Y A UN FALSE DANS L'ARRAY!";
 	    			//il y a un FALSE, donc au moins un auteur n'a pas été trouvé
 	    		} else {
+	    			//on a retrouvé tous les auteurs, on peut ajouter notre livre
 	    			$query = $this->conn->prepare("INSERT INTO books(title, authors, collection, year, is_full, captions_filename) VALUES(?,?,?,?,?,?);");
 			    	$query-> bindValue(1,$book->getBookTitle());
 			    	$query-> bindValue(2,serialize($book->getBookAuthors()));
@@ -306,7 +307,7 @@
 	     *
 	     * @param $user : un objet de la classe User.php
 	     * @param string : $new_mail - le nouveau mail de l'utilisateur 
-	     * @return bool : True si l'ajout est réussi, False sinon
+	     * @return bool : True si la modification est réussi, False sinon
 	     */
 	    public function setUserMail($user, $new_mail)
 	    {
@@ -321,7 +322,7 @@
 	     *
 	     * @param $user : un objet de la classe User.php
 	     * @param string : $new_pswd - le nouveau mot de passe de l'utilisateur 
-	     * @return bool : True si l'ajout est réussi, False sinon
+	     * @return bool : True si la modification est réussi, False sinon
 	     */
 	    public function setUserPassword($user, $new_pswd)
 	    {
@@ -336,7 +337,7 @@
 	     *
 	     * @param $user : un objet de la classe User.php
 	     * @param string : $new_status - le nouveau statut de l'utilisateur 
-	     * @return bool : True si l'ajout est réussi, False sinon
+	     * @return bool : True si la modification est réussi, False sinon
 	     */
 	    public function setUserStatus($user, $new_status)
 	    {
@@ -351,7 +352,7 @@
 	     *
 	     * @param $user : un objet de la classe User.php
 	     * @param string : $new_sub_date - la date de la dernière cotisation de l'utilisateur 
-	     * @return bool : True si l'ajout est réussi, False sinon
+	     * @return bool : True si la modification est réussi, False sinon
 	     */
 	    public function setUserSubscriptionDate($user, $new_sub_date)
 	    {
@@ -366,7 +367,7 @@
 	     *
 	     * @param $author : un objet de la classe Author.php
 	     * @param string : $new_name - le nouveau nom de l'auteur
-	     * @return bool : True si l'ajout est réussi, False sinon
+	     * @return bool : True si la modification est réussi, False sinon
 	     */
 	    public function setAuthorName($author, $new_name)
 	    {
@@ -381,7 +382,7 @@
 	     *
 	     * @param $author : un objet de la classe Author.php
 	     * @param string : $new_user_id - le nouveau id de l'utilisateur associé à l'auteur
-	     * @return bool : True si l'ajout est réussi, False sinon
+	     * @return bool : True si la modification est réussi, False sinon
 	     */
 	    public function setAuthorUser($author, $new_user_id)
 	    {
@@ -396,7 +397,7 @@
 	     *
 	     * @param $author : un objet de la classe Author.php
 	     * @param string : $new_description_filename - le lien vers le fichier de description associé à l'auteur
-	     * @return bool : True si l'ajout est réussi, False sinon
+	     * @return bool : True si la modification est réussi, False sinon
 	     */
 	    public function setAuthorDescription($author, $new_description_filename)
 	    {
@@ -411,13 +412,129 @@
 	     *
 	     * @param $author : un objet de la classe Author.php
 	     * @param string : $new_news_filename - le lien vers le fichier d'actualité associé à l'auteur
-	     * @return bool : True si l'ajout est réussi, False sinon
+	     * @return bool : True si la modification est réussi, False sinon
 	     */
 	    public function setAuthorNews($author, $new_news_filename)
 	    {
 	    	$query = $this->conn->prepare("UPDATE authors SET news_filename = ? WHERE id_author = ?");
 	    	$query-> bindValue(1,$new_news_filename); 	
 	    	$query-> bindValue(2,$author->getAuthorID());
+	    	return $query->execute();
+	    }					
+
+		/**
+	     * Méthode qui modifie le titre d'un livre de la table books de la base de donnée
+	     *
+	     * @param $book : un objet de la classe Book.php
+	     * @param string : $new_title - le titre du livre
+	     * @return bool : True si la modification est réussi, False sinon
+	     */
+	    public function setBookTitle($book, $new_title)
+	    {
+	    	$query = $this->conn->prepare("UPDATE books SET title = ? WHERE id_author = ?");
+	    	$query-> bindValue(1,$new_title); 	
+	    	$query-> bindValue(2,$book->getBookID());
+	    	return $query->execute();
+	    }		    
+
+	    /**
+	     * Méthode qui modifie le ou les auteurs du livre d'un livre de la table books de la base de donnée
+	     *
+	     * @param $book : un objet de la classe Book.php
+	     * @param string : $new_authors - le ou les auteurs du livre
+	     * @return bool : True si la modification est réussi, False sinon
+	     */
+	    public function setBookAuthors($book, $new_authors)
+	    {
+	    	//On va commencer par vérifier que chaque auteur du book existe
+	    	$authorsExistsArray = array();
+	    	foreach ($new_authors as $key => $author_id) {
+	    		$curAuthorExists = FALSE;
+	    		//echo "<br>un id d'auteur cherche=".$author_id;
+	    		$query = $this->conn->prepare("SELECT 1 FROM authors WHERE id_author=?;");
+	    		$query-> bindValue(1,$author_id);
+			    if ($query->execute()) {
+			    	while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+			    		$curAuthorExists = TRUE;
+			    	}
+			    	$authorsExistsArray[] = $curAuthorExists;
+			    }
+	    	}
+
+	    	if (count($new_authors) === count ($authorsExistsArray)) {
+	    		//les deux listes ont la même taille
+	    		if (in_array(FALSE, $authorsExistsArray, true)) {
+	    			//echo "<br>IL Y A UN FALSE DANS L'ARRAY!";
+	    			//il y a un FALSE, donc au moins un auteur n'a pas été trouvé
+	    		} else {
+	    			//tout va bien, on update la table
+	    			$query = $this->conn->prepare("UPDATE books SET authors = ? WHERE id_author = ?");
+			    	$query-> bindValue(1,$new_authors); 	
+			    	$query-> bindValue(2,$book->getBookID());
+			    	return $query->execute();
+	    		}		    	
+	    	} 
+	    	//un des auteurs du champ "authors" du livre existe pas dans la base
+	    	return FALSE;	    	
+	    }	
+
+		/**
+	     * Méthode qui modifie la collection d'un livre de la table books de la base de donnée
+	     *
+	     * @param $book : un objet de la classe Book.php
+	     * @param string : $new_collection - la collection à laquelle appartient le livre
+	     * @return bool : True si la modification est réussi, False sinon
+	     */
+	    public function setBookCollection($book, $new_collection)
+	    {
+	    	$query = $this->conn->prepare("UPDATE books SET collection = ? WHERE id_author = ?");
+	    	$query-> bindValue(1,$new_collection); 	
+	    	$query-> bindValue(2,$book->getBookID());
+	    	return $query->execute();
+	    }	    
+
+	    /**
+	     * Méthode qui modifie la date de publication d'un livre de la table books de la base de donnée
+	     *
+	     * @param $book : un objet de la classe Book.php
+	     * @param int : $new_year - la date de publication du livre
+	     * @return bool : True si la modification est réussi, False sinon
+	     */
+	    public function setBookYear($book, $new_year)
+	    {
+	    	$query = $this->conn->prepare("UPDATE books SET year = ? WHERE id_author = ?");
+	    	$query-> bindValue(1,$new_year); 	
+	    	$query-> bindValue(2,$book->getBookID());
+	    	return $query->execute();
+	    }
+
+	    /**
+	     * Méthode qui modifie l'état, complet ou pas, d'un livre de la table books de la base de donnée
+	     *
+	     * @param $book : un objet de la classe Book.php
+	     * @param int : $is_full - est-ce que ce livre est complet? vaut 2 si le livre est complet ou 3 si c'est un extrait
+	     * @return bool : True si la modification est réussi, False sinon
+	     */
+	    public function setBookIsFull($book, $is_full)
+	    {
+	    	$query = $this->conn->prepare("UPDATE books SET is_full = ? WHERE id_author = ?");
+	    	$query-> bindValue(1,$is_full); 	
+	    	$query-> bindValue(2,$book->getBookID());
+	    	return $query->execute();
+	    }
+
+	    /**
+	     * Méthode qui modifie le lien vers le fichier des légendes d'un livre de la table books de la base de donnée
+	     *
+	     * @param $book : un objet de la classe Book.php
+	     * @param string : $new_captions_filename - le lien vers le fichier contenant les légendes du livre
+	     * @return bool : True si la modification est réussi, False sinon
+	     */
+	    public function setBookCaptions($book, $new_captions_filename)
+	    {
+	    	$query = $this->conn->prepare("UPDATE books SET captions_filename = ? WHERE id_author = ?");
+	    	$query-> bindValue(1,$new_captions_filename); 	
+	    	$query-> bindValue(2,$book->getBookID());
 	    	return $query->execute();
 	    }
 	   
