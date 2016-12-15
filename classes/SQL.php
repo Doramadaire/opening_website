@@ -120,15 +120,6 @@
 	        //le champ authors est un array des ids des auteurs serialisé
 	        //les ids des auteurs devraient être des clefs étrangères, mais comme ils sont en string dans la BDD c'est pas possible...
 			//le champs is_full vaut 2 si le livre est complet ou 3 si c'est un extrait
-
-			/* TO DO : gérer la question de est-ce qu'un livre peut avoir plusieurs auteurs
-			une solution envisageable : remplacer le champ author de la table books par ids_authors_string
-			ce serait alors un string dans lequel on met tous les ids_authors avec un séparateur
-			et je devrais donc ensuite remettre les ids_authors dans une array (de la classe Author)
-			et faire une boucle dessus
-			ou éventuellemnt vérifier qu'il y a qu'un auteur
-			*/
-
 	    	return $query->execute();
 	    }
 
