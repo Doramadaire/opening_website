@@ -47,6 +47,14 @@
 	echo "<br>id=".$unLivre->getBookID();
 	//ajout et récupération OK pour user, author et book :)
 
+	//assez joué, voici le vrai controlleur arriver : 
+	session_start();
+	$logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
+	$user_mail = isset($_SESSION['user_mail']) ? $_SESSION['user_mail'] : false;
+	$user_status = isset($_SESSION['user_status']) ? $_SESSION['user_status'] : false;
+	$user_sub_date = isset($_SESSION['user_sub_date']) ? $_SESSION['user_sub_date'] : false;
+
+
 	/* des tests nuls de type
 	$nu = null;
 	$NU = NULL;
@@ -86,4 +94,4 @@
 	*/
 
 	include_once('./views/index.php');
-?>
+	
