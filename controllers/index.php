@@ -1,26 +1,62 @@
 <?php	
+
+	$sql = SQL::getInstance();
+	$conn = $sql->getBoolConnexion();
+	//$sql->createTables();
+	
+	session_start();
+	$logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
+	$user_logged = (isset($_SESSION['user_logged'])) ? $_SESSION['user_logged'] : false;
+
+	//formulaire de déconnexion
+	if (isset($_POST['loggout_form'])) {
+		session_destroy();
+		header('Location: index.php');
+	}
+
+	//si le formulaire de connexion a été remplie
+	if (isset($_POST['logging_form'])) {
+		$mail_received = stripslashes($_POST['mail']);
+		$pswd_received = stripslashes($_POST['password']);
+		if ($mail_received != '') {
+			if ($sql->checkUserPassword($mail_received, $pswd_received)) {
+				#Identifiants et mdp corrects, on peut connecter notre visiteur
+				$user_retrieved = $sql->getUserByMail($mail_received);
+				$user_logged = unserialize($user_retrieved);
+				$_SESSION['user_logged'] = $user_logged;
+			} else {
+				#mdp pas bon
+				$error = "mail ou mot de passe incorrect";
+			}			
+		} else {
+			# mail invalide
+			$error = "mail ou mot de passe incorrect";
+		}
+	}	
+
+
+
+	//des tests en vrac
+	echo "RESULTAT DE MES TESTS :<br>	";
+
 	$unMail = "lolilol@gmail.com";
 	$unUser = new User(0, $unMail, 5, "2001-01-01");
 	$unUser2 = new User(0, "lol", 4, "2001-01-01");
 	$unUser3 = new User(0, "lila", 5, "2001-01-01");
 	$unUser4 = new User(0, "hophop@hip.com", 5, "2111-01-01");
-	$userAdmin = new User(0, "facile@souvenir", 5, "2111-01-01");
-	$sql = SQL::getInstance();
-	$conn = $sql->getBoolConnexion();
-	$sql->createTables();
+	$userAdmin = new User(0, "facile@souvenir", 5, "2111-01-01");	
+	
 	$sql->addUser($unUser2, "mdp2");
 	$sql->addUser($unUser3, "lemdp3");
 	$sql->addUser($unUser4, "autremdp4");
 	$sql->addUser($userAdmin, "hopening");	
-
 	$unUser = $sql->getUserByMail("hophop@hip.com");
 	$unUser = unserialize($unUser);
 
-	echo "<br>voici l'id de l'user cherché: ";
+	echo "voici l'id de l'user cherché: ";
 	echo $unUser->getUserID();
 	echo "<br> le statut=";
 	echo $unUser->getUserStatus();
-
 
 	$unAuteur = new Author(0, "picasso", $unUser->getUserID(), "description_001.txt", "news_001.txt");
 	$unAuteur2 = new Author(0, "dali", 1, "description_002.txt", "news_002.txt");
@@ -41,18 +77,11 @@
 		echo "<br>AJOUT DE LIVRE FOIRE";
 	}
 	$unLivre = $sql->getBookByTitle("rêves bleus");
-	$unLivre = unserialize($unLivre);
+	$unLivre = unserialize($unLivre);	
 	echo "<br> Un book : <br>";
 	echo "titre=".$unLivre->getBookTitle()." auteurs=".implode($unLivre->getBookAuthors())." collection=".$unLivre->getBookCollection();	 
 	echo "<br>id=".$unLivre->getBookID();
 	//ajout et récupération OK pour user, author et book :)
-
-	//assez joué, voici le vrai controlleur arriver : 
-	session_start();
-	$logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
-	$user_mail = isset($_SESSION['user_mail']) ? $_SESSION['user_mail'] : false;
-	$user_status = isset($_SESSION['user_status']) ? $_SESSION['user_status'] : false;
-	$user_sub_date = isset($_SESSION['user_sub_date']) ? $_SESSION['user_sub_date'] : false;
 
 
 	/* des tests nuls de type
@@ -91,7 +120,8 @@
 			echo "test string '' == NULL est faux";
 		}
 	}
-	*/
+	*/	
+
+	echo "<br>FIN DE MES TESTS<br><br><br>";
 
 	include_once('./views/index.php');
-	

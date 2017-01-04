@@ -249,6 +249,28 @@
 	    	return $user_serialized;
 	    }
 
+	    /**
+	     * Méthode qui vérifie que le mot de passe entrée correspond à l'utilisateur entrée
+	     * 
+	     *
+	     * @param $mail : le mail de l'utilisateur
+	     * @param $pswd : le mot de passe de l'utilisateur
+	     * @return bool : est-ce que le mot de passe de cet utilisateur correspond à celui fourni
+	     */
+	    public function checkUserPassword($mail, $pswd)
+	    {
+	    	$response = false;
+	    	$query = $this->conn->prepare("SELECT password FROM users WHERE mail=?;");
+	    	$query-> bindValue(1,$mail);
+	    	if ($query->execute()) 
+	    	{
+	    		while ($row = $query->fetch(PDO::FETCH_ASSOC)) {	    			
+	    			$response = ($pswd === $row['password']) ? true : false ;
+	    		}
+	    	}
+	    	return $response;
+	    }
+
 	     /**
 	     * Méthode qui récupère un auteur en le cherchant grâce à son nom
 	     * 
