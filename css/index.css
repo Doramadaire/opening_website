@@ -1,11 +1,4 @@
-.top {
-	background-color: #8A2BE2
-; /*Couleur de fond*/
-	
-}
-
-
-	/*l'allure générale des liens */
+/*l'allure générale des liens */
 .action a:link {
     text-decoration: none;
 }
@@ -24,7 +17,8 @@
 	
 	
 .action ul {
-    list-style-type:none;
+    list-style-type:none; /* item marker : none, square, circle, disc ...... */
+	/* list-style-image: url('chemin/image.type');  ou item marker à partir d'un fichier */ 
 }
 
 

@@ -1,5 +1,6 @@
 <html>
 	<head>
+	<meta charset="UTF-8">
 		<title>
 			Opening 
 		</title>
@@ -7,10 +8,7 @@
 		
 	</head>
 	<body>
-		 <div class="top">
-		Voici le site opening book
-		 </div>
-		<br/> 
+		 <?php include("header/header.php"); ?> 
 		<div class="action">
 		<?php if ($user_logged) { ?>
 			Bonjour <?php echo $user_logged->getUserMail();; ?>
@@ -18,20 +16,20 @@
 		<?php 	switch($_SESSION['user_logged']->getUserStatus()) 
 					{
 							     case 2: echo "que visiteur"; ?>
-					Vous pouvez : <br/> 
+					<br/> Vous pouvez : <br/> 
 						<ul> <li><a href="images.html">Parcourir les oeuvres (extraits)</a></li> 
-							 <li><a href="images.html">Gérer votre compte</a></li> </ul>
+							 <li><a href="gestion.php">Gérer votre compte</a></li> </ul>
 							 
 					<?php break; case 3: echo "que cotisant";  ?>
 					Vous pouvez : <br/> 
 						<ul> <li><a href="images.html">Parcourir les oeuvres</a></li> 
-							 <li><a href="images.html">Gérer votre compte</a></li> </ul>
+							 <li><a href="gestion.php">Gérer votre compte</a></li> </ul>
 							 
 					<?php break; case 4:	echo "qu'auteur";	?>
 					Vous pouvez : <br/> 
 					
 						<ul> <li><a href="images.html">Parcourir les oeuvres</a></li> 
-							 <li><a href="images.html">Gérer votre compte</a></li> 
+							 <li><a href="gestion.php">Gérer votre compte</a></li> 
 							 <li><a href="images.html">Gérer vos oeuvres</a></li>  </ul>
 							 
 					<?php break; case 5:	echo "qu'administrateur"; ?>
