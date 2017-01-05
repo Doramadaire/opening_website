@@ -24,7 +24,7 @@
 				$user_retrieved = $sql->getUserByMail($mail_received);
 				$user_logged = unserialize($user_retrieved);
 				$_SESSION['user_logged'] = $user_logged;
-			} else {
+				} else {
 				#mdp pas bon
 				$error = "mail ou mot de passe incorrect";
 			}			
@@ -37,7 +37,7 @@
 
 
 	//des tests en vrac
-	echo "RESULTAT DE MES TESTS :<br>	";
+	//echo "RESULTAT DE MES TESTS :<br>	";
 
 	$unMail = "lolilol@gmail.com";
 	$unUser = new User(0, $unMail, 5, "2001-01-01");
@@ -52,12 +52,12 @@
 	$sql->addUser($userAdmin, "hopening");	
 	$unUser = $sql->getUserByMail("hophop@hip.com");
 	$unUser = unserialize($unUser);
-
+	/*
 	echo "voici l'id de l'user cherché: ";
 	echo $unUser->getUserID();
 	echo "<br> le statut=";
 	echo $unUser->getUserStatus();
-
+	*/
 	$unAuteur = new Author(0, "picasso", $unUser->getUserID(), "description_001.txt", "news_001.txt");
 	$unAuteur2 = new Author(0, "dali", 1, "description_002.txt", "news_002.txt");
 	$unAuteur3 = new Author(0, "oim", 3, "description_003.txt", "news_002.txt");
@@ -68,6 +68,7 @@
 	$sql->addAuthor($unAuteur4);
 	$unAuteur = $sql->getAuthorByName("oim");
 	$unAuteur = unserialize($unAuteur);
+	/*
 	echo "nom=".$unAuteur->getAuthorName()." news=".$unAuteur->getAuthorNews();	 
 
 	$unLivre = new Book(0, "MOBY DICK", [1,3], "classique", 1920, 3, "baleine.txt");
@@ -82,7 +83,7 @@
 	echo "titre=".$unLivre->getBookTitle()." auteurs=".implode($unLivre->getBookAuthors())." collection=".$unLivre->getBookCollection();	 
 	echo "<br>id=".$unLivre->getBookID();
 	//ajout et récupération OK pour user, author et book :)
-
+	*/
 
 	/* des tests nuls de type
 	$nu = null;
@@ -122,6 +123,6 @@
 	}
 	*/	
 
-	echo "<br>FIN DE MES TESTS<br><br><br>";
+	//echo "<br>FIN DE MES TESTS<br><br><br>";
 
 	include_once('./views/index.php');
