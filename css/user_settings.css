@@ -1,0 +1,12 @@
+.Section {
+	background-color: #40A497;
+	box-sizing: border-box;
+}
+
+.user_settings_form{
+   display:none;
+}
+
+body {
+	height: 100%
+}

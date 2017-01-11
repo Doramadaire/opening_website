@@ -1,15 +1,8 @@
-.header {
+.footer {
 	background-color: #000000 ; /*Couleur de fond*/
-	
-}
-.logo {
-border:0;
-min-width:100px;
-
-}
-
-.logo:hover {
-/* curseur au dessus du logo? */
+	position: fixed;
+    bottom: 0;
+    width: 100%
 }
 
 p {

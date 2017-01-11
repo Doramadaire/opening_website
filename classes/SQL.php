@@ -90,7 +90,7 @@
 	        	users(	'id_user' INTEGER PRIMARY KEY NOT NULL,
 						'mail' TEXT NOT NULL UNIQUE,
 						'password' TEXT NOT NULL,
-						'status' TEXT NOT NULL CHECK (status > 1 AND status < 6),
+						'status' INT NOT NULL CHECK (status > 1 AND status < 6),
 						'subscription_date' DATE NOT NULL DEFAULT '2000-01-01'
 						);");
 	        //status : 2=visitor 3=subscriber 4=author 5=admin

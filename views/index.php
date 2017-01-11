@@ -8,36 +8,38 @@
 		
 	</head>
 	<body>
-		 <?php include("header/header.php"); ?> 
+		<?php include("header.php"); ?> 
+
 		<div class="action">
 		<?php if ($user_logged) { ?>
-			Bonjour <?php echo $user_logged->getUserMail();; ?>. <br>
+			Bonjour <?php echo $user_logged->getUserMail(); ?>
+			<br>
 			Vous êtes connecté en tant  
 		<?php 	switch($_SESSION['user_logged']->getUserStatus()) 
 					{
-							     case 2: echo "que visiteur"; ?>
+							     case 2: echo "que non cotisant"; ?>
 					<br> Vous pouvez : <br> 
-						<ul> <li><a href="images.html">Parcourir les oeuvres (extraits)</a></li> 
-							 <li><a href="gestion.php">Gérer votre compte</a></li> </ul>
+						<ul> <li><a href="book_viewer.php">Parcourir les oeuvres (seulement des extraits)</a></li> 
+							 <li><a href="user_settings.php">Gérer votre compte</a></li> </ul>
 							 
 					<?php break; case 3: echo "que cotisant";  ?>
 					<br>Vous pouvez : <br> 
-						<ul> <li><a href="images.html">Parcourir les oeuvres</a></li> 
-							 <li><a href="gestion.php">Gérer votre compte</a></li> </ul>
+						<ul> <li><a href="book_viewer.php">Parcourir les oeuvres</a></li> 
+							 <li><a href="user_settings.php">Gérer votre compte</a></li> </ul>
 							 
 					<?php break; case 4:	echo "qu'auteur";	?>
 					<br>Vous pouvez : <br> 
 					
-						<ul> <li><a href="images.html">Parcourir les oeuvres</a></li> 
-							 <li><a href="gestion.php">Gérer votre compte</a></li> 
-							 <li><a href="images.html">Gérer vos oeuvres</a></li>  </ul>
+						<ul> <li><a href="book_viewer.php">Parcourir les oeuvres</a></li> 
+							 <li><a href="user_settings.php">Gérer votre compte</a></li> 
+							 <li><a href="book_management.php">Gérer vos oeuvres</a></li>  </ul>
 							 
 					<?php break; case 5:	echo "qu'administrateur"; ?>
 					<br>Vous pouvez : <br> 
-						<ul> <li><a href="images.html">Parcourir les oeuvres</a></li> 
-							 <li><a href="images.html">Gérer les membres></li> 
-							 <li><a href="images.html">Gérer les oeuvres</a></li>  
-							 <li><a href="images.html">?</a></li> </ul>
+						<ul> <li><a href="book_viewer.php">Parcourir les oeuvres</a></li> 
+							 <li><a href="user_settings.php">Gérer votre compte</a></li>							 
+							 <li><a href="book_management.php">Gérer les oeuvres</a></li>
+							 <li><a href="user_management.php">Gérer les membres</li> </ul>
 							 
 					<?php break;} ?>
 			

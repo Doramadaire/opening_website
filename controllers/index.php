@@ -2,6 +2,7 @@
 
 	$sql = SQL::getInstance();
 	$conn = $sql->getBoolConnexion();
+	$sql->createTables();
 	//$sql->createTables();
 	
 	session_start();

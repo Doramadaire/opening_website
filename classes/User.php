@@ -52,7 +52,7 @@
 		{
 			$this->id = $id;
 			$this->mail = $mail;
-			$this->status = $status;
+			$this->status = (int) $status;
 			$this->subscription_date = $subscription_date;
 		}
 
@@ -88,7 +88,7 @@
 		*/
 		public function getUserStatus()
 		{
-			return $this->status;
+			return (int) $this->status;
 		}
 
 		/**
@@ -118,7 +118,7 @@
 		*/
 		public function setUserStatus($status)
 		{
-			$this->status = $status;
+			$this->status = (int) $status;
 		}
 
 		/**
