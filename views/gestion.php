@@ -1,3 +1,7 @@
+<?php if (isset($infraction)) {echo $infraction;} 
+else {?>
+
+
 <html>
 	<head>
 	<meta charset="UTF-8">
@@ -9,6 +13,7 @@
 		<script src="js/gestion.js"></script>
 	</head>
 	<body>
+	
 	<?php include("header/header.php"); ?> 
 
 	<div class="Section">
@@ -16,6 +21,8 @@
 		 </div>
 		<br/> <br/> 
 
+
+<?php     if (isset($error)) { echo $error;} ?> 	
 <div class="row"> <div class="col-xs-12 col-md-12 col-lg-3">
 <input type="button" value="Modifier votre adresse e-mail" onclick="hideThis('form1')" />	
 </div>
@@ -26,15 +33,13 @@
 				Votre adresse actuelle  <input type="text" name="mail" placeholder=""> 
 </div>
 <div class="col-xs-12 col-md-6 col-lg-3"> 
-				Votre nouvelle adresse  <input type="password" name="password" placeholder="">  
+				Votre nouvelle adresse  <input type="text" name="new_mail" placeholder="">  
 </div>
 <div class="col-xs-12 col-md-12 col-lg-1"> 
-				<input type="submit" name="logging_form" value="Confirmer">		
+				<input type="submit" name="adresse" value="Confirmer">		
 </form>	
 </div>
-  
-  
- 
+
   
 </div>		
 		
@@ -55,7 +60,7 @@
 				<input type="password" name="password" placeholder="">  <br>
 				Confirmer le mot de passe    
 				<input type="password" name="password_bis" placeholder="">  <br>
-				<input type="submit" name="logging_form" value="Confirmer">		
+				<input type="submit" name="mdp" value="Confirmer">		
 </form>
 
 <br>
@@ -66,3 +71,5 @@ Cotisation effectée le : <?php echo $_SESSION['user_logged']->getUserSubscripti
 	</body>
 
 </html>
+
+<?php } ?>

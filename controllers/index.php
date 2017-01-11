@@ -13,7 +13,7 @@
 		session_destroy();
 		header('Location: index.php');
 	}
-
+	
 	//si le formulaire de connexion a été remplie
 	if (isset($_POST['logging_form'])) {
 		$mail_received = stripslashes($_POST['mail']);
