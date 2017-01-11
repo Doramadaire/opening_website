@@ -25,7 +25,7 @@ http://localhost/opening_website/modification.php?log='.urlencode($new_mail).'
 Ceci est un mail automatique, Merci de ne pas y répondre.';
  
  
-mail($destinataire, $sujet, $message, $entete) ; // Envoi du mail
+//mail($destinataire, $sujet, $message, $entete) ; // Envoi du mail
 		
 	}	
 else { $error = "adresse invalide";}

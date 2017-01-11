@@ -3,7 +3,7 @@
 	$sql = SQL::getInstance();
 	$conn = $sql->getBoolConnexion();
 	$sql->createTables();
-	//$sql->createTables();
+	//sql->createTables();
 	
 	session_start();
 	$logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
@@ -46,11 +46,13 @@
 	$unUser3 = new User(0, "lila", 5, "2001-01-01");
 	$unUser4 = new User(0, "hophop@hip.com", 5, "2111-01-01");
 	$userAdmin = new User(0, "facile@souvenir", 5, "2111-01-01");	
+	$userClass3 = new User(0, "unAdherent", 3, "2111-01-01");	
 	
 	$sql->addUser($unUser2, "mdp2");
 	$sql->addUser($unUser3, "lemdp3");
 	$sql->addUser($unUser4, "autremdp4");
 	$sql->addUser($userAdmin, "hopening");	
+	$sql->addUser($userClass3, "mdpAdher");	
 	$unUser = $sql->getUserByMail("hophop@hip.com");
 	$unUser = unserialize($unUser);
 	/*
