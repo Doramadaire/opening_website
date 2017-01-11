@@ -21,9 +21,9 @@
 				if ($user_logged->getUserStatus() >= 3) { ?>
 					<div class="Section">
 						Page de consultation des livres
-					</div>				
+						</div>				
 	<?php  	}	} ?> 	
-	
+
 	<?php include("footer.php"); ?> 
 	
 	</body>
