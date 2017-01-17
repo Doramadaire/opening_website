@@ -8,14 +8,13 @@
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 	</head>
 	<body>
+	<?php include("header.php"); ?>
+
 	<div class="Section">
 		Page de consultation des Opening book
 	</div>	
 
-	<?php 
-		include("header.php"); 
-
-		if (!isset($_SESSION['user_logged'])) { ?> 
+	<?php if (!isset($_SESSION['user_logged'])) { ?> 
 			<!-- 
 			TO DO : prévoir fonction qui affiche erreur
 			-->
