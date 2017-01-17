@@ -34,8 +34,6 @@
 		}
 	}	
 
-
-
 	//des tests en vrac
 	//echo "RESULTAT DE MES TESTS :<br>	";
 

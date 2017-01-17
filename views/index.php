@@ -53,12 +53,12 @@
 				<input type="password" name="password" placeholder="mot de passe">  <br>
 				<input type="submit" name="logging_form" value="Se connecter">		
 			</form>
-		<?php } 
-			if (isset($error)) {
-				echo $error;
-			}	 ?>
+		<?php 		if (isset($error)) {
+						echo $error;
+					}	 ?>
 			<br>
 			<a href="book_viewer.php">Parcourir les oeuvres (seulement des extraits)</a>
+		<?php } ?>
 		</div> <!-- action-->
 	</body>
 
