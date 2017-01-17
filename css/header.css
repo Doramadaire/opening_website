@@ -1,6 +1,6 @@
 .page-header {
 	background-color: #000000 ; /*Couleur de fond*/
-	
+	margin-top:0;
 }
 .logo {
 border:0;
@@ -15,4 +15,28 @@ min-width:100px;
 p {
 	color : white;
     font-family: "Arial", cursive, sans-serif;
+}
+
+
+
+/* http://work.smarchal.com/twbscolor/css/e74c3cc0392becf0f1ffbbbc0  
+donne le code ci dessous pour les couleurs de la navbar
+*/
+
+
+.navbar-default {
+  background-color: #55555;
+  border-color: #55555;
+}
+.navbar-default .navbar-brand {
+  color: #000000;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+color: #ffbbbc;}
+
+
+
+.navbar-default {
+margin-bottom: 0;
 }
