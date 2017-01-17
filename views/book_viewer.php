@@ -8,6 +8,9 @@
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 	</head>
 	<body>
+	<div class="Section">
+		Page de consultation des Opening book
+	</div>	
 
 	<?php 
 		include("header.php"); 
@@ -16,13 +19,14 @@
 			<!-- 
 			TO DO : prévoir fonction qui affiche erreur
 			-->
-			Vous n'avez pas le droit d'accéder à cette page		
+			Attention, en tant que visiteur vous n'avez accès qu'à des extraits
 	<?php } else {
 				if ($user_logged->getUserStatus() >= 3) { ?>
-					<div class="Section">
-						Page de consultation des livres
-						</div>				
-	<?php  	}	} ?> 	
+					En tant qu'adhérent vous avez accès à l'ensemble des books						
+	<?php  		} else { ?>
+					Attention, votre cotisation n'est pas à jour. Vous n'avez accès qu'à des extraits des books.
+	<?php		}		
+		} ?> 	
 
 	<?php include("footer.php"); ?> 
 	
