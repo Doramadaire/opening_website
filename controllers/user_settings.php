@@ -5,6 +5,24 @@ $user_logged = (isset($_SESSION['user_logged'])) ? $_SESSION['user_logged'] : fa
 
 if (!$user_logged) {$infraction = "vous n'avez pas le droit d'accéder à cette page";}
 
+//Si on a envoyé un formulaire de changement d'adresse mail
+if (isset($_POST['new_mail'])) {
+	//Connection à la BDD
+	$new_mail = $_POST['new_mail'];
+	$sql = SQL::getInstance();
+	$conn = $sql->getBoolConnexion();
+	setUserMail($user_logged, $new_mail);
+	$user_logged->setUserMail($new_mail]);
+	//on vérfie que les modifs sont un succès
+	$user_retrieved = $sql->getUserByMail($new_mail);
+	$user_retrieved = unserialize($user_retrieved);
+	if ($user_retrieved === $user_logged) {
+		$msg_new_mail = "Mail de l'utilisateur modifiée avec succès";
+	} else {
+		$msg_new_mail = "Y a une couille dans le paté :/";
+	}
+}
+
 if (isset($_POST['adresse'])) {
 		$mail = $_POST['mail'];
 		$new_mail = $_POST['new_mail'];

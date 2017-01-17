@@ -57,7 +57,9 @@
 			if (isset($error)) {
 				echo $error;
 			}	 ?>
-			</div> <!-- action-->
+			<br>
+			<a href="book_viewer.php">Parcourir les oeuvres (seulement des extraits)</a>
+		</div> <!-- action-->
 	</body>
 
 </html>
