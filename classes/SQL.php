@@ -324,10 +324,24 @@
 	     */
 	    public function setUserMail($user, $new_mail)
 	    {
-	    	$query = $this->conn->prepare("UPDATE users SET mail = ? WHERE id_user = ?");
-	    	$query-> bindValue(1,$new_mail); 	
-	    	$query-> bindValue(2,$user->getUserID());
-	    	return $query->execute();
+	    	//Le mail doit être unique, on vérifie donc si ce mail est déjà associé à un compte
+	    	$mail_already_used = FALSE;
+	    	$check_query = $this->conn->prepare("SELECT * FROM users WHERE mail=?;");
+	    	$check_query-> bindValue(1,$new_mail);
+	    	if ($check_query->execute()) {
+	    		while ($row = $check_query->fetch(PDO::FETCH_ASSOC)) {
+	    			$mail_already_used = TRUE;
+	    		}
+	    	}
+
+	    	if ($mail_already_used) {
+	    		return FALSE;
+	    	} else {
+	    		$query = $this->conn->prepare("UPDATE users SET mail = ? WHERE id_user = ?");
+		    	$query-> bindValue(1,$new_mail); 	
+		    	$query-> bindValue(2,$user->getUserID());
+		    	return $query->execute();
+	    	}	    	
 	    }
 
 	    /**

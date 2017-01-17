@@ -11,18 +11,15 @@ if (isset($_POST['new_mail'])) {
 	$new_mail = $_POST['new_mail'];
 	$sql = SQL::getInstance();
 	$conn = $sql->getBoolConnexion();
-	setUserMail($user_logged, $new_mail);
-	$user_logged->setUserMail($new_mail]);
-	//on vérfie que les modifs sont un succès
-	$user_retrieved = $sql->getUserByMail($new_mail);
-	$user_retrieved = unserialize($user_retrieved);
-	if ($user_retrieved === $user_logged) {
-		$msg_new_mail = "Mail de l'utilisateur modifiée avec succès";
+	$set_is_sucess = $sql->setUserMail($user_logged, $new_mail);
+	if ($set_is_sucess) {
+		$user_logged->setUserMail($new_mail);
+		$msg_new_mail = "Le mail associé à ce compte a été modifié avec succès";
 	} else {
-		$msg_new_mail = "Y a une couille dans le paté :/";
-	}
+		$msg_new_mail = "Erreur : Le nouveau mail renseigné est déjà associé à un compte existant ou une erreur avec la base de donnée est survenue";
+	}	
 }
-
+	
 if (isset($_POST['adresse'])) {
 		$mail = $_POST['mail'];
 		$new_mail = $_POST['new_mail'];

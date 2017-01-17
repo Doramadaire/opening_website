@@ -26,12 +26,12 @@ else {?>
 			<?php 
 				if (isset($msg_new_mail)) {
 					echo $msg_new_mail;
-					echo "Votre mail est désormais : ".$user_logged->getUserMail();
+					echo "<br>Votre mail est désormais : ".$user_logged->getUserMail()."<br>";
 				} ?>
 			Votre adresse mail actuelle est <?php echo $user_logged->getUserMail() ?>
 			<input type="button" value="Modifier votre adresse e-mail" onclick="hideThis('form1')" />	
 
-			<form  id="form1" action="" method="POST">		
+			<form  id="form1" class="user_change_settings_form" action="" method="POST">		
 				Votre nouvelle adresse
 				<input type="text" name="new_mail">  	
 				<input type="submit" name="set_new_mail_form" value="Confirmer">	
@@ -42,13 +42,13 @@ else {?>
 
 		<input type="button" value="Modifier votre mot de passe" onclick="hideThis('form2')" />
 
-		<form  id="form2" class="set_new_pswd_form" action="" method="POST">
+		<form  id="form2" class="user_change_settings_form" action="" method="POST">
 			Votre ancien mot de passe    
-			<input type="text" name="mail" placeholder=""> <br>
+			<input type="password" name="previous_password"> <br>
 			Votre nouveau mot de passe    
-			<input type="password" name="password" placeholder="">  <br>
+			<input type="password" name="new_password">  <br>
 			Confirmer le mot de passe    
-			<input type="password" name="password_bis" placeholder="">  <br>
+			<input type="password" name="new_password_bis">  <br>
 			<input type="submit" name="mdp" value="Confirmer">		
 		</form>
 
