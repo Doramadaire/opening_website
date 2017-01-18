@@ -6,6 +6,7 @@
 	if (!$user_logged) {$infraction = "vous n'avez pas le droit d'accéder à cette page";}
 
 	//Si on a envoyé un formulaire de changement d'adresse mail
+	//TO DO : systéme de confirmation par mail, activation grâce à un lien, token unique et blabla
 	if (isset($_POST['new_mail'])) {
 		//Connection à la BDD
 		$new_mail = $_POST['new_mail'];

@@ -38,24 +38,10 @@
 	//echo "RESULTAT DE MES TESTS :<br>	";
 
 	/*
-	$unMail = "lolilol@gmail.com";
-	$unUser = new User(0, $unMail, 5, "2001-01-01");
-	$unUser2 = new User(0, "lol", 4, "2001-01-01");
-	$unUser3 = new User(0, "lila", 5, "2001-01-01");
-	$unUser4 = new User(0, "hophop@hip.com", 5, "2111-01-01");
-	$userAdmin = new User(0, "facile@souvenir", 5, "2111-01-01");	
-	$userClass3 = new User(0, "unAdherent", 3, "2111-01-01");	
-	*/
 	$compte2 = new User(0, "compte2", 2, "2000-01-01");	
 	$compte3 = new User(0, "compte3", 3, "2111-01-01");	
 	$compte4 = new User(0, "compte4", 4, "2111-01-01");	
 	$compte5 = new User(0, "compte5", 5, "2111-01-01");	
-
-	/*
-	$sql->addUser($unUser2, "mdp2");
-	$sql->addUser($unUser3, "lemdp3");
-	$sql->addUser($unUser4, "autremdp4");
-	$sql->addUser($userAdmin, "hopening");		
 
 	$sql->addUser($compte2, "2mdp");	
 	$sql->addUser($compte3, "3mdp");	

@@ -24,11 +24,35 @@
 					-->
 					Vous n'avez pas le droit d'accéder à cette page	
 	<?php   	} else { ?>
-					<div class="Section">
-						Page de gestion des utilisateurs
-					</div>
+					<div class="container"> 
+						<div class="Section">
+							Page de gestion des utilisateurs
+						</div>
 
-					Bienvenue cher admin!					
+						Bienvenue cher admin!
+
+						<div class="row">
+							<p>Rechercer les informations sur un utilisateur</p>
+							<p>En construction</p>
+							<!-- pouvoir faire une recherche sur les utilisateurs avec le mail - avoir l'info date de la cotis'-->
+						</div>
+
+						<div class="row">
+							<p>Création d'un compte utilisateur du site
+							<!-- TO DO : la patie du controlleur, création mdp aléatoire, et envoi d'un mail! -->
+							<form action="" method="POST">
+								<label for="user_type">Quel type de compte souhaitez vous créer?</label><br>
+								<select name="user_type" required>
+									<option value=2>Compte non adhérent</option>
+									<option value=3>Compte adhérent (cotisant à jour)</option>
+									<option value=4>Compte artiste</option>
+									<option value=5>Compte administrateur</option>
+								</select>
+								<input type="text" name="mail" placeholder="mail" required>  	
+								<input type="submit" name="new_user_form" value="Créer l'utilisateur">	
+							</form>	 
+						</div>
+					</div>	
 	<?php  	}	 
 		} ?> 	
 

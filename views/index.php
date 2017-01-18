@@ -59,7 +59,7 @@
 				<input type="submit" name="loggout_form" value="Se déconnecter">
 			</form>
 		<?php } else { ?>
-			Vous n'êtes pas connecté. 
+			<p>Vous n'êtes pas connecté</p>
 			<form action="" method="POST">
 				<input type="text" name="mail" placeholder="e-mail"> <br>
 				<input type="password" name="password" placeholder="mot de passe">  <br>
