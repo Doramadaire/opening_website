@@ -10,9 +10,11 @@
 	<body>
 
 	<?php 
-		include("header.php"); 
+		include("header.php");  ?>
 
-		if (!isset($_SESSION['user_logged'])) { ?> 
+		<div class="container">
+
+	<?php 	if (!isset($_SESSION['user_logged'])) { ?> 
 			<!-- 
 			TO DO : prévoir fonction qui affiche erreur
 			-->
@@ -27,17 +29,28 @@
 					<div class="Section">
 						Page de gestion de vos oeuvres
 					</div>
-					Bienvenue mon bel auteur
+					Bienvenue cher artiste
 	<?php   	} else if ($user_logged->getUserStatus()===5) { ?>
 					<!-- L'user connecté est un admin -->
 					<div class="Section">
 						Page de gestion des oeuvres
 					</div>
-					<!-- TO DO : rajouter fonctionnalités... -->
-					Bienvenue cher admin!					
+					<!-- TO DO : rajouter fonctionnalités...
+					rajouter en base un livre -->
+					Bienvenue cher admin!
+					<br>
+					<div class="row">
+						<p>Paramétrage d'un objet book</p>
+						<!-- TO DO : la patie du controlleur -->
+						<form action="" method="POST" enctype="multipart/form-data">
+							<input type="file" name="book_file">
+							<input type="submit" name="new_book_form" value="Créer le book">	
+						</form>	 
+					</div>			
 	<?php  	}	 
 		} ?> 		
 	
+		</div>
 	<?php include("footer.php"); ?> 
 	
 	</body>
