@@ -134,7 +134,7 @@
 	    {
 	    	$query = $this->conn->prepare("INSERT INTO users(mail, password, status, subscription_date) VALUES(?,?,?,?);");
 	    	$query-> bindValue(1,$user->getUserMail()); 	
-	    	$query-> bindValue(2,$password);
+	    	$query-> bindValue(2,password_hash($password, PASSWORD_BCRYPT));
 	    	$query-> bindValue(3,$user->getUserStatus());
 	    	$query-> bindValue(4,$user->getUserSubscriptionDate());
 	    	return $query->execute();
@@ -265,7 +265,7 @@
 	    	if ($query->execute()) 
 	    	{
 	    		while ($row = $query->fetch(PDO::FETCH_ASSOC)) {	    			
-	    			$response = ($pswd === $row['password']) ? true : false ;
+	    			$response = (password_verify($pswd,$row['password'])) ? true : false ;
 	    		}
 	    	}
 	    	return $response;

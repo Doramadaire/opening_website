@@ -1,8 +1,8 @@
 <?php	
-
+	
 	$sql = SQL::getInstance();
 	$conn = $sql->getBoolConnexion();
-	//sql->createTables();
+	//$sql->createTables();
 	
 	session_start();
 	$logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
@@ -37,6 +37,7 @@
 	//des tests en vrac
 	//echo "RESULTAT DE MES TESTS :<br>	";
 
+	/*
 	$unMail = "lolilol@gmail.com";
 	$unUser = new User(0, $unMail, 5, "2001-01-01");
 	$unUser2 = new User(0, "lol", 4, "2001-01-01");
@@ -44,20 +45,34 @@
 	$unUser4 = new User(0, "hophop@hip.com", 5, "2111-01-01");
 	$userAdmin = new User(0, "facile@souvenir", 5, "2111-01-01");	
 	$userClass3 = new User(0, "unAdherent", 3, "2111-01-01");	
-	
+	*/
+	$compte2 = new User(0, "compte2", 2, "2000-01-01");	
+	$compte3 = new User(0, "compte3", 3, "2111-01-01");	
+	$compte4 = new User(0, "compte4", 4, "2111-01-01");	
+	$compte5 = new User(0, "compte5", 5, "2111-01-01");	
+
+	/*
 	$sql->addUser($unUser2, "mdp2");
 	$sql->addUser($unUser3, "lemdp3");
 	$sql->addUser($unUser4, "autremdp4");
-	$sql->addUser($userAdmin, "hopening");	
-	$sql->addUser($userClass3, "mdpAdher");	
+	$sql->addUser($userAdmin, "hopening");		
+
+	$sql->addUser($compte2, "2mdp");	
+	$sql->addUser($compte3, "3mdp");	
+	$sql->addUser($compte4, "4mdp");	
+	$sql->addUser($compte5, "5mdp");
+		
+	*/
+	/*
 	$unUser = $sql->getUserByMail("hophop@hip.com");
 	$unUser = unserialize($unUser);
-	/*
 	echo "voici l'id de l'user cherché: ";
 	echo $unUser->getUserID();
 	echo "<br> le statut=";
 	echo $unUser->getUserStatus();
 	*/
+
+	/*
 	$unAuteur = new Author(0, "picasso", $unUser->getUserID(), "description_001.txt", "news_001.txt");
 	$unAuteur2 = new Author(0, "dali", 1, "description_002.txt", "news_002.txt");
 	$unAuteur3 = new Author(0, "oim", 3, "description_003.txt", "news_002.txt");
@@ -68,9 +83,10 @@
 	$sql->addAuthor($unAuteur4);
 	$unAuteur = $sql->getAuthorByName("oim");
 	$unAuteur = unserialize($unAuteur);
-	/*
 	echo "nom=".$unAuteur->getAuthorName()." news=".$unAuteur->getAuthorNews();	 
+	*/
 
+	/*
 	$unLivre = new Book(0, "MOBY DICK", [1,3], "classique", 1920, 3, "baleine.txt");
 	if ($sql->addBook($unLivre)) {
 		echo "<br>AJOUT DE LIVRE REUSSI";
