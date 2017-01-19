@@ -42,6 +42,25 @@
 		}	*/
 	}
 
+	if (isset($_POST['set_new_password_form'])) {
+		$sql = SQL::getInstance();
+		$conn = $sql->getBoolConnexion();		
+		if ($sql->checkUserPassword($user_logged->getUserMail(), stripslashes($_POST['previous_password']))) {
+			if ($_POST['new_password'] === $_POST['new_password_bis']) {
+				$new_pswd_hashed = password_hash($_POST['new_password'], PASSWORD_BCRYPT);
+				if ($sql->setUserPassword($user_logged, $new_pswd_hashed)) {
+					$msg_new_pswd = "Mot de passe modifié avec succès";
+				} else {
+					$msg_new_pswd = "Echec de la modification du mot de passe : Problème de communication avec la base de donnée";
+				}				
+			} else {
+				$msg_new_pswd = "Echec de la modification du mot de passe : Les deux nouveaux mot de passe ne sont pas identiques";
+			}
+		} else {
+			$msg_new_pswd = "Echec de la modification du mot de passe : Mot de passe actuel incorrect";
+		}
+	}
+
 	include_once('./views/user_settings.php');
 	
 ?>
