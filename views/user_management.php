@@ -39,6 +39,7 @@
 
 						<div class="row">
 							<p>Création d'un compte utilisateur du site</p>
+							<?php  if (isset($msg_new_user)) { echo $msg_new_user."<br>";} ?> 
 							<!-- TO DO : la patie du controlleur, création mdp aléatoire, et envoi d'un mail! -->
 							<form action="" method="POST">
 								<label for="user_type">Quel type de compte souhaitez vous créer?</label><br>
@@ -48,7 +49,8 @@
 									<option value=4>Compte artiste</option>
 									<option value=5>Compte administrateur</option>
 								</select>
-								<input type="text" name="mail" placeholder="mail" required>  	
+								<input type="text" name="mail" placeholder="mail" required>
+								<input type="date" name="subscripion_end_date" placeholder="Date jusqu'à laquelle la cotisation est valable" required>
 								<input type="submit" name="new_user_form" value="Créer l'utilisateur">	
 							</form>	 
 						</div>
