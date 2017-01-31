@@ -12,13 +12,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.php" title="Accueil">OPENING </a>
+      
+	  <a class="navbar-brand" href="index.php"> <img alt="logo" src="logo.jpg"> </a>
     </div>
 	<!-- Les contenu de la navbar -->
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="index.php">Nous contacter </a></li>
+        <li><a href="contact.php">Nous contacter </a></li>
         <li><a href="https://www.facebook.com/opening-book-872866662728445/">Facebook</a></li>
 		<li><a href="https://twitter.com/opening_asso">Twitter</a></li>
 		<li><a href="#">Autre?</a></li>
@@ -42,7 +43,7 @@
 <!-- Le bandeau noir avec le logo et la phrase d'accueil -->
 <div class="page-header">
 	<div class="logo"> 
-		<a href="index.php"> <img src="logo.jpg" alt="logo" > </a> 
+		
 	</div> 
 	<p> Voici le site opening book </p>
 	<br/> 

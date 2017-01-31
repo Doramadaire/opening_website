@@ -22,32 +22,46 @@
 	<body>
 		<?php include("header.php"); ?> 
 
-		<div class="action">
-		<?php if ($user_logged) { ?>
-			Bonjour <?php echo $user_logged->getUserMail(); ?>
+		
+		
+		<?php 		if (isset($error)) {
+						echo $error;
+					}	 ?>
 			<br>
-			Vous êtes connecté en tant  
-		<?php 	switch($_SESSION['user_logged']->getUserStatus()) 
+			
+		
+		
+		
+		<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+     
+      <div class="caption">
+          
+        <?php if ($user_logged) { ?>
+			<h3>Bonjour <?php echo $user_logged->getUserMail(); ?></h3>
+			
+			<?php 	switch($_SESSION['user_logged']->getUserStatus()) 
 					{
-							     case 2: echo "que non cotisant"; ?>
-					<br> Vous pouvez : <br> 
+							     case 2:  ?>
+					Vous pouvez : <br> 
 						<ul> <li><a href="book_viewer.php">Parcourir les oeuvres (seulement des extraits)</a></li> 
 							 <li><a href="user_settings.php">Gérer votre compte</a></li> </ul>
 							 
-					<?php break; case 3: echo "que cotisant";  ?>
-					<br>Vous pouvez : <br> 
+					<?php break; case 3:  ?>
+					Vous pouvez : <br> 
 						<ul> <li><a href="book_viewer.php">Parcourir les oeuvres</a></li> 
 							 <li><a href="user_settings.php">Gérer votre compte</a></li> </ul>
 							 
-					<?php break; case 4:	echo "qu'auteur";	?>
-					<br>Vous pouvez : <br> 
+					<?php break; case 4:	?>
+					Vous pouvez : <br> 
 					
 						<ul> <li><a href="book_viewer.php">Parcourir les oeuvres</a></li> 
 							 <li><a href="user_settings.php">Gérer votre compte</a></li> 
 							 <li><a href="book_management.php">Gérer vos oeuvres</a></li>  </ul>
 							 
-					<?php break; case 5:	echo "qu'administrateur"; ?>
-					<br>Vous pouvez : <br> 
+					<?php break; case 5: ?>
+					Vous pouvez : <br> 
 						<ul> <li><a href="book_viewer.php">Parcourir les oeuvres</a></li> 
 							 <li><a href="user_settings.php">Gérer votre compte</a></li>							 
 							 <li><a href="book_management.php">Gérer les oeuvres</a></li>
@@ -56,22 +70,46 @@
 					<?php break;} ?>
 			
 			<form action="" method="POST">
-				<input type="submit" name="loggout_form" value="Se déconnecter">
+				<input class="btn btn-primary" role="button" type="submit" name="loggout_form" value="Se déconnecter">
 			</form>
 		<?php } else { ?>
-			<p>Vous n'êtes pas connecté</p>
+			<h3>Connectez-vous</h3>
 			<form action="" method="POST">
 				<input type="text" name="mail" placeholder="e-mail"> <br>
-				<input type="password" name="password" placeholder="mot de passe">  <br>
-				<input type="submit" name="logging_form" value="Se connecter">		
-			</form>
-		<?php 		if (isset($error)) {
-						echo $error;
-					}	 ?>
-			<br>
-			<a href="book_viewer.php">Parcourir les oeuvres (seulement des extraits)</a>
-		<?php } ?>
-		</div> <!-- action-->
+				<input type="password" name="password" placeholder="mot de passe">  <br><br>
+				<input class="btn btn-primary" role="button" type="submit" name="logging_form" value="Se connecter"></form> 
+			 
+             <?php }?>																															
+         
+      </div>
+    </div>
+  </div>
+	<div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+       <div class="caption">
+        <h3>Adhésion</h3>
+        <p>Pour adhérer à l'association ou renouveler votre cotisation, vous serez redirigé vers Helloasso.</p>
+        <p><a href="https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015" class="btn btn-primary" role="button">Adhérer</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      
+      <div class="caption">
+        <h3>Parcourir les oeuvres</h3>
+		
+        <p></a><a href="book_viewer.php" class="btn btn-primary" role="button">Recherche</a> </p>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+</div>
+		
 		
 		
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
