@@ -1,3 +1,6 @@
+C'est un fichier de base pour avoir les balises pour les pages. ça sera à dégager à la fin.
+
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -9,7 +12,7 @@
 
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/contact.css" rel="stylesheet">
+		<link href="css/-------------------PAGE-------------------------.css" rel="stylesheet">
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,23 +26,24 @@
 		<?php include("header.php"); ?> 
 
 
-<div class="container">   
 
-<p> association Opening</p>
 
-<p>68 rue des dominicaines </p>
 
-<p>13001 Marseille</p>
 
-<p>tel +33 (0)7 83 30 59 45</p>
 
-<p>mail : <a href="mailto:contact@opening-book.com"> contact@opening-book.com </a> </p>
+<a class="" href=""> <img class="" alt="" src=""> </a>
 
-<p>facebook <a class="" href="#"> <img class="" alt="" src="..."> </a>  </p>
 
-<p>twitter <a class="" href="#"> <img class="" alt="" src="..."> </a>  </p>
+<div class="container-fluid">   </div>
 
-</div>
+
+
+
+
+
+
+
+
 
 <?php include("footer.php"); ?> 
 

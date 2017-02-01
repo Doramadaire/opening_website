@@ -1,36 +1,39 @@
 .page-header {
-	background-color: #000000 ; /*Couleur de fond*/
-	margin-top:0;
+	background-color: #FFFFFF ; /*Couleur de fond*/
 	color : white;
     font-family: "Arial", cursive, sans-serif;
 }
 
-.logo {
-	border:0;
-	min-width:100px;
-}
-
-.logo:hover {
-/* curseur au dessus du logo? */
-}
 
 /* http://work.smarchal.com/twbscolor/css/e74c3cc0392becf0f1ffbbbc0  
 donne le code ci dessous pour les couleurs de la navbar
 */
 
 .navbar-default {
-  background-color: #55555;
-  border-color: #55555;
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
 }
+
 .navbar-default .navbar-brand {
-	 
-  height: 20px;
-  width: 20px;
+  height: 60px;
+  width: 250px;  /* a quel endroit les boutons de la navbar commencent
   
 }
 
-
-.navbar-default {
-margin-bottom: 0;
+.navbar-wrapper {
+    margin-top: 40px;   /* pour positionner la hauteur de la barre de navigation */
+  }
+  
+.navbar-brand {
+  padding: 0px; /* firefox bug fix */
+}
+.navbar-brand>img {
+  height: 250%;   /*la taille du logo */
+  padding: 15px; /* firefox bug fix */
+  width: auto;
 }
 
+.logo {
+	 margin-top: -53px;   /* pour positionner la hauteur du logo */
+	
+}

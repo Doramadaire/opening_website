@@ -24,15 +24,15 @@
 
 		
 		
-		<?php 		if (isset($error)) {
-						echo $error;
-					}	 ?>
-			<br>
-			
+		<?php 	if (isset($error)) {
+					echo $error;
+				}
+		?>
+
+				
 		
-		
-		
-		<div class="row">
+<div class="container-fluid">	
+<div class="row">
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
      
@@ -65,7 +65,7 @@
 						<ul> <li><a href="book_viewer.php">Parcourir les oeuvres</a></li> 
 							 <li><a href="user_settings.php">Gérer votre compte</a></li>							 
 							 <li><a href="book_management.php">Gérer les oeuvres</a></li>
-							 <li><a href="user_management.php">Gérer les membres</li> </ul>
+							 <li><a href="user_management.php">Gérer les membres</a></li></ul>
 							 
 					<?php break;} ?>
 			
@@ -89,7 +89,7 @@
        <div class="caption">
         <h3>Adhésion</h3>
         <p>Pour adhérer à l'association ou renouveler votre cotisation, vous serez redirigé vers Helloasso.</p>
-        <p><a href="https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015" class="btn btn-primary" role="button">Adhérer</a>
+        <p><a href="join.php" class="btn btn-primary" role="button">Adhérer</a>
       </div>
     </div>
   </div>
@@ -105,11 +105,8 @@
     </div>
   </div>
   
-  
-  
-  
 </div>
-		
+</div>		
 		
 		
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -1,6 +1,12 @@
  <!-- On impose un css différent du bootstrap.min.css -->
 <link href="css/header.css" rel="stylesheet">
 
+
+<div class="container-fluid">	
+
+<div class="page-header">
+<div class="navbar-wrapper">
+     
  <!-- Le "nom" de la navbar, et l'allure du bouton sur mobile-->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -13,7 +19,7 @@
         <span class="icon-bar"></span>
       </button>
       
-	  <a class="navbar-brand" href="index.php"> <img alt="logo" src="logo.jpg"> </a>
+	  <a class="navbar-brand" href="index.php"> <img class="logo" alt="logo" src="logo.png"> </a>
     </div>
 	<!-- Les contenu de la navbar -->
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -22,7 +28,7 @@
         <li><a href="contact.php">Nous contacter </a></li>
         <li><a href="https://www.facebook.com/opening-book-872866662728445/">Facebook</a></li>
 		<li><a href="https://twitter.com/opening_asso">Twitter</a></li>
-		<li><a href="#">Autre?</a></li>
+		<li><a href="join.php">Adhérer</a></li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -38,15 +44,10 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+</div>
 
 
-<!-- Le bandeau noir avec le logo et la phrase d'accueil -->
-<div class="page-header">
-	<div class="logo"> 
-		
-	</div> 
-	<p> Voici le site opening book </p>
-	<br/> 
+</div>
 </div>
 
 

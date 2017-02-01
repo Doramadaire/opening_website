@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 	</head>
 	<body>
-
+  
 	<?php 
 		include("header.php"); 
 

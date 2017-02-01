@@ -9,7 +9,7 @@
 
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/contact.css" rel="stylesheet">
+		<link href="css/join.css" rel="stylesheet">
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,23 +23,44 @@
 		<?php include("header.php"); ?> 
 
 
-<div class="container">   
 
-<p> association Opening</p>
 
-<p>68 rue des dominicaines </p>
 
-<p>13001 Marseille</p>
 
-<p>tel +33 (0)7 83 30 59 45</p>
 
-<p>mail : <a href="mailto:contact@opening-book.com"> contact@opening-book.com </a> </p>
 
-<p>facebook <a class="" href="#"> <img class="" alt="" src="..."> </a>  </p>
 
-<p>twitter <a class="" href="#"> <img class="" alt="" src="..."> </a>  </p>
+
+<div class="container-fluid">   
+
+
+<h2>Mode d’emploi</h2>
+
+<p>Suivez le lien ci-dessous et laisser-vous guider pour l’adhésion en ligne et le paiement sécurisé.</p>
+
+<p>Après votre adhésion, vous recevrez par mail le lien vers les opening books sous 48 heures.</p>
+
+<p><a href="https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015"> Adhérer ou renouveler sa cotisation</a> </p>
+
+<p>En adhérant à l’association Opening :  // li plutot que p ici  </p>
+<p>– vous contribuez à soutenir les artistes  </p>
+<p>– vous découvrez les opening books dans leur intégralité. </p>
+
+<p>Montant de la cotisation </p>
+ 
+<p>30 € par an </p>
+
+<p>Opening est une association loi 1901 répondant aux critères de l’intérêt général, ce qui vous permet de défiscaliser une partie de vos dons et cotisations.</p>
+
+<p>Vous pouvez également envoyer un chèque à l’ordre d’Opening  68 rue des dominicaines 13001 Marseille en indiquant vos coordonnées ainsi qu’une adresse mail.</p>
+
+<p>Vous recevrez ensuite par mail le lien vers les opening books.</p>
+
+
 
 </div>
+
+
 
 <?php include("footer.php"); ?> 
 
