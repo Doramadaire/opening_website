@@ -1,5 +1,5 @@
 C'est un fichier de base pour avoir les balises pour les pages. ça sera à dégager à la fin.
-
+http://localhost/opening_website/index.php#form pour se tp au formulaire de connection
 
 <!DOCTYPE html>
 <html lang="en">

@@ -28,14 +28,15 @@ else {?>
 				if (isset($msg_new_mail)) {
 					echo $msg_new_mail;
 					echo "<br>Votre mail est désormais : ".$user_logged->getUserMail()."<br>";
-				} ?>
-			Votre adresse mail actuelle est <?php echo $user_logged->getUserMail() ?><br>
+				} 
+				else {echo "<br>Votre adresse mail actuelle est : ".$user_logged->getUserMail()."<br>";}
+				?><br>
 			<input type="button" value="Modifier votre adresse e-mail" onclick="hideThis('form1')" />	
 
 			<!-- form1 et form2 sont des très mauvais id, faut trouver de meilleurs noms, plus clairs -->
 			<form  id="form1" class="user_change_settings_form" action="" method="POST">		
 				<label for="new_mail">Votre nouvelle adresse</label>
-				<input type="text" name="new_mail">  	
+				<input type="text" name="new_mail" required>  	
 				<input type="submit" name="set_new_mail_form" value="Confirmer">	
 			</form>	 
 		</div>			

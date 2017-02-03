@@ -27,10 +27,12 @@
 				} else {
 				#mdp pas bon
 				$error = "mail ou mot de passe incorrect";
+				
 			}			
 		} else {
 			# mail invalide
 			$error = "mail ou mot de passe incorrect";
+			
 		}
 	}	
 

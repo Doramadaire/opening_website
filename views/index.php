@@ -21,23 +21,18 @@
   
 	<body>
 		<?php include("header.php"); ?> 
-
+		<?php include("diapo.php"); ?> 
 		
-		
-		<?php 	if (isset($error)) {
-					echo $error;
-				}
-		?>
-
-				
+					
 		
 <div class="container-fluid">	
 <div class="row">
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
      
-      <div class="caption">
-          
+	  <!-- id="form" -->
+      <div  class="caption">
+		 
         <?php if ($user_logged) { ?>
 			<h3>Bonjour <?php echo $user_logged->getUserMail(); ?></h3>
 			
@@ -74,6 +69,7 @@
 			</form>
 		<?php } else { ?>
 			<h3>Connectez-vous</h3>
+		<?php 	if (isset($error)) {echo '<p class="error">'.$error.'<p>';}?> 
 			<form action="" method="POST">
 				<input type="text" name="mail" placeholder="e-mail"> <br>
 				<input type="password" name="password" placeholder="mot de passe">  <br><br>

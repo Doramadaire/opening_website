@@ -26,8 +26,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="contact.php">Nous contacter </a></li>
-        <li><a href="https://www.facebook.com/opening-book-872866662728445/">Facebook</a></li>
-		<li><a href="https://twitter.com/opening_asso">Twitter</a></li>
+        <li><a href="https://www.facebook.com/opening-book-872866662728445/" target="_blank">Facebook</a></li>
+		<li><a href="https://twitter.com/opening_asso" target="_blank" >Twitter</a></li>
 		<li><a href="join.php">Adhérer</a></li>
       </ul>
       
