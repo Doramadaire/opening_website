@@ -63,7 +63,7 @@
 							champ pour taper la description - on stocke le path du fichier
 							champ pour taper les news - on stocke le path du fichier -->
 							<form action="" method="POST">
-								<input type="submit" name="new_user_form" value="Ajout de l'artiste">	
+								<input type="submit" name="new_author_form" value="Ajout de l'artiste">	
 							</form>	 
 						</div>
 					</div>	
