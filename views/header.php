@@ -25,16 +25,17 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="contact.php">Nous contacter </a></li>
-        <li><a href="https://www.facebook.com/opening-book-872866662728445/" target="_blank">Facebook</a></li>
-		<li><a href="https://twitter.com/opening_asso" target="_blank" >Twitter</a></li>
-		<li><a href="join.php">Adhérer</a></li>
+	    <li><a href="#">A propos </a></li>
+        <li><a href="#">Artistes</a></li>
+		<li><a href="contact.php">Nous contacter </a></li>
+        <li><a href="join.php">Adhérer</a></li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">ou à droite?</a></li>
+        <li><a href="https://www.facebook.com/opening-book-872866662728445/" target="_blank">Facebook</a></li>
+		<li><a href="https://twitter.com/opening_asso" target="_blank" >Twitter</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Langue? <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Langue <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Fr</a></li>
             <li><a href="#">En</a></li>

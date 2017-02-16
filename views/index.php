@@ -40,24 +40,24 @@
 					{
 							     case 2:  ?>
 					Vous pouvez : <br> 
-						<ul> <li><a href="book_viewer.php">Parcourir les oeuvres (seulement des extraits)</a></li> 
+						<ul> <li><a href="book_viewer.php">Parcourir la collection (seulement des extraits)</a></li> 
 							 <li><a href="user_settings.php">Gérer votre compte</a></li> </ul>
 							 
 					<?php break; case 3:  ?>
 					Vous pouvez : <br> 
-						<ul> <li><a href="book_viewer.php">Parcourir les oeuvres</a></li> 
+						<ul> <li><a href="book_viewer.php">Parcourir la collection</a></li> 
 							 <li><a href="user_settings.php">Gérer votre compte</a></li> </ul>
 							 
 					<?php break; case 4:	?>
 					Vous pouvez : <br> 
 					
-						<ul> <li><a href="book_viewer.php">Parcourir les oeuvres</a></li> 
+						<ul> <li><a href="book_viewer.php">Parcourir la collection</a></li> 
 							 <li><a href="user_settings.php">Gérer votre compte</a></li> 
 							 <li><a href="book_management.php">Gérer vos oeuvres</a></li>  </ul>
 							 
 					<?php break; case 5: ?>
 					Vous pouvez : <br> 
-						<ul> <li><a href="book_viewer.php">Parcourir les oeuvres</a></li> 
+						<ul> <li><a href="book_viewer.php">Parcourir la collection</a></li> 
 							 <li><a href="user_settings.php">Gérer votre compte</a></li>							 
 							 <li><a href="book_management.php">Gérer les oeuvres</a></li>
 							 <li><a href="user_management.php">Gérer les membres</a></li></ul>
@@ -73,30 +73,33 @@
 			<form action="" method="POST">
 				<input type="text" name="mail" placeholder="e-mail"> <br>
 				<input type="password" name="password" placeholder="mot de passe">  <br><br>
-				<input class="btn btn-primary" role="button" type="submit" name="logging_form" value="Se connecter"></form> 
+				<p><input class="btn btn-primary" role="button" type="submit" name="logging_form" value="Se connecter"></p></form> 
 			 
              <?php }?>																															
          
       </div>
     </div>
   </div>
-	<div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-       <div class="caption">
-        <h3>Adhésion</h3>
-        <p>Pour adhérer à l'association ou renouveler votre cotisation, vous serez redirigé vers Helloasso.</p>
-        <p><a href="join.php" class="btn btn-primary" role="button">Adhérer</a>
-      </div>
-    </div>
-  </div>
-  
+	  
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
       
       <div class="caption">
-        <h3>Parcourir les oeuvres</h3>
-		
+        <h3>Parcourir la collection</h3>
+		<br><br><br>
         <p></a><a href="book_viewer.php" class="btn btn-primary" role="button">Recherche</a> </p>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+       <div class="caption">
+        <h3>Adhésion</h3>
+        <p>Pour adhérer à l'association ou renouveler votre cotisation, vous serez redirigé vers Helloasso.</p>
+		
+        <p><a href="join.php" class="btn btn-primary" role="button">Adhérer</a> </p>
       </div>
     </div>
   </div>
