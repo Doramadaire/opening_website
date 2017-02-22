@@ -6,32 +6,25 @@
 
 	if (isset($_POST['new_user_form'])) {
 		//echo $_POST['user_type'];
-		//génération d'un mot de passe aléatoire pour le nouveau compte
-		//https://www.it-connect.fr/php-generateur-de-mot-de-passe-parametrable/
-		$caract = "ABCDEFGHIJKLMNOPQRSTYVWXYZabcdefghijklmnopqrstuvwyxz0123456789@!:;,/?*$=+";
-		$possible_lenght = [9,10,11,12,12,13,14,15,16,17,18];
-		$lenght = $possible_lenght[mt_rand(0,(count($possible_lenght)-1))];
-		$nb_caract_possible = strlen($caract);
-		$generated_password = '';
-		for($i = 1; $i <= $lenght; $i++) {
-			$generated_password = $generated_password.$caract[mt_rand(0,$nb_caract_possible-1)];
-		}
+		$sql = SQL::getInstance();
+		$conn = $sql->getBoolConnexion();
+		
+
 		//TO DO : parse la date et la mettre au bon format pour la rentrer en base
 		//voir ce que j'ai fait pour le quizz avec les dates
 		$new_user = new User(0, stripslashes($_POST['mail']), $_POST['user_type'], "2111-01-01");	
+		$new_password = $sql->generatePassword();	
 
-		$sql = SQL::getInstance();
-		$conn = $sql->getBoolConnexion();
-		$sql->addUser($new_user, $generated_password);
-
-		$msg_new_user = "Un nouvel utilisateur a bien été créé, son mail est : ".$_POST['mail']." il a le statut=".$_POST['user_type']." et son mot de passe est : ".$generated_password;
+		$sql->addUser($new_user, $new_password);
+		
+		$msg_new_user = "Un nouvel utilisateur a bien été créé, son mail est : ".$_POST['mail']." il a le statut=".$_POST['user_type']." et son mot de passe est : ".$new_password;
 		echo $msg_new_user;
 		//Pour gérer les fichiers il y a besoin de les include
 		$path = '/users/promo2016/gclaverie/html/opening_website/ ';
 		set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 		//Dans un gros fichier complet
 		$myfile = fopen("mdp.txt", "a+") or die("Unable to open file!");
-		fwrite($myfile, $generated_password);
+		fwrite($myfile, $new_password);
 	
 		/* Envoi d'un mail pour activer le compte avec le mdp généré, et invitation à le changer
 		

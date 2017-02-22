@@ -34,7 +34,22 @@
 			$error = "mail ou mot de passe incorrect";
 			
 		}
-	}	
+	}
+
+	if (isset($_POST['pswd_forgotten_form'])) {
+		$new_password = $sql->generatePassword();		
+		$user = unserialize($sql->getUserByMail($_POST['mail_pswd_forgotten']));
+		//écrire l'erreur si on trouve pas
+		$sql->setUserPassword($user, password_hash($new_password, PASSWORD_BCRYPT));
+		$msg_new_user = "Nouveau mot de passe : ".$new_password;
+		echo $msg_new_user;
+		//Pour gérer les fichiers il y a besoin de les include
+		$path = '/users/promo2016/gclaverie/html/opening_website/ ';
+		set_include_path(get_include_path() . PATH_SEPARATOR . $path);
+		//Dans un gros fichier complet
+		$myfile = fopen("mdp.txt", "a+") or die("Unable to open file!");
+		fwrite($myfile, $new_password);
+	}
 
 	//des tests en vrac
 	//echo "RESULTAT DE MES TESTS :<br>	";

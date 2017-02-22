@@ -73,8 +73,19 @@
 			<form action="" method="POST">
 				<input type="text" name="mail" placeholder="e-mail"> <br>
 				<input type="password" name="password" placeholder="mot de passe">  <br><br>
-				<p><input class="btn btn-primary" role="button" type="submit" name="logging_form" value="Se connecter"></p></form> 
-			 
+				<p><input class="btn btn-primary" role="button" type="submit" name="logging_form" value="Se connecter"></p>
+			</form> 
+			 <p>Mot de passe oublié?</p>
+			 <form action="" method="POST">
+			 	<p><input type="text" name="mail_pswd_forgotten" placeholder="e-mail"></p>
+			 	<p>Attention! Cette action génére un nouveau mot de passe qui sera envoyé à l'adresse mail de votre compte</p>
+			 	<p><input class="btn btn-primary" role="button" type="submit" name="pswd_forgotten_form" value="Générer un nouveau mot de passe"></p>
+			 </form>
+
+			 <!-- TO DO : quand on clique sjur mdp oublié, une fct js fait apparaitre le champ pour mettre son mail
+			 puis un 2ème champ pour confirmer son mail
+			 et renvoie une erreur si c'est pas le même
+			 sinon le formulaire est bien envoyé -->
              <?php }?>																															
          
       </div>

@@ -564,6 +564,20 @@
 	    	$query-> bindValue(2,$book->getBookID());
 	    	return $query->execute();
 	    }
+
+	    public function generatePassword() {
+	    	//génération d'un mot de passe aléatoire pour le nouveau compte
+			//https://www.it-connect.fr/php-generateur-de-mot-de-passe-parametrable/
+			$caract = "ABCDEFGHIJKLMNOPQRSTYVWXYZabcdefghijklmnopqrstuvwyxz0123456789@!:;,/?*$=+";
+			$possible_lenght = [9,10,11,12,12,13,14,15,16,17,18];
+			$lenght = $possible_lenght[mt_rand(0,(count($possible_lenght)-1))];
+			$nb_caract_possible = strlen($caract);
+			$generated_password = '';
+			for($i = 1; $i <= $lenght; $i++) {
+				$generated_password = $generated_password.$caract[mt_rand(0,$nb_caract_possible-1)];
+			}
+			return $generated_password;
+	    }
 	   
 
 	    /*Structure de ma BDD :
