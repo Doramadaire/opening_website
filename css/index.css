@@ -22,5 +22,7 @@
 }
 
 
-.error {color :red;}
+.error {color :black;
+font-weight: bold
+}
 
