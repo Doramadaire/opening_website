@@ -10,6 +10,7 @@
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/index.css" rel="stylesheet">
+		<script src="js/global.js"></script>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -75,8 +76,8 @@
 				<input type="password" name="password" placeholder="mot de passe">  <br><br>
 				<p><input class="btn btn-primary" role="button" type="submit" name="logging_form" value="Se connecter"></p>
 			</form> 
-			 <p>Mot de passe oublié?</p>
-			 <form action="" method="POST">
+			 <a onclick="hideThis('oubli')">Mot de passe oublié? </a>
+			 <form id="oubli" action="" method="POST">
 			 	<p><input type="text" name="mail_pswd_forgotten" placeholder="e-mail"></p>
 			 	<p>Attention! Cette action génére un nouveau mot de passe qui sera envoyé à l'adresse mail de votre compte</p>
 			 	<p><input class="btn btn-primary" role="button" type="submit" name="pswd_forgotten_form" value="Générer un nouveau mot de passe"></p>

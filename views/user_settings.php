@@ -10,7 +10,7 @@ else {?>
 		</title>
 		<link rel="stylesheet" href="css/user_settings.css" type="text/css">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<script src="js/user_settings.js"></script>
+		<script src="js/global.js"></script>
 	</head>
 	<body>
 
