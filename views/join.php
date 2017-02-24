@@ -10,6 +10,8 @@
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/join.css" rel="stylesheet">
+		<link href="css/global.css" rel="stylesheet">
+		<script src="js/global.js"></script>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,10 +33,13 @@
 
 
 
-<div class="container-fluid">   
+<div class="container">   
+<div class="row">
+		<h1 class="Section">
+			Adhérer
+		</h1>		
+</div>
 
-
-<h2>Mode d’emploi</h2>
 
 <p>Suivez le lien ci-dessous et laisser-vous guider pour l’adhésion en ligne et le paiement sécurisé.</p>
 
@@ -42,11 +47,11 @@
 
 <p><a href="https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015"> Adhérer ou renouveler sa cotisation</a> </p>
 
-<p>En adhérant à l’association Opening :  // li plutot que p ici  </p>
-<p>– vous contribuez à soutenir les artistes  </p>
-<p>– vous découvrez les opening books dans leur intégralité. </p>
+<p>En adhérant à l’association Opening :  </p>
+<ul><li>vous contribuez à soutenir les artistes  </li>
+<li>vous découvrez les opening books dans leur intégralité. </li></ul>
 
-<p>Montant de la cotisation </p>
+<p>Montant de la cotisation :</p>
  
 <p>30 € par an </p>
 

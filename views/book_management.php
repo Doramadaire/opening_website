@@ -6,6 +6,8 @@
 		</title>
 		<link rel="stylesheet" href="css/book_management.css" type="text/css">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link href="css/global.css" rel="stylesheet">
+		<script src="js/global.js"></script>
 	</head>
 	<body>
 
@@ -25,19 +27,21 @@
 					TO DO : pouvoir corriger des trucs sur ses oeuvres
 					pouvoir en ajouter
 					autres fonctionnalités
-					-->
-					<div class="Section">
-						Page de gestion de vos oeuvres
-					</div>
+					--> <div class="row">
+					<h1 class="Section"> Page de gestion de vos oeuvres </h1>
 					Bienvenue cher artiste
+					</div>
 	<?php   	} else if ($user_logged->getUserStatus()===5) { ?>
 					<!-- L'user connecté est un admin -->
-					<div class="Section">
+					<div class="row">
+					<h1 class="Section">
 						Page de gestion des oeuvres
+					</h1>
+					Bienvenue cher admin!
 					</div>
 					<!-- TO DO : rajouter fonctionnalités...
 					rajouter en base un livre -->
-					Bienvenue cher admin!
+					
 					<br>
 					<div class="row">
 						<p>Paramétrage d'un objet book</p>

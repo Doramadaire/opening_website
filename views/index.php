@@ -10,6 +10,7 @@
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/index.css" rel="stylesheet">
+		<link href="css/global.css" rel="stylesheet">
 		<script src="js/global.js"></script>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -70,15 +71,15 @@
 			</form>
 		<?php } else { ?>
 			<h3>Connectez-vous</h3>
-		<?php 	if (isset($logging_error)) {echo '<p class="error">'.$logging_error.'<p>';}?> 
+		<?php 	if (isset($logging_error)) {echo '<p class="error_message">'.$logging_error.'<p>';}?> 
 			<form action="" method="POST">
 				<input type="text" name="mail" placeholder="e-mail"> <br>
 				<input type="password" name="password" placeholder="mot de passe">  <br><br>
 				<p><input class="btn btn-primary" role="button" type="submit" name="logging_form" value="Se connecter"></p>
 			</form> 
 			 <a onclick="hideThis('oubli')">Mot de passe oublié? </a>	 
-			 <?php 	if (isset($reset_pswd_error)) {echo '<p class="error">'.$reset_pswd_error.'<p>';}?> 
-			 <form id="oubli" action="" method="POST">
+			 <?php 	if (isset($reset_pswd_error)) {echo '<p class="error_message">'.$reset_pswd_error.'<p>';}?> 
+			 <form id="oubli" class="hide_first" action="" method="POST">
 			 	<p><input type="text" name="mail_pswd_forgotten" placeholder="e-mail"></p>
 			 	<p>Attention! Cette action génére un nouveau mot de passe qui sera envoyé à l'adresse mail de votre compte</p>
 			 	<p><input class="btn btn-primary" role="button" type="submit" name="pswd_forgotten_form" value="Générer un nouveau mot de passe"></p>

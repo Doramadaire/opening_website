@@ -10,6 +10,8 @@
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/contact.css" rel="stylesheet">
+		<link href="css/global.css" rel="stylesheet">
+		<script src="js/global.js"></script>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,9 +25,15 @@
 		<?php include("header.php"); ?> 
 
 
-<div class="container">   
+   
+<div class="container">  
+<div class="row">
+		<h1 class="Section">
+			Contact
+		</h1>		
+</div> 
 
-<p> association Opening</p>
+<p> Association Opening</p>
 
 <p>68 rue des dominicaines </p>
 

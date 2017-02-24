@@ -6,7 +6,16 @@
 		</title>
 		<link rel="stylesheet" href="css/user_management.css" type="text/css">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link href="css/global.css" rel="stylesheet">
+		<script src="js/global.js"></script>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+	
+	
 	</head>
+	
 	<body>
   
 	<?php 
@@ -25,14 +34,10 @@
 					Vous n'avez pas le droit d'accéder à cette page	
 	<?php   	} else { ?>
 					<div class="container"> 
-						<div class="Section">
-							Page de gestion des utilisateurs
-						</div>
-
-						Bienvenue cher admin!
-
 						<div class="row">
-							<p>Rechercer les informations sur un utilisateur</p>
+						<h1 class="Section">Page de gestion des utilisateurs</h1>
+							<br>
+							<p>Rechercher les informations sur un utilisateur</p>
 							<p>En construction</p>
 							<!-- pouvoir faire une recherche sur les utilisateurs avec le mail - avoir l'info date de la cotis'-->
 						</div>

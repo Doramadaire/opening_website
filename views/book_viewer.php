@@ -5,18 +5,21 @@
 			Opening 
 		</title>
 		<link rel="stylesheet" href="css/book_viewer.css" type="text/css">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		
+		<link rel="stylesheet" href="css/bootstrap.min.css">		
 		<link rel="stylesheet" href="css/viewer.css">
 		<link rel="stylesheet" href="css/main.css">
+		<link href="css/global.css" rel="stylesheet">
+		<script src="js/global.js"></script>
+		
 	</head>
-	<body>
+	<body oncontextmenu="return false">
 	<?php include("header.php"); ?>
 
 	<div class="container">
-		<div class="Section">
+	<div class="row">
+		<h1 class="Section">
 			Page de consultation des Opening book
-		</div>	
+		</h1>		
 		<?php if (!isset($_SESSION['user_logged'])) { ?> 
 				<!-- 
 				TO DO : prévoir fonction qui affiche erreur
@@ -29,7 +32,7 @@
 						Attention, votre cotisation n'est pas à jour. Vous n'avez accès qu'à des extraits des books.
 		<?php		}		
 			} ?> 	
-		
+		</div>
 		<div class="row"> 
       <div class="col-sm-2 col-md-3">
       </div>
@@ -84,7 +87,7 @@
 		<?php		}		
 			} ?> 	
 	</div>
-	<div class="col-sm-2 col-md-3"> </div>
+	
 	</div>
 </div>
 	
@@ -100,7 +103,7 @@
 
 </div>
 	
-
+<br><br><br><br>
 	<?php include("footer.php"); ?> 
 	
 	
