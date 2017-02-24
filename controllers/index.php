@@ -51,7 +51,7 @@
 			set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 			//Dans un gros fichier complet
 			$myfile = fopen("mdp.txt", "a+") or die("Unable to open file!");
-			fwrite($myfile, $new_password."\n");
+			fwrite($myfile, "name=".stripslashes($_POST['mail_pswd_forgotten'])." password=".$new_password."\n");
 		}		
 	}
 
