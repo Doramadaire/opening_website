@@ -24,7 +24,7 @@
 		set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 		//Dans un gros fichier complet
 		$myfile = fopen("mdp.txt", "a+") or die("Unable to open file!");
-		fwrite($myfile, $new_password);
+		fwrite($myfile, $new_password."\n");
 	
 		/* Envoi d'un mail pour activer le compte avec le mdp généré, et invitation à le changer
 		
