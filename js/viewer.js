@@ -22,9 +22,10 @@
 })(function ($) {
 
   'use strict';
-   // ajout d'une variable 
-   var modal = document.getElementById('myModal');
-   var span = document.getElementsByClassName("close")[0];
+
+  // variables used for the information dialog 
+  var modal = document.getElementById('myModal');
+  var span = document.getElementsByClassName("close")[0];
 
   var $window = $(window);
   var $document = $(document);
@@ -217,17 +218,15 @@
   }
 
   // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
+  span.onclick = function() {
     modal.style.display = "none";
-}
+  }
 
-window.onclick = function(event) {
+  window.onclick = function(event) {
     if (event.target == modal) {
-        modal.style.display = "none";
+      modal.style.display = "none";
     }
-}
-
-
+  }
 
   Viewer.prototype = {
     constructor: Viewer,
@@ -671,20 +670,22 @@ window.onclick = function(event) {
         case 'next':
           this.next();
           break;
-		  
-		  case 'begin':
+
+        //Flip and rotate buttons deleted
+		    /* Buttons to go to the end, to the beginning and help dialog */
+  		  case 'begin':
           this.begin();
-		  break;
-		  
-		  case 'end':
+  		    break;
+  		  
+  		  case 'end':
           this.end();
-		  break;
-		  
-		  case 'help':
+          break;
+  		  
+  		  case 'help':
           modal.style.display = "block";
           break;
-
-          default:
+  
+        default:
           if (this.isPlayed) {
             this.stop();
           }
@@ -1144,14 +1145,15 @@ window.onclick = function(event) {
       this.view(min(this.index + 1, this.length - 1));
     },
 
-	end: function () {
+    //Viex the last image
+  	end: function () {
       this.view(this.length - 1);
     },
-	
-	begin: function () {
+  	
+    //Viex the first image
+  	begin: function () {
       this.view(0);
-    },
-	
+    },	
 	
     /**
      * Move the image with relative offsets
@@ -1889,19 +1891,15 @@ window.onclick = function(event) {
         '<div class="viewer-title"></div>' +
         '<ul class="viewer-toolbar">' +
           '<li class="viewer-zoom-in" data-action="zoom-in"></li>' +
-          '<li class="viewer-zoom-out" data-action="zoom-out"></li>' +
-          
+          '<li class="viewer-zoom-out" data-action="zoom-out"></li>' +          
           '<li class="viewer-begin" data-action="begin"></li>' +
-		  '<li class="viewer-prev" data-action="prev"></li>' +
+		      '<li class="viewer-prev" data-action="prev"></li>' +
           '<li class="viewer-play" data-action="play"></li>' +
-          '<li class="viewer-next" data-action="next"></li>' +
-          
+          '<li class="viewer-next" data-action="next"></li>' +          
           '<li class="viewer-end" data-action="end"></li>' +
-		  '<li class="viewer-one-to-one" data-action="one-to-one"></li>' +
-          '<li class="viewer-reset" data-action="reset"></li>' +
-		  
-          '<li class="viewer-help" data-action="help"></li>' +
-          
+    		  '<li class="viewer-one-to-one" data-action="one-to-one"></li>' +
+          '<li class="viewer-reset" data-action="reset"></li>' +		  
+          '<li class="viewer-help" data-action="help"></li>' +          
         '</ul>' +
         '<div class="viewer-navbar">' +
           '<ul class="viewer-list"></ul>' +

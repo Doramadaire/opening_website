@@ -91,8 +91,7 @@
   </div>
 	  
   <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      
+    <div class="thumbnail">      
       <div class="caption">
         <h3>Parcourir la collection</h3>
 		<br><br><br>
@@ -122,9 +121,5 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 
-	</body>
-	
-	
-	
-    
+	</body>    
 </html>
