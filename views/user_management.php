@@ -1,21 +1,11 @@
+<!DOCTYPE html>
 <html>
 	<head>
-	<meta charset="UTF-8">
-		<title>
-			Opening 
-		</title>
-		<link rel="stylesheet" href="css/user_management.css" type="text/css">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link href="css/global.css" rel="stylesheet">
-		<script src="js/global.js"></script>
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-	
-	
-	</head>
-	
+        <?php include("html_header.php"); ?>
+        <title>Opening</title>
+        <!-- Import des fichiers spécifiques à cette page -->
+        <link rel="stylesheet" href="css/user_management.css" type="text/css">	
+	</head>	
 	<body>
   
 	<?php 
@@ -55,7 +45,7 @@
 									<option value=5>Compte administrateur</option>
 								</select>
 								<input type="text" name="mail" placeholder="mail" required>
-								<input type="date" name="subscripion_end_date" placeholder="Date jusqu'à laquelle la cotisation est valable" required>
+								<input type="date" name="subscripion_end_date" placeholder="Date AAAA-MM-JJ" required>
 								<input type="submit" name="new_user_form" value="Créer l'utilisateur">	
 							</form>	 
 						</div>

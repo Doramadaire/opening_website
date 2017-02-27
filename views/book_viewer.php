@@ -1,21 +1,14 @@
 <html>
 	<head>
-	<meta charset="UTF-8">
-		<title>
-			Opening 
-		</title>
+        <?php include("html_header.php"); ?>
+        <title>OPENING</title>
+        <!-- Import des fichiers spécifiques à cette page -->	
 		<!-- CSS -->
-		<link rel="stylesheet" href="css/bootstrap.min.css">		
 		<link rel="stylesheet" href="css/viewer.css">
 		<link rel="stylesheet" href="css/main.css">
+
         <!-- Fichiers maison -->
-        <link rel="stylesheet" href="css/book_viewer.css" type="text/css">
-		<link href="css/global.css" rel="stylesheet">
-		
-        <!-- JS -->
-        <!-- Fichiers maison -->
-        <script src="js/global.js"></script>
-		
+        <link rel="stylesheet" href="css/book_viewer.css" type="text/css">		
 	</head>
 	<body oncontextmenu="return false">
 	<?php include("header.php"); ?>
@@ -84,15 +77,14 @@
         <br>
         <div class="row">
             <div class="thumbnail">
-                <h3>À propos de l'auteur</h3>
+                <h3>À propos</h3>
                 <p>Du texte</p>
             </div>
         </div>
         <div class="row">
             <div class="thumbnail">
-                <h3>Les actualités de l'auteur</h3>
-                <p>Du texte</p>
-
+                <h3>L'auteur</h3>
+                <a href="">En savoir plus</a>
             </div>
         </div>
         <div class="row">
@@ -104,8 +96,7 @@
     </div>
 
 	
-<!-- DEVDEVDEV : c'est quoi ce truc modal qui apparait pas? -->
-<!-- The Modal -->
+<!-- The Modal : boite de dialoge d'info de la liseuse -->
 <div id="myModal" class="modal">
   <!-- Modal content -->
   <div class="modal-content">
@@ -117,10 +108,9 @@
 <br><br><br><br>
 	<?php include("footer.php"); ?> 	
 
-    <!-- Scripts liseuse -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/viewer.js"></script>
-    <script src="js/main.js"></script>
+        <!-- Scripts liseuse -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/viewer.js"></script>
+        <script src="js/main.js"></script>    
 	</body>
 </html>

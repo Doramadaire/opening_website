@@ -1,13 +1,9 @@
 <html>
 	<head>
-	<meta charset="UTF-8">
-		<title>
-			Opening 
-		</title>
-		<link rel="stylesheet" href="css/book_management.css" type="text/css">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link href="css/global.css" rel="stylesheet">
-		<script src="js/global.js"></script>
+		<?php include("html_header.php"); ?>
+        <title>Opening</title>
+        <!-- Import des fichiers spécifiques à cette page -->
+        <link href="css/book_management.css" rel="stylesheet">
 	</head>
 	<body>
 
