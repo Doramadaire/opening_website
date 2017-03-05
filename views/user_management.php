@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <?php include("html_header.php"); ?>
+        <?php include("include/html_header.php"); ?>
         <title>Opening</title>
         <!-- Import des fichiers spécifiques à cette page -->
         <link rel="stylesheet" href="css/user_management.css" type="text/css">	
@@ -9,7 +9,7 @@
 	<body>
   
 	<?php 
-		include("header.php"); 
+		include("include/header.php"); 
 
 		if (!isset($_SESSION['user_logged'])) { ?> 
 			<!-- 
@@ -74,7 +74,7 @@
 		*changer mdp?
 	-->
 	
-	<?php include("footer.php"); ?> 
+	<?php include("include/footer.php"); ?> 
 	
 	</body>
 </html>

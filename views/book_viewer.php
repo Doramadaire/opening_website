@@ -1,17 +1,22 @@
 <html>
 	<head>
-        <?php include("html_header.php"); ?>
+        <?php include("include/html_header.php"); ?>
         <title>OPENING</title>
         <!-- Import des fichiers spécifiques à cette page -->	
 		<!-- CSS -->
 		<link rel="stylesheet" href="css/viewer.css">
 		<link rel="stylesheet" href="css/main.css">
-
+		
+		 <!-- Scripts liseuse -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/viewer.js"></script>
+        <script src="js/main.js"></script>
+		
         <!-- Fichiers maison -->
         <link rel="stylesheet" href="css/book_viewer.css" type="text/css">		
 	</head>
 	<body oncontextmenu="return false">
-	<?php include("header.php"); ?>
+	<?php include("include/header.php"); ?>
 
 	<div class="container">
 	   <div class="row">
@@ -106,11 +111,8 @@
 </div>
 	
 <br><br><br><br>
-	<?php include("footer.php"); ?> 	
+	<?php include("include/footer.php"); ?> 	
 
-        <!-- Scripts liseuse -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/viewer.js"></script>
-        <script src="js/main.js"></script>    
+           
 	</body>
 </html>

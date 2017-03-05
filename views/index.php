@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <?php include("html_header.php"); ?>
+        <?php include("include/html_header.php"); ?>
         <title>Opening</title>
         <!-- Import des fichiers spécifiques à cette page -->
 		<link href="css/index.css" rel="stylesheet">
 	</head>
   
 	<body>
-		<?php include("header.php"); ?> 
-		<?php include("diapo.php"); ?> 
+		<?php include("include/header.php"); ?> 
+		<?php include("include/diapo.php"); ?> 
 					
 		
 <div class="container-fluid">	
@@ -55,7 +55,7 @@
 				<input class="btn btn-primary" role="button" type="submit" name="loggout_form" value="Se déconnecter">
 			</form>
 		<?php } else { ?>
-			<h3>Connectez-vous</h3>
+			<h3><?php echo TXT_CONNEXION; ?></h3>
 		<?php 	if (isset($logging_error)) {echo '<p class="error_message">'.$logging_error.'<p>';}?> 
 			<form action="" method="POST">
 				<input type="text" name="mail" placeholder="e-mail"> <br>
@@ -78,7 +78,7 @@
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">      
       <div class="caption">
-        <h3>Parcourir la collection</h3>
+        <h3><?php echo TXT_RECHERCHE; ?></h3>
 		<br><br><br>
         <p></a><a href="book_viewer.php" class="btn btn-primary" role="button">Recherche</a> </p>
       </div>
@@ -89,7 +89,7 @@
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
        <div class="caption">
-        <h3>Adhésion</h3>
+        <h3><?php echo TXT_ADHERER; ?></h3>
         <p>Pour adhérer à l'association ou renouveler votre cotisation, vous serez redirigé vers Helloasso.</p>
 		
         <p><a href="join.php" class="btn btn-primary" role="button">Adhérer</a> </p>
@@ -99,12 +99,7 @@
   
 </div>
 </div>		
-		
-		
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+
 
 	</body>    
 </html>

@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<?php include("html_header.php"); ?>
+		<?php include("include/html_header.php"); ?>
         <title>Opening</title>
         <!-- Import des fichiers spécifiques à cette page -->
         <link href="css/book_management.css" rel="stylesheet">
@@ -8,7 +8,7 @@
 	<body>
 
 	<?php 
-		include("header.php");  ?>
+		include("include/header.php");  ?>
 
 		<div class="container">
 
@@ -51,7 +51,7 @@
 		} ?> 		
 	
 		</div>
-	<?php include("footer.php"); ?> 
+	<?php include("include/footer.php"); ?> 
 	
 	</body>
 </html>

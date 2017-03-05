@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<?php include("html_header.php"); ?>
+		<?php include("include/html_header.php"); ?>
         <title>Opening</title>
         <!-- Import des fichiers spécifiques à cette page -->
 		<link href="css/contact.css" rel="stylesheet">
 	</head>  
 	<body>
-		<?php include("header.php"); ?> 
+		<?php include("include/header.php"); ?> 
 
 
    
@@ -34,12 +34,9 @@
 
 </div>
 
-<?php include("footer.php"); ?> 
+<?php include("include/footer.php"); ?> 
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+
 
 	</body>
 	
