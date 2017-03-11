@@ -15,25 +15,26 @@ donne le code ci dessous pour les couleurs de la navbar
 }
 
 .navbar-default .navbar-brand {
-  height: 60px;
-  width: 250px;  /* a quel endroit les boutons de la navbar commencent
+  width: 220px;  /* a quel endroit les boutons de la navbar commencent (horizontalement)*/
   
 }
 
 .navbar-wrapper {
-    margin-top: 40px;   /* pour positionner la hauteur de la barre de navigation */
+    margin-top: 0px;   /* pour positionner la hauteur de la barre de navigation */
   }
   
 .navbar-brand {
   padding: 0px; /* firefox bug fix */
 }
 .navbar-brand>img {
-  height: 250%;   /*la taille du logo */
-  padding: 15px; /* firefox bug fix */
-  width: auto;
+  height: 220%;   /*la taille du logo */
+  padding: 0px; /* firefox bug fix /
+  
 }
 
 .logo {
-	 margin-top: -53px;   /* pour positionner la hauteur du logo */
+	 margin-top: -30px;   /* pour positionner la hauteur du logo */
 	
 }
+
+.page-header {margin-top : 25px;} /* pour positionner la hauteur des boutons */
