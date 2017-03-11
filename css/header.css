@@ -28,7 +28,7 @@ donne le code ci dessous pour les couleurs de la navbar
 }
 .navbar-brand>img {
   height: 220%;   /*la taille du logo */
-  padding: 0px; /* firefox bug fix /
+  padding: 0px; /* firefox bug fix */
   
 }
 
