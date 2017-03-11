@@ -568,7 +568,7 @@
 	    public function generatePassword() {
 	    	//génération d'un mot de passe aléatoire pour le nouveau compte
 			//https://www.it-connect.fr/php-generateur-de-mot-de-passe-parametrable/
-			$caract = "ABCDEFGHIJKLMNOPQRSTYVWXYZabcdefghijklmnopqrstuvwyxz0123456789@!:;,/?*$=+";
+			$caract = "ABCDEFGHIJKLMNOPQRSTYVWXYZabcdefghijklmnopqrstuvwyxz0123456789@*$=+";
 			$possible_lenght = [9,10,11,12,12,13,14,15,16,17,18];
 			$lenght = $possible_lenght[mt_rand(0,(count($possible_lenght)-1))];
 			$nb_caract_possible = strlen($caract);
@@ -605,25 +605,6 @@
 	    			-getAuthorNews
 	    		-editAuthor
 	    		-deleteAuthor    	
-	    */
-	    
-
-	    /*
-	    public function recupereMaTete()
-	    {
-	    	$query = $this->conn->prepare("SELECT * FROM ma_tete_est_partout;");
-	    	//$query-> bindValue(1,$nom);
-	    	$result = array();
-	    	if ($query->execute()) 
-	    	{
-	    		$i=0;
-	    		while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-	    			$result[$i]=$row['cokin'];
-	    			$i++;
-	    		}
-	    	}
-	    	return $result;
-	    }
 	    */
 	}
 ?>
