@@ -1,11 +1,12 @@
 <?php	
 	
+	setLanguage();
+
 	$sql = SQL::getInstance();
 	$conn = $sql->getBoolConnexion();
 	//$sql->createTables();
 	
-	session_start();
-	include("./views/include/set_lang_cookie.php");
+	session_start();	
 	$logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
 	$user_logged = (isset($_SESSION['user_logged'])) ? $_SESSION['user_logged'] : false;
 

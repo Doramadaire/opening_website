@@ -1,7 +1,8 @@
 <?php
 
+    setLanguage();
+
 	session_start();
-	include("./views/include/set_lang_cookie.php");
 	$user_logged = (isset($_SESSION['user_logged'])) ? $_SESSION['user_logged'] : false;
 
 	if (!$user_logged) {$infraction = "vous n'avez pas le droit d'accéder à cette page";}
