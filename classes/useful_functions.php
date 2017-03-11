@@ -22,7 +22,7 @@
     */
     function setLanguage()
     {  
-        if (isset($_GET['lang']) {
+        if (isset($_GET['lang'])) {
             //L'utilisateur a demandé une langue
             if ($_GET['lang']=='fr') {
                 $lang = 'fr';
