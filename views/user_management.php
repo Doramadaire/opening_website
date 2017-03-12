@@ -25,14 +25,22 @@
 	<?php   	} else { ?>
 					<div class="container"> 
 						<div class="row">
-						<h1 class="Section">Page de gestion des utilisateurs</h1>
-							<br>
-							<p>Rechercher les informations sur un utilisateur</p>
-							<p>En construction</p>
+							<h1 class="Section">Page de gestion des utilisateurs</h1>
+							<h2>En construction</h2>
+							</div>
+
+						<div class="row thumbnail">
+							<p>Rechercher les informations sur un utilisateur</p>							
 							<!-- pouvoir faire une recherche sur les utilisateurs avec le mail - avoir l'info date de la cotis'-->
+							<?php  if (isset($msg_user_search)) { echo $msg_user_search."<br>";} ?>
+							<form action="" method="POST">
+								<label for="user_type">Quel utilisateur cherches-tu?</label><br>
+								<input type="text" name="mail" placeholder="mail" required>
+								<input type="submit" name="search_user_form" value="Rechercher l'utilisateur">	
+							</form>	
 						</div>
 
-						<div class="row">
+						<div class="row thumbnail">
 							<p>Création d'un compte utilisateur du site</p>
 							<?php  if (isset($msg_new_user)) { echo $msg_new_user."<br>";} ?> 
 							<!-- TO DO : la patie du controlleur, création mdp aléatoire, et envoi d'un mail! -->
@@ -50,7 +58,7 @@
 							</form>	 
 						</div>
 
-						<div class="row">
+						<div class="row thumbnail">
 							<p>Ajout d'un artiste</p>
 							<!-- TO DO : 
 							d'abord récupérer l'id_user du compte utilisateur à associer au compte

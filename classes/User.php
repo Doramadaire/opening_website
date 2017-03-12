@@ -130,6 +130,16 @@
 		{
 			$this->subscription_date = $subscription_date;
 		}
+
+		/**
+		* Donnes une représentation de cet utilisateur sous forme de string
+		*
+		* @param void
+		*/
+		public function toString()
+		{
+			return "User - id=$this->id; mail=$this->mail; status=$this->status; subscription_date=$this->subscription_date";
+		}
 	}
 
 ?>

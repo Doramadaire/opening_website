@@ -227,17 +227,39 @@
 	    }
 	   
 
-	     /**
-	     * Méthode qui récupère un user en le cherchant grâce à son mail
-	     * 
-	     *
-	     * @param $mail : le mail de l'utilisateur
-	     * @return User : l'objet User qui correspond à l'utilisateur trouvé 
-	     */
-	    public function getUserByMail($mail)
+	    /**
+	    * Méthode qui récupère un user en le cherchant grâce à son mail
+	    * 
+	    *
+	    * @param $mail : le mail de l'utilisateur
+	    * @return User : l'objet User qui correspond à l'utilisateur trouvé 
+	    */
+	    public function getUserByExactMail($mail)
 	    {
 	    	$user_serialized = null;
 	    	$query = $this->conn->prepare("SELECT * FROM users WHERE mail=?;");
+	    	$query-> bindValue(1,$mail);
+	    	if ($query->execute()) 
+	    	{
+	    		while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+	    			$user = new User($row['id_user'], $row['mail'], $row['status'], $row['subscription_date']);
+	    			$user_serialized = serialize($user);
+	    		}
+	    	}
+	    	return $user_serialized;
+	    }
+
+	    /**
+	    * Méthode qui récupère un user en le cherchant grâce à son mail
+	    * 
+	    *
+	    * @param $mail : le mail de l'utilisateur
+	    * @return User : l'objet User qui correspond à l'utilisateur trouvé 
+	    */
+	    public function getUserByMail($mail)
+	    {
+	    	$user_serialized = null;
+	    	$query = $this->conn->prepare("SELECT * FROM users WHERE mail LIKE ?;");
 	    	$query-> bindValue(1,$mail);
 	    	if ($query->execute()) 
 	    	{

@@ -10,7 +10,7 @@
 		//on crée un compte que pour un mail valide
 		$new_user_mail = stripslashes($_POST['mail']);
 		if (filter_var($new_user_mail, FILTER_VALIDATE_EMAIL)) {
-			//Le mail est pas à un format valide			
+			//Le mail est bien à un format valide			
 			$sql = SQL::getInstance();
 			$conn = $sql->getBoolConnexion();
 			$user = unserialize($sql->getUserByMail($new_user_mail));			
@@ -65,6 +65,23 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\r\n";
 			}						
 		} else { 
 			$msg_new_user = "Erreur lors de la création du compte : l'adresse mail spécifiée est invalide";
+		}
+	}
+
+	if (isset($_POST['search_user_form'])) {
+		$mail_searched = stripslashes($_POST['mail']);		
+		$sql = SQL::getInstance();
+		$conn = $sql->getBoolConnexion();
+		$user_searched = unserialize($sql->getUserByMail('%'.$mail_searched.'%'));			
+
+		if ($user_searched != null) {
+			//Trouvé!
+			$msg_user_search = $user_searched->toString();
+		} else {
+			//aucun compte n'existe avec cette adresse
+			//faire variable booléenne qui vaut true si on affiche un message
+			//le message est définie dans la constanste...
+			$msg_user_search = "Utilisateur pas trouvé";
 		}
 	}
 

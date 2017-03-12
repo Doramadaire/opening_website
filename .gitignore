@@ -1,0 +1,3 @@
+# exclude all database
+/*.db
+/mdp.txt
