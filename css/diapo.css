@@ -3,5 +3,9 @@
             margin: auto;
 	  
 	  }
-#myCarousel {width : 75%;
-margin: auto;}
+      
+#myCarousel {
+    width : 75%;
+    margin: auto;
+    margin-bottom: 20px;
+}

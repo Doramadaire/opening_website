@@ -5,12 +5,12 @@
         <title>Opening</title>
         <!-- Import des fichiers spécifiques à cette page -->
 		<link href="css/index.css" rel="stylesheet">
+        <link href="css/diapo.css" rel="stylesheet">
 	</head>
   
 	<body>
 		<?php include("include/header.php"); ?> 
-		<?php include("include/diapo.php"); ?> 
-					
+		<?php include("include/diapo.php"); ?> 					
 		
 <div class="container-fluid">	
 <div class="row">

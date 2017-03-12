@@ -1,5 +1,3 @@
-<link href="css/diapo.css" rel="stylesheet">
-
 <div class="container">
   <br>
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -41,4 +39,3 @@
     </a>
   </div>
 </div>
-<br><br>

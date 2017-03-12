@@ -1,40 +1,24 @@
-.page-header {
-	background-color: #FFFFFF ; /*Couleur de fond*/
-	color : white;
-    font-family: "Arial", cursive, sans-serif;
-}
-
-
 /* http://work.smarchal.com/twbscolor/css/e74c3cc0392becf0f1ffbbbc0  
 donne le code ci dessous pour les couleurs de la navbar
 */
 
-.navbar-default {
+.page-header {
+  background-color: #FFFFFF ; /*Couleur de fond*/
+  color : white;
+  font-family: "Arial", cursive, sans-serif;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0px;
+}
+
+.navbar {
   background-color: #FFFFFF;
   border-color: #FFFFFF;
+  margin-bottom: 0px;
+  height: inherit;
 }
 
-.navbar-default .navbar-brand {
-  width: 220px;  /* a quel endroit les boutons de la navbar commencent (horizontalement)*/
-  
+#logo {  
+  width: 100px;   /*la taille du logo */ 
+  height: auto;   /*la taille du logo */ 
 }
-
-.navbar-wrapper {
-    margin-top: 0px;   /* pour positionner la hauteur de la barre de navigation */
-  }
-  
-.navbar-brand {
-  padding: 0px; /* firefox bug fix */
-}
-.navbar-brand>img {
-  height: 220%;   /*la taille du logo */
-  padding: 0px; /* firefox bug fix */
-  
-}
-
-.logo {
-	 margin-top: -30px;   /* pour positionner la hauteur du logo */
-	
-}
-
-.page-header {margin-top : 25px;} /* pour positionner la hauteur des boutons */
