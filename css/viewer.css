@@ -406,9 +406,9 @@ opacity : 1;
 }
 
 .viewer-transition {
-  -webkit-transition: all .3s ease-out;
-       -o-transition: all .3s ease-out;
-          transition: all .3s ease-out;
+  -webkit-transition: all 0.00001s ease-out;
+       -o-transition: all 0.00001s ease-out;
+          transition: all 0.00001s ease-out;
 }
 
 @media (max-width: 767px) {
