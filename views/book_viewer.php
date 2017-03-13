@@ -9,7 +9,6 @@
 		
 		 <!-- Scripts liseuse -->
         <script src="js/jquery.min.js"></script>
-        <script src="js/viewer.js"></script>
         <script src="js/main.js"></script>
 		
         <!-- Fichiers maison -->
@@ -111,8 +110,9 @@
 </div>
 	
 <br><br><br><br>
-	<?php include("include/footer.php"); ?> 	
+	<?php include("include/footer.php"); ?>
 
+    <script src="js/viewer.js"></script>
            
 	</body>
 </html>
