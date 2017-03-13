@@ -16,7 +16,7 @@
 			<!-- 
 			TO DO : prévoir fonction qui affiche erreur
 			-->
-			Vous n'avez pas le droit d'accéder à cette page		
+			<?php echo TXT_INTERDICTION; ?>
 	<?php } else {
 				if ($user_logged->getUserStatus()===4) { ?>
 					<!-- L'user connecté est un auteur
@@ -24,16 +24,16 @@
 					pouvoir en ajouter
 					autres fonctionnalités
 					--> <div class="row">
-					<h1 class="Section"> Page de gestion de vos oeuvres </h1>
-					Bienvenue cher artiste
+					<h1 class="Section"> <?php echo TXT_GESTION_BOOK_AUTEUR; ?> </h1>
+					
 					</div>
 	<?php   	} else if ($user_logged->getUserStatus()===5) { ?>
 					<!-- L'user connecté est un admin -->
 					<div class="row">
 					<h1 class="Section">
-						Page de gestion des oeuvres
+						<?php echo TXT_GESTION_BOOK_ADMIN; ?>
 					</h1>
-					Bienvenue cher admin!
+					
 					</div>
 					<!-- TO DO : rajouter fonctionnalités...
 					rajouter en base un livre -->

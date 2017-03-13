@@ -21,38 +21,38 @@
       <div  class="caption">
 		 
         <?php if ($user_logged) { ?>
-			<h3>Bonjour <?php echo $user_logged->getUserMail(); ?></h3>
+			<h3><?php echo TXT_BONJOUR; ?> <?php echo $user_logged->getUserMail(); ?></h3>
 			
 			<?php 	switch($_SESSION['user_logged']->getUserStatus()) 
 					{
 							     case 2:  ?>
-					Vous pouvez : <br> 
-						<ul> <li><a href="book_viewer.php">Parcourir la collection (seulement des extraits)</a></li> 
-							 <li><a href="user_settings.php">Gérer votre compte</a></li> </ul>
+					<?php echo TXT_MENU; ?> : <br> 
+						<ul> <li><a href="book_viewer.php"><?php echo TXT_RECHERCHE_EXTRAITS; ?></a></li> 
+							 <li><a href="user_settings.php"><?php echo TXT_COMPTE; ?></a></li> </ul>
 							 
 					<?php break; case 3:  ?>
-					Vous pouvez : <br> 
-						<ul> <li><a href="book_viewer.php">Parcourir la collection</a></li> 
-							 <li><a href="user_settings.php">Gérer votre compte</a></li> </ul>
+					<?php echo TXT_MENU; ?> <br> 
+						<ul> <li><a href="book_viewer.php"><?php echo TXT_RECHERCHE; ?></a></li> 
+							 <li><a href="user_settings.php"><?php echo TXT_COMPTE; ?></a></li> </ul>
 							 
 					<?php break; case 4:	?>
-					Vous pouvez : <br> 
+					<?php echo TXT_MENU; ?><br> 
 					
-						<ul> <li><a href="book_viewer.php">Parcourir la collection</a></li> 
-							 <li><a href="user_settings.php">Gérer votre compte</a></li> 
-							 <li><a href="book_management.php">Gérer vos oeuvres</a></li>  </ul>
+						<ul> <li><a href="book_viewer.php"><?php echo TXT_RECHERCHE; ?></a></li> 
+							 <li><a href="user_settings.php"><?php echo TXT_COMPTE; ?></a></li> 
+							 <li><a href="book_management.php"><?php echo TXT_OEUVRES; ?></a></li>  </ul>
 							 
 					<?php break; case 5: ?>
-					Vous pouvez : <br> 
-						<ul> <li><a href="book_viewer.php">Parcourir la collection</a></li> 
-							 <li><a href="user_settings.php">Gérer votre compte</a></li>							 
-							 <li><a href="book_management.php">Gérer les oeuvres</a></li>
-							 <li><a href="user_management.php">Gérer les membres</a></li></ul>
+					<?php echo TXT_MENU; ?><br> 
+						<ul> <li><a href="book_viewer.php"><?php echo TXT_RECHERCHE; ?></a></li> 
+							 <li><a href="user_settings.php"><?php echo TXT_COMPTE; ?></a></li>							 
+							 <li><a href="book_management.php"><?php echo TXT_OEUVRES_ADMIN; ?></a></li>
+							 <li><a href="user_management.php"><?php echo TXT_COMPTES_ADMIN; ?></a></li></ul>
 							 
 					<?php break;} ?>
 			
 			<form action="" method="POST">
-				<input class="btn btn-primary" role="button" type="submit" name="loggout_form" value="Se déconnecter">
+				<input class="btn btn-primary" role="button" type="submit" name="loggout_form" value=<?php echo '"'.TXT_SE_DECONNECTER.'"'; ?>>
 			</form>
 		<?php } else { ?>
 			<h3><?php echo TXT_CONNEXION; ?></h3>
@@ -60,7 +60,7 @@
 			<form action="" method="POST">
 				<input type="text" name="mail" placeholder="e-mail"> <br>
 				<input type="password" name="password" placeholder="mot de passe">  <br><br>
-				<p><input class="btn btn-primary" role="button" type="submit" name="logging_form" value="Se connecter"></p>
+				<p><input class="btn btn-primary" role="button" type="submit" name="logging_form" value=<?php echo '"'.TXT_SE_CONNECTER.'"'; ?>></p>
 			</form> 
 			 <a onclick="hideThis('oubli')">Mot de passe oublié? </a>	 
 			 <?php 	if (isset($reset_pswd_error)) {echo '<p class="error_message">'.$reset_pswd_error.'<p>';}?> 

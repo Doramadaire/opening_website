@@ -15,22 +15,22 @@
 			<!-- 
 			TO DO : prévoir fonction qui affiche erreur
 			-->
-			Vous n'avez pas le droit d'accéder à cette page		
+			<?php echo TXT_INTERDICTION; ?>	
 	<?php } else {
 				if ($user_logged->getUserStatus()!==5) { ?>
 					<!-- 
 					TO DO : prévoir fonction qui affiche erreur
 					-->
-					Vous n'avez pas le droit d'accéder à cette page	
+					<?php echo TXT_INTERDICTION; ?>
 	<?php   	} else { ?>
 					<div class="container"> 
 						<div class="row">
-							<h1 class="Section">Page de gestion des utilisateurs</h1>
+							<h1 class="Section"><?php echo TXT_GESTION_DES_UTILISATEURS; ?></h1>
 							<h2>En construction</h2>
 							</div>
 
 						<div class="row thumbnail">
-							<p>Rechercher les informations sur un utilisateur</p>							
+							<p><?php echo TXT_RECHERCHE_UTILISATEUR; ?></p>							
 							<!-- pouvoir faire une recherche sur les utilisateurs avec le mail - avoir l'info date de la cotis'-->
 							<?php  if (isset($msg_user_search)) { echo $msg_user_search."<br>";} ?>
 							<form action="" method="POST">
@@ -41,7 +41,7 @@
 						</div>
 
 						<div class="row thumbnail">
-							<p>Création d'un compte utilisateur du site</p>
+							<p><?php echo TXT_NOUVEL_UTILISATEUR; ?></p>
 							<?php  if (isset($msg_new_user)) { echo $msg_new_user."<br>";} ?> 
 							<!-- TO DO : la patie du controlleur, création mdp aléatoire, et envoi d'un mail! -->
 							<form action="" method="POST">
