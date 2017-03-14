@@ -36,7 +36,7 @@
 							<form action="" method="POST">
 								<label for="user_type">Quel utilisateur cherches-tu?</label><br>
 								<input type="text" name="mail" placeholder="mail" required>
-								<input type="submit" name="search_user_form" value="Rechercher l'utilisateur">	
+								<input type="submit" name="search_user_form" class="btn btn-primary" value="Rechercher l'utilisateur">	
 							</form>	
 						</div>
 
@@ -54,7 +54,7 @@
 								</select>
 								<input type="text" name="mail" placeholder="mail" required>
 								<input type="date" name="subscripion_end_date" placeholder="Date AAAA-MM-JJ" required>
-								<input type="submit" name="new_user_form" value="Créer l'utilisateur">	
+								<input type="submit" name="new_user_form" class="btn btn-primary" value="Créer l'utilisateur">	
 							</form>	 
 						</div>
 
@@ -68,7 +68,7 @@
 							<form action="" method="POST">
 								<input type="text" name="mail" placeholder="mail" required>
 								<input type="date" name="subscripion_end_date" placeholder="Date AAAA-MM-JJ" required>
-								<input type="submit" name="new_author_form" value="Ajout de l'artiste">	
+								<input type="submit" name="new_author_form" class="btn btn-primary" value="Ajout de l'artiste">	
 							</form>	 
 						</div>
 					</div>	

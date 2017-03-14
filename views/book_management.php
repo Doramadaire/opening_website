@@ -39,12 +39,17 @@
 					rajouter en base un livre -->
 					
 					<br>
-					<div class="row">
+					<div class="row thumbnail">
 						<p>Paramétrage d'un objet book</p>
 						<!-- TO DO : la patie du controlleur -->
 						<form action="" method="POST" enctype="multipart/form-data">
-							<input type="file" name="book_file">
-							<input type="submit" name="new_book_form" value="Créer le book">	
+						
+							<div class="fileUpload btn btn-primary">
+								<span>Upload</span>
+								<input type="file" class="book_file" />
+							</div>
+							<br>
+							<input type="submit" class="btn btn-primary" name="new_book_form" value="Créer le book">	
 						</form>	 
 					</div>			
 	<?php  	}	 
