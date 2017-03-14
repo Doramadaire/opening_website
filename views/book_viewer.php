@@ -79,6 +79,9 @@
     	</div>
         <!-- DEVEVDV mettre une marge en CSS plutot que un br? -->
         <br>
+        <div class="row fliphtml5">
+            <iframe title="opening-book" frameborder="0" type="text/html" width="700" height="700" src="http://online.fliphtml5.com/izscb/rgzc/" allowfullscreen="true" scroll="no" marginwidth="0" marginheight="0"></iframe>
+        </div>
         <div class="row">
             <div class="thumbnail">
                 <h3>À propos</h3>

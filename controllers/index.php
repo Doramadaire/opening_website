@@ -23,7 +23,7 @@
 		if ($mail_received != '') {
 			if ($sql->checkUserPassword($mail_received, $pswd_received)) {
 				#Identifiants et mdp corrects, on peut connecter notre visiteur
-				$user_retrieved = $sql->getUserByMail($mail_received);
+				$user_retrieved = $sql->getUserByExactMail($mail_received);
 				$user_logged = unserialize($user_retrieved);
 				$_SESSION['user_logged'] = $user_logged;
 				} else {
@@ -39,7 +39,7 @@
 	}
 
 	if (isset($_POST['pswd_forgotten_form'])) {			
-		$user = unserialize($sql->getUserByMail($_POST['mail_pswd_forgotten']));
+		$user = unserialize($sql->getUserByExactMail($_POST['mail_pswd_forgotten']));
 		if ($user == null) {
 			$reset_pswd_error = "Aucun compte n'existe pour le mail <i>".$_POST['mail_pswd_forgotten']."</i>";
 		} else {
