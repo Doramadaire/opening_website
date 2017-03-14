@@ -59,13 +59,15 @@
 						</div>
 
 						<div class="row thumbnail">
-							<p>Ajout d'un artiste</p>
+							<p>Création d'un compte artiste</p>
 							<!-- TO DO : 
 							d'abord récupérer l'id_user du compte utilisateur à associer au compte
 							champ pour le nom
 							champ pour taper la description - on stocke le path du fichier
 							champ pour taper les news - on stocke le path du fichier -->
 							<form action="" method="POST">
+								<input type="text" name="mail" placeholder="mail" required>
+								<input type="date" name="subscripion_end_date" placeholder="Date AAAA-MM-JJ" required>
 								<input type="submit" name="new_author_form" value="Ajout de l'artiste">	
 							</form>	 
 						</div>

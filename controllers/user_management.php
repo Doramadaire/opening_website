@@ -72,11 +72,14 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\r\n";
 		$mail_searched = stripslashes($_POST['mail']);		
 		$sql = SQL::getInstance();
 		$conn = $sql->getBoolConnexion();
-		$user_searched = unserialize($sql->getUserByMail('%'.$mail_searched.'%'));			
+		$retrieved_users = $sql->getUserByMail('%'.$mail_searched.'%');			
 
-		if ($user_searched != null) {
+		if ($retrieved_users != null) {
 			//Trouvé!
-			$msg_user_search = $user_searched->toString();
+			$msg_user_search = "";
+			foreach ($retrieved_users as $index => $user) {
+				$msg_user_search = $msg_user_search.$user->toString()."<br>";
+			}
 		} else {
 			//aucun compte n'existe avec cette adresse
 			//faire variable booléenne qui vaut true si on affiche un message

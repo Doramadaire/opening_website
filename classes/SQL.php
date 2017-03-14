@@ -107,6 +107,12 @@
 						);");
 	        if (!($query->execute())) {return false;}
 	        $query->closeCursor();
+	        //ajouter CV
+
+
+
+
+
 
 	        $query = $this->conn->prepare("CREATE TABLE IF NOT EXISTS 
 	        	books(	'id_book' INTEGER PRIMARY KEY NOT NULL,
@@ -258,17 +264,17 @@
 	    */
 	    public function getUserByMail($mail)
 	    {
-	    	$user_serialized = null;
+	    	$retrieved_users = array();
 	    	$query = $this->conn->prepare("SELECT * FROM users WHERE mail LIKE ?;");
 	    	$query-> bindValue(1,$mail);
 	    	if ($query->execute()) 
 	    	{
 	    		while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
 	    			$user = new User($row['id_user'], $row['mail'], $row['status'], $row['subscription_date']);
-	    			$user_serialized = serialize($user);
+	    			$retrieved_users[] = $user;
 	    		}
 	    	}
-	    	return $user_serialized;
+	    	return $retrieved_users;
 	    }
 
 	    /**
