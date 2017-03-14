@@ -18,6 +18,12 @@ donne le code ci dessous pour les couleurs de la navbar
   height: inherit;
 }
 
+.navbar-default .navbar-left {
+  width: 150px;  /* a quel endroit les boutons de la navbar commencent*/
+  
+}
+
+
 #logo {  
   width: 100px;   /*la taille du logo */ 
   height: auto;   /*la taille du logo */ 

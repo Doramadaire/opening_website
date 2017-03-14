@@ -4,6 +4,7 @@
         <title>Opening</title>
         <!-- Import des fichiers spécifiques à cette page -->
         <link href="css/book_management.css" rel="stylesheet">
+		
 	</head>
 	<body>
 
@@ -43,7 +44,6 @@
 						<p>Paramétrage d'un objet book</p>
 						<!-- TO DO : la patie du controlleur -->
 						<form action="" method="POST" enctype="multipart/form-data">
-						
 							<div class="fileUpload btn btn-primary">
 								<span>Upload</span>
 								<input type="file" class="book_file" />

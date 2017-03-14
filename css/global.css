@@ -1,3 +1,71 @@
+/* 
+Les couleurs :
+Des couleurs sont déjà associées à certains noms.
+On peut donc par exemple écrire :
+--couleur_texte : white;
+
+Les noms de couleurs reconnus sont (entre autres) : blue, black, gray, silver, aqua, navy,
+teal, green, olive, lime, yellow, orange, red, fuchsia, purple, maroon, darken-1, darken-2, darken-3
+
+Pour sélectionner une couleur précise avec un code Hex, il existe de nombreux sites ou outils : 
+http://www.rapidtables.com/web/color/RGB_Color.htm#color%20picker
+
+Border radius : 
+Augmenter border radius permet d'arrondir les boutons. 
+un border radius égal à 0 donne des boutons rectangulaires.
+
+
+*/
+
+
+/* déclaration des variables dans la pseudo-classe root */
+:root {
+  --couleur_texte: white;
+  --couleur_arriere_plan_bouton: #006dcc;
+  --border_radius : 5px;
+}
+
+
+/* personnalisation des boutons */
+.btn-primary {
+  color: var(--couleur_texte);
+  background-color: var(--couleur_arriere_plan_bouton);
+  border-radius: var(--border_radius);
+}
+
+/*passage de la souris au dessus du bouton */
+.btn-primary:hover {
+  box-shadow: inset 0 0 0 20rem var(--darken-1);
+}
+/* clic souris enfoncé sur le bouton*/
+.btn-primary:active {
+  box-shadow: inset 0 0 0 20rem var(--darken-2),
+    inset 0 3px 4px 0 var(--darken-3),
+    0 0 1px var(--darken-2);
+}
+
+.btn-primary:disabled,
+.btn-primary.is-disabled {
+  opacity: .5;
+}
+
+
+}
+
+.btn-primary:hover {
+  box-shadow: inset 0 0 0 20rem var(--darken-1);
+}
+
+
+
+
+
+
+
+
+
+
+
 .hide_first{
    display:none;
 }
