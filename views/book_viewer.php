@@ -50,10 +50,14 @@
                         <li hidden><img data-original="resources/jpg/page4.jpg" src="resources/jpg/page4.jpg" alt="p4"></li>        
                     </ul>
         	    </div>
+                <br>
+                <div class="row fliphtml5">
+                    <iframe title="opening-book" frameborder="0" type="text/html" width="700" height="700" src="http://online.fliphtml5.com/izscb/rgzc/" allowfullscreen="true" scroll="no" marginwidth="0" marginheight="0"></iframe>
+                </div>                
     		    <?php } else {
     				if ($user_logged->getUserStatus() >= 3) { ?>
-    					
-    		    <div class="docs-galley">          
+    			<!-- DEVDEVDEV t'as le droit de foire le book complet si t'es loggé avec abonnement à jour, ou si t'es auteur et que c'est ton book, ou que t'es admin? -->
+    		    <div class="docs-galley">             
                     <ul class="docs-pictures clearfix">
                         <li width='100%'><img data-original="resources/jpg/page_0000.jpg" src="resources/jpg/page_0000.jpg" alt="p1" width='100%'></li>
                         <li hidden><img data-original="resources/jpg/page1.jpg" src="resources/jpg/page1.jpg" alt="La légende de la page 1 qui est très très très très longue"></li>
@@ -61,7 +65,11 @@
                         <li hidden><img data-original="resources/jpg/page3.jpg" src="resources/jpg/page3.jpg" alt="p3"></li>
                         <li hidden><img data-original="resources/jpg/page4.jpg" src="resources/jpg/page4.jpg" alt="p4"></li>
                     </ul>
-        	    </div>				
+        	    </div>
+                <br>
+                <div class="row fliphtml5">
+                    <iframe title="opening-book" frameborder="0" type="text/html" width="700" height="700" src="http://online.fliphtml5.com/zkoe/irhd/" allowfullscreen="true" scroll="no" marginwidth="0" marginheight="0"></iframe>
+                </div>				
     		<?php  		} else { ?>
     
     	        <div class="docs-galley">    
@@ -73,15 +81,16 @@
                         <li hidden><img data-original="resources/jpg/page4.jpg" src="resources/jpg/page4.jpg" alt="p4"></li>        
                     </ul>
             	</div>
+                <br>
+                <br>
+                <div class="row fliphtml5">
+                    <iframe title="opening-book" frameborder="0" type="text/html" width="700" height="700" src="http://online.fliphtml5.com/izscb/rgzc/" allowfullscreen="true" scroll="no" marginwidth="0" marginheight="0"></iframe>
+                </div>
     		<?php		}		
     			} ?> 	
     	    </div>	
     	</div>
         <!-- DEVEVDV mettre une marge en CSS plutot que un br? -->
-        <br>
-        <div class="row fliphtml5">
-            <iframe title="opening-book" frameborder="0" type="text/html" width="700" height="700" src="http://online.fliphtml5.com/izscb/rgzc/" allowfullscreen="true" scroll="no" marginwidth="0" marginheight="0"></iframe>
-        </div>
         <div class="row">
             <div class="thumbnail">
                 <h3>À propos</h3>
