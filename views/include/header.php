@@ -1,4 +1,3 @@
-<div class="container-fluid">
 <div class="page-header">
   <div class="navbar-wrapper">     
     <!-- Le "nom" de la navbar, et l'allure du bouton sur mobile-->
@@ -7,19 +6,18 @@
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->    
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>  
 		  
-		  <a class="navbar-left" href="index.php"><img class="img-fluid" id="logo" alt="logo" src="resources/logo_cropped.png"></a>
-        
+		  <a class="navbar-left" href="index.php"><img class="img-fluid" id="logo" alt="logo" src="resources/logo_cropped.png"></a>        
               
-		</div>
+		    </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse" id="nav-collapse">
 
           <ul class="nav navbar-nav">
             <li><a href="edito.php"><?php echo TXT_A_PROPOS; ?> </a></li>
@@ -38,10 +36,10 @@
               </ul>
             </li>
           </ul>
-
+          
         </div><!-- /.navbar-collapse -->
+
       </div><!-- /.container-fluid -->
     </nav>
   </div>
-</div>
 </div>
