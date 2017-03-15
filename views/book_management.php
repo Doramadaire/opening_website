@@ -45,8 +45,14 @@
 						<!-- TO DO : la patie du controlleur -->
 						<form action="book_management.php" method="post" enctype="multipart/form-data">
 							<label for="new_book_form"><?php echo TXT_AJOUT_BOOK2; ?></label><br>
-							<?php echo TXT_FICHIER_COMPLET; ?> <input type="file" name="book_file" required/>
-							<?php echo TXT_FICHIER_EXTRAIT; ?> <input type="file" name="book_sample_file" required/>
+							<?php echo TXT_FICHIER_COMPLET; ?> 
+							<div class="fileUpload btn btn-primary"> 
+								<span>Upload</span> <input type="file" class="file_button" name="book_file" required/> 
+							</div> <br>
+							<?php echo TXT_FICHIER_EXTRAIT; ?> 
+							<div class="fileUpload btn btn-primary"> 
+								<span>Upload</span> <input type="file" class="file_button" name="book_sample_file" required/>
+							</div> <br>
 							<!-- Autre façon de faire
 							<div class="fileUpload btn btn-primary">
 								<span>Upload</span>		

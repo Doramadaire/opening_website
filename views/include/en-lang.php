@@ -61,7 +61,7 @@
 	define('TXT_AJOUT_BOOK2', "On va ajouter un book");
 	define('TXT_FICHIER_COMPLET', "Le fichier du book : ");
 	define('TXT_FICHIER_EXTRAIT', "Le fichier de l'extrait : ");
-	define('TXT_COLLECTION', "Le fichier du book : ");
+	define('TXT_COLLECTION', "Collection : ");
 	define('TXT_COLLECTION_OPENINGBOOK', "OpeningBook");
 	define('TXT_COLLECTION_OPENINGBOOK_PHOTO', "OpeningBook Photo");
 	define('TXT_ANNEE', "Année : ");
