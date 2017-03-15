@@ -2,7 +2,7 @@
 <html>
     <head>
         <?php include("include/html_header.php"); ?>
-        <title>Opening</title>
+        <title><?php echo TXT_ONGLET; ?></title>
         <!-- Import des fichiers spécifiques à cette page -->
         <link href="css/join.css" rel="stylesheet">
     </head>
@@ -11,10 +11,10 @@
         <div class="container">
             <div class="row">
                 <h1 class="Section">
-                    <?php echo TXT_ADHESION; ?>
+                    <?php echo TXT_SECTION_ADHESION; ?>
                 </h1>
             </div>
-            <?php echo TXT_ADHESION_TUTO; ?>
+            <?php echo TXT_ADHESION_TEXTE; ?>
         </div>
         <?php include("include/footer.php"); ?> 
     </body>

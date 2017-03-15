@@ -1,7 +1,7 @@
 <html>
 	<head>
         <?php include("include/html_header.php"); ?>
-        <title>OPENING</title>
+        <title><?php echo TXT_ONGLET; ?></title>
         <!-- Import des fichiers spécifiques à cette page -->	
 		<!-- CSS -->
 		<link rel="stylesheet" href="css/viewer.css">

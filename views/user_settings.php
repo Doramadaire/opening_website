@@ -2,7 +2,7 @@
 <html>
 	<head>
         <?php include("include/html_header.php"); ?>
-        <title>Opening</title>
+        <title><?php echo TXT_ONGLET; ?></title>
         <!-- Import des fichiers spécifiques à cette page -->
 		<link rel="stylesheet" href="css/user_settings.css">
 	</head>

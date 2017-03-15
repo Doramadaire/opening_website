@@ -20,16 +20,16 @@
         <div class="collapse navbar-collapse" id="nav-collapse">
 
           <ul class="nav navbar-nav">
-            <li><a href="edito.php"><?php echo TXT_A_PROPOS; ?> </a></li>
-            <li><a href="#"><?php echo TXT_ARTISTES; ?></a></li>
-            <li><a href="contact.php"><?php echo TXT_CONTACT; ?></a></li>
-            <li><a href="join.php"><?php echo TXT_ADHERER; ?></a></li>
+            <li><a href="edito.php"><?php echo TXT_NAVBAR_A_PROPOS; ?> </a></li>
+            <li><a href="#"><?php echo TXT_NAVBAR_ARTISTES; ?></a></li>
+            <li><a href="contact.php"><?php echo TXT_NAVBAR_CONTACT; ?></a></li>
+            <li><a href="join.php"><?php echo TXT_NAVBAR_ADHERER; ?></a></li>
           </ul>
 
          <ul class="nav navbar-nav navbar-right">
            <li><a href="https://www.facebook.com/opening-book-872866662728445/" target="_blank">Facebook</a></li>
            <li><a href="https://twitter.com/opening_asso" target="_blank" >Twitter</a></li>
-           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo TXT_LANGUE; ?><span class="caret"></span></a>
+           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo TXT_NAVBAR_LANGUE; ?><span class="caret"></span></a>
              <ul class="dropdown-menu">
                <li><a href="?lang=fr">Fr</a></li>
                <li><a href="?lang=en">En</a></li>

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<?php include("include/html_header.php"); ?>
-        <title>Opening</title>
+        <title><?php echo TXT_ONGLET; ?></title>
         <!-- Import des fichiers spécifiques à cette page -->
 		<link href="css/contact.css" rel="stylesheet">
 	</head>  
@@ -14,23 +14,10 @@
 <div class="container">  
 <div class="row">
 		<h1 class="Section">
-			Contact
+			<?php echo TXT_SECTION_CONTACT; ?>
 		</h1>		
 </div> 
-
-<p> Association Opening</p>
-
-<p>68 rue des dominicaines </p>
-
-<p>13001 Marseille</p>
-
-<p>tel +33 (0)7 83 30 59 45</p>
-
-<p>mail : <a href="mailto:contact@opening-book.com"> contact@opening-book.com </a> </p>
-
-<p>facebook <a class="" href="#"> <img class="" alt="" src="..."> </a>  </p>
-
-<p>twitter <a class="" href="#"> <img class="" alt="" src="..."> </a>  </p>
+<?php echo TXT_CONTACT_TEXTE; ?>
 
 </div>
 

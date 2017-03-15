@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <?php include("include/html_header.php"); ?>
-        <title>OPENING</title>
+        <title><?php echo TXT_ONGLET; ?></title>
         <link href="css/edito.css" rel="stylesheet">
     </head>
     <body>
@@ -10,7 +10,7 @@
         <div class="container">
             <div class="row">
                 <h1 class="Section">
-                    Edito
+                    <?php echo TXT_SECTION_EDITO; ?>
                 </h1>
             </div>
             <div class="row">

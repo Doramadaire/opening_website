@@ -2,7 +2,7 @@
 <html>
     <head>
         <?php include("include/html_header.php"); ?>
-        <title>Opening</title>
+        <title><?php echo TXT_ONGLET; ?></title>
         <!-- Import des fichiers spécifiques à cette page -->
         <!-- Wowbook -->
         <script type="text/javascript" src="./wow_book/pdf.combined.min.js"></script>
