@@ -41,14 +41,23 @@
 					
 					<br>
 					<div class="row thumbnail">
-						<p>Paramétrage d'un objet book</p>
+						<p>Ajout d'un objet book</p>
 						<!-- TO DO : la patie du controlleur -->
-						<form action="" method="POST" enctype="multipart/form-data">
+						<form action="book_management.php" method="post" enctype="multipart/form-data">
+							<label for="new_book_form">On va ajouter un book</label><br>
+							Le fichier du book : <input type="file" name="book_file" required/>
+							Le fichier de l'extrait : <input type="file" name="book_sample_file" required/>
+							<!-- Autre façon de faire
 							<div class="fileUpload btn btn-primary">
-								<span>Upload</span>
-								<input type="file" class="book_file" />
-							</div>
-							<br>
+								<span>Upload</span>		
+								<input type="file" class="book_file" />						
+							</div				-->							
+							<input type="text" name="title" placeholder="titre" required><br>
+							Collection : <select name="collection" required>
+								<option value=2>OpeningBook</option>
+								<option value=3>OpeningBook Photo</option>
+							</select><br>
+							Année : <input type="number" name="year" value="2017" min="2014" required><br>
 							<input type="submit" class="btn btn-primary" name="new_book_form" value="Créer le book">	
 						</form>	 
 					</div>			

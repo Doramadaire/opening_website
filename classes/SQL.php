@@ -109,11 +109,6 @@
 	        $query->closeCursor();
 	        //ajouter CV
 
-
-
-
-
-
 	        $query = $this->conn->prepare("CREATE TABLE IF NOT EXISTS 
 	        	books(	'id_book' INTEGER PRIMARY KEY NOT NULL,
 	        			'title' TEXT UNIQUE NOT NULL,
