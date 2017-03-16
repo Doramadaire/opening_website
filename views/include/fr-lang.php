@@ -47,8 +47,9 @@
 	define('TXT_ADHERER', "Pour adhérer à l'association ou renouveler votre cotisation, vous serez redirigé vers Helloasso.");
 	
 	define('TXT_PLACEHOLDER_MAIL', "e-mail");
-	define('TXT_PLACEHOLDER_MDP', "mot de passe");
-	
+	define('TXT_PLACEHOLDER_FIRSTNAME', "Prénom");
+	define('TXT_PLACEHOLDER_NAME', "Nom");
+	define('TXT_PLACEHOLDER_MDP', "mot de passe");	
 		
 	//---------------------------------------------------------
  	// book_management.php
@@ -112,7 +113,7 @@
 	define('TXT_CREER_COMPTE', "Créer l'utilisateur");
 	
 	define('TXT_NOUVEL_ARTISTE', "Création d'un compte artiste");
-	define('TXT_PLACEHOLDER_NAME', "Nom");	
+	define('TXT_PLACEHOLDER_ARTIST_NAME', "Pseudo");	
 	define('TXT_AUTHOR_SUBMIT_CV', "Fichier PDF du CV de l'artiste (optionnel)");	
 	define('TXT_CREER_ARTISTE', "Ajout de l'artiste");		
 	

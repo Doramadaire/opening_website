@@ -52,6 +52,8 @@
 									<option value=4><?php echo TXT_TYPE_ARTISTE; ?></option>
 									<option value=5><?php echo TXT_TYPE_ADMINISTRATEUR; ?></option>
 								</select>
+								<input type="text" name="firstname" placeholder=<?php echo '"'.TXT_PLACEHOLDER_FIRSTNAME.'"'; ?> >
+								<input type="text" name="name" placeholder=<?php echo '"'.TXT_PLACEHOLDER_NAME.'"'; ?> >
 								<input type="text" name="mail" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MAIL.'"'; ?> required>
 								<input type="date" name="subscripion_end_date" placeholder=<?php echo '"'.TXT_PLACEHOLDER_DATE.'"'; ?> required>
 								<input type="submit" name="new_user_form" class="btn btn-primary" value=<?php echo '"'.TXT_CREER_COMPTE.'"'; ?>>	
@@ -66,8 +68,10 @@
 							champ pour taper la description - on stocke le path du fichier
 							champ pour taper les news - on stocke le path du fichier -->
 							<form action="" method="POST" enctype="multipart/form-data">
+								<input type="text" name="firstname" placeholder=<?php echo '"'.TXT_PLACEHOLDER_FIRSTNAME.'"'; ?> >
+								<input type="text" name="name" placeholder=<?php echo '"'.TXT_PLACEHOLDER_NAME.'"'; ?> >
 								<input type="text" name="mail" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MAIL.'"'; ?>  required>
-								<input type="text" name="name" placeholder=<?php echo '"'.TXT_PLACEHOLDER_NAME.'"'; ?>  required>
+								<input type="text" name="artist_name" placeholder=<?php echo '"'.TXT_PLACEHOLDER_ARTIST_NAME.'"'; ?>  required>
 								<input type="date" name="subscripion_end_date" placeholder=<?php echo '"'.TXT_PLACEHOLDER_DATE.'"'; ?>  required>
 								<!-- <br><?php echo TXT_AUTHOR_SUBMIT_CV; ?><input type="file" name="author_cv_file"/> -->
 								<input type="submit" name="new_author_form" class="btn btn-primary" value=<?php echo '"'.TXT_CREER_ARTISTE.'"'; ?> >	

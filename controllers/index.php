@@ -4,7 +4,7 @@
 
 	$sql = SQL::getInstance();
 	$conn = $sql->getBoolConnexion();
-	//$sql->createTables();
+	$sql->createTables();
 	
 	session_start();	
 	$logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
@@ -70,7 +70,7 @@
 	$sql->addUser($compte3, "3mdp");	
 	$sql->addUser($compte4, "4mdp");	
 	$sql->addUser($compte5, "5mdp");
-	*/
+	*/	
 	
 	/*
 	$unUser = $sql->getUserByMail("hophop@hip.com");

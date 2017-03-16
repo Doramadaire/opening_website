@@ -111,7 +111,7 @@
 		*/
 		public function getUserFirstMail()
 		{
-			return $this->$mail_at_account_creation;
+			return $this->mail_at_account_creation;
 		}
 
 		/**
@@ -121,7 +121,7 @@
 		*/
 		public function getUserFirstname()
 		{
-			return $this->$firstname;
+			return $this->firstname;
 		}
 
 		/**
@@ -131,7 +131,7 @@
 		*/
 		public function getUserName()
 		{
-			return $this->$name;
+			return $this->name;
 		}
 
 		/**

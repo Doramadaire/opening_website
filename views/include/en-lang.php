@@ -47,6 +47,8 @@
 	define('TXT_ADHERER', "To join, you have to go...");
 	
 	define('TXT_PLACEHOLDER_MAIL', "e-mail");
+	define('TXT_PLACEHOLDER_FIRSTNAME', "Prénom");
+	define('TXT_PLACEHOLDER_NAME', "Nom");
 	define('TXT_PLACEHOLDER_MDP', "password");
 	
 	
@@ -112,7 +114,7 @@
 	define('TXT_CREER_COMPTE', "Créer l'utilisateur");
 	
 	define('TXT_NOUVEL_ARTISTE', "Création d'un compte artiste");
-	define('TXT_PLACEHOLDER_NAME', "Nom");	
+	define('TXT_PLACEHOLDER_ARTIST_NAME', "Pseudo");	
 	define('TXT_AUTHOR_SUBMIT_CV', "Fichier PDF du CV de l'artiste (optionnel)");
 	define('TXT_CREER_ARTISTE', "Ajout de l'artiste");
 	
