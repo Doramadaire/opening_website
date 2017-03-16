@@ -182,6 +182,16 @@
 		{
 			$this->$cv_filename = $cv_filename;
 		}
+
+		/**
+		* Donnes une représentation de cet auteur sous forme de string
+		*
+		* @param void
+		*/
+		public function toString()
+		{
+			return "Author - id=$this->id; pseudo=$this->name; associated_user_id=$this->user; description_filename=$this->description_filename; news_filename=$this->news_filename; cv_filename=$this->cv_filename";
+		}
 	}
 
 ?>

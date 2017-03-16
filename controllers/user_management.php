@@ -97,7 +97,27 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\r\n";
 			//aucun compte n'existe avec cette adresse
 			//faire variable booléenne qui vaut true si on affiche un message
 			//le message est définie dans la constanste...
-			$msg_user_search = "Utilisateur pas trouvé";
+			$msg_user_search = "Pas d'utilisateur correspondant trouvé";
+		}
+	}
+
+	if (isset($_POST['search_author_form'])) {
+		$pseudo_searched = stripslashes($_POST['author_pseudo']);		
+		$sql = SQL::getInstance();
+		$conn = $sql->getBoolConnexion();
+		$retrieved_authors = $sql->getAuthorByName('%'.$pseudo_searched.'%');			
+
+		if ($retrieved_authors != null) {
+			//Trouvé!
+			$msg_author_search = "";
+			foreach ($retrieved_authors as $index => $author) {
+				$msg_author_search = $msg_author_search.$author->toString()."<br>";
+			}
+		} else {
+			//aucun compte n'existe avec cette adresse
+			//faire variable booléenne qui vaut true si on affiche un message
+			//le message est définie dans la constanste...
+			$msg_author_search = "Pas d'auteur correspondant trouvé";
 		}
 	}
 

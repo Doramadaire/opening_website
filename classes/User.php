@@ -76,7 +76,7 @@
 		{
 			$this->id = $id;
 			$this->mail = $mail;
-			$this->mail = $mail;
+			$this->mail_at_account_creation = $mail;
 			$this->status = (int) $status;
 			$this->subscription_date = $subscription_date;
 			$this->firstname = $firstname;
@@ -215,7 +215,7 @@
 		*/
 		public function toString()
 		{
-			return "User - id=$this->id; mail=$this->mail; status=$this->status; subscription_date=$this->subscription_date";
+			return "User - id=$this->id; mail=$this->mail; mail_at_account_creation=$this->mail_at_account_creation; firstname=$this->firstname; name=$this->name; status=$this->status; subscription_date=$this->subscription_date";
 		}
 	}
 

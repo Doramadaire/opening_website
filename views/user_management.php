@@ -34,9 +34,20 @@
 							<!-- pouvoir faire une recherche sur les utilisateurs avec le mail - avoir l'info date de la cotis'-->
 							<?php  if (isset($msg_user_search)) { echo $msg_user_search."<br>";} ?>
 							<form action="" method="POST">
-								<label for="user_type"><?php echo TXT_RECHERCHE_QUESTION; ?></label><br>
-								<input type="text" name="mail" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MAIL.'"'; ?> required>
+								<label for="user_type"><?php echo TXT_RECHERCHE_USER_QUESTION; ?></label><br>
+								<input type="text" name="mail" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MAIL.'"'; ?> >
 								<input type="submit" name="search_user_form" class="btn btn-primary" value=<?php echo '"'.TXT_BOUTON_RECHERCHE_UTILISATEUR.'"'; ?>>	
+							</form>	
+						</div>
+
+						<div class="row thumbnail">
+							<p><?php echo TXT_RECHERCHE_AUTHOR; ?></p>							
+							<!-- GERER MESSAGES MIEUX -->
+							<?php  if (isset($msg_author_search)) { echo $msg_author_search."<br>";} ?>
+							<form action="" method="POST">
+								<label for="user_type"><?php echo TXT_RECHERCHE_AUTHOR_QUESTION; ?></label><br>
+								<input type="text" name="author_pseudo" placeholder=<?php echo '"'.TXT_PLACEHOLDER_ARTIST_NAME.'"'; ?> >
+								<input type="submit" name="search_author_form" class="btn btn-primary" value=<?php echo '"'.TXT_BOUTON_SEARCH_AUTHOR.'"'; ?>>	
 							</form>	
 						</div>
 

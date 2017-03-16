@@ -99,9 +99,12 @@
  	//---------------------------------------------------------	
 		
  	define('TXT_GESTION_DES_UTILISATEURS', 'Page de gestion des utilisateurs');
-	define('TXT_RECHERCHE_UTILISATEUR', 'Rechercher les informations sur un utilisateur');
-	define('TXT_RECHERCHE_QUESTION', "Quel utilisateur recherchez-vous?");
-	define('TXT_BOUTON_RECHERCHE_UTILISATEUR', "Rechercher l'utilisateur");
+	define('TXT_RECHERCHE_UTILISATEUR', 'Rechercher des informations sur un utilisateur');
+	define('TXT_RECHERCHE_USER_QUESTION', "Quel utilisateur recherchez-vous?");
+	define('TXT_BOUTON_RECHERCHE_UTILISATEUR', "Rechercher un utilisateur");
+	define('TXT_RECHERCHE_AUTHOR', 'Rechercher des informations sur un auteur');
+	define('TXT_RECHERCHE_AUTHOR_QUESTION', "Quel auteur recherchez-vous?");
+	define('TXT_BOUTON_SEARCH_AUTHOR', "Rechercher un auteur");
 	define('TXT_NOUVEL_UTILISATEUR', "Création d'un compte utilisateur du site");
 	
 	define('TXT_TYPE_COMPTE', "Quel type de compte souhaitez vous créer?");

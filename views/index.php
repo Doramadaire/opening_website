@@ -21,7 +21,7 @@
       <div  class="caption">
 		 
         <?php if ($user_logged) { ?>
-			<h3><?php echo TXT_BONJOUR; ?> <?php echo $user_logged->getUserMail(); ?></h3>
+			<h3><?php echo TXT_BONJOUR; ?> <?php echo $user_logged->getUserFirstname(); ?></h3>
 			
 			<?php 	switch($_SESSION['user_logged']->getUserStatus()) 
 					{

@@ -253,7 +253,9 @@
 	    	if ($query->execute()) 
 	    	{
 	    		while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-	    			$user = new User($row['id_user'], $row['mail'], $row['status'], $row['subscription_date']);
+	    			$firstname = $row['firstname'] !== NULL ? $row['firstname'] : NULL;
+					$name = $row['name'] !== NULL ? $row['name'] : NULL;
+	    			$user = new User($row['id_user'], $row['mail'], $row['status'], $row['subscription_date'], $firstname, $name);
 	    			$user_serialized = serialize($user);
 	    		}
 	    	}
@@ -261,11 +263,11 @@
 	    }
 
 	    /**
-	    * Méthode qui récupère un user en le cherchant grâce à son mail
+	    * Méthode qui récupère un  array d'user en cherchant grâce au mail
 	    * 
 	    *
 	    * @param $mail : le mail de l'utilisateur
-	    * @return User : l'objet User qui correspond à l'utilisateur trouvé 
+	    * @return array(User) : larray d'objets User qui correspond au résultat de la recheche
 	    */
 	    public function getUserByMail($mail)
 	    {
@@ -275,7 +277,9 @@
 	    	if ($query->execute()) 
 	    	{
 	    		while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-	    			$user = new User($row['id_user'], $row['mail'], $row['status'], $row['subscription_date']);
+	    			$firstname = $row['firstname'] !== NULL ? $row['firstname'] : NULL;
+					$name = $row['name'] !== NULL ? $row['name'] : NULL;
+	    			$user = new User($row['id_user'], $row['mail'], $row['status'], $row['subscription_date'], $firstname, $name);
 	    			$retrieved_users[] = $user;
 	    		}
 	    	}
@@ -311,7 +315,7 @@
 	     * @param $name : le nom de l'auteur
 	     * @return Author : l'objet Author qui correspond à l'auteur trouvé 
 	     */
-	    public function getAuthorByName($name)
+	    public function getAuthorByExactyName($name)
 	    {
 	    	$author_serialized = null;
 	    	$query = $this->conn->prepare("SELECT * FROM authors WHERE name=?;");
@@ -319,11 +323,38 @@
 	    	if ($query->execute()) 
 	    	{
 	    		while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-	    			$author = new Author($row['id_author'], $row['name'], $row['user'], $row['description_filename'], $row['news_filename']);
-	    			$author_serialized = serialize($author);
+	    			$description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
+					$news_filename = $row['news_filename'] !== NULL ? $row['news_filename'] : NULL;
+					$cv_filename = $row['cv_filename'] !== NULL ? $row['cv_filename'] : NULL;
+	    			$author = new Author($row['id_author'], $row['name'], $row['user'], $description_filename, $news_filename, $cv_filename);	    			$author_serialized = serialize($author);
 	    		}
 	    	}
 	    	return $author_serialized;
+	    }
+
+	    /**
+	     * Méthode qui récupère une liste d'auteurs correspondant à la recherche
+	     * 
+	     *
+	     * @param $name : le nom de l'auteur
+	     * @return array(Author) : l'array d'objets Author qui correspond aux auteurs trouvés
+	    */
+	    public function getAuthorByName($name)
+	    {
+	    	$retrieved_authors = array();
+	    	$query = $this->conn->prepare("SELECT * FROM authors WHERE name LIKE ?;");
+	    	$query-> bindValue(1,$name);
+	    	if ($query->execute()) 
+	    	{
+	    		while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+	    			$description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
+					$news_filename = $row['news_filename'] !== NULL ? $row['news_filename'] : NULL;
+					$cv_filename = $row['cv_filename'] !== NULL ? $row['cv_filename'] : NULL;
+	    			$author = new Author($row['id_author'], $row['name'], $row['user'], $description_filename, $news_filename, $cv_filename);
+	    			$retrieved_authors[] = $author;
+	    		}
+	    	}
+	    	return $retrieved_authors;
 	    }
 
 	    /**
