@@ -47,7 +47,7 @@
                 pageNumbers: false,                
                 centeredWhenClosed : true,
                 container: true,
-                gutterShadow: false,
+                //gutterShadow: false,
                 toolbar : "lastLeft, left, right, lastRight, zoomin, zoomout, slideshow, fullscreen, thumbnails",              
                 pdf: "resources/books/OPENINGBOOK_002.pdf"
             };

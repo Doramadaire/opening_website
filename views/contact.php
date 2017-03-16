@@ -8,26 +8,19 @@
 	</head>  
 	<body>
 		<?php include("include/header.php"); ?> 
-
-
    
-<div class="container">  
-<div class="row">
-		<h1 class="Section">
-			<?php echo TXT_SECTION_CONTACT; ?>
-		</h1>		
-</div> 
-<?php echo TXT_CONTACT_TEXTE; ?>
+		<div class="container">  
+			<div class="row">
+				<h1 class="Section">
+					<?php echo TXT_SECTION_CONTACT; ?>
+				</h1>		
+			</div class="row"> 
+			<div class="row">
+				<?php echo TXT_CONTACT_TEXTE; ?>
+			</div>
+		</div>
 
-</div>
+		<?php include("include/footer.php"); ?> 
 
-<?php include("include/footer.php"); ?> 
-
-
-
-	</body>
-	
-	
-	
-    
+	</body>    
 </html>

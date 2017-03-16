@@ -122,19 +122,17 @@
  	//---------------------------------------------------------	
 		
  	define('TXT_SECTION_ADHESION', 'Join');
-	define('TXT_ADHESION_TEXTE', "<p>Follow the link...</p>
-            <p>Après votre adhésion, vous recevrez par mail le lien vers les opening books sous 48 heures.</p>
-            <p><a href=".'"https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015" target="_blank"'."> Adhérer ou renouveler sa cotisation</a> </p>
-            <p>En adhérant à l’association Opening :  </p>
+	define('TXT_ADHESION_TEXTE', "Follow the link...<br>
+            Après votre adhésion, vous recevrez par mail le lien vers les opening books sous 48 heures.<br>
+            <a href=".'"https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015" target="_blank"'."> Adhérer ou renouveler sa cotisation</a><br>
+            En adhérant à l’association Opening :<br>
             <ul>
                 <li>vous contribuez à soutenir les artistes  </li>
                 <li>vous découvrez les opening books dans leur intégralité </li>
             </ul>
-            <p>Montant de la cotisation :</p>
-            <p>30 € par an </p>
-            <p>Opening est une association loi 1901 répondant aux critères de l’intérêt général, ce qui vous permet de défiscaliser une partie de vos dons et cotisations.</p>
-            <p>Vous pouvez également envoyer un chèque à l’ordre d’Opening  68 rue des dominicaines 13001 Marseille en indiquant vos coordonnées ainsi qu’une adresse mail.</p>
-            <p>Vous recevrez ensuite par mail le lien vers les opening books.</p>");
+            Montant de la cotisation : 30 € par an<br>
+            Opening est une association loi 1901 répondant aux critères de l’intérêt général, ce qui vous permet de défiscaliser une partie de vos dons et cotisations.<br>
+			<p>Vous pouvez également envoyer un chèque à l’ordre d’Opening  68 rue des dominicaines 13001 Marseille en indiquant vos coordonnées ainsi qu’une adresse mail. Vous recevrez ensuite par mail le lien vers les opening books.</p>");
 	
 	
 	//---------------------------------------------------------
@@ -156,12 +154,12 @@
 		
  	define('TXT_SECTION_CONTACT', 'Contact');
 	define('TXT_CONTACT_TEXTE', "
-			<p> Association Opening</p>
-			<p>68 rue des dominicaines </p>
-			<p>13001 Marseille</p>
-			<p>tel +33 (0)7 83 30 59 45</p>
-			<p>mail : <a href=".'"mailto:contact@opening-book.com"'."> contact@opening-book.com </a> </p>
-			<p>facebook <a class=".'""'." href=".'"#"'."> <img class=".'""'." alt=".'""'." src=".'"..."'."> </a>  </p>
-			<p>twitter <a class=".'""'." href=".'"#"'."> <img class=".'""'." alt=".'""'." src=".'"..."'."> </a>  </p>");
+			Association Opening<br>
+			68 rue des dominicaines<br>
+			13001 Marseille<br>
+			tel +33 (0)7 83 30 59 45<br>
+			mail : <a href=".'"mailto:contact@opening-book.com"'.">contact@opening-book.com</a><br>
+			<a href=".'"https://www.facebook.com/opening-book-872866662728445/"'.">facebook</a><br>
+			<a href=".'"https://twitter.com/opening_asso"'.">twitter</a><br>");
  
  ?>

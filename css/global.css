@@ -13,10 +13,7 @@ http://www.rapidtables.com/web/color/RGB_Color.htm#color%20picker
 Border radius : 
 Augmenter border radius permet d'arrondir les boutons. 
 un border radius égal à 0 donne des boutons rectangulaires.
-
-
 */
-
 
 /* déclaration des variables dans la pseudo-classe root */
 :root {
@@ -25,6 +22,9 @@ un border radius égal à 0 donne des boutons rectangulaires.
   --border_radius : 5px;
 }
 
+p {
+  text-align: justify;
+}
 
 /* personnalisation des boutons */
 .btn-primary {
@@ -49,22 +49,9 @@ un border radius égal à 0 donne des boutons rectangulaires.
   opacity: .5;
 }
 
-
-}
-
 .btn-primary:hover {
   box-shadow: inset 0 0 0 20rem var(--darken-1);
 }
-
-
-
-
-
-
-
-
-
-
 
 .hide_first{
    display:none;
