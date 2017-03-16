@@ -90,6 +90,8 @@
 	        	users(	'id_user' INTEGER PRIMARY KEY NOT NULL,
 						'mail' TEXT NOT NULL UNIQUE,
 						'mail_at_account_creation' TEXT NOT NULL,
+						'firstname' TEXT,
+						'name' TEXT,
 						'password' TEXT NOT NULL,
 						'status' INT NOT NULL CHECK (status > 1 AND status < 6),
 						'subscription_date' DATE NOT NULL DEFAULT '2000-01-01'
@@ -137,12 +139,14 @@
 	     */
 	    public function addUser($user, $password)
 	    {
-	    	$query = $this->conn->prepare("INSERT INTO users(mail, mail_at_account_creation, password, status, subscription_date) VALUES(?,?,?,?,?);");
+	    	$query = $this->conn->prepare("INSERT INTO users(mail, mail_at_account_creation, firstname, name, password, status, subscription_date) VALUES(?,?,?,?,?,?,?);");
 	    	$query-> bindValue(1,$user->getUserMail()); 	
 	    	$query-> bindValue(2,$user->getUserMail()); 	
-	    	$query-> bindValue(3,password_hash($password, PASSWORD_BCRYPT));
-	    	$query-> bindValue(4,$user->getUserStatus());
-	    	$query-> bindValue(5,$user->getUserSubscriptionDate());
+	    	$query-> bindValue(3,$user->getUserFirstname()); 	
+	    	$query-> bindValue(4,$user->getUserName()); 	
+	    	$query-> bindValue(5,password_hash($password, PASSWORD_BCRYPT));
+	    	$query-> bindValue(6,$user->getUserStatus());
+	    	$query-> bindValue(7,$user->getUserSubscriptionDate());
 	    	return $query->execute();
 	    }
 

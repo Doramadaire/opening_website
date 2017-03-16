@@ -1,6 +1,6 @@
 <?php
 
-	function createUser($new_user_mail, $new_user_type, $new_user_sub_date)
+	function createUser($new_user_mail, $new_user_type, $new_user_sub_date, $new_user_firstname = NULL, $new_user_name = NULL)
 	{
 		//on crée un compte que pour un mail valide
 		if (filter_var($new_user_mail, FILTER_VALIDATE_EMAIL)) {
@@ -18,8 +18,8 @@
 				//aucun compte n'existe avec cette adresse
 				$date_format = '%Y-%m-%d';
 				if (strptime($new_user_sub_date, $date_format)) {
-					//Date valide, tout est bon on peut créer notre user!					
-					$new_user = new User(0, $new_user_mail, $new_user_type, $new_user_sub_date);	
+					//Date valide, tout est bon on peut créer notre user!	
+					$new_user = new User(0, $new_user_mail, $new_user_type, $new_user_sub_date, $new_user_firstname, $new_user_name);	
 					$new_password = $sql->generatePassword();	
 			
 					$sql->addUser($new_user, $new_password);
@@ -75,7 +75,10 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\r\n";
 		$new_user_mail = stripslashes($_POST['mail']);
 		$new_user_sub_date = $_POST['subscripion_end_date'];
 		$new_user_type = $_POST['user_type'];
-		createUser($new_user_mail, $new_user_type, $new_user_sub_date);
+		$new_user_firstname = isset($_POST['firstname']) ? $_POST['firstname'] : NULL;
+		$new_user_name = isset($_POST['name']) ? $_POST['name'] : NULL;
+
+		createUser($new_user_mail, $new_user_type, $new_user_sub_date, $new_user_firstname, $new_user_name);
 	/*	
 		//on crée un compte que pour un mail valide
 		$new_user_mail = stripslashes($_POST['mail']);
@@ -184,7 +187,10 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\r\n";
 		$new_user_sub_date = $_POST['subscripion_end_date'];
 		//Si on utilise le formulaire, c'est pour créer un auteur
 		$new_user_type = 3;
-		$isUserCreated = createUser($new_user_mail, $new_user_type, $new_user_sub_date);
+		$new_user_firstname = isset($_POST['firstname']) ? $_POST['firstname'] : NULL;
+		$new_user_name = isset($_POST['name']) ? $_POST['name'] : NULL;
+
+		$isUserCreated = createUser($new_user_mail, $new_user_type, $new_user_sub_date, $new_user_firstname, $new_user_name);
 
 		 if ($isUserCreated) {
 		 	$sql = SQL::getInstance();

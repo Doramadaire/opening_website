@@ -21,6 +21,30 @@
 	     */
 		private $mail;
 
+		/** 
+	     * Mail de l'utilisateur à la création du compte
+	     *
+	     * @var string
+	     * @access private
+	     */
+		private $mail_at_account_creation;
+
+		/** 
+	     * Prénom de l'utilisateur
+	     *
+	     * @var string
+	     * @access private
+	     */
+		private $firstname;
+
+		/** 
+	     * Nom de l'utilisateur
+	     *
+	     * @var string
+	     * @access private
+	     */
+		private $name;
+
 	    /** 
 	     * Statut de l'utilisateur
 	     * 2 : visiteur
@@ -48,12 +72,15 @@
 		*
 		* @param void
 		*/
-		function __construct($id, $mail, $status, $subscription_date)
+		function __construct($id, $mail, $status, $subscription_date, $firstname = NULL, $name = NULL)
 		{
 			$this->id = $id;
 			$this->mail = $mail;
+			$this->mail = $mail;
 			$this->status = (int) $status;
 			$this->subscription_date = $subscription_date;
+			$this->firstname = $firstname;
+			$this->name = $name;
 		}
 
 
@@ -75,6 +102,36 @@
 		public function getUserMail()
 		{
 			return $this->mail;
+		}
+
+		/**
+		* Retourne le mail de l'utilisateur à la création du compte
+		*
+		* @param string
+		*/
+		public function getUserFirstMail()
+		{
+			return $this->$mail_at_account_creation;
+		}
+
+		/**
+		* Retourne le prénom de l'utilisateur
+		*
+		* @param string
+		*/
+		public function getUserFirstname()
+		{
+			return $this->$firstname;
+		}
+
+		/**
+		* Retourne le nom de l'utilisateur
+		*
+		* @param string
+		*/
+		public function getUserName()
+		{
+			return $this->$name;
 		}
 
 		/**
@@ -109,6 +166,26 @@
 		public function setUserMail($mail)
 		{
 			$this->mail = $mail;
+		}
+
+		/**
+		* Change le prénom de l'utilisateur
+		*
+		* @param void
+		*/
+		public function setUserFirstname($firstname)
+		{
+			$this->firstname = $firstname;
+		}
+
+		/**
+		* Change le nom de l'utilisateur
+		*
+		* @param void
+		*/
+		public function setUserName($name)
+		{
+			$this->name = $name;
 		}
 
 		/**
