@@ -16,6 +16,11 @@
             </div>
             <?php echo TXT_ADHESION_TEXTE; ?>
         </div>
+
+        <div class="row subscription_form">
+            <iframe id="haWidget" src="https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015/widget" style="width:800px;height:1050px;border:none;">
+        </div>
+
         <?php include("include/footer.php"); ?> 
     </body>
 </html>

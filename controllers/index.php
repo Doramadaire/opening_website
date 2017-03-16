@@ -4,7 +4,7 @@
 
 	$sql = SQL::getInstance();
 	$conn = $sql->getBoolConnexion();
-	$sql->createTables();
+	//$sql->createTables();
 	
 	session_start();	
 	$logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
@@ -33,8 +33,7 @@
 			}			
 		} else {
 			# mail invalide
-			$logging_error = "mail ou mot de passe incorrect";
-			
+			$logging_error = "mail ou mot de passe incorrect";			
 		}
 	}
 

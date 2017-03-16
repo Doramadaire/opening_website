@@ -122,17 +122,15 @@
  	//---------------------------------------------------------	
 		
  	define('TXT_SECTION_ADHESION', 'Adhérer');
-	define('TXT_ADHESION_TEXTE', "Suivez le lien ci-dessous et laisser-vous guider pour l’adhésion en ligne et le paiement sécurisé.<br>
-            Après votre adhésion, vous recevrez par mail le lien vers les opening books sous 48 heures.<br>
-            <a href=".'"https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015" target="_blank"'."> Adhérer ou renouveler sa cotisation</a><br>
-            En adhérant à l’association Opening :<br>
+	define('TXT_ADHESION_TEXTE', "En adhérant à l’association Opening :<br>
             <ul>
                 <li>vous contribuez à soutenir les artistes  </li>
                 <li>vous découvrez les opening books dans leur intégralité </li>
             </ul>
             Montant de la cotisation : 30 € par an<br>
             Opening est une association loi 1901 répondant aux critères de l’intérêt général, ce qui vous permet de défiscaliser une partie de vos dons et cotisations.<br>
-			<p>Vous pouvez également envoyer un chèque à l’ordre d’Opening  68 rue des dominicaines 13001 Marseille en indiquant vos coordonnées ainsi qu’une adresse mail. Vous recevrez ensuite par mail le lien vers les opening books.</p>");
+			<p>Vous pouvez adhérer en remplissant le formulaire ci-dessous ou en envoyant un chèque à l’ordre d’Opening 68 rue des Dominicaines 13001 Marseille en indiquant vos coordonnées ainsi qu’une adresse mail. Vous recevrez ensuite par mail le lien vers les opening books.</p>
+			Laissez-vous guider par le formulaire ci-dessous pour l’adhésion en ligne et le paiement sécurisé<br>");
 	
 	
 	//---------------------------------------------------------
