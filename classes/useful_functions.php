@@ -28,7 +28,13 @@
                 $lang = 'fr';
             } elseif ($_GET['lang']=='en') {
                 $lang = 'en';       
-            }
+            } elseif ($_GET['lang']=='de') {
+                $lang = 'de';       
+            } elseif ($_GET['lang']=='es') {
+                $lang = 'es';       
+            } elseif ($_GET['lang']=='it') {
+                $lang = 'it';       
+            } 
             //On enregistre la préférence de l'utilisateur dans un cookie
             //définition de la durée du cookie (1 an)   
             $expire = 365*24*3600;    
@@ -44,10 +50,15 @@
                 $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2);
                 switch ($lang) {
                     case 'fr':
-                    case 'en':
+                    case 'en':   
+                    //enlever les commentaires des langues à proposer            
+                    //case 'de':
+                    //case 'es':
+                    //case 'it':
                         //Le paramétrage est bon, on fait rien
                         break;
 
+                    //supprimer ou mettre en commentaire les cas des langues qu'on souhaite proposer
                     case 'de':
                     case 'es':
                     case 'it':

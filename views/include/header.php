@@ -33,6 +33,11 @@
              <ul class="dropdown-menu">
                <li><a href="?lang=fr">Fr</a></li>
                <li><a href="?lang=en">En</a></li>
+               <!-- Remove comment of available languages
+               Remove also comments of corresponding language in function setLanguage in file classes/useful_functions.php and comment -->
+               <!-- <li><a href="?lang=de">De</a></li> -->
+               <!-- <li><a href="?lang=es">Es</a></li> -->
+               <!-- <li><a href="?lang=it">It</a></li> -->
              </ul>
            </li>
          </ul>
