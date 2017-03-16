@@ -61,7 +61,7 @@
 	//echo "RESULTAT DE MES TESTS :<br>	";
 
 	/*
-	$compte2 = new User(0, "compte2", 2, "2000-01-01");	
+	$compte2 = new User(0, "compte2", 2, "2020-01-01");	
 	$compte3 = new User(0, "compte3", 3, "2111-01-01");	
 	$compte4 = new User(0, "compte4", 4, "2111-01-01");	
 	$compte5 = new User(0, "compte5", 5, "2111-01-01");	
@@ -70,8 +70,8 @@
 	$sql->addUser($compte3, "3mdp");	
 	$sql->addUser($compte4, "4mdp");	
 	$sql->addUser($compte5, "5mdp");
-		
 	*/
+	
 	/*
 	$unUser = $sql->getUserByMail("hophop@hip.com");
 	$unUser = unserialize($unUser);

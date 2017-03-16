@@ -21,6 +21,16 @@
 	     */
 		private $title;
 
+		/** 
+	     * Le nom du fichier du book sur le serveur
+	     * Dans le dossier /resources/book pour la version compléte
+	     * Et dans le dossier /resources/books pour les extraits
+	     *
+	     * @var string /resources/extracts
+	     * @access private
+	     */
+		private $filename;
+
 	    /** 
 	     * Une array contenant les ids du/des auteur(s) du livre
 	     *
@@ -64,22 +74,23 @@
 	     * @var string
 	     * @access private
 	     */
-		private $captions_filename;
+		//private $captions_filename;
 
 		/**
 		* Constructeur de la classe
 		*
 		* @return void
 		*/
-		function __construct($id, $title, $authors, $collection, $year, $is_full, $captions_filename)
+		function __construct($id, $title, $filename, $authors, $collection, $year)
 		{
 			$this->id = $id;
 			$this->title = $title;
+			$this->$filename = $filename;
 			$this->authors = $authors;//Une array contenant les ids du/des auteur(s) du livre
 			$this->collection = $collection;
 			$this->year = $year;
-			$this->is_full = $is_full;
-			$this->captions_filename = $captions_filename;
+			//$this->is_full = $is_full;
+			//$this->captions_filename = $captions_filename;
 		}
 
 		/**
@@ -100,6 +111,16 @@
 		public function getBookTitle()
 		{
 			return $this->title;
+		}
+
+		/**
+		* Retourne le nom du fichier du book sur le serveur
+		*
+		* @return string
+		*/
+		public function getBookFilename()
+		{
+			return $this->$filename;
 		}
 
 		/**
@@ -149,10 +170,10 @@
 		*
 		* @return string
 		*/
-		public function getBookCaptions()
+		/*public function getBookCaptions()
 		{
 			return $this->captions_filename;
-		}
+		}*/
 
 		/**
 		* Change le titre du livre
@@ -163,6 +184,17 @@
 		public function setBookTitle($title)
 		{
 			$this->$title = $title;
+		}
+
+		/**
+		* Change le nom du fichier du book sur le serveur
+		*
+		* @param string
+		* @return void
+		*/
+		public function setBookFilename($filename)
+		{
+			$this->$filename = $filename;
 		}
 
 		/**
@@ -215,10 +247,10 @@
 		* @param string
 		* @return void
 		*/
-		public function setBookCaptions($captions_filename)
+		/*public function setBookCaptions($captions_filename)
 		{
 			$this->$captions_filename = $captions_filename;
-		}
+		}*/
 	}
 
 ?>

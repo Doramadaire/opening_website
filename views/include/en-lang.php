@@ -70,7 +70,11 @@
 	
 	define('TXT_COLLECTION_OPENINGBOOK_AUTRE', "Nouvelle collection");
 	define('TXT_PLACEHOLDER_TITRE', "Titre");
+
+	define('TXT_ERR_UPLOAD_FAIL', "Erreur lors du transfert des fichiers");	
+	define('TXT_ERR_INCORRECT_FILE_EXTENSION', "Erreur : extension du fichier incorrecte. Veuillez charger un document au format PDF");
 	
+	define('TXT_NEW_BOOK_SUCCESS', "Book chargé en base avec succès");
 	
 	//---------------------------------------------------------
  	// user_settings.php
@@ -108,6 +112,8 @@
 	define('TXT_CREER_COMPTE', "Créer l'utilisateur");
 	
 	define('TXT_NOUVEL_ARTISTE', "Création d'un compte artiste");
+	define('TXT_PLACEHOLDER_NAME', "Nom");	
+	define('TXT_AUTHOR_SUBMIT_CV', "Fichier PDF du CV de l'artiste (optionnel)");
 	define('TXT_CREER_ARTISTE', "Ajout de l'artiste");
 	
 	

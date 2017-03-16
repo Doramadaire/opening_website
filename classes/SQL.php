@@ -89,6 +89,7 @@
 	        $query = $this->conn->prepare("CREATE TABLE IF NOT EXISTS 
 	        	users(	'id_user' INTEGER PRIMARY KEY NOT NULL,
 						'mail' TEXT NOT NULL UNIQUE,
+						'mail_at_account_creation' TEXT NOT NULL,
 						'password' TEXT NOT NULL,
 						'status' INT NOT NULL CHECK (status > 1 AND status < 6),
 						'subscription_date' DATE NOT NULL DEFAULT '2000-01-01'
@@ -102,7 +103,8 @@
 	        			'name' TEXT NOT NULL UNIQUE,
 	        			'user' INTEGER,	        			
 	        			'description_filename' TEXT,
-	        			'news_filename' TEXT,	        			
+	        			'news_filename' TEXT,
+	        			'cv_filename' TEXT,      			
 						FOREIGN KEY(user) REFERENCES users(id_user)
 						);");
 	        if (!($query->execute())) {return false;}
@@ -112,15 +114,17 @@
 	        $query = $this->conn->prepare("CREATE TABLE IF NOT EXISTS 
 	        	books(	'id_book' INTEGER PRIMARY KEY NOT NULL,
 	        			'title' TEXT UNIQUE NOT NULL,
+	        			'filename' TEXT NOT NULL UNIQUE,
 	        			'authors' TEXT NOT NULL,	        			
 	        			'collection' TEXT NOT NULL,						
 						'year' INTEGER NOT NULL,
-						'is_full' INTEGER CHECK (is_full > 1 AND is_full < 4), 
-						'captions_filename' TEXT						
+						'access_token' TEXT					
 						);");
 	        //le champ authors est un array des ids des auteurs serialisé
 	        //les ids des auteurs devraient être des clefs étrangères, mais comme ils sont en string dans la BDD c'est pas possible...
+			//'is_full' INTEGER CHECK (is_full > 1 AND is_full < 4),
 			//le champs is_full vaut 2 si le livre est complet ou 3 si c'est un extrait
+			//access_token contient les éventuels token pour avoir accès au book complet sans compte autorisé
 	    	return $query->execute();
 	    }
 
@@ -133,11 +137,12 @@
 	     */
 	    public function addUser($user, $password)
 	    {
-	    	$query = $this->conn->prepare("INSERT INTO users(mail, password, status, subscription_date) VALUES(?,?,?,?);");
+	    	$query = $this->conn->prepare("INSERT INTO users(mail, mail_at_account_creation, password, status, subscription_date) VALUES(?,?,?,?,?);");
 	    	$query-> bindValue(1,$user->getUserMail()); 	
-	    	$query-> bindValue(2,password_hash($password, PASSWORD_BCRYPT));
-	    	$query-> bindValue(3,$user->getUserStatus());
-	    	$query-> bindValue(4,$user->getUserSubscriptionDate());
+	    	$query-> bindValue(2,$user->getUserMail()); 	
+	    	$query-> bindValue(3,password_hash($password, PASSWORD_BCRYPT));
+	    	$query-> bindValue(4,$user->getUserStatus());
+	    	$query-> bindValue(5,$user->getUserSubscriptionDate());
 	    	return $query->execute();
 	    }
 
@@ -149,11 +154,12 @@
 	     */
 	    public function addAuthor($author)
 	    {
-	    	$query = $this->conn->prepare("INSERT INTO authors(name, user, description_filename, news_filename) VALUES(?,?,?,?);");
+	    	$query = $this->conn->prepare("INSERT INTO authors(name, user, description_filename, news_filename, cv_filename) VALUES(?,?,?,?,?);");
 	    	$query-> bindValue(1,$author->getAuthorName());
 	    	$query-> bindValue(2,$author->getAuthorAccount());
 	    	$query-> bindValue(3,$author->getAuthorDescription());
 	    	$query-> bindValue(4,$author->getAuthorNews());
+	    	$query-> bindValue(5,$author->getAuthorCV());
 	    	return $query->execute();
 	    }
 
@@ -192,13 +198,14 @@
 	    			//il y a un FALSE, donc au moins un auteur n'a pas été trouvé
 	    		} else {
 	    			//on a retrouvé tous les auteurs, on peut ajouter notre livre
-	    			$query = $this->conn->prepare("INSERT INTO books(title, authors, collection, year, is_full, captions_filename) VALUES(?,?,?,?,?,?);");
+	    			$query = $this->conn->prepare("INSERT INTO books(title, filename, authors, collection, year) VALUES(?,?,?,?,?);");
 			    	$query-> bindValue(1,$book->getBookTitle());
-			    	$query-> bindValue(2,serialize($book->getBookAuthors()));
-			    	$query-> bindValue(3,$book->getBookCollection());
-			    	$query-> bindValue(4,$book->getBookYear());
-			    	$query-> bindValue(5,$book->getBookIsFull());
-			    	$query-> bindValue(6,$book->getBookCaptions());
+			    	$query-> bindValue(2,$book->getBookFilename());
+			    	$query-> bindValue(3,serialize($book->getBookAuthors()));
+			    	$query-> bindValue(4,$book->getBookCollection());
+			    	$query-> bindValue(5,$book->getBookYear());
+			    	//$query-> bindValue(6,$book->getBookIsFull());
+			    	//$query-> bindValue(6,$book->getBookCaptions());
 			    	return $query->execute();
 	    		}		    	
 	    	} 
@@ -225,8 +232,7 @@
 	    		}
 	    	}
 	    	return $id_book;
-	    }
-	   
+	    }	   
 
 	    /**
 	    * Méthode qui récupère un user en le cherchant grâce à son mail
@@ -580,13 +586,13 @@
 	     * @param string : $new_captions_filename - le lien vers le fichier contenant les légendes du livre
 	     * @return bool : True si la modification est réussi, False sinon
 	     */
-	    public function setBookCaptions($book, $new_captions_filename)
+	    /*public function setBookCaptions($book, $new_captions_filename)
 	    {
 	    	$query = $this->conn->prepare("UPDATE books SET captions_filename = ? WHERE id_author = ?");
 	    	$query-> bindValue(1,$new_captions_filename); 	
 	    	$query-> bindValue(2,$book->getBookID());
 	    	return $query->execute();
-	    }
+	    }*/
 
 	    public function generatePassword() {
 	    	//génération d'un mot de passe aléatoire pour le nouveau compte

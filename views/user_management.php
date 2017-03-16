@@ -65,9 +65,11 @@
 							champ pour le nom
 							champ pour taper la description - on stocke le path du fichier
 							champ pour taper les news - on stocke le path du fichier -->
-							<form action="" method="POST">
+							<form action="" method="POST" enctype="multipart/form-data">
 								<input type="text" name="mail" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MAIL.'"'; ?>  required>
+								<input type="text" name="name" placeholder=<?php echo '"'.TXT_PLACEHOLDER_NAME.'"'; ?>  required>
 								<input type="date" name="subscripion_end_date" placeholder=<?php echo '"'.TXT_PLACEHOLDER_DATE.'"'; ?>  required>
+								<!-- <br><?php echo TXT_AUTHOR_SUBMIT_CV; ?><input type="file" name="author_cv_file"/> -->
 								<input type="submit" name="new_author_form" class="btn btn-primary" value=<?php echo '"'.TXT_CREER_ARTISTE.'"'; ?> >	
 							</form>	 
 						</div>

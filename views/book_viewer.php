@@ -92,10 +92,9 @@
                     </ul>
         	    </div>
                 <br>
-                <div class="row fliphtml5">
+               <!-- FLIP EXTRAIT <div class="row fliphtml5">
                     <iframe title="opening-book" frameborder="0" type="text/html" width="700" height="700" src="http://online.fliphtml5.com/izscb/rgzc/" allowfullscreen="true" scroll="no" marginwidth="0" marginheight="0"></iframe>
-                </div>                
-
+                </div>         -->         
     		    <?php } else {
     				if ($user_logged->getUserStatus() >= 3) { ?>
     			<!-- DEVDEVDEV t'as le droit de foire le book complet si t'es loggé avec abonnement à jour, ou si t'es auteur et que c'est ton book, ou que t'es admin? -->
@@ -108,12 +107,14 @@
                         <li hidden><img data-original="resources/jpg/page4.jpg" src="resources/jpg/page4.jpg" alt="p4"></li>
                     </ul>
         	    </div>
+                <!-- FLIP COMPLET
                 <br>
-                <div class="row fliphtml5">
+                <div class="row fliphtml5"> -->
                     <!-- BOOK1 : http://online.fliphtml5.com/obqs/yyip/ -->
                     <!-- BOOK2 : http://online.fliphtml5.com/zkoe/irhd/ -->
+                    <!--
                     <iframe title="opening-book" frameborder="0" type="text/html" width="700" height="700" src="http://online.fliphtml5.com/obqs/yyip/" allowfullscreen="true" scroll="no" marginwidth="0" marginheight="0"></iframe>
-                </div>                	
+                </div>    -->           	
     		<?php  		} else { ?>
     
     	        <div class="docs-galley">    
@@ -125,11 +126,6 @@
                         <li hidden><img data-original="resources/jpg/page4.jpg" src="resources/jpg/page4.jpg" alt="p4"></li>        
                     </ul>
             	</div>
-                <br>
-                <br>
-                <div class="row fliphtml5">
-                    <iframe title="opening-book" frameborder="0" type="text/html" width="700" height="700" src="http://online.fliphtml5.com/izscb/rgzc/" allowfullscreen="true" scroll="no" marginwidth="0" marginheight="0"></iframe>
-                </div>
     		<?php		}		
     			} ?> 	
     	    </div>	

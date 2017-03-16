@@ -45,18 +45,27 @@
 	     */
 		private $news_filename;
 
+		/** 
+	     * Le chemin vers le fichier pdf qui contient le CV de l'auteur
+	     *
+	     * @var string
+	     * @access private
+	     */
+		private $cv_filename;
+
 		/**
 		* Constructeur de la classe
 		*
 		* @return void
 		*/
-		function __construct($id, $name, $user, $description_filename, $news_filename)
+		function __construct($id, $name, $user, $description_filename = NULL, $news_filename = NULL, $cv_filename = NULL)
 		{
 			$this->id = $id;
 			$this->name = $name;
 			$this->user = $user;			
 			$this->description_filename = $description_filename;
 			$this->news_filename = $news_filename;
+			$this->cv_filename = $cv_filename;
 		}
 
 		/**
@@ -110,6 +119,16 @@
 		}
 
 		/**
+		* Retourne le chemin du fichier texte qui contient le CV de l'auteur
+	    *
+		* @return string
+		*/
+		public function getAuthorCV()
+		{
+			return $this->cv_filename;
+		}
+
+		/**
 		* Change l'id du compte utilisateur de l'auteur
 		*
 		* @param int
@@ -151,6 +170,17 @@
 		public function setAuthorNews($news_filename)
 		{
 			$this->$news_filename = $news_filename;
+		}
+
+		/**
+		* Change le chemin du fichier texte qui contient le CV de l'auteur
+	    *
+		* @param string
+		* @return void
+		*/
+		public function setAuthorCV($cv_filename)
+		{
+			$this->$cv_filename = $cv_filename;
 		}
 	}
 
