@@ -1,8 +1,4 @@
-.fliphtml5 {
-	text-align: center;
-	margin-bottom: 20px;
-}
-
-.wowbook_container {
-	text-align: center;
+#show_wowbook {
+	display: block;
+    margin: 20 auto;
 }
