@@ -506,7 +506,7 @@ img.wowbook-lazy {
 .wowbook-pdf .linkAnnotation > a:hover {
 	background: #ff0 none repeat scroll 0 0;
 	box-shadow: 0 2px 10px #ff0;
-	opacity: 0.2;
+	opacity: 0;
 }
 
 .wowbook-pdf-text {
@@ -742,10 +742,11 @@ img.wowbook-lazy {
 	color: white;
 	top: 0;
 	z-index: 10000;
-	height: 1.5em;
+	height: 2.3em;
+	width: 2.3em;
 	line-height: 1em;
 	padding: 0;
-	width: 1.5em;
+	
 }
 
 

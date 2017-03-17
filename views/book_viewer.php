@@ -35,10 +35,29 @@
             };
             // creates the book
             $('#wowbook').wowBook(bookOptions);
+			/*
+			wow_book.css
+
+			Pour augmenter la taille du bouton pour fermer la liseuse
+			.wowbook-lightbox > .wowbook-close{
+			height: 2.3em;
+			width: 2.3em;
+
+			Les 2 valeurs étaient à 1.5em auparavant.
+
+
+			Pour enlever la coloration jaune au passage sur un lien interne du book
+			.wowbook-pdf .linkAnnotation > a:hover {
+			opacity 0;
+
+			auparavant : opacity 0.2;
+			
+		*/	
+			
         })
     </script>	
 	</head>
-	<body oncontextmenu="return false">
+	<body> <!-- oncontextmenu="return false" --> 
 	<?php include("include/header.php"); ?>
 
 	<div class="container">
@@ -73,6 +92,9 @@
         <div class="row">
             <img id="show_wowbook" src="resources/jpg/page_0000.jpg" height="600px" width="auto">
             <div id="wowbook"></div> <!-- celui avec lightbox et les liens internes -->
+			
+			
+
         </div>
         
         <div class="row">
