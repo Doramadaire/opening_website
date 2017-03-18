@@ -6,7 +6,8 @@ donne le code ci dessous pour les couleurs de la navbar
   background-color: #FFFFFF ; /*Couleur de fond*/
   color : white;
   font-family: "Arial", cursive, sans-serif;
-  margin-top: 0px;
+  font-size : 120%;
+  margin-top: 10px;
   margin-bottom: 0px;
   padding: 0px;
 }

@@ -20,6 +20,41 @@
         <div class="collapse navbar-collapse" id="nav-collapse">
 
           <ul class="nav navbar-nav">
+		  
+		  
+		   <li class="dropdown">
+            <?php if ($user_logged) { ?> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo TXT_MENU ?><span class="caret"></span></a>
+				<?php switch($_SESSION['user_logged']->getUserStatus()) 
+					{		     case 2:  ?>
+						<ul class="dropdown-menu"> <li><a href="book_viewer.php"><?php echo TXT_MENU_RECHERCHE_EXTRAITS; ?></a></li> 
+						<li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li> </ul>
+							 
+					<?php break; case 3:  ?>
+						<ul class="dropdown-menu"> <li><a href="book_viewer.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li> 
+						<li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li> </ul>
+							 
+					<?php break; case 4:	?>
+						<ul class="dropdown-menu"> <li><a href="book_viewer.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li> 
+						<li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li> 
+						<li><a href="book_management.php"><?php echo TXT_MENU_OEUVRES; ?></a></li>  </ul>
+							 
+					<?php break; case 5: ?>
+						<ul class="dropdown-menu"> <li><a href="book_viewer.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li> 
+						<li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>							 
+						<li><a href="book_management.php"><?php echo TXT_MENU_OEUVRES_ADMIN; ?></a></li>
+						<li><a href="user_management.php"><?php echo TXT_MENU_COMPTES_ADMIN; ?></a></li></ul>
+							 
+					<?php break;} 
+					
+				} else { ?> 
+						<a href="index.php"><?php echo TXT_BOUTON_SE_CONNECTER; ?> </a>
+					
+					<?php } ?>
+						
+           </li>
+		  
+
+		  <li><a href="edito.php"><?php echo TXT_NAVBAR_A_PROPOS; ?> </a></li>
             <li><a href="edito.php"><?php echo TXT_NAVBAR_A_PROPOS; ?> </a></li>
             <li><a href="#"><?php echo TXT_NAVBAR_ARTISTES; ?></a></li>
             <li><a href="contact.php"><?php echo TXT_NAVBAR_CONTACT; ?></a></li>

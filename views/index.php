@@ -26,7 +26,7 @@
 			<?php 	switch($_SESSION['user_logged']->getUserStatus()) 
 					{
 							     case 2:  ?>
-					<?php echo TXT_MENU; ?> : <br> 
+					<?php echo TXT_MENU; ?><br> 
 						<ul> <li><a href="book_viewer.php"><?php echo TXT_MENU_RECHERCHE_EXTRAITS; ?></a></li> 
 							 <li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li> </ul>
 							 
@@ -40,7 +40,7 @@
 					
 						<ul> <li><a href="book_viewer.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li> 
 							 <li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li> 
-							 <li><a href="book_management.php"><?php echo TXT_MENU_OEUVRES; ?></a></li>  </ul>
+							 <li><a href="book_management.php">txt_modif partager un book</a></li>  </ul>
 							 
 					<?php break; case 5: ?>
 					<?php echo TXT_MENU; ?><br> 

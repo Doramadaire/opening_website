@@ -12,7 +12,10 @@
 		
         <!-- Fichiers maison -->
         <link rel="stylesheet" href="css/book_viewer.css" type="text/css">	
-
+		
+		
+		
+		
         <script>
         $(function(){
             var bookOptions = {
@@ -24,7 +27,9 @@
                 toolbar : "lastLeft, left, right, lastRight, zoomin, zoomout, slideshow, fullscreen, thumbnails",
                 lightbox: "#show_wowbook",
                 thumbnailsPosition : 'left',
-                gutterShadow: false,          
+                gutterShadow: false,     
+				flipSound:0,
+				slideShowDelay:3000,
                 /*                           
                 hardcovers : true, 
                 responsiveHandleWidth : 50,                
@@ -36,8 +41,8 @@
             // creates the book
             $('#wowbook').wowBook(bookOptions);
 			/*
-			wow_book.css
-
+			
+			
 			Pour augmenter la taille du bouton pour fermer la liseuse
 			.wowbook-lightbox > .wowbook-close{
 			height: 2.3em;

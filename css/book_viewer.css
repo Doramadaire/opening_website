@@ -2,3 +2,13 @@
 	display: block;
     margin: 20 auto;
 }
+
+.wowbook-lightbox > .wowbook-close{
+	height: 2.3em;
+	width: 2.3em;
+}
+
+.wowbook-pdf .linkAnnotation > a:hover {
+	opacity : 0;
+}
+		
