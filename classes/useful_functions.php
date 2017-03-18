@@ -9,10 +9,17 @@
     */
     function includeOnceAllClasses()
     {
+        //pour le debug sur le serveur ovh
+        //ini_set('display_errors',1);
+        //version php ec-m.fr : 5.6.30
+        //version php wamp Pierre 5.6.25
+        //version beta.opening-book.eu : 5.6.30
+        //grâce à .ovhconfig à la racine du dossier correspondant
         include_once('classes/User.php');
         include_once('classes/Author.php');
         include_once('classes/Book.php');
-        include_once('classes/SQL.php');
+        require("database_configuration.php");
+        include_once('classes/SQL_'.DB_TYPE.'.php');
     }
 
     /**

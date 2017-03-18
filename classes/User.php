@@ -72,15 +72,15 @@
 		*
 		* @param void
 		*/
-		function __construct($id, $mail, $status, $subscription_date, $firstname = NULL, $name = NULL)
+		function __construct($id, $mail, $status, $subscription_date, $firstname = NULL, $name = NULL, $first_mail = NULL)
 		{
 			$this->id = $id;
-			$this->mail = $mail;
-			$this->mail_at_account_creation = $mail;
+			$this->mail = $mail;			
 			$this->status = (int) $status;
 			$this->subscription_date = $subscription_date;
 			$this->firstname = $firstname;
 			$this->name = $name;
+			$this->mail_at_account_creation = $first_mail;
 		}
 
 
