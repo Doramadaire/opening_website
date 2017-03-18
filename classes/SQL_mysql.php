@@ -91,41 +91,46 @@
         public function createTables()
         {
             $query = $this->conn->prepare("CREATE TABLE IF NOT EXISTS 
-                users(  'id_user' INTEGER PRIMARY KEY NOT NULL,
-                        'mail' TEXT NOT NULL UNIQUE,
-                        'mail_at_account_creation' TEXT NOT NULL,
-                        'firstname' TEXT,
-                        'name' TEXT,
-                        'password' TEXT NOT NULL,
-                        'status' INT NOT NULL CHECK (status > 1 AND status < 6),
-                        'subscription_date' DATE NOT NULL DEFAULT '2000-01-01'
-                        );");
+                users(  
+                    id_user MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+                    mail VARCHAR(255) NOT NULL UNIQUE,
+                    mail_at_account_creation VARCHAR(255) NOT NULL,
+                    firstname VARCHAR(255),
+                    name VARCHAR(255),
+                    password VARCHAR(255) NOT NULL,
+                    status TINYINT NOT NULL,
+                    subscription_date DATE NOT NULL DEFAULT '2000-01-01',
+                    PRIMARY KEY (id_user)
+                    );");
             //status : 2=visitor 3=subscriber 4=author 5=admin
             if (!($query->execute())) {return false;}
             $query->closeCursor();
 
             $query = $this->conn->prepare("CREATE TABLE IF NOT EXISTS 
-                authors('id_author' INTEGER PRIMARY KEY NOT NULL,
-                        'name' TEXT NOT NULL UNIQUE,
-                        'user' INTEGER,                     
-                        'description_filename' TEXT,
-                        'news_filename' TEXT,
-                        'cv_filename' TEXT,                 
-                        FOREIGN KEY(user) REFERENCES users(id_user)
-                        );");
+                authors(
+                    id_author MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+                    name VARCHAR(255) NOT NULL UNIQUE,
+                    user MEDIUMINT UNSIGNED NOT NULL,                     
+                    description_filename VARCHAR(255),
+                    news_filename VARCHAR(255),
+                    cv_filename VARCHAR(255), 
+                    PRIMARY KEY (id_author),                
+                    FOREIGN KEY(user) REFERENCES users(id_user)
+                    );");
             if (!($query->execute())) {return false;}
             $query->closeCursor();
-            //ajouter CV
 
             $query = $this->conn->prepare("CREATE TABLE IF NOT EXISTS 
-                books(  'id_book' INTEGER PRIMARY KEY NOT NULL,
-                        'title' TEXT UNIQUE NOT NULL,
-                        'filename' TEXT NOT NULL UNIQUE,
-                        'authors' TEXT NOT NULL,                        
-                        'collection' TEXT NOT NULL,                     
-                        'year' INTEGER NOT NULL,
-                        'access_token' TEXT                 
-                        );");
+                books(
+                    id_book MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+                    title VARCHAR(255) UNIQUE NOT NULL,
+                    filename VARCHAR(255) NOT NULL UNIQUE,
+                    authors VARCHAR(255) NOT NULL,                        
+                    collection VARCHAR(255) NOT NULL,                     
+                    year TINYINT UNSIGNED NOT NULL,
+                    access_token TEXT,
+                    PRIMARY KEY (id_book)                
+                    );");
             //le champ authors est un array des ids des auteurs serialisé
             //les ids des auteurs devraient être des clefs étrangères, mais comme ils sont en string dans la BDD c'est pas possible...
             //'is_full' INTEGER CHECK (is_full > 1 AND is_full < 4),
