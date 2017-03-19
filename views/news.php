@@ -28,10 +28,9 @@
                 '<div class="col-sm-6 col-md-6">'.
                 '<PRE>' .$d. '</PRE>'.'</div>'
                 
-                ;}
-            ?>             
-             
+                ;} ?>             
         </div>
+
         <?php include("include/footer.php"); ?> 
     </body>
 </html>

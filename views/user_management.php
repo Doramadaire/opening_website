@@ -27,7 +27,7 @@
 						<div class="row">
 							<h1 class="Section"><?php echo TXT_GESTION_DES_UTILISATEURS; ?></h1>
 							<h2>En construction</h2>
-							</div>
+						</div>
 
 						<div class="row thumbnail">
 							<p><?php echo TXT_RECHERCHE_UTILISATEUR; ?></p>							
@@ -87,6 +87,25 @@
 								<!-- <br><?php echo TXT_AUTHOR_SUBMIT_CV; ?><input type="file" name="author_cv_file"/> -->
 								<input type="submit" name="new_author_form" class="btn btn-primary" value=<?php echo '"'.TXT_CREER_ARTISTE.'"'; ?> >	
 							</form>	 
+						</div>
+
+						<div class="row">
+						    <h1 class="Section">Mettre à jour les actualités</h1>
+						</div>
+
+						<div class="thumbnail">      
+						    <h3>Modifier un panneau </h3>  
+							<form action="" method="POST">  
+								<select name="lang" required>
+									<option value='fr'>Fr</option>
+									<option value='en'>En</option>
+									<!-- <option value='es'>Es</option> -->
+								</select>
+								<br>	
+								<textarea style="max-width: 100%;  max-height: 100%;" rows="10" cols="40" name="news_text"></textarea>
+								<br>
+								<input type="submit" name="news_form" class="btn btn-primary" value="mettre à jour">
+							</form>
 						</div>
 					</div>	
 	<?php  	}	 
