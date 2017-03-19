@@ -132,7 +132,7 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\r\n";
 				$incorrect_file_extension_error = true;
 			} else {
 				$filename = $_FILES['author_cv_file']['name'];
-				$path = "resources/cv/".$filename;
+				$path = "assets/cv/".$filename;
 				$move_file = move_uploaded_file($_FILES['author_cv_file']['tmp_name'], $path);
 				if ($move_file) {
 					$sql = SQL::getInstance();

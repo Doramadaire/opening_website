@@ -23,10 +23,10 @@
 
 		/** 
 	     * Le nom du fichier du book sur le serveur
-	     * Dans le dossier /resources/book pour la version compléte
-	     * Et dans le dossier /resources/books pour les extraits
+	     * Dans le dossier /assets/book pour la version compléte
+	     * Et dans le dossier /assets/books_extraits pour les extraits
 	     *
-	     * @var string /resources/extracts
+	     * @var string /assets/extracts
 	     * @access private
 	     */
 		private $filename;

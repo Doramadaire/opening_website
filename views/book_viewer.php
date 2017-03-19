@@ -36,7 +36,7 @@
                 containerPadding: "20px",
                 */
                 // The pdf and your webpage must be on the same domain
-                pdf: "resources/books/OPENINGBOOK_001.pdf"
+                pdf: "assets/books/OPENINGBOOK_001.pdf"
             };
             // creates the book
             $('#wowbook').wowBook(bookOptions);
@@ -95,7 +95,7 @@
     			} ?> 	    	
         <!-- DEVEVDV mettre une marge en CSS plutot que un br? -->
         <div class="row">
-            <img id="show_wowbook" src="resources/jpg/page_0000.jpg" height="600px" width="auto">
+            <img id="show_wowbook" src="assets/vignettes/page_0000.jpg" height="600px" width="auto">
             <div id="wowbook"></div> <!-- celui avec lightbox et les liens internes -->
 			
 			

@@ -1,13 +1,5 @@
 <?php
 
-    function createBook()
-    {
-        include_once('classes/User.php');
-        include_once('classes/Author.php');
-        include_once('classes/Book.php');
-        include_once('classes/SQL.php');
-    }
-
     setLanguage();
 
 	session_start();
@@ -25,9 +17,9 @@
 			} else {
 				$book_name = $_FILES['full_book_file']['name'];
 				//$book_extract_name = $_FILES['extract_book_file']['name'];
-				$full_book_path = "resources/books/".$book_name;
+				$full_book_path = "assets/books/".$book_name;
 				//Le nom du fichier est le même pour les deux, seul le dossier change
-				$book_extract_path = "resources/extracts/".$book_name;
+				$book_extract_path = "assets/extracts/".$book_name;
 				/*$move_full = move_uploaded_file($_FILES['full_book_file']['tmp_name'], $full_book_path);
 				$move_extract = move_uploaded_file($_FILES['extract_book_file']['tmp_name'], $book_extract_path);
 				if ($move_full and $move_extract) {

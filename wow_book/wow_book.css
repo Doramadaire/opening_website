@@ -743,10 +743,9 @@ img.wowbook-lazy {
 	top: 0;
 	z-index: 10000;
 	height: 1.5em;
-	width: 1.5em;
 	line-height: 1em;
 	padding: 0;
-	
+	width: 1.5em;
 }
 
 

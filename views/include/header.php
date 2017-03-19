@@ -13,7 +13,7 @@
             <span class="icon-bar"></span>
           </button>  
 		  
-	 	      <a class="navbar-left" href="index.php"><img class="img-fluid" id="logo" alt="logo" src="resources/logo_cropped.png"></a>        
+	 	      <a class="navbar-left" href="index.php"><img class="img-fluid" id="logo" alt="logo" src="assets/logo.png"></a>        
               
 		    </div>
         <!-- Collect the nav links, forms, and other content for toggling -->

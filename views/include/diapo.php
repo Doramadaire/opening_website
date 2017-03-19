@@ -12,19 +12,19 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="resources/diapo/Deregibus_1-1170x445.jpg" alt="Deregibus" width="1170" height="445">
+        <img src="assets/diapo/Deregibus_1-1170x445.jpg" alt="Deregibus" width="1170" height="445">
       </div>
 
       <div class="item">
-        <img src="resources/diapo/Deregibus_2-1170x445.jpg" alt="Deregibus" width="1170" height="445">
+        <img src="assets/diapo/Deregibus_2-1170x445.jpg" alt="Deregibus" width="1170" height="445">
       </div>
     
       <div class="item">
-        <img src="resources/diapo/artistes-1170x445.png" alt="Artistes" width="1170" height="445">
+        <img src="assets/diapo/artistes-1170x445.png" alt="Artistes" width="1170" height="445">
       </div>
 
       <div class="item">
-        <img src="resources/diapo/001-1170x445.jpg" alt="001" width="1170" height="445">
+        <img src="assets/diapo/001-1170x445.jpg" alt="001" width="1170" height="445">
       </div>
     </div>
 
