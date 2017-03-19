@@ -36,7 +36,7 @@
                 containerPadding: "20px",
                 */
                 // The pdf and your webpage must be on the same domain
-                pdf: "assets/books/OPENINGBOOK_001.pdf"
+                pdf: <?php echo "'/assets/extracts/OPENINGBOOK_001_EXTRAIT.pdf'"; ?>
             };
             // creates the book
             $('#wowbook').wowBook(bookOptions);

@@ -32,7 +32,7 @@
 	define('TXT_MENU_COMPTE', 'Gérer votre compte');
 	define('TXT_MENU_OEUVRES', 'Gérer vos oeuvres');
 	define('TXT_MENU_OEUVRES_ADMIN', 'Gérer les oeuvres');
-	define('TXT_MENU_COMPTES_ADMIN', 'Gérer les comptes');
+	define('TXT_MENU_ADMIN_PAGE', "Aller à la page d'administration");
 	
 	define('TXT_BOUTON_SE_DECONNECTER', "Se déconnecter");
 	define('TXT_BOUTON_SE_CONNECTER', "Se connecter");

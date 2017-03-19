@@ -47,9 +47,7 @@
             try {
                 $this->conn = new PDO(DB_PDO_DSN, DB_USER, DB_PASSWORD, $db_pdo_options);
                 $this->boolConnexion = true;
-                echo "connexion BDD BRAVO";
             } catch (PDOException $e) {
-                echo "connexion BDD failed";
                 die("Connection à la base de données échoué" . $e->getMessage());
             }
         }

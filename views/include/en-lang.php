@@ -32,7 +32,7 @@
 	define('TXT_MENU_COMPTE', 'Manage your account');
 	define('TXT_MENU_OEUVRES', 'Manage your books');
 	define('TXT_MENU_OEUVRES_ADMIN', 'Manage all books');
-	define('TXT_MENU_COMPTES_ADMIN', 'Manage all users');
+	define('TXT_MENU_ADMIN_PAGE', "Go to the administration page");
 	
 	define('TXT_BOUTON_SE_DECONNECTER', "Logout");
 	define('TXT_BOUTON_SE_CONNECTER', "Login");
@@ -50,7 +50,6 @@
 	define('TXT_PLACEHOLDER_FIRSTNAME', "Prénom");
 	define('TXT_PLACEHOLDER_NAME', "Nom");
 	define('TXT_PLACEHOLDER_MDP', "password");
-	
 	
 	//---------------------------------------------------------
  	// book_management.php

@@ -68,8 +68,8 @@
 	$sql->addUser($compte2, "2mdp");	
 	$sql->addUser($compte3, "3mdp");	
 	$sql->addUser($compte4, "4mdp");	
-	$sql->addUser($compte5, "5mdp");
-	*/	
+	$sql->addUser($compte5, "5mdp");*/
+	
 	
 	/*
 	$unUser = $sql->getUserByMail("hophop@hip.com");
