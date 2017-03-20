@@ -26,7 +26,7 @@
 					
 					$msg_new_user = "Un nouvel utilisateur a bien été créé, son mail est : ".$new_user_mail." il a le statut=".$new_user_type;
 					//Pour gérer les fichiers il y a besoin de les include
-					$path = '/users/promo2016/gclaverie/html/opening_website/ ';
+					$path = '/home/openingbqo/opening_website_assets/';
 					set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 					//Dans un gros fichier complet
 					$myfile = fopen("mdp.txt", "a+") or die("Unable to open file!");
@@ -36,21 +36,21 @@
 					// Préparation du mail contenant le lien d'activation
 					$destinataire = $new_user_mail;
 					$sujet = "Votre compte OPENING BOOK" ;
-					$headers = "From: = Opening\r\n";
-					$headers = $headers."Content-Type: text/html; charset=UTF-8\r\n";
-					$headers = $headers."Content-Transfer-Encoding: 8bit\r\n";
-					
+				        $headers ='From: noreply@opening-book.eu'."\n";
+					$headers = $headers."Content-Type: text/html; charset=UTF-8\n";
+                                        $headers .='Content-Transfer-Encoding: 8bit';
+									
 					//Message de confirmation
-					$message = "Vous êtes désormais inscrit sur le site d'OPENING, en tant que cotistant à l'association. Votre adhésion expirera le $new_user_sub_date.\r\n
-Voici votre mot de passe : $new_password\r\n
-Je vous conseille de le modifier dès votre première visite sur notre site.\r\n
-Pour modifier votre mot de passe, identifier vous sur http://opening-book.com/ et allez sur la page 'Gestion de votre compte'\r\n
-\r\n
-Nous vous souhaitons une agréable consultation de notre collection\r\n
-\r\n
----------------\r\n
-Ceci est un mail automatique, Merci de ne pas y répondre.\r\n";	 
-				 
+					$message = '<PRE>'."Vous êtes désormais inscrit sur le site d'OPENING, en tant que cotistant à l'association. Votre adhésion expirera le $new_user_sub_date.\n
+Voici votre mot de passe : $new_password\n
+Je vous conseille de le modifier dès votre première visite sur notre site.\n
+Pour modifier votre mot de passe, identifier vous sur http://opening-book.com/ et allez sur la page 'Gestion de votre compte'\n
+\n
+Nous vous souhaitons une agréable consultation de notre collection\n
+\n
+---------------\n
+Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img style="float: right;"'." src='http://beta.opening-book.eu/assets/mini_logo.jpg'>";	 
+				        
 					mail($destinataire, '=?UTF-8?B?'.base64_encode($sujet).'?=', $message, $headers) ; // Envoi du mail
 					return true;
 				} else {
@@ -173,4 +173,4 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\r\n";
 
 	include_once('./views/user_management.php');
 	
-?>		
+?>						
