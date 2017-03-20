@@ -32,6 +32,11 @@
                     </div>
                 <?php } ?>
             </div>
+            <!-- On fait un affichage random en mosaique de 
+            5x2 en grand
+            3x3 en moyen
+            ? en petit -->
+
             <div class="row artist_retrieved">            
                 <?php 
                     if ($sort_type === "artist_alphabetical") {
@@ -62,6 +67,8 @@
             <!-- L'affichage de toutes les miniatures de la selection par collection -->
             <!-- L'affichage de toutes les miniatures de la selection par année -->
             
+            <!-- bouton nouvelle recherche -->
+
         </div>
         <?php include("include/footer.php"); ?> 
     </body>

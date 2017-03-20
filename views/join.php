@@ -15,21 +15,23 @@
                 </h1>
             </div>
             <?php echo TXT_ADHESION_TEXTE; ?>
-        </div>
+        
 
-        <!-- formulaire - version préférée -->
+        <!-- formulaire - version à éviter
         <div class="row subscription_form">
             <iframe id="haWidget" src="https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015/widget" style="width:800px;height:1050px;border:none;"></iframe>
-        </div>
+        </div> -->
 
-        <!-- vignette 1 mail -->
-        <div class="row subscription_form">
-            <iframe id="haWidget" src="https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015/widget-vignette" style="width:350px;height:450px;border:none;"></iframe>
-        </div>
+            <!-- vignette pour mobile -->
+            <div class="row subscription_form">
+                <iframe id="haWidget" src="https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015/widget-vignette" style="width:350px;height:450px;border:none;"></iframe>
+            </div>
 
-        <!-- vignette 2 mail -->
-        <div class="row subscription_form">
-            <iframe id="haWidget" src="https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015/widget-vignette-horizontale" style="width:800px;height:400px;border:none;"></iframe>
+            <!-- vignette pour web -->
+            <div class="row subscription_form">
+                <iframe id="haWidget" src="https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015/widget-vignette-horizontale" style="width:800px;height:400px;border:none;"></iframe>
+            </div>
+
         </div>
 
         <?php include("include/footer.php"); ?> 

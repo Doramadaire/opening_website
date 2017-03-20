@@ -57,7 +57,7 @@
  	//---------------------------------------------------------
 	
 	define('TXT_SECTION_ALL', "Tous nos books");
-	define('TXT_SECTION_AUTHORS', "Tous nos auteurs");
+	define('TXT_SECTION_AUTHORS', "Tous nos artistes");
 		
 	//---------------------------------------------------------
  	// book_management.php

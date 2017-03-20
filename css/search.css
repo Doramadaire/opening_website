@@ -1,7 +1,9 @@
 .thumbnail {
-    color: white;
+    color: black;
     margin: 10px;
-    background-color: rgb(119, 119, 119);
+    color : rgb(119, 119, 119);
+    border: 0px;
+    /*background-color: rgb(119, 119, 119);*/
 }
 
 .thumbnail > p {
@@ -9,7 +11,8 @@
 }
 
 .thumbnail:hover {
-    background-color: rgb(219, 219, 219);
+    color: rgb(59, 59, 59);
+    /*background-color: rgb(219, 219, 219);*/
 }
 
 .thumbnail > img {
