@@ -46,6 +46,7 @@
 
             try {
                 $this->conn = new PDO(DB_PDO_DSN, DB_USER, DB_PASSWORD, $db_pdo_options);
+                $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
                 $this->boolConnexion = true;
             } catch (PDOException $e) {
                 die("Connection à la base de données échoué" . $e->getMessage());
@@ -126,14 +127,14 @@
                     authors VARCHAR(255) NOT NULL,                        
                     collection VARCHAR(255) NOT NULL,                     
                     year TINYINT UNSIGNED NOT NULL,
-                    access_token TEXT,
+                    access_tokens TEXT,
                     PRIMARY KEY (id_book)                
                     );");
             //le champ authors est un array des ids des auteurs serialisé
             //les ids des auteurs devraient être des clefs étrangères, mais comme ils sont en string dans la BDD c'est pas possible...
             //'is_full' INTEGER CHECK (is_full > 1 AND is_full < 4),
             //le champs is_full vaut 2 si le livre est complet ou 3 si c'est un extrait
-            //access_token contient les éventuels token pour avoir accès au book complet sans compte autorisé
+            //access_tokens contient les éventuels token pour avoir accès au book complet sans compte autorisé
             return $query->execute();
         }
 
@@ -206,9 +207,9 @@
             $authors_ids = $book->getBookAuthors();
             foreach ($book->getBookAuthors() as $key => $author_id) {
                 $curAuthorExists = FALSE;
-                //echo "<br>un id d'auteur cherche=".$author_id;
+                //echo "un id d'auteur cherche=".$author_id."<br>";
                 $query = $this->conn->prepare("SELECT 1 FROM authors WHERE id_author=?;");
-                $query-> bindValue(1,$author_id);
+                $query-> bindValue(1, $author_id);
                 if ($query->execute()) {
                     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                         $curAuthorExists = TRUE;
@@ -216,27 +217,31 @@
                     $authorsExistsArray[] = $curAuthorExists;
                 }
             }
+            //DEVDEV
+            $success = FALSE;
 
-            if (count($authors_ids) === count ($authorsExistsArray)) {
+            if (count($authors_ids) === count($authorsExistsArray)) {
                 //les deux listes ont la même taille
                 if (in_array(FALSE, $authorsExistsArray, true)) {
-                    //echo "<br>IL Y A UN FALSE DANS L'ARRAY!";
+                    //echo "IL Y A UN FALSE DANS L'ARRAY!<br>";
                     //il y a un FALSE, donc au moins un auteur n'a pas été trouvé
                 } else {
                     //on a retrouvé tous les auteurs, on peut ajouter notre livre
-                    $query = $this->conn->prepare("INSERT INTO books(title, filename, authors, collection, year) VALUES(?,?,?,?,?);");
+                    $query = $this->conn->prepare("INSERT INTO books(title, filename, authors, collection, year, access_tokens) VALUES(?,?,?,?,?,?);");
                     $query-> bindValue(1,$book->getBookTitle());
                     $query-> bindValue(2,$book->getBookFilename());
-                    $query-> bindValue(3,serialize($book->getBookAuthors()));
+                    $query-> bindValue(3,serialize($book->getBookAuthors()));                                  
                     $query-> bindValue(4,$book->getBookCollection());
                     $query-> bindValue(5,$book->getBookYear());
+                    $query-> bindValue(6, serialize($book->getAcessTokens()));
                     //$query-> bindValue(6,$book->getBookIsFull());
                     //$query-> bindValue(6,$book->getBookCaptions());
-                    return $query->execute();
+                    $success = $query->execute();
+                    echo "ALEA JACTA EST";
                 }               
             } 
             //un des auteurs du champ "authors" du livre existe pas dans la base
-            return FALSE;           
+            return $success;           
         }
 
         /**
@@ -388,7 +393,7 @@
          * @param $titre : le titre du livre
          * @return Book : l'objet Book qui correspond au livre trouvé 
          */
-        public function getBookByTitle($title)
+        public function getBookByExactTitle($title)
         {
             $book_serialized = null;
             $query = $this->conn->prepare("SELECT * FROM books WHERE title=?;");
@@ -396,11 +401,56 @@
             if ($query->execute()) 
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                    $book = new Book($row['id_book'], $row['title'], unserialize($row['authors']), $row['collection'], $row['year'], $row['is_full'],  $row['captions_filename']);
+                    $access_tokens = $row['$access_tokens'] !== NULL ? unserialize($row['$access_tokens']) : NULL;
+                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['year'], $access_tokens);
                     $book_serialized = serialize($book);
                 }
             }
             return $book_serialized;
+        }
+
+        /**
+         * Méthode qui récupère un livre en le cherchant grâce à son id
+         * 
+         *
+         * @param $id : l'id du livre
+         * @return Book : l'objet Book qui correspond au livre trouvé 
+         */
+        public function getBookByID($id)
+        {
+            $book_serialized = null;
+            $query = $this->conn->prepare("SELECT * FROM books WHERE id_book=?;");
+            $query-> bindValue(1, $id);
+            if ($query->execute()) 
+            {
+                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                    $access_tokens = $row['$access_tokens'] !== NULL ? unserialize($row['$access_tokens']) : NULL;
+                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['year'], $access_tokens);
+                    $book_serialized = serialize($book);
+                }
+            }
+            return $book_serialized;
+        }
+
+        /**
+        * Méthode qui récupère un array de tout les books
+        * 
+        *
+        * @return array(Books) : un array contenant tous les books
+        */
+        public function getAllBooks()
+        {
+            $retrieved_books = array();
+            $query = $this->conn->prepare("SELECT * FROM books;");
+            if ($query->execute()) 
+            {
+                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                    $access_tokens = $row['$access_tokens'] !== NULL ? unserialize($row['$access_tokens']) : NULL;
+                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['year'], $access_tokens);
+                    $retrieved_books[] = $book;
+                }
+            }
+            return $retrieved_books;
         }
 
         /**

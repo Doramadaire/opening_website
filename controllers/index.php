@@ -95,19 +95,25 @@
 	*/
 
 	/*
-	$unLivre = new Book(0, "MOBY DICK", [1,3], "classique", 1920, 3, "baleine.txt");
+	$unLivre = new Book(0, "Opening Book 1", "openingbook_001", [1,3], "openingbook", 2018, ["fdsf"]);
+	$unLivre2 = new Book(0, "Opening Book Photo 1", "openingbookphoto_001", [2], "openingbook_photo", 2015);
 	if ($sql->addBook($unLivre)) {
 		echo "<br>AJOUT DE LIVRE REUSSI";
 	} else {
 		echo "<br>AJOUT DE LIVRE FOIRE";
 	}
-	$unLivre = $sql->getBookByTitle("rêves bleus");
-	$unLivre = unserialize($unLivre);	
+	$sql->addBook($unLivre2);
+	$livreCherche = $sql->getBookByID(4);
+	$livreCherche = unserialize($livreCherche);	
 	echo "<br> Un book : <br>";
-	echo "titre=".$unLivre->getBookTitle()." auteurs=".implode($unLivre->getBookAuthors())." collection=".$unLivre->getBookCollection();	 
-	echo "<br>id=".$unLivre->getBookID();
+	echo "titre=".$livreCherche->getBookTitle()." auteurs=".implode($livreCherche->getBookAuthors())." collection=".$livreCherche->getBookCollection();	 
+	echo "<br>id=".$livreCherche->getBookID();*/
 	//ajout et récupération OK pour user, author et book :)
-	*/
+	/* exemple d'insertion SQL
+	INSERT INTO books(title, filename, authors, collection, year) 
+	VALUES("Opening Book 1","openingbook_001","a:2:{i:0;i:1;i:1;i:3;}","openingbook",2018);
+    */  
+	
 
 	/* des tests nuls de type
 	$nu = null;

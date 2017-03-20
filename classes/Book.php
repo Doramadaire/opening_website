@@ -59,14 +59,12 @@
 		private $year;
 
 		/** 
-	     * La propriété caractérisant si le livre est complet ou pas (donc un extrait)
-	     * 2 = complet
-	     * 3 = extrait
+	     * Les id d'accès privilégiés à ce book
 	     *
-	     * @var int
+	     * @var string
 	     * @access private
 	     */
-		private $is_full;
+		private $access_tokens;
 
 		/** 
 	     * Le chemin vers le fichier texte qui contient les éventuelles légendes
@@ -81,16 +79,15 @@
 		*
 		* @return void
 		*/
-		function __construct($id, $title, $filename, $authors, $collection, $year)
+		function __construct($id, $title, $filename, $authors, $collection, $year, $access_tokens = NULL)
 		{
 			$this->id = $id;
 			$this->title = $title;
-			$this->$filename = $filename;
-			$this->authors = $authors;//Une array contenant les ids du/des auteur(s) du livre
+			$this->filename = $filename;
+			$this->authors = $authors;//Un array contenant les ids du/des auteur(s) du livre
 			$this->collection = $collection;
 			$this->year = $year;
-			//$this->is_full = $is_full;
-			//$this->captions_filename = $captions_filename;
+			$this->access_tokens = $access_tokens;//Un array contenant des tokens
 		}
 
 		/**
@@ -120,7 +117,7 @@
 		*/
 		public function getBookFilename()
 		{
-			return $this->$filename;
+			return $this->filename;
 		}
 
 		/**
@@ -152,6 +149,17 @@
 		{
 			return $this->year;
 		}
+
+		/**
+		* Retourne les access tokens
+		*
+		* @return int
+		*/
+		public function getAcessTokens()
+		{
+			return $this->access_tokens;
+		}
+
 
 		/**
 		* Retourne la propriété caractérisant si le livre est complet ou pas (donc un extrait)

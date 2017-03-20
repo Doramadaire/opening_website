@@ -22,6 +22,10 @@ un border radius égal à 0 donne des boutons rectangulaires.
   --border_radius : 5px;
 }
 
+html, body {
+  font-family: "Arial", cursive, sans-serif;
+}
+
 p {
   text-align: justify;
 }
