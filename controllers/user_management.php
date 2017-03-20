@@ -105,7 +105,7 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 		$pseudo_searched = stripslashes($_POST['author_pseudo']);		
 		$sql = SQL::getInstance();
 		$conn = $sql->getBoolConnexion();
-		$retrieved_authors = $sql->getAuthorByName('%'.$pseudo_searched.'%');			
+		$retrieved_authors = $sql->getAuthorsByName('%'.$pseudo_searched.'%');
 
 		if ($retrieved_authors != null) {
 			//Trouvé!

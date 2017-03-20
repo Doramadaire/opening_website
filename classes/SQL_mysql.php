@@ -80,7 +80,6 @@
             return $this->boolConnexion;
         }
 
-
         /**
          * Méthode qui initialise la base de donnée en créant les différents tables
          *
@@ -217,8 +216,6 @@
                     $authorsExistsArray[] = $curAuthorExists;
                 }
             }
-            //DEVDEV
-            $success = FALSE;
 
             if (count($authors_ids) === count($authorsExistsArray)) {
                 //les deux listes ont la même taille
@@ -236,12 +233,11 @@
                     $query-> bindValue(6, serialize($book->getAcessTokens()));
                     //$query-> bindValue(6,$book->getBookIsFull());
                     //$query-> bindValue(6,$book->getBookCaptions());
-                    $success = $query->execute();
-                    echo "ALEA JACTA EST";
+                    return $query->execute();
                 }               
             } 
             //un des auteurs du champ "authors" du livre existe pas dans la base
-            return $success;           
+            return FALSE;
         }
 
         /**
@@ -337,14 +333,58 @@
             return $response;
         }
 
-         /**
+        /**
+        * Méthode qui récupère tous les auteurs dans l'ordre alphabétique
+        *
+        * @return array(Author) : l'array d'objets Author trié
+        */
+        public function getAuthorsSortedAlphabetical()
+        {
+            $retrieved_authors = array();
+            $query = $this->conn->prepare("SELECT name FROM authors order by 'a';");
+            if ($query->execute()) {
+                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                    $description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
+                    $news_filename = $row['news_filename'] !== NULL ? $row['news_filename'] : NULL;
+                    $cv_filename = $row['cv_filename'] !== NULL ? $row['cv_filename'] : NULL;
+                    $author = new Author($row['id_author'], $row['name'], $row['user'], $description_filename, $news_filename, $cv_filename);
+                    $retrieved_authors[] = $author;
+                }
+            }
+            return $retrieved_authors;
+        }
+
+        /**
+        * Méthode qui récupère une liste d'auteurs correspondant à la recherche
+        *        *
+        * @param $name : le nom de l'auteur
+        * @return array(Author) : l'array d'objets Author qui correspond aux auteurs trouvés
+        */
+        public function getAuthorsByName($name)
+        {
+            $retrieved_authors = array();
+            $query = $this->conn->prepare("SELECT * FROM authors WHERE name LIKE ?;");
+            $query-> bindValue(1,$name);
+            if ($query->execute()) {
+                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                    $description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
+                    $news_filename = $row['news_filename'] !== NULL ? $row['news_filename'] : NULL;
+                    $cv_filename = $row['cv_filename'] !== NULL ? $row['cv_filename'] : NULL;
+                    $author = new Author($row['id_author'], $row['name'], $row['user'], $description_filename, $news_filename, $cv_filename);
+                    $retrieved_authors[] = $author;
+                }
+            }
+            return $retrieved_authors;
+        }
+
+        /**
          * Méthode qui récupère un auteur en le cherchant grâce à son nom
          * 
          *
          * @param $name : le nom de l'auteur
          * @return Author : l'objet Author qui correspond à l'auteur trouvé 
          */
-        public function getAuthorByExactyName($name)
+        public function getAuthorByExactName($name)
         {
             $author_serialized = null;
             $query = $this->conn->prepare("SELECT * FROM authors WHERE name=?;");
@@ -362,28 +402,26 @@
         }
 
         /**
-         * Méthode qui récupère une liste d'auteurs correspondant à la recherche
-         * 
-         *
-         * @param $name : le nom de l'auteur
-         * @return array(Author) : l'array d'objets Author qui correspond aux auteurs trouvés
+        * Méthode qui récupère un auteur en le cherchant grâce à son id
+        *
+        * @param $id : l'id de l'auteur
+        * @return Author : l'objet Author qui correspond à l'auteur trouvé
         */
-        public function getAuthorByName($name)
+        public function getAuthorByID($id)
         {
-            $retrieved_authors = array();
-            $query = $this->conn->prepare("SELECT * FROM authors WHERE name LIKE ?;");
-            $query-> bindValue(1,$name);
+            $author_serialized = null;
+            $query = $this->conn->prepare("SELECT * FROM authors WHERE id_author=?;");
+            $query-> bindValue(1, $id);
             if ($query->execute()) 
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
                     $news_filename = $row['news_filename'] !== NULL ? $row['news_filename'] : NULL;
                     $cv_filename = $row['cv_filename'] !== NULL ? $row['cv_filename'] : NULL;
-                    $author = new Author($row['id_author'], $row['name'], $row['user'], $description_filename, $news_filename, $cv_filename);
-                    $retrieved_authors[] = $author;
+                    $author = new Author($row['id_author'], $row['name'], $row['user'], $description_filename, $news_filename, $cv_filename);                   $author_serialized = serialize($author);
                 }
             }
-            return $retrieved_authors;
+            return $author_serialized;
         }
 
         /**
@@ -431,6 +469,29 @@
             }
             return $book_serialized;
         }
+
+        /**
+         * Méthode qui cherche les livres selon le nom de l'auteur
+         *
+         * @param $search : la recherche utilisateur
+         * @return array(Books) : un array contenant les books trouvés par la recherche
+         */
+        // TEST Fonction annulée, remplacée par la partie controller sort_type = "artist_alphabetical"
+        /*
+        public function getBookOnAuthorName($search)
+        {
+            $retrieved_books = array();
+            $query = $this->conn->prepare("SELECT * FROM books WHERE id_book=?;");//fait chier faut faire une jointure
+            $query-> bindValue(1, $search);
+            if ($query->execute()) {
+                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                    $access_tokens = $row['$access_tokens'] !== NULL ? unserialize($row['$access_tokens']) : NULL;
+                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['year'], $access_tokens);
+                    $retrieved_books[] = $book;
+                }
+            }
+            return $retrieved_books;
+        }*/
 
         /**
         * Méthode qui récupère un array de tout les books
@@ -612,7 +673,7 @@
         public function setBookAuthors($book, $new_authors)
         {
             //On va commencer par vérifier que chaque auteur du book existe
-            $authorsExistsArray = array();
+             $authorsExistsArray = array();
             foreach ($new_authors as $key => $author_id) {
                 $curAuthorExists = FALSE;
                 //echo "<br>un id d'auteur cherche=".$author_id;
