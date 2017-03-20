@@ -17,8 +17,19 @@
             <?php echo TXT_ADHESION_TEXTE; ?>
         </div>
 
+        <!-- formulaire - version préférée -->
         <div class="row subscription_form">
-            <iframe id="haWidget" src="https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015/widget" style="width:800px;height:1050px;border:none;">
+            <iframe id="haWidget" src="https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015/widget" style="width:800px;height:1050px;border:none;"></iframe>
+        </div>
+
+        <!-- vignette 1 mail -->
+        <div class="row subscription_form">
+            <iframe id="haWidget" src="https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015/widget-vignette" style="width:350px;height:450px;border:none;"></iframe>
+        </div>
+
+        <!-- vignette 2 mail -->
+        <div class="row subscription_form">
+            <iframe id="haWidget" src="https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015/widget-vignette-horizontale" style="width:800px;height:400px;border:none;"></iframe>
         </div>
 
         <?php include("include/footer.php"); ?> 
