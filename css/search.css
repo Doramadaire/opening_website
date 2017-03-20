@@ -1,9 +1,19 @@
 .thumbnail {
+    color: white;
     margin: 10px;
+    background-color: rgb(119, 119, 119);
 }
 
 .thumbnail > p {
     text-align: center;
+}
+
+.thumbnail:hover {
+    background-color: rgb(219, 219, 219);
+}
+
+.thumbnail > img {
+    margin: 2px;
 }
 
 .artist_alphabet {
