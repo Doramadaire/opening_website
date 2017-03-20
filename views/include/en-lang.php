@@ -15,6 +15,7 @@
  
  	define('TXT_NAVBAR_A_PROPOS', 'About');
  	define('TXT_NAVBAR_ARTISTES', 'Artists');
+ 	define('TXT_NAVBAR_CATALOGUE', 'Catalogue');
   	define('TXT_NAVBAR_CONTACT', 'Contact');
 	define('TXT_NAVBAR_ADHERER', 'Join');
 	define('TXT_NAVBAR_LANGUE', "Language");
@@ -50,7 +51,14 @@
 	define('TXT_PLACEHOLDER_FIRSTNAME', "Prénom");
 	define('TXT_PLACEHOLDER_NAME', "Nom");
 	define('TXT_PLACEHOLDER_MDP', "password");
+
+	//---------------------------------------------------------
+ 	// search.php
+ 	//---------------------------------------------------------
 	
+	define('TXT_SECTION_ALL', "Tous nos books");
+	define('TXT_SECTION_AUTHORS', "Tous nos auteurs");
+
 	//---------------------------------------------------------
  	// book_management.php
  	//---------------------------------------------------------	

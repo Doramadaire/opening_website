@@ -1,0 +1,4 @@
+# exclude all database
+*.db
+mdp.txt
+*.jpg

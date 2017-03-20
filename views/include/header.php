@@ -17,8 +17,13 @@
 
         <!-- Les éléments de la navbar à gauche-->
         <div class="collapse navbar-collapse" id="nav-collapse">
-          <ul class="nav navbar-nav">
-            <!-- Le 1er élément est dynamique -->
+          <ul class="nav navbar-nav">            			
+            <!-- Les premiers éléments -->
+            <li><a href="edito.php"><?php echo TXT_NAVBAR_A_PROPOS; ?> </a></li>
+            <li><a href="search.php"><?php echo TXT_NAVBAR_CATALOGUE; ?></a></li>
+            <li><a href="contact.php"><?php echo TXT_NAVBAR_CONTACT; ?></a></li>
+            <li><a href="join.php"><?php echo TXT_NAVBAR_ADHERER; ?></a></li>
+            <!-- Le dernier élément est dynamique -->
             <?php if ($user_logged) { ?>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo TXT_MENU ?><span class="caret"></span></a>
@@ -49,16 +54,11 @@
                         <?php break; 
                   } ?>
                 </ul>
-              </li>			
-				    <?php } else { 
+              </li>     
+            <?php } else { 
               //se connecter si on l'est pas ?> 
-				      <li><a href="index.php"><?php echo TXT_BOUTON_SE_CONNECTER; ?></a></li>					
-				      <?php } ?>				
-            <!-- Les éléments suivant -->
-            <li><a href="edito.php"><?php echo TXT_NAVBAR_A_PROPOS; ?> </a></li>
-            <li><a href="#"><?php echo TXT_NAVBAR_ARTISTES; ?></a></li>
-            <li><a href="contact.php"><?php echo TXT_NAVBAR_CONTACT; ?></a></li>
-            <li><a href="join.php"><?php echo TXT_NAVBAR_ADHERER; ?></a></li>
+              <li><a href="index.php"><?php echo TXT_BOUTON_SE_CONNECTER; ?></a></li>         
+              <?php } ?>  
           </ul>
 
           <!-- Les éléments de droite de la navbar -->
