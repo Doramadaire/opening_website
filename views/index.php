@@ -25,23 +25,23 @@
             <ul>
                 <?php switch($_SESSION['user_logged']->getUserStatus()) {
                     case 2: ?>
-                        <li><a href="book_viewer.php"><?php echo TXT_MENU_RECHERCHE_EXTRAITS; ?></a></li>
+                        <li><a href="search.php"><?php echo TXT_MENU_RECHERCHE_EXTRAITS; ?></a></li>
                         <li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>
                         <?php break;
 
                     case 3: ?>
-                        <li><a href="book_viewer.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li>
+                        <li><a href="search.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li>
                         <li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>
                         <?php break;
 
                     case 4: ?>
-                        <li><a href="book_viewer.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li>
+                        <li><a href="search.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li>
                         <li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>
                         <li><a href="book_management.php"><?php echo TXT_MENU_OEUVRES; ?></a></li>
                         <?php break;
                              
                     case 5: ?>
-                        <li><a href="book_viewer.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li> 
+                        <li><a href="search.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li>
                         <li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>                          
                         <li><a href="book_management.php"><?php echo TXT_MENU_OEUVRES_ADMIN; ?></a></li>
                         <li><a href="user_management.php"><?php echo TXT_MENU_ADMIN_PAGE; ?></a></li>                          
