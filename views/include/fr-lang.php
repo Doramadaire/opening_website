@@ -84,6 +84,8 @@
 	define('TXT_ERR_INCORRECT_FILE_EXTENSION', "Erreur : extension du fichier incorrecte. Veuillez charger un document au format PDF");
 	
 	define('TXT_NEW_BOOK_SUCCESS', "Book chargé en base avec succès");
+	
+	define('TXT_ARTIST_BOOK_MANAGEMENT', "Vos books");
 
 	//---------------------------------------------------------
  	// user_settings.php
@@ -161,6 +163,12 @@
  
 	define('TXT_SECTION_ACTUALITES', 'Actualités');
 	define('TXT_ACTUALITES_VIDE', "Il n'y a aucune nouvelle à afficher");
+	
+	//---------------------------------------------------------
+ 	// artists.php
+ 	//---------------------------------------------------------	
+
+ 	define('TXT_SECTION_ARTISTS', 'Artists');
 	
 	//---------------------------------------------------------
  	// contact.php

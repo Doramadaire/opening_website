@@ -56,7 +56,14 @@
 							<?php echo TXT_ANNEE; ?><input type="number" name="year" value="<?php echo date("Y"); ?>" min="2015" required><br>
 							<input type="submit" class="btn btn-primary" name="new_book_form" value=<?php echo '"'.TXT_BOUTON_CREER_BOOK.'"'; ?>>	
 						</form>	 
-					</div>			
+					</div>
+					<div class="row thumbnail">
+						<h3><?php echo TXT_ARTIST_BOOK_MANAGEMENT; ?></h3>
+						<a href="mailto:?subject=Le sujet&body=var_artiste a partagé avec vous son book paru dans la collection opening book. %0D%0A
+						Vous pouvez le consulter pendant un mois grâce au lien ci-dessous. %0D%0A var_lien  %0D%0A
+						Opening book est une collection numérique de books d'artistes conçue pour offrir une visibilité supplémentaire aux artistes plasticiens et photographes en PACA. Il faut adhérer à l'association Opening pour découvrir l'intégralité de la collection et soutenir son action. Dons et cotisations sont déductibles fiscalement car l’association répond aux critères de l’intérêt général.
+						opening-book.com">Partager un book</a>		
+					</div>
 	<?php  	}	 
 		} ?> 		
 	
