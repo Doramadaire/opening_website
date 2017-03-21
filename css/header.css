@@ -15,7 +15,7 @@ donne le code ci dessous pour les couleurs de la navbar
 .navbar {
   background-color: #FFFFFF;
   border-color: #FFFFFF;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
   height: inherit;
 }
 
