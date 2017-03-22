@@ -23,12 +23,12 @@
         </div> -->
 
             <!-- vignette pour mobile -->
-            <div class="row subscription_form">
+            <div class="row subscription_form hidden-md hidden-lg">
                 <iframe id="haWidget" src="https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015/widget-vignette" style="width:350px;height:450px;border:none;"></iframe>
             </div>
 
             <!-- vignette pour web -->
-            <div class="row subscription_form">
+            <div class="row subscription_form  hidden-sm hidden-xs ">
                 <iframe id="haWidget" src="https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015/widget-vignette-horizontale" style="width:800px;height:400px;border:none;"></iframe>
             </div>
 
