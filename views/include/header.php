@@ -63,8 +63,8 @@
 
           <!-- Les éléments de droite de la navbar -->
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="https://www.facebook.com/opening-book-872866662728445/" target="_blank">Facebook</a></li>
-            <li><a href="https://twitter.com/opening_asso" target="_blank" >Twitter</a></li>
+            <li><a class="social" href="https://www.facebook.com/opening-book-872866662728445/" target="_blank"><img  src="assets/fb.png" width="25" height="25"></a></li>
+		    <li><a class="social" href="https://twitter.com/opening_asso" target="_blank" ><img src="assets/tw.png" width="25" height="25"></a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo TXT_NAVBAR_LANGUE; ?><span class="caret"></span></a>
               <ul class="dropdown-menu">

@@ -29,3 +29,46 @@ donne le code ci dessous pour les couleurs de la navbar
   width: 100px;   /*la taille du logo */ 
   height: auto;   /*la taille du logo */ 
 }
+
+.social {
+	margin-top: -5px;   /* pour positionner la hauteur des logo */
+	
+}
+/* pour enlever la navbar sur 2 lignes. la valeur max-width indique à quel moment les boutons 
+  disparaissent dans le menu déroulant */ 
+ @media (max-width:1000px){
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+     }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+     }
+     .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+        display:block !important;
+    } 
+}
