@@ -56,8 +56,9 @@
  	// search.php
  	//---------------------------------------------------------
 	
-	define('TXT_SECTION_ALL', "Tous nos books");
-	define('TXT_SECTION_AUTHORS', "Tous nos artistes");
+	define('TXT_SECTION_CATALOGUE_ALL', "Tous nos books");
+	define('TXT_SECTION_CATALOGUE_ARTISTS', "Tous nos artistes");
+	define('TXT_SECTION_CATALOGUE_COLLECTION', "Toutes nos collections");
 
 	//---------------------------------------------------------
  	// book_management.php

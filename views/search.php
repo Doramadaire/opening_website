@@ -9,7 +9,7 @@
         <?php include("include/header.php"); ?> 
         <div class="container">                      
             <!-- L'affichage de toutes les miniatures de la selection par odre chronologique -->
-            <h1><?php echo TXT_SECTION_ALL;?></h1>
+            <h1><?php echo TXT_SECTION_CATALOGUE_ALL;?></h1>
             <div class="row">
                 <?php foreach ($all_books as $book) { ?>
                     <div class="col-sm-4 col-md-3 col-lg-2 thumbnail">
@@ -22,7 +22,7 @@
             </div>
             
             <!-- L'affichage de toutes les miniatures de la selection par auteurs -->
-            <h1><?php echo TXT_SECTION_AUTHORS; ?></h1>
+            <h1><?php echo TXT_SECTION_CATALOGUE_ARTISTS; ?></h1>
             <!-- L'alphabet avec chaque lettre cliquable si y a un auteur -->
             <div class="row artist_alphabet">
                 <?php foreach (range('A', 'Z') as $letter) { 
@@ -64,8 +64,10 @@
                         <?php  }
                     } ?>
             </div>
+
             <!-- L'affichage de toutes les miniatures de la selection par collection -->
-            <!-- L'affichage de toutes les miniatures de la selection par année -->
+            <h1><?php echo TXT_SECTION_CATALOGUE_COLLECTION; ?></h1>
+            <!-- L'affichage de toutes les miniatures de la selection par année : on oublie -->
             
             <!-- bouton nouvelle recherche -->
 
