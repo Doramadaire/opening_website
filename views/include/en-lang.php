@@ -104,7 +104,7 @@
 	
 	
 	//---------------------------------------------------------
- 	// user_management.php
+ 	// admin.php
  	//---------------------------------------------------------	
 		
  	define('TXT_GESTION_DES_UTILISATEURS', 'Page de gestion des utilisateurs');

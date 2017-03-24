@@ -4,7 +4,7 @@
         <?php include("include/html_header.php"); ?>
         <title><?php echo TXT_ONGLET; ?></title>
         <!-- Import des fichiers spécifiques à cette page -->
-        <link rel="stylesheet" href="css/user_management.css" type="text/css">	
+        <link rel="stylesheet" href="css/admin.css" type="text/css">	
 	</head>	
 	<body>
   

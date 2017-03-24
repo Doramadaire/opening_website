@@ -50,7 +50,7 @@
                         <!-- <li><a href="book_viewer.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li> -->
                         <li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>                          
                         <li><a href="book_management.php"><?php echo TXT_MENU_OEUVRES_ADMIN; ?></a></li>
-                        <li><a href="user_management.php"><?php echo TXT_MENU_ADMIN_PAGE; ?></a></li>                          
+                        <li><a href="admin.php"><?php echo TXT_MENU_ADMIN_PAGE; ?></a></li>                          
                         <?php break; 
                   } ?>
                 </ul>

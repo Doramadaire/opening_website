@@ -171,6 +171,6 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 		 }
 	}	
 
-	include_once('./views/user_management.php');
+	include_once('./views/admin.php');
 	
 ?>						
