@@ -93,7 +93,7 @@
 							<p><?php echo TXT_AJOUT_BOOK; ?></p>
 							<p><?php if (isset($dl_fail_error)) echo TXT_ERR_UPLOAD_FAIL; ?></p>
 							<p><?php if (isset($incorrect_file_extension_error)) echo TXT_ERR_INCORRECT_FILE_EXTENSION; ?></p>
-							<form action="book_management.php" method="post" enctype="multipart/form-data">
+							<form action="admin.php" method="post" enctype="multipart/form-data">
 								<label for="new_book_form"><?php echo TXT_AJOUT_BOOK2; ?></label><br>
 								<?php echo TXT_FICHIER_COMPLET; ?><input type="file" name="full_book_file" required/>
 								<?php echo TXT_FICHIER_EXTRAIT; ?><input type="file" name="extract_book_file" required/>
@@ -103,7 +103,7 @@
 									<input type="file" class="book_file" />						
 								</div				-->							
 								<input type="text" name="title" placeholder=<?php echo '"'.TXT_PLACEHOLDER_TITRE.'"'; ?> required><br>
-								<?php echo TXT_COLLECTION; ?> <select name="collection" required>
+								<?php echo TXT_COLLECTION; ?><select name="collection" required>
 									<option value="opening book"><?php echo TXT_COLLECTION_OPENINGBOOK; ?></option>
 									<option value="opening book photo"><?php echo TXT_COLLECTION_OPENINGBOOK_PHOTO; ?></option>
 								</select><br>
@@ -113,7 +113,7 @@
 						</div>
 
 						<div class="row">
-						    <h1 class="Section">Mettre à jour les actualités</h1>
+						    <h1 class="Section"><?php echo TXT_SECTION_NEWS; ?></h1>
 						</div>
 
 						<div class="thumbnail">      
@@ -127,9 +127,32 @@
 								<br>	
 								<textarea style="max-width: 100%;  max-height: 100%;" rows="10" cols="40" name="news_text"></textarea>
 								<br>
-								<input type="submit" name="news_form" class="btn btn-primary" value="mettre à jour">
+								<input type="submit" name="news_form" class="btn btn-primary" value="<?php echo TXT_BUTTON_SEND; ?>">
 							</form>
 						</div>
+
+						<div class="row">
+						    <h1 class="Section"><?php echo TXT_SECTION_LANG; ?></h1>
+						</div>
+
+						<div class="row thumbnail">
+							<!-- DEVDEVDEV TO DO : affichage propre des messages d'erreurs/confirmation -->
+							<h3><?php echo TXT_UPLOAD_LANG_FILES; ?></h3>
+							<!-- <p><?php if (isset($dl_fail_error)) echo TXT_ERR_UPLOAD_FAIL; ?></p>
+							<p><?php if (isset($incorrect_file_extension_error)) echo TXT_ERR_INCORRECT_FILE_EXTENSION; ?></p> -->
+							<!-- Autre façon de faire pour l'upload de fichier : voir upload book -->
+							<form action="admin.php" method="post" enctype="multipart/form-data">
+								<label for="new_book_form"><?php echo TXT_AJOUT_BOOK2; ?></label><br>
+								<?php echo TXT_LANG_FILE_FR; ?><input type="file" name="fr_lang_file" required/>
+								<?php echo TXT_LANG_FILE_EN; ?><input type="file" name="en_lang_file" required/>
+								<!-- pour rajouter des langues
+								<?php echo TXT_LANG_FILE_DE; ?><input type="file" name="de_lang_file" required/>
+								<?php echo TXT_LANG_FILE_ES; ?><input type="file" name="es_lang_file" required/>
+								<?php echo TXT_LANG_FILE_IT; ?><input type="file" name="it_lang_file" required/> -->														
+								<input type="submit" class="btn btn-primary" name="set_lang_files_form" value="<?php echo TXT_BUTTON_SEND; ?>">	
+							</form>	 
+						</div>
+
 					</div>	
 	<?php  	}	 
 		} ?> 	

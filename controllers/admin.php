@@ -169,7 +169,65 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 		 } else {
 		 	echo "<br>pb création auteur - (et même avant lors de la création de l'user)";
 		 }
-	}	
+	}
+
+	if (isset($_POST['new_book_form'])) {
+		if ($_FILES['full_book_file']['error'] > 0 and $_FILES['extract_book_file']['error'] > 0) {
+			$dl_fail_error = true;
+		} else {
+			$full_book_extension = strtolower(substr(strrchr($_FILES['full_book_file']['name'], '.')  ,1)  );
+			$book_extract_extension = strtolower(substr(strrchr($_FILES['extract_book_file']['name'], '.')  ,1)  );
+			if ($full_book_extension != "pdf" and $book_extract_extension != "pdf") {
+				$incorrect_file_extension_error = true;
+			} else {
+				$book_name = $_FILES['full_book_file']['name'];
+				//$book_extract_name = $_FILES['extract_book_file']['name'];
+				$full_book_path = "assets/books/".$book_name;
+				//Le nom du fichier est le même pour les deux, seul le dossier change
+				$book_extract_path = "assets/extracts/".$book_name;
+				/*$move_full = move_uploaded_file($_FILES['full_book_file']['tmp_name'], $full_book_path);
+				$move_extract = move_uploaded_file($_FILES['extract_book_file']['tmp_name'], $book_extract_path);
+				if ($move_full and $move_extract) {
+					$sql = SQL::getInstance();
+					$conn = $sql->getBoolConnexion();					
+					
+					//il manque la valeur du champ AUTHORS à mon book
+					//$new_book =  new Book(0, $book_name, $book_name, $authors, $_POST['collection'], $_POST['year']);
+					//$success = $sql->addBook($new_book);
+				}*/
+				echo "DL réussi et extensions correctes<br>";
+				echo "Mais rien ne s'est passé, la fonctionnalitée n'est pas finie";
+			}			
+		}		
+	}
+
+	if (isset($_POST['set_lang_files_form'])) {
+		if ($_FILES['fr_lang_file']['error'] > 0 and $_FILES['en_lang_file']['error'] > 0) {
+			//rajouter une condition par fichier de langue
+			$dl_fail_error = true;
+		} else {
+			$fr_lang_file_extension = strtolower(substr(strrchr($_FILES['fr_lang_file']['name'], '.')  ,1)  );
+			$en_lang_file_extension = strtolower(substr(strrchr($_FILES['en_lang_file']['name'], '.')  ,1)  );
+			/*$de_lang_file_extension = strtolower(substr(strrchr($_FILES['de_lang_file']['name'], '.')  ,1)  );
+			$es_lang_file_extension = strtolower(substr(strrchr($_FILES['es_lang_file']['name'], '.')  ,1)  );
+			$it_lang_file_extension = strtolower(substr(strrchr($_FILES['it_lang_file']['name'], '.')  ,1)  );*/
+
+			if ($fr_lang_file_extension != "php" and $en_lang_file_extension != "php") {
+				//rajouter une condition par fichier de langue
+				$incorrect_file_extension_error = true;
+			} else {
+				$lang_file_name = "-lang.php";
+				$folder_path = "views/include/";
+
+				$move_fr_file = move_uploaded_file($_FILES['fr_lang_file']['tmp_name'], $folder_path."fr".$lang_file_name);
+				$move_en_file = move_uploaded_file($_FILES['en_lang_file']['tmp_name'], $folder_path."en".$lang_file_name);
+				/*$move_de_file = move_uploaded_file($_FILES['de_lang_file']['tmp_name'], $folder_path."de".$lang_file_name);
+				$move_es_file = move_uploaded_file($_FILES['es_lang_file']['tmp_name'], $folder_path."es".$lang_file_name);
+				$move_it_file = move_uploaded_file($_FILES['it_lang_file']['tmp_name'], $folder_path."it".$lang_file_name);*/
+				echo "DL réussi et extensions correctes - fichiers de langues mis à jour<br>";
+			}			
+		}		
+	}
 
 	include_once('./views/admin.php');
 	

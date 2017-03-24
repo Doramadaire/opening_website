@@ -129,6 +129,18 @@
 	define('TXT_PLACEHOLDER_ARTIST_NAME', "Pseudo");	
 	define('TXT_AUTHOR_SUBMIT_CV', "Fichier PDF du CV de l'artiste (optionnel)");
 	define('TXT_CREER_ARTISTE', "Ajout de l'artiste");
+
+	define('TXT_SECTION_NEWS', "Mettre à jour les actualités");
+
+	define('TXT_SECTION_LANG', "Modifier les fichiers textes de langue");
+	define('TXT_UPLOAD_LANG_FILES', "Uploader les différents fichiers de langue");
+	define('TXT_BUTTON_SEND', "Envoyer");
+	define('TXT_LANG_FILE_FR', "Fichier des textes en français");
+	define('TXT_LANG_FILE_EN', "Fichier des textes en anglais");
+	define('TXT_LANG_FILE_DE', "Fichier des textes en allemand");
+	define('TXT_LANG_FILE_ES', "Fichier des textes en espagnol");
+	define('TXT_LANG_FILE_IT', "Fichier des textes en italien");
+
 	
 	//---------------------------------------------------------
  	// join.php
