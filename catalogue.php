@@ -2,5 +2,5 @@
     include_once('classes/useful_functions.php');
     includeOnceAllClasses();
     
-    require_once('controllers/search.php');
+    require_once('controllers/catalogue.php');
 ?>

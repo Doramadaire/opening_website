@@ -25,23 +25,23 @@
             <ul>
                 <?php switch($_SESSION['user_logged']->getUserStatus()) {
                     case 2: ?>
-                        <li><a href="search.php"><?php echo TXT_MENU_RECHERCHE_EXTRAITS; ?></a></li>
+                        <li><a href="catalogue.php"><?php echo TXT_MENU_RECHERCHE_EXTRAITS; ?></a></li>
                         <li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>
                         <?php break;
 
                     case 3: ?>
-                        <li><a href="search.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li>
+                        <li><a href="catalogue.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li>
                         <li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>
                         <?php break;
 
                     case 4: ?>
-                        <li><a href="search.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li>
+                        <li><a href="catalogue.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li>
                         <li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>
                         <li><a href="book_management.php"><?php echo TXT_MENU_OEUVRES; ?></a></li>
                         <?php break;
                              
                     case 5: ?>
-                        <li><a href="search.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li>
+                        <li><a href="catalogue.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li>
                         <li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>                          
                         <li><a href="book_management.php"><?php echo TXT_MENU_OEUVRES_ADMIN; ?></a></li>
                         <li><a href="admin.php"><?php echo TXT_MENU_ADMIN_PAGE; ?></a></li>                          
@@ -55,19 +55,19 @@
 				<?php } else { ?>
 						<h3><?php echo TXT_SECTION_CONNEXION; ?></h3>
 				<?php 		if (isset($logging_error)) {echo '<p class="error_message">'.$logging_error.'<p>';}?> 
-						<form action="" method="POST">
+						<form action="index.php" method="POST">
 								<input type="text" name="mail" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MAIL.'"'; ?>> <br>
 								<input type="password" name="password" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MDP.'"'; ?>>		<br><br>
 								<p><input class="btn btn-primary" role="button" type="submit" name="logging_form" value=<?php echo '"'.TXT_BOUTON_SE_CONNECTER.'"'; ?>></p>
 						</form> 
-						 <a onclick="hideThis('oubli')"><?php echo TXT_MDP_OUBLIE; ?></a>		 
-						 <?php 		if (isset($reset_pswd_error)) {echo '<p class="error_message">'.$reset_pswd_error.'<p>';}?> 
-						 <form id="oubli" class="hide_first" action="" method="POST">
-						 		<p><input type="text" name="mail_pswd_forgotten" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MAIL.'"'; ?>></p>
-						 		<p><?php echo TXT_ATTENTION_MDP_OUBLIE; ?></p>
-						 		<p><input class="btn btn-primary" role="button" type="submit" name="pswd_forgotten_form" value=<?php echo '"'.TXT_BOUTON_RESET_MDP_OUBLIE.'"'; ?>></p>
-						 </form>
-												 <?php }?>
+						<a onclick="hideThis('oubli')"><?php echo TXT_MDP_OUBLIE; ?></a>		 
+				<?php 		if (isset($reset_pswd_error)) {echo '<p class="error_message">'.$reset_pswd_error.'<p>';}?> 
+						<form id="oubli" class="hide_first" action="" method="POST">
+                            <p><input type="text" name="mail_pswd_forgotten" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MAIL.'"'; ?>></p>
+                            <p><?php echo TXT_ATTENTION_MDP_OUBLIE; ?></p>
+                            <p><input class="btn btn-primary" role="button" type="submit" name="pswd_forgotten_form" value=<?php echo '"'.TXT_BOUTON_RESET_MDP_OUBLIE.'"'; ?>></p>
+						</form>
+				<?php }?>
 								 
 						</div>
 				</div>

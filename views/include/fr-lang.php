@@ -53,7 +53,7 @@
 	define('TXT_PLACEHOLDER_MDP', "mot de passe");	
 
 	//---------------------------------------------------------
- 	// search.php
+ 	// catalogue.php
  	//---------------------------------------------------------
 	
 	define('TXT_SECTION_CATALOGUE_ALL', "Tous nos books");

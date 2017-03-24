@@ -45,6 +45,6 @@
 
     $all_books = $sql->getAllBooks();
     
-    include_once('./views/search.php');
+    include_once('./views/catalogue.php');
 
 ?>

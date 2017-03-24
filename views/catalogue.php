@@ -3,7 +3,7 @@
     <head>
         <?php include("include/html_header.php"); ?>
         <title><?php echo TXT_ONGLET; ?></title>
-        <link href="css/search.css" rel="stylesheet">
+        <link href="css/catalogue.css" rel="stylesheet">
     </head>
     <body>
         <?php include("include/header.php"); ?> 
