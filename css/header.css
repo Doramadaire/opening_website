@@ -31,12 +31,12 @@ donne le code ci dessous pour les couleurs de la navbar
 }
 
 .social {
-	margin-top: -5px;   /* pour positionner la hauteur des logo */
+	margin-top: -3px;   /* pour positionner la hauteur des logos twitter et fb */
 	
 }
 /* pour enlever la navbar sur 2 lignes. la valeur max-width indique à quel moment les boutons 
   disparaissent dans le menu déroulant */ 
- @media (max-width:1000px){
+ @media (max-width:942px){
     .navbar-header {
         float: none;
     }

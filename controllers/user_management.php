@@ -49,7 +49,7 @@ Pour modifier votre mot de passe, identifier vous sur http://opening-book.com/ e
 Nous vous souhaitons une agréable consultation de notre collection\n
 \n
 ---------------\n
-Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img style="float: right;"'." src='http://beta.opening-book.eu/assets/mini_logo.jpg'>";	 
+Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img style="float: right;"'." src='http://beta.opening-book.eu/assets/mini_logo.jpg' width='80px' height='47px'>";	 
 				        
 					mail($destinataire, '=?UTF-8?B?'.base64_encode($sujet).'?=', $message, $headers) ; // Envoi du mail
 					return true;
