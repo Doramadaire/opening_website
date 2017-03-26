@@ -1,4 +1,4 @@
-/*l'allure générale des liens */
+/*l'allure des liens sur la page d'accueil*/
 .action a:link {
     text-decoration: none;
 }
@@ -22,5 +22,16 @@
 }
 
 
-
+/* css pour le diaporama */
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+            margin: auto;
+	  
+	  }
+      
+#myCarousel {
+    width : 75%;
+    margin: auto;
+    margin-bottom: 20px;
+}
 
