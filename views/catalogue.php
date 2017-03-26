@@ -49,15 +49,18 @@
             <!-- Pour les écrans petits, on met 3 lignes de 3 vignettes -->
             <div class="random_vignettes_small">       
                 <div class="row">
+                    <div class="col-sm-1"></div>
                     <?php 
                         for ($i=0; $i < min(count($ten_rand_books), 9); $i++) {
                             $book = $ten_rand_books[$i];
                             if ($i != 0 && $i % 3 == 0 && $i != 9) { ?>
                                 <!-- 1er élément d'une nouvelle ligne -->
+                                    <div class="col-sm-1"></div>
                                 </div>
                                 <div class="row">
+                                    <div class="col-sm-1"></div>
                             <?php } ?>
-                            <div class="thumbnail col-xs-4">
+                            <div class="thumbnail col-xs-4 col-sm-3">
                                 <a href="<?php echo 'book_viewer.php?id='.$book->getBookID(); ?>">
                                     <img height="150" width="154" src="/assets/thumbnails/OPENINGBOOK_001">
                                     <p><?php echo $book->getBookTitle(); ?></p>
@@ -72,6 +75,7 @@
                                 </a>
                             </div>
                         <?php } ?>
+                    <div class="col-sm-1"></div>
                 </div>
             </div>
 
