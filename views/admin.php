@@ -95,8 +95,18 @@
 							<p><?php if (isset($incorrect_file_extension_error)) echo TXT_ERR_INCORRECT_FILE_EXTENSION; ?></p>
 							<form action="admin.php" method="post" enctype="multipart/form-data">
 								<label for="new_book_form"><?php echo TXT_AJOUT_BOOK2; ?></label><br>
-								<?php echo TXT_FICHIER_COMPLET; ?><input type="file" name="full_book_file" required/>
-								<?php echo TXT_FICHIER_EXTRAIT; ?><input type="file" name="extract_book_file" required/>
+								<?php echo TXT_FICHIER_COMPLET; ?>
+								<div class="fileUpload btn btn-primary">
+									<span>Upload</span>		
+									<input type="file" name="full_book_file" required/>					
+								</div>
+								
+								<?php echo TXT_FICHIER_EXTRAIT; ?>
+								<div class="fileUpload btn btn-primary">
+									<span>Upload</span>		
+									<input type="file" name="extract_book_file" required/>				
+								</div>	
+								
 								<!-- Autre façon de faire
 								<div class="fileUpload btn btn-primary">
 									<span>Upload</span>		
@@ -125,7 +135,7 @@
 									<!-- <option value='es'>Es</option> -->
 								</select>
 								<br>	
-								<textarea style="max-width: 100%;  max-height: 100%;" rows="10" cols="40" name="news_text"></textarea>
+								<textarea style="max-width: 100%;  max-height: 100%;" rows="10" cols="400" name="news_text"></textarea>
 								<br>
 								<input type="submit" name="news_form" class="btn btn-primary" value="<?php echo TXT_BUTTON_SEND; ?>">
 							</form>
@@ -143,12 +153,33 @@
 							<!-- Autre façon de faire pour l'upload de fichier : voir upload book -->
 							<form action="admin.php" method="post" enctype="multipart/form-data">
 								<label for="new_book_form"><?php echo TXT_AJOUT_BOOK2; ?></label><br>
-								<?php echo TXT_LANG_FILE_FR; ?><input type="file" name="fr_lang_file" required/>
-								<?php echo TXT_LANG_FILE_EN; ?><input type="file" name="en_lang_file" required/>
+								<?php echo TXT_LANG_FILE_FR; ?>
+								<div class="fileUpload btn btn-primary">
+									<span>Upload</span>		
+									<input type="file" name="fr_lang_file" required/>			
+								</div>	
+															
+								<?php echo TXT_LANG_FILE_EN; ?>
+								<div class="fileUpload btn btn-primary">
+									<span>Upload</span>		
+									<input type="file" name="en_lang_file" required/>		
+								</div>	
+								
 								<!-- pour rajouter des langues
-								<?php echo TXT_LANG_FILE_DE; ?><input type="file" name="de_lang_file" required/>
-								<?php echo TXT_LANG_FILE_ES; ?><input type="file" name="es_lang_file" required/>
-								<?php echo TXT_LANG_FILE_IT; ?><input type="file" name="it_lang_file" required/> -->														
+								<?php echo TXT_LANG_FILE_DE; ?>
+								<div class="fileUpload btn btn-primary">
+									<span>Upload</span>		
+									<input type="file" name="de_lang_file" required/>	
+								</div>
+								<?php echo TXT_LANG_FILE_ES; ?>
+								<div class="fileUpload btn btn-primary">
+									<span>Upload</span>		
+									<input type="file" name="es_lang_file" required/>
+								</div>
+								<?php echo TXT_LANG_FILE_IT; ?>
+								<div class="fileUpload btn btn-primary">
+									<span>Upload</span>		
+									<input type="file" name="it_lang_file" required/> -->													
 								<input type="submit" class="btn btn-primary" name="set_lang_files_form" value="<?php echo TXT_BUTTON_SEND; ?>">	
 							</form>	 
 						</div>
