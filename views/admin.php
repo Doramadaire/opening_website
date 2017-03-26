@@ -100,13 +100,13 @@
 									<span>Upload</span>		
 									<input type="file" name="full_book_file" required/>					
 								</div>
-								
+								<br>
 								<?php echo TXT_FICHIER_EXTRAIT; ?>
 								<div class="fileUpload btn btn-primary">
 									<span>Upload</span>		
 									<input type="file" name="extract_book_file" required/>				
 								</div>	
-								
+								<br>
 								<!-- Autre façon de faire
 								<div class="fileUpload btn btn-primary">
 									<span>Upload</span>		
@@ -158,28 +158,31 @@
 									<span>Upload</span>		
 									<input type="file" name="fr_lang_file" required/>			
 								</div>	
-															
+								<br>							
 								<?php echo TXT_LANG_FILE_EN; ?>
 								<div class="fileUpload btn btn-primary">
 									<span>Upload</span>		
 									<input type="file" name="en_lang_file" required/>		
 								</div>	
-								
+								<br>
 								<!-- pour rajouter des langues
 								<?php echo TXT_LANG_FILE_DE; ?>
 								<div class="fileUpload btn btn-primary">
 									<span>Upload</span>		
 									<input type="file" name="de_lang_file" required/>	
 								</div>
+								<br>
 								<?php echo TXT_LANG_FILE_ES; ?>
 								<div class="fileUpload btn btn-primary">
 									<span>Upload</span>		
 									<input type="file" name="es_lang_file" required/>
 								</div>
+								<br>
 								<?php echo TXT_LANG_FILE_IT; ?>
 								<div class="fileUpload btn btn-primary">
 									<span>Upload</span>		
-									<input type="file" name="it_lang_file" required/> -->													
+									<input type="file" name="it_lang_file" required/>
+								<br>    -->													
 								<input type="submit" class="btn btn-primary" name="set_lang_files_form" value="<?php echo TXT_BUTTON_SEND; ?>">	
 							</form>	 
 						</div>
