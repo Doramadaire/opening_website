@@ -3,7 +3,7 @@
     overflow: hidden;
     margin-bottom: 10px;
 }
-.fileUpload input.file_button {
+.fileUpload input {
     position: absolute;
     top: 0;
     right: 0;
