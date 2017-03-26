@@ -56,7 +56,7 @@
 		
 		<div class="container-fluid">		
 			<div class="row">
-				<div class="col-sm-12 col-md-4">
+				<div class="col-xs-12 col-sm-4">
 					<div class="thumbnail">
 						<!-- id="form" -->
 						<div class="caption">
@@ -118,7 +118,7 @@
 					</div>
 				</div>
 						
-				<div class="col-sm-12 col-md-4">
+				<div class="col-xs-12 col-sm-4">
 					<div class=" thumbnail">
 						<div class="caption">
 							<h3> <?php echo TXT_SECTION_RECHERCHE; ?> </h3>
@@ -129,7 +129,7 @@
 				</div>
 				
 				
-				<div class="col-sm-12 col-md-4">
+				<div class="col-xs-12 col-sm-4">
 					<div class="thumbnail">
 						<div class="caption">
 							<h3> <?php echo TXT_SECTION_ADHERER; ?> </h3>
