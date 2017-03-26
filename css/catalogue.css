@@ -1,22 +1,31 @@
 .thumbnail {
-    color: black;
-    margin: 10px;
-    color : rgb(119, 119, 119);
+    /*max-width: 158px;*/
+    min-width: 158px;
+    /*margin: 10px;*/
+    margin: auto;
     border: 0px;
-    /*background-color: rgb(119, 119, 119);*/
 }
 
-.thumbnail > p {
+.thumbnail > a {
+    text-decoration: none;   
+}
+
+.thumbnail > a > p {
+    color: rgb(119, 119, 119);
     text-align: center;
+    margin: 0px;
+    max-width: 158px;
 }
 
-.thumbnail:hover {
-    color: rgb(59, 59, 59);
-    /*background-color: rgb(219, 219, 219);*/
-}
-
-.thumbnail > img {
+.thumbnail > a > img {
     margin: 2px;
+    min-width: 100px;
+    max-width: 154px;
+    max-height: 150px;
+}
+
+.thumbnail:hover a > p {
+    color: rgb(59, 59, 59);
 }
 
 .artist_alphabet {
@@ -33,9 +42,39 @@
 
 .letter > a {
     color: rgb(119, 119, 119);
+    text-decoration: none;
+}
+
+.letter > a:hover {
+    color: rgb(59, 59, 59);
 }
 
 .artist_alphabet > a:hover {
     background-color: rgba(255,255,255,1);
     cursor: pointer;
+}
+
+.random_vignettes_small {
+    display: block;
+}
+
+@media (min-width: 992px) {
+    .random_vignettes_large {
+        display: block;
+    }
+
+    .random_vignettes_small {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .thumbnail > a > img {
+        width: auto;
+        height: auto;
+    }
+
+    .thumbnail {
+        min-width: 100px;
+    }
 }

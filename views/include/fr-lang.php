@@ -59,6 +59,10 @@
 	define('TXT_SECTION_CATALOGUE_ALL', "Tous nos books");
 	define('TXT_SECTION_CATALOGUE_ARTISTS', "Tous nos artistes");
 	define('TXT_SECTION_CATALOGUE_COLLECTION', "Toutes nos collections");
+
+	define('TXT_BOOK_BY', 'Par');
+	define('TXT_BOOK_BY_AND', 'et');
+	
 		
 	//---------------------------------------------------------
  	// book_management.php

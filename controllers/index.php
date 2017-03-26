@@ -95,14 +95,22 @@
 	*/
 
 	/*
-	$unLivre = new Book(0, "Opening Book 1", "openingbook_001", [1,3], "openingbook", 2018, ["fdsf"]);
-	$unLivre2 = new Book(0, "Opening Book Photo 1", "openingbookphoto_001", [2], "openingbook_photo", 2015);
-	if ($sql->addBook($unLivre)) {
-		echo "<br>AJOUT DE LIVRE REUSSI";
-	} else {
-		echo "<br>AJOUT DE LIVRE FOIRE";
-	}
-	$sql->addBook($unLivre2);
+	$unLivre2 = new Book(0, "Book 2", "openingbook_002", [2], "openingbook", 2018);
+	$unLivre3 = new Book(0, "Book 3", "openingbook_003", [2], "openingbook", 2018);
+	$unLivre4 = new Book(0, "Book 4", "openingbook_004", [2], "openingbook", 2018);
+	$unLivre5 = new Book(0, "Book 5", "openingbook_005", [2], "openingbook", 2018);
+	$unLivre6 = new Book(0, "Book 6", "openingbook_006", [2], "openingbook", 2018);
+	$unLivre7 = new Book(0, "Book 7", "openingbook_007", [2], "openingbook", 2018);
+
+	$unLivrep2 = new Book(0, "Opening Book Photo 2", "openingbookphoto_002", [3], "openingbook_photo", 2015);
+	$unLivrep3 = new Book(0, "Opening Book Photo 3", "openingbookphoto_003", [1], "openingbook_photo", 2015);
+	$unLivrep4 = new Book(0, "Opening Book Photo 4", "openingbookphoto_004", [1], "openingbook_photo", 2015);
+	$unLivrep5 = new Book(0, "Opening Book Photo 5", "openingbookphoto_005", [1], "openingbook_photo", 2015);
+	$sql->addBook($unLivrep2);
+	$sql->addBook($unLivrep3);
+	$sql->addBook($unLivrep4);
+	$sql->addBook($unLivrep5);
+	
 	$livreCherche = $sql->getBookByID(4);
 	$livreCherche = unserialize($livreCherche);	
 	echo "<br> Un book : <br>";
