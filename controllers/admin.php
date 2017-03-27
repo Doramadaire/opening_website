@@ -123,25 +123,41 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 
 	if (isset($_POST['new_author_form'])) {
 		/*echo isset($_POST['author_cv_file']);
-		echo "<br>y avait un fichier?";
+		echo "<br>y avait un fichier?";*/
+		$cv_filename = NULL;
+		$description_filename = NULL;
+
 		if ($_FILES['author_cv_file']['error'] > 0) {
 			$dl_fail_error = true;
 		} else {
-			$full_book_extension = strtolower(substr(strrchr($_FILES['author_cv_file']['name'], '.')  ,1)  );
-			if ($full_book_extension != "pdf" and $book_extract_extension != "pdf") {
+			$cv_extension = strtolower(substr(strrchr($_FILES['author_cv_file']['name'], '.'), 1));
+			if ($cv_extension != "pdf") {
 				$incorrect_file_extension_error = true;
 			} else {
-				$filename = $_FILES['author_cv_file']['name'];
-				$path = "assets/cv/".$filename;
+				$cv_filename = $_FILES['author_cv_file']['name'];
+				$path = "/home/openingbqo/opening_website/assets/artists/cv/".$cv_filename;
 				$move_file = move_uploaded_file($_FILES['author_cv_file']['tmp_name'], $path);
-				if ($move_file) {
-					$sql = SQL::getInstance();
-					$conn = $sql->getBoolConnexion();					
-					
-					//creer l'user et et l'auteur
-				}
+				/*if ($move_file) {
+					import cv réussi
+				}*/
 			}			
-		}*/
+		}
+
+		if ($_FILES['author_description_file']['error'] > 0) {
+			$dl_fail_error = true;
+		} else {
+			$description_extension = strtolower(substr(strrchr($_FILES['author_description_file']['name'], '.')  ,1)  );
+			if ($description_extension != "txt") {
+				$incorrect_file_extension_error = true;
+			} else {
+				$description_filename = $_FILES['author_description_file']['name'];
+				$path = "/home/openingbqo/opening_website/assets/artists/description/".$description_filename;
+				$move_file = move_uploaded_file($_FILES['author_description_file']['tmp_name'], $path);
+				/*if ($move_file) {
+					import description
+				}*/
+			}			
+		}
 
 		$new_user_mail = stripslashes($_POST['mail']);
 		$new_user_sub_date = $_POST['subscripion_end_date'];
@@ -158,7 +174,9 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 
 		 	$user = unserialize($sql->getUserByExactMail($new_user_mail));
 		 	$user_id = $user->getUserID();
-		 	$new_author = new Author(0, $_POST['artist_name'], $user_id);
+
+		 	$description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
+		 	$new_author = new Author(0, $_POST['artist_name'], $user_id, $description_filename, $cv_filename);
 
 		 	$success = $sql->addAuthor($new_author);
 		 	if ($success) {
@@ -182,21 +200,22 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 			} else {
 				$book_name = $_FILES['full_book_file']['name'];
 				//$book_extract_name = $_FILES['extract_book_file']['name'];
-				$full_book_path = "assets/books/".$book_name;
+				$full_book_path = "bbff/".$book_name;
 				//Le nom du fichier est le même pour les deux, seul le dossier change
 				$book_extract_path = "assets/extracts/".$book_name;
-				/*$move_full = move_uploaded_file($_FILES['full_book_file']['tmp_name'], $full_book_path);
-				$move_extract = move_uploaded_file($_FILES['extract_book_file']['tmp_name'], $book_extract_path);
-				if ($move_full and $move_extract) {
+				//$move_full = move_uploaded_file($_FILES['full_book_file']['tmp_name'], $full_book_path);
+				//$move_extract = move_uploaded_file($_FILES['extract_book_file']['tmp_name'], $book_extract_path);
+				/*if ($move_full and $move_extract) {
 					$sql = SQL::getInstance();
 					$conn = $sql->getBoolConnexion();					
 					
 					//il manque la valeur du champ AUTHORS à mon book
 					//$new_book =  new Book(0, $book_name, $book_name, $authors, $_POST['collection'], $_POST['year']);
 					//$success = $sql->addBook($new_book);
-				}*/
+				}
 				echo "DL réussi et extensions correctes<br>";
 				echo "Mais rien ne s'est passé, la fonctionnalitée n'est pas finie";
+				*/
 			}			
 		}		
 	}

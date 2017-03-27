@@ -81,10 +81,7 @@
 	*/
 
 	/*
-	$unAuteur = new Author(0, "picasso", $unUser->getUserID(), "description_001.txt", "news_001.txt");
-	$unAuteur2 = new Author(0, "dali", 1, "description_002.txt", "news_002.txt");
-	$unAuteur3 = new Author(0, "oim", 3, "description_003.txt", "news_002.txt");
-	$unAuteur4 = new Author(0, "pluto", 2, "description_004.txt", "news_003.txt");
+	$unAuteur = new Author(0, "picasso", $unUser->getUserID(), "description_001.txt", "cv.pdf");
 	$sql->addAuthor($unAuteur);
 	$sql->addAuthor($unAuteur2);
 	$sql->addAuthor($unAuteur3);

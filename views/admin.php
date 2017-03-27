@@ -84,7 +84,18 @@
 								<input type="text" name="mail" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MAIL.'"'; ?>  required>
 								<input type="text" name="artist_name" placeholder=<?php echo '"'.TXT_PLACEHOLDER_ARTIST_NAME.'"'; ?>  required>
 								<input type="date" name="subscripion_end_date" placeholder=<?php echo '"'.TXT_PLACEHOLDER_DATE.'"'; ?>  required>
-								<!-- <br><?php echo TXT_AUTHOR_SUBMIT_CV; ?><input type="file" name="author_cv_file"/> -->
+								<br>
+								<?php echo TXT_AUTHOR_SUBMIT_CV; ?>
+								<div class="fileUpload btn btn-primary">
+									<span>Upload</span>		
+									<input type="file" name="author_cv_file"/>					
+								</div>
+								Fichier .txt de decription de l'artiste :
+								<div class="fileUpload btn btn-primary">
+									<span>Upload</span>		
+									<input type="file" name="author_description_file"/>					
+								</div>
+								<br>
 								<input type="submit" name="new_author_form" class="btn btn-primary" value=<?php echo '"'.TXT_CREER_ARTISTE.'"'; ?> >	
 							</form>	 
 						</div>
@@ -94,7 +105,7 @@
 							<p><?php if (isset($dl_fail_error)) echo TXT_ERR_UPLOAD_FAIL; ?></p>
 							<p><?php if (isset($incorrect_file_extension_error)) echo TXT_ERR_INCORRECT_FILE_EXTENSION; ?></p>
 							<form action="admin.php" method="post" enctype="multipart/form-data">
-								<label for="new_book_form"><?php echo TXT_AJOUT_BOOK2; ?></label><br>
+								<!-- <label for="new_book_form"><?php echo TXT_AJOUT_BOOK2; ?></label><br> -->
 								<?php echo TXT_FICHIER_COMPLET; ?>
 								<div class="fileUpload btn btn-primary">
 									<span>Upload</span>		
@@ -105,7 +116,13 @@
 								<div class="fileUpload btn btn-primary">
 									<span>Upload</span>		
 									<input type="file" name="extract_book_file" required/>				
-								</div>	
+								</div>
+								<br>
+								<?php echo TXT_BOOK_DESCRIPTION_FILE; ?>
+								<div class="fileUpload btn btn-primary">
+									<span>Upload</span>		
+									<input type="file" name="description_book_file"/>				
+								</div>
 								<br>
 								<!-- Autre façon de faire
 								<div class="fileUpload btn btn-primary">
@@ -127,7 +144,7 @@
 						</div>
 
 						<div class="thumbnail">      
-						    <h3>Modifier un panneau </h3>  
+						    <h3>Ajouter une actualitée</h3>  
 							<form action="" method="POST">  
 								<select name="lang" required>
 									<option value='fr'>Fr</option>
@@ -152,7 +169,6 @@
 							<p><?php if (isset($incorrect_file_extension_error)) echo TXT_ERR_INCORRECT_FILE_EXTENSION; ?></p> -->
 							<!-- Autre façon de faire pour l'upload de fichier : voir upload book -->
 							<form action="admin.php" method="post" enctype="multipart/form-data">
-								<label for="new_book_form"><?php echo TXT_AJOUT_BOOK2; ?></label><br>
 								<?php echo TXT_LANG_FILE_FR; ?>
 								<div class="fileUpload btn btn-primary">
 									<span>Upload</span>		

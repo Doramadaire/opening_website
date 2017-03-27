@@ -71,24 +71,7 @@
  	define('TXT_SECTION_GESTION_BOOK_AUTEUR', 'Page de gestion de vos oeuvres');
 	define('TXT_SECTION_GESTION_BOOK_ADMIN', 'Page de gestion des oeuvres');
 	
-	define('TXT_AJOUT_BOOK', "Ajout d'un objet book");
-	define('TXT_AJOUT_BOOK2', "On va ajouter un book");
-	define('TXT_FICHIER_COMPLET', "Le fichier du book : ");
-	define('TXT_FICHIER_EXTRAIT', "Le fichier de l'extrait : ");
-	define('TXT_COLLECTION', "Collection : ");
-	define('TXT_COLLECTION_OPENINGBOOK', "OpeningBook");
-	define('TXT_COLLECTION_OPENINGBOOK_PHOTO', "OpeningBook Photo");
-	define('TXT_ANNEE', "Année : ");
 	
-	define('TXT_BOUTON_CREER_BOOK', "Créer le book");
-	
-	define('TXT_COLLECTION_OPENINGBOOK_AUTRE', "Nouvelle collection");
-	define('TXT_PLACEHOLDER_TITRE', "Titre");
-
-	define('TXT_ERR_UPLOAD_FAIL', "Erreur lors du transfert des fichiers");
-	define('TXT_ERR_INCORRECT_FILE_EXTENSION', "Erreur : extension du fichier incorrecte. Veuillez charger un document au format PDF");
-	
-	define('TXT_NEW_BOOK_SUCCESS', "Book chargé en base avec succès");
 	
 	define('TXT_ARTIST_BOOK_MANAGEMENT', "Vos books");
 
@@ -136,6 +119,22 @@
 	define('TXT_CREER_ARTISTE', "Ajout de l'artiste");
 
 	define('TXT_SECTION_NEWS', "Actualités");
+
+	define('TXT_AJOUT_BOOK', "Ajout d'un objet book");
+	define('TXT_AJOUT_BOOK2', "On va ajouter un book");
+	define('TXT_FICHIER_COMPLET', "Le fichier du book : ");
+	define('TXT_FICHIER_EXTRAIT', "Le fichier de l'extrait : ");
+	define('TXT_BOOK_DESCRIPTION_FILE', "Le fichier de description du book : ");
+	define('TXT_COLLECTION', "Collection : ");
+	define('TXT_COLLECTION_OPENINGBOOK', "OpeningBook");
+	define('TXT_COLLECTION_OPENINGBOOK_PHOTO', "OpeningBook Photo");
+	define('TXT_ANNEE', "Année : ");	
+	define('TXT_BOUTON_CREER_BOOK', "Créer le book");	
+	define('TXT_COLLECTION_OPENINGBOOK_AUTRE', "Nouvelle collection");
+	define('TXT_PLACEHOLDER_TITRE', "Titre");
+	define('TXT_ERR_UPLOAD_FAIL', "Erreur lors du transfert des fichiers");
+	define('TXT_ERR_INCORRECT_FILE_EXTENSION', "Erreur : extension du fichier incorrecte. Veuillez charger un document au format PDF");
+	define('TXT_NEW_BOOK_SUCCESS', "Book chargé en base avec succès");
 
 	define('TXT_SECTION_LANG', "Modifier les fichiers textes de langue");
 	define('TXT_UPLOAD_LANG_FILES', "Uploader les différents fichiers de langue");

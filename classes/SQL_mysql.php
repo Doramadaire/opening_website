@@ -345,9 +345,9 @@
             if ($query->execute()) {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
-                    $news_filename = $row['news_filename'] !== NULL ? $row['news_filename'] : NULL;
                     $cv_filename = $row['cv_filename'] !== NULL ? $row['cv_filename'] : NULL;
-                    $author = new Author($row['id_author'], $row['name'], $row['user'], $description_filename, $news_filename, $cv_filename);
+                    $news_filename = $row['news_filename'] !== NULL ? $row['news_filename'] : NULL;
+                    $author = new Author($row['id_author'], $row['name'], $row['user'], $description_filename, $cv_filename, $news_filename);
                     $retrieved_authors[] = $author;
                 }
             }
@@ -368,9 +368,9 @@
             if ($query->execute()) {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
-                    $news_filename = $row['news_filename'] !== NULL ? $row['news_filename'] : NULL;
                     $cv_filename = $row['cv_filename'] !== NULL ? $row['cv_filename'] : NULL;
-                    $author = new Author($row['id_author'], $row['name'], $row['user'], $description_filename, $news_filename, $cv_filename);
+                    $news_filename = $row['news_filename'] !== NULL ? $row['news_filename'] : NULL;
+                    $author = new Author($row['id_author'], $row['name'], $row['user'], $description_filename, $cv_filename, $news_filename);;
                     $retrieved_authors[] = $author;
                 }
             }
@@ -393,9 +393,10 @@
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
-                    $news_filename = $row['news_filename'] !== NULL ? $row['news_filename'] : NULL;
                     $cv_filename = $row['cv_filename'] !== NULL ? $row['cv_filename'] : NULL;
-                    $author = new Author($row['id_author'], $row['name'], $row['user'], $description_filename, $news_filename, $cv_filename);                   $author_serialized = serialize($author);
+                    $news_filename = $row['news_filename'] !== NULL ? $row['news_filename'] : NULL;
+                    $author = new Author($row['id_author'], $row['name'], $row['user'], $description_filename, $cv_filename, $news_filename);
+                    $author_serialized = serialize($author);
                 }
             }
             return $author_serialized;
@@ -416,9 +417,10 @@
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
-                    $news_filename = $row['news_filename'] !== NULL ? $row['news_filename'] : NULL;
                     $cv_filename = $row['cv_filename'] !== NULL ? $row['cv_filename'] : NULL;
-                    $author = new Author($row['id_author'], $row['name'], $row['user'], $description_filename, $news_filename, $cv_filename);                   $author_serialized = serialize($author);
+                    $news_filename = $row['news_filename'] !== NULL ? $row['news_filename'] : NULL;
+                    $author = new Author($row['id_author'], $row['name'], $row['user'], $description_filename, $cv_filename, $news_filename);
+                    $author_serialized = serialize($author);
                 }
             }
             return $author_serialized;
