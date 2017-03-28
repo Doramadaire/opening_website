@@ -2,5 +2,5 @@
     include_once('classes/useful_functions.php');
     includeOnceAllClasses();
 	
-	require_once('controllers/edito.php');
+	require_once('controllers/about.php');
 ?>
