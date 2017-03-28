@@ -30,6 +30,23 @@ p {
   text-align: justify;
 }
 
+/*
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}*/
+
 /* personnalisation des boutons */
 .btn-primary {
   color: var(--couleur_texte);
