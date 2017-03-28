@@ -16,7 +16,8 @@
  	define('TXT_NAVBAR_A_PROPOS', 'A propos');
  	define('TXT_NAVBAR_ARTISTES', 'Artistes');
  	define('TXT_NAVBAR_CATALOGUE', 'Catalogue');
-  	define('TXT_NAVBAR_CONTACT', 'Nous contacter');
+  	define('TXT_NAVBAR_CONTACT', 'Contact');
+  	define('TXT_NAVBAR_NEWS', 'Actualités');
 	define('TXT_NAVBAR_ADHERER', "Adhérer");
 	define('TXT_NAVBAR_LANGUE', "Langue");
 	
@@ -31,8 +32,8 @@
 	define('TXT_BONJOUR', 'Bonjour');
 	define('TXT_MENU', 'Vous pouvez');
 	define('TXT_MENU_COMPTE', 'Gérer votre compte');
-	define('TXT_MENU_OEUVRES', 'Gérer vos oeuvres');
-	define('TXT_MENU_OEUVRES_ADMIN', 'Gérer les oeuvres');
+	define('TXT_MENU_OEUVRES', 'Partager vos oeuvres');
+	define('TXT_MENU_OEUVRES_ADMIN', 'Partager les oeuvres');
 	define('TXT_MENU_ADMIN_PAGE', "Aller à la page d'administration");
 	
 	define('TXT_BOUTON_SE_DECONNECTER', "Se déconnecter");
@@ -86,7 +87,7 @@
 	define('TXT_MDP_ACTUEL', 'Mot de passe actuel');
 	define('TXT_NOUVEAU_MPD', 'Nouveau mot de passe');  
 	define('TXT_CONFIRME_MDP', 'Confirmer le nouveau mot de passe');
-	define('TXT_COTISATION', "Cotisation effective jusqu'au"); 
+	define('TXT_COTISATION', "Cotisation effective jusqu'au "); 
 	define('TXT_MODIF_MAIL', "Modifier votre adresse e-mail");
 	define('TXT_MODIF_MDP', 'Modifier votre mot de passe'); 
 	

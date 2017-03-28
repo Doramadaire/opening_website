@@ -17,6 +17,7 @@
  	define('TXT_NAVBAR_ARTISTES', 'Artists');
  	define('TXT_NAVBAR_CATALOGUE', 'Catalogue');
   	define('TXT_NAVBAR_CONTACT', 'Contact');
+  	define('TXT_NAVBAR_NEWS', 'News');
 	define('TXT_NAVBAR_ADHERER', 'Join');
 	define('TXT_NAVBAR_LANGUE', "Language");
 	
@@ -31,8 +32,8 @@
 	define('TXT_BONJOUR', 'Hello');
 	define('TXT_MENU', 'You can');
 	define('TXT_MENU_COMPTE', 'Manage your account');
-	define('TXT_MENU_OEUVRES', 'Manage your books');
-	define('TXT_MENU_OEUVRES_ADMIN', 'Manage all books');
+	define('TXT_MENU_OEUVRES', 'Share your books');
+	define('TXT_MENU_OEUVRES_ADMIN', 'Share books');
 	define('TXT_MENU_ADMIN_PAGE', "Go to the administration page");
 	
 	define('TXT_BOUTON_SE_DECONNECTER', "Logout");
