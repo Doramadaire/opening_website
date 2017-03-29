@@ -93,7 +93,7 @@
  	// admin.php
  	//---------------------------------------------------------	
 		
- 	define('TXT_GESTION_DES_UTILISATEURS', 'Page de gestion des utilisateurs');
+ 	define('TXT_GESTION_DES_UTILISATEURS', "Page d'administration");
 	define('TXT_RECHERCHE_UTILISATEUR', 'Rechercher des informations sur un utilisateur');
 	define('TXT_RECHERCHE_USER_QUESTION', "Quel utilisateur recherchez-vous?");
 	define('TXT_BOUTON_RECHERCHE_UTILISATEUR', "Rechercher un utilisateur");
