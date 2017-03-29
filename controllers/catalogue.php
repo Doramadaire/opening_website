@@ -30,7 +30,7 @@
             }
         }
     } else {
-        //Par défaut on affiche quand même les leTOUS artistes dans l'ordre
+        //Par défaut on affiche quand même TOUS les artistes dans l'ordre
         $sort_type = "default";
         foreach ($sql->getAuthorsSortedAlphabetical() as $author) {
             $thumbnail_element = array("authorID" => $author->getAuthorID(),
