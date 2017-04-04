@@ -144,7 +144,7 @@
 						</div>
 
 						<div class="thumbnail">      
-						    <h3>Ajouter une actualitée</h3>  
+						    <h3>Ajouter une actualité</h3>  
 							<form action="" method="POST">  
 								<select name="lang" required>
 									<option value='fr'>Fr</option>
