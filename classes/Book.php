@@ -59,12 +59,12 @@
 		private $year;
 
 		/** 
-	     * Les id d'accès privilégiés à ce book
+	     * Un array sérialisé contenant les id d'accès privilégiés à ce book
 	     *
-	     * @var string
+	     * @var array(string)
 	     * @access private
 	     */
-		private $access_tokens;
+		private $token_container;
 
 		/** 
 	     * Le chemin vers le fichier texte qui contient les éventuelles légendes
@@ -79,7 +79,7 @@
 		*
 		* @return void
 		*/
-		function __construct($id, $title, $filename, $authors, $collection, $year, $access_tokens = NULL)
+		function __construct($id, $title, $filename, $authors, $collection, $year, $token_container = NULL)
 		{
 			$this->id = $id;
 			$this->title = $title;
@@ -87,7 +87,35 @@
 			$this->authors = $authors;//Un array contenant les ids du/des auteur(s) du livre
 			$this->collection = $collection;
 			$this->year = $year;
-			$this->access_tokens = $access_tokens;//Un array contenant des tokens
+			//Un array contenant des tokens
+			$this->token_container = $token_container != NULL ? $token_container : array();
+		}
+
+		/**
+		* Supprime les tokens expirés de la base de données
+		*
+		* @return void
+		*/
+		public function cleanOldTokens()
+		{
+			$clean_token_container = array();
+			foreach ($this->token_container as $tokenc) {
+				//chaque tokenc est un array avec
+				//un token en position 0
+				//sa date de création en position 1
+				//le token expire après 28jours (en secondes)
+				if ($tokenc[1] > time() - (28*24*60*60)) {
+					//on garde ce token
+					$clean_token_container[] = $tokenc;
+				}
+			}
+			//mise à jour de la base de données
+			$sql = SQL::getInstance();
+  			$conn = $sql->getBoolConnexion();
+
+  			if ($sql->setBookAccessTokens($this, $clean_token_container)) {
+  				$this->token_container = $clean_token_container;
+  			}
 		}
 
 		/**
@@ -153,11 +181,11 @@
 		/**
 		* Retourne les access tokens
 		*
-		* @return int
+		* @return array(string)
 		*/
 		public function getAcessTokens()
 		{
-			return $this->access_tokens;
+			return $this->token_container;
 		}
 
 
@@ -259,6 +287,32 @@
 		{
 			$this->$captions_filename = $captions_filename;
 		}*/
+
+		/**
+		* Ajoute un token container contenant un token créé à la date actuelle
+		*
+		* @param string
+		* @return boolean success
+		*/
+		public function addAccessToken($token)
+		{
+			$success = false;
+			echo "new token=$token currentTokens=".implode($this->token_container)."<br>";
+			$token_creationdate = time();
+
+			$sql = SQL::getInstance();
+  			$conn = $sql->getBoolConnexion();
+
+  			$new_token_container = $this->token_container;
+  			$new_token_container[] = array($token, $token_creationdate);
+
+  			if ($sql->setBookAccessTokens($this, $this->token_container)) {
+  				$this->token_container = $new_token_container;
+  				$success = true;
+  				echo "gg mon pote <br>";
+  			}
+  			return $success;
+		}
 	}
 
 ?>

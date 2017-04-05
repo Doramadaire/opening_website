@@ -126,14 +126,14 @@
                     authors VARCHAR(255) NOT NULL,                        
                     collection VARCHAR(255) NOT NULL,                     
                     year TINYINT UNSIGNED NOT NULL,
-                    access_tokens TEXT,
+                    token_container TEXT,
                     PRIMARY KEY (id_book)                
                     );");
             //le champ authors est un array des ids des auteurs serialisé
             //les ids des auteurs devraient être des clefs étrangères, mais comme ils sont en string dans la BDD c'est pas possible...
             //'is_full' INTEGER CHECK (is_full > 1 AND is_full < 4),
             //le champs is_full vaut 2 si le livre est complet ou 3 si c'est un extrait
-            //access_tokens contient les éventuels token pour avoir accès au book complet sans compte autorisé
+            //token_container contient les éventuels token pour avoir accès au book complet sans compte autorisé
             return $query->execute();
         }
 
@@ -224,7 +224,7 @@
                     //il y a un FALSE, donc au moins un auteur n'a pas été trouvé
                 } else {
                     //on a retrouvé tous les auteurs, on peut ajouter notre livre
-                    $query = $this->conn->prepare("INSERT INTO books(title, filename, authors, collection, year, access_tokens) VALUES(?,?,?,?,?,?);");
+                    $query = $this->conn->prepare("INSERT INTO books(title, filename, authors, collection, year, token_container) VALUES(?,?,?,?,?,?);");
                     $query-> bindValue(1,$book->getBookTitle());
                     $query-> bindValue(2,$book->getBookFilename());
                     $query-> bindValue(3,serialize($book->getBookAuthors()));                                  
@@ -441,8 +441,8 @@
             if ($query->execute()) 
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                    $access_tokens = $row['$access_tokens'] !== NULL ? unserialize($row['$access_tokens']) : NULL;
-                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['year'], $access_tokens);
+                    $token_container = $row['$token_container'] !== NULL ? unserialize($row['$token_container']) : NULL;
+                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['year'], $token_container);
                     $book_serialized = serialize($book);
                 }
             }
@@ -464,8 +464,8 @@
             if ($query->execute()) 
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                    $access_tokens = $row['$access_tokens'] !== NULL ? unserialize($row['$access_tokens']) : NULL;
-                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['year'], $access_tokens);
+                    $token_container = $row['$token_container'] !== NULL ? unserialize($row['$token_container']) : NULL;
+                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['year'], $token_container);
                     $book_serialized = serialize($book);
                 }
             }
@@ -487,8 +487,8 @@
             $query-> bindValue(1, $search);
             if ($query->execute()) {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                    $access_tokens = $row['$access_tokens'] !== NULL ? unserialize($row['$access_tokens']) : NULL;
-                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['year'], $access_tokens);
+                    $token_container = $row['$token_container'] !== NULL ? unserialize($row['$token_container']) : NULL;
+                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['year'], $token_container);
                     $retrieved_books[] = $book;
                 }
             }
@@ -508,8 +508,8 @@
             if ($query->execute()) 
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                    $access_tokens = $row['$access_tokens'] !== NULL ? unserialize($row['$access_tokens']) : NULL;
-                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['year'], $access_tokens);
+                    $token_container = $row['$token_container'] !== NULL ? unserialize($row['$token_container']) : NULL;
+                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['year'], $token_container);
                     $retrieved_books[] = $book;
                 }
             }
@@ -748,6 +748,21 @@
             $query = $this->conn->prepare("UPDATE books SET is_full = ? WHERE id_author = ?");
             $query-> bindValue(1,$is_full);     
             $query-> bindValue(2,$book->getBookID());
+            return $query->execute();
+        }
+
+        /**
+         * Méthode qui modifie l'array serialisés des token container
+         *
+         * @param $book : un objet de la classe Book.php
+         * @param string : $token_container array de token container
+         * @return bool : True si la modification est réussi, False sinon
+         */
+        public function setBookAccessTokens($book, $token_container)
+        {
+            $query = $this->conn->prepare("UPDATE books SET token_container = ? WHERE id_book = ?");
+            $query-> bindValue(1, serialize($token_container));     
+            $query-> bindValue(2, $book->getBookID());
             return $query->execute();
         }
 

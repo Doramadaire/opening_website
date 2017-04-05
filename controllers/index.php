@@ -92,22 +92,33 @@
 	*/
 
 	/*
-	$unLivre2 = new Book(0, "Book 2", "openingbook_002", [2], "openingbook", 2018);
-	$unLivre3 = new Book(0, "Book 3", "openingbook_003", [2], "openingbook", 2018);
-	$unLivre4 = new Book(0, "Book 4", "openingbook_004", [2], "openingbook", 2018);
-	$unLivre5 = new Book(0, "Book 5", "openingbook_005", [2], "openingbook", 2018);
-	$unLivre6 = new Book(0, "Book 6", "openingbook_006", [2], "openingbook", 2018);
-	$unLivre7 = new Book(0, "Book 7", "openingbook_007", [2], "openingbook", 2018);
+	$sql->createTables();
 
-	$unLivrep2 = new Book(0, "Opening Book Photo 2", "openingbookphoto_002", [3], "openingbook_photo", 2015);
-	$unLivrep3 = new Book(0, "Opening Book Photo 3", "openingbookphoto_003", [1], "openingbook_photo", 2015);
-	$unLivrep4 = new Book(0, "Opening Book Photo 4", "openingbookphoto_004", [1], "openingbook_photo", 2015);
-	$unLivrep5 = new Book(0, "Opening Book Photo 5", "openingbookphoto_005", [1], "openingbook_photo", 2015);
+	$unLivre2 = new Book(0, "Opening Book 2", "OPENINGBOOK_002.pdf", [2], "openingbook", 2018);
+	$unLivre3 = new Book(0, "Opening Book 3", "OPENINGBOOK_003.pdf", [1,2,3,4,5], "openingbook", 2018);
+	$unLivre4 = new Book(0, "Opening Book 4", "OPENINGBOOK_004.pdf", [2,5], "openingbook", 2018);
+	$unLivre5 = new Book(0, "Opening Book 5", "OPENINGBOOK_005.pdf", [2,4], "openingbook", 2018);
+	$unLivre6 = new Book(0, "Opening Book 6", "OPENINGBOOK_006.pdf", [2], "openingbook", 2018);
+	$unLivre7 = new Book(0, "Opening Book 7", "OPENINGBOOK_007.pdf", [2], "openingbook", 2018);
+
+	$unLivrep1 = new Book(0, "Opening Book Photo 1", "OPENINGBOOKPHOTO_001.pdf", [1], "openingbook_photo", 2015);
+	$unLivrep2 = new Book(0, "Opening Book Photo 2", "OPENINGBOOKPHOTO_002.pdf", [3], "openingbook_photo", 2015);
+	$unLivrep3 = new Book(0, "Opening Book Photo 3", "OPENINGBOOKPHOTO_003.pdf", [1], "openingbook_photo", 2015);
+	$unLivrep4 = new Book(0, "Opening Book Photo 4", "OPENINGBOOKPHOTO_004.pdf", [1,4,5], "openingbook_photo", 2015);
+	$sql->addBook($unLivrep1);
 	$sql->addBook($unLivrep2);
 	$sql->addBook($unLivrep3);
 	$sql->addBook($unLivrep4);
-	$sql->addBook($unLivrep5);
+	$sql->addBook($unLivre2);
+	$sql->addBook($unLivre3);
+	$sql->addBook($unLivre4);
+	$sql->addBook($unLivre5);
+	$sql->addBook($unLivre6);
+	$sql->addBook($unLivre7);
+	*/
 	
+	/*
+
 	$livreCherche = $sql->getBookByID(4);
 	$livreCherche = unserialize($livreCherche);	
 	echo "<br> Un book : <br>";
