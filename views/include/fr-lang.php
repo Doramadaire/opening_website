@@ -13,13 +13,13 @@
 	// barre de navigation et noms des pages associées
 	//---------------------------------------------------------
  
- 	define('TXT_NAVBAR_A_PROPOS', 'A propos');
+ 	define('TXT_NAVBAR_A_PROPOS', 'à propos');
  	define('TXT_NAVBAR_ARTISTES', 'Artistes');
- 	define('TXT_NAVBAR_CATALOGUE', 'Catalogue');
+ 	define('TXT_NAVBAR_CATALOGUE', 'collection');
   	define('TXT_NAVBAR_CONTACT', 'Contact');
-  	define('TXT_NAVBAR_NEWS', 'Actualités');
-	define('TXT_NAVBAR_ADHERER', "Adhérer");
-	define('TXT_NAVBAR_LANGUE', "Langue");
+  	define('TXT_NAVBAR_NEWS', 'actualités');
+	define('TXT_NAVBAR_ADHERER', "adhérer");
+	define('TXT_NAVBAR_LANGUE', "langue");
 	
 	//---------------------------------------------------------
  	// index.php
@@ -30,14 +30,14 @@
 	define('TXT_MENU_RECHERCHE', 'Parcourir la collection');
 	define('TXT_MENU_RECHERCHE_EXTRAITS', 'Parcourir la collection (seulement des extraits)');
 	define('TXT_BONJOUR', 'Bonjour');
-	define('TXT_MENU', 'Vous pouvez');
+	define('TXT_MENU', 'vous pouvez');
 	define('TXT_MENU_COMPTE', 'Gérer votre compte');
 	define('TXT_MENU_OEUVRES', 'Partager vos oeuvres');
 	define('TXT_MENU_OEUVRES_ADMIN', 'Partager les oeuvres');
 	define('TXT_MENU_ADMIN_PAGE', "Aller à la page d'administration");
 	
 	define('TXT_BOUTON_SE_DECONNECTER', "Se déconnecter");
-	define('TXT_BOUTON_SE_CONNECTER', "Se connecter");
+	define('TXT_BOUTON_SE_CONNECTER', "se connecter");
 	define('TXT_ATTENTION_MDP_OUBLIE', "Attention! Cette action génére un nouveau mot de passe qui sera envoyé à l'adresse mail de votre compte");
 	define('TXT_BOUTON_RESET_MDP_OUBLIE', "Générer un nouveau mot de passe");
 	define('TXT_MDP_OUBLIE', "Mot de passe oublié?");

@@ -13,13 +13,13 @@
 	// barre de navigation et noms des pages associées
 	//---------------------------------------------------------
  
- 	define('TXT_NAVBAR_A_PROPOS', 'About');
+ 	define('TXT_NAVBAR_A_PROPOS', 'about');
  	define('TXT_NAVBAR_ARTISTES', 'Artists');
- 	define('TXT_NAVBAR_CATALOGUE', 'Catalogue');
+ 	define('TXT_NAVBAR_CATALOGUE', 'collection');
   	define('TXT_NAVBAR_CONTACT', 'Contact');
-  	define('TXT_NAVBAR_NEWS', 'News');
-	define('TXT_NAVBAR_ADHERER', 'Join');
-	define('TXT_NAVBAR_LANGUE', "Language");
+  	define('TXT_NAVBAR_NEWS', 'news');
+	define('TXT_NAVBAR_ADHERER', 'join us');
+	define('TXT_NAVBAR_LANGUE', "language");
 	
 	//---------------------------------------------------------
  	// index.php
@@ -30,14 +30,14 @@
 	define('TXT_MENU_RECHERCHE', 'Find book');
 	define('TXT_MENU_RECHERCHE_EXTRAITS', 'Find extract');
 	define('TXT_BONJOUR', 'Hello');
-	define('TXT_MENU', 'You can');
+	define('TXT_MENU', 'you can');
 	define('TXT_MENU_COMPTE', 'Manage your account');
 	define('TXT_MENU_OEUVRES', 'Share your books');
 	define('TXT_MENU_OEUVRES_ADMIN', 'Share books');
 	define('TXT_MENU_ADMIN_PAGE', "Go to the administration page");
 	
 	define('TXT_BOUTON_SE_DECONNECTER', "Logout");
-	define('TXT_BOUTON_SE_CONNECTER', "Login");
+	define('TXT_BOUTON_SE_CONNECTER', "login");
 	define('TXT_ATTENTION_MDP_OUBLIE', "Warning! Will send a new password in your mailbox");
 	define('TXT_BOUTON_RESET_MDP_OUBLIE', "Send me a new password");
 	define('TXT_MDP_OUBLIE', "Forgotten password?");

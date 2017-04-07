@@ -21,7 +21,7 @@
             <!-- Les premiers éléments -->
             <li><a href="about.php"><?php echo TXT_NAVBAR_A_PROPOS; ?> </a></li>
             <li><a href="catalogue.php"><?php echo TXT_NAVBAR_CATALOGUE; ?></a></li>
-            <li><a href="contact.php"><?php echo TXT_NAVBAR_CONTACT; ?></a></li>
+            <!-- DEVDEV à mettre ailleurs ou à regrouper <li><a href="contact.php"><?php echo TXT_NAVBAR_CONTACT; ?></a></li> -->
             <li><a href="join.php"><?php echo TXT_NAVBAR_ADHERER; ?></a></li>
             <!-- Le dernier élément est dynamique -->
             <?php if ($user_logged) { ?>
