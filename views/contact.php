@@ -8,19 +8,21 @@
 	</head>  
 	<body>
 		<?php include("include/header.php"); ?> 
-   
-		<div class="container">  
-			<div class="row">
-				<h1 class="Section">
+   		<div class="container-fluid row">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10">
+                <div class="row">
+                    <h1 class="Section">
 					<?php echo TXT_SECTION_CONTACT; ?>
-				</h1>		
-			</div class="row"> 
-			<div class="row">
-				<?php echo TXT_CONTACT_TEXTE; ?>
+					</h1>	
+				</div>
+			
+				<div class="row">
+					<?php echo TXT_CONTACT_TEXTE; ?>
+				</div>
 			</div>
-		</div>
-
+            <div class="col-xs-1"></div>
+        </div>
 		<?php include("include/footer.php"); ?> 
-
 	</body>    
 </html>

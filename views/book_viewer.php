@@ -44,7 +44,7 @@
         })
         </script>	
 	</head>
-	<body> <!-- oncontextmenu="return false" --> 
+	<body oncontextmenu="return false" >
 	<?php include("include/header.php"); ?>
 
 	<div class="container">
