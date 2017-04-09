@@ -306,10 +306,9 @@
   			$new_token_container = $this->token_container;
   			$new_token_container[] = array($token, $token_creationdate);
 
-  			if ($sql->setBookAccessTokens($this, $this->token_container)) {
+  			if ($sql->setBookAccessTokens($this, $new_token_container)) {
   				$this->token_container = $new_token_container;
   				$success = true;
-  				echo "gg mon pote <br>";
   			}
   			return $success;
 		}

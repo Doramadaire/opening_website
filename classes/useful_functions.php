@@ -86,4 +86,15 @@
         include('./views/include/'.$lang.'-lang.php');         
     }
 
+    function generateAccessToken() {
+        //génération d'un token pour avoir un accès privilégié à un book
+        $caract = "ABCDEFGHIJKLMNOPQRSTYVWXYZabcdefghijklmnopqrstuvwyxz0123456789";
+        $nb_caract_possible = strlen($caract);
+        $token_generated = '';
+        for($i = 1; $i <= 20; $i++) {
+            $token_generated = $token_generated.$caract[mt_rand(0,$nb_caract_possible-1)];
+        }
+        return $token_generated;
+    }
+
 ?>
