@@ -49,33 +49,27 @@
 
 	<div class="container">
 	   <div class="row">
-		    <h1 class="Section">
+		    <!-- <h1 class="Section">
 			    Page de consultation des Opening book
-		    </h1>		
-		<?php if (!isset($_SESSION['user_logged'])) { ?> 
+		    </h1> -->
+
+        <?php if (!isset($_SESSION['user_logged'])) { ?> 
 				<!-- TO DO : prévoir fonction qui affiche erreur -->
 				Attention, en tant que visiteur vous n'avez accès qu'à des extraits
 		<?php } else {
 					if ($user_logged->getUserStatus() >= 3) { ?>
-						En tant qu'adhérent vous avez accès à l'ensemble des books<br>	
+						<!-- En tant qu'adhérent vous avez accès à l'ensemble des books<br> -->
+                        <!-- DEVEVDV mettre une marge en CSS plutot que un br? -->
 		<?php  		} else { ?>
 						Attention, votre cotisation n'est pas à jour. Vous n'avez accès qu'à des extraits des books.
 		<?php		}		
-			} ?> 	
-		</div>
-    		    <?php if (!isset($_SESSION['user_logged'])) { ?> 
-    				<!-- TO DO : prévoir fonction qui affiche erreur -->   
-    		    <?php } else {
-    				if ($user_logged->getUserStatus() >= 3) { ?>
-    			<!-- DEVDEVDEV t'as le droit de foire le book complet si t'es loggé avec abonnement à jour, ou si t'es auteur et que c'est ton book, ou que t'es admin? -->                 	
-    		<?php  		} else { ?>
-    		<?php		}		
-    			} ?> 	    	
-        <!-- DEVEVDV mettre une marge en CSS plutot que un br? -->
-        <div class="row">
-            <img id="show_wowbook" src="assets/vignettes/page_0000.jpg" height="600px" width="auto">
-            <div id="wowbook"></div> <!-- celui avec lightbox et les liens internes -->
-        </div>
+			} ?>
+            Veuillez cliquer sur la couverture pour démarrer la consultation de cet opening book
+            <div class="row">
+                <img id="show_wowbook" src="assets/vignettes/page_0000.jpg" height="600px" width="auto">
+                <div id="wowbook"></div> <!-- celui avec lightbox et les liens internes -->
+            </div>
+		</div>	
         
         <div class="row thumbnail">
             <h3>Description du book</h3>

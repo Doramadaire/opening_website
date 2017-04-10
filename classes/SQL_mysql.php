@@ -464,7 +464,7 @@
             if ($query->execute()) 
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                    $token_container = $row['$token_container'] !== NULL ? unserialize($row['$token_container']) : NULL;
+                    $token_container = $row['token_container'] !== NULL ? unserialize($row['token_container']) : NULL;
                     $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['year'], $token_container);
                     $book_serialized = serialize($book);
                 }

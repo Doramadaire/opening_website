@@ -12,7 +12,6 @@
     $books_sharable = $sql->getAllBooks();
 
     if (isset($_POST['share_book_form'])) {
-        echo "book_id=".$_POST['book_id']."<br>";
         $book_shared = unserialize($sql->getBookByID($_POST['book_id']));
 
         $success = false;

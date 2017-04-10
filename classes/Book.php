@@ -297,7 +297,6 @@
 		public function addAccessToken($token)
 		{
 			$success = false;
-			echo "new token=$token currentTokens=".implode($this->token_container)."<br>";
 			$token_creationdate = time();
 
 			$sql = SQL::getInstance();

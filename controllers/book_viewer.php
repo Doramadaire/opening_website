@@ -13,13 +13,14 @@
 
     //DEVDEVDEV c'est un peu moche ici
     $description = "description";
+    $privileged_access_granted = false;
 
     if (isset($_GET['id'])) {
         $sql = SQL::getInstance();
         $conn = $sql->getBoolConnexion();
 
         $book = unserialize($sql->getBookByID($_GET['id']));
-        $book_pdf_path = $book_folder.$book->getBookFilename();
+        
 
         $description_filename = "/home/openingbqo/opening_website/assets/book_description/".substr($book->getBookFilename(), 0, -4).".txt";
         //set_include_path(get_include_path() . PATH_SEPARATOR . $path);
@@ -39,6 +40,39 @@
 
         //DEVDEv on prend le 1er auteur c'est moche - faire boucle sur chaque auteur
         $book_author = unserialize($sql->getAuthorByID($book->getBookAuthors()[0]));
+
+        if (isset($_GET['token'])) {
+            $token_provided = $_GET['token'];
+            //on vérifie si le token est bon
+            //nettoyage des tokens expirés d'abord
+            $book->cleanOldTokens();
+            $access_tokens = $book->getAcessTokens();
+            foreach ($access_tokens as $token_container) {
+                $token = $token_container[0];
+                $token_creationdate = $token_container[1];
+                if ($token == $token_provided) {
+                    //le token est valide, on vérifie qu'il a pas expiré
+                    //cette vérification est inutile puisqu'on vient de faire le ménage dans les tokens...
+                    if ($token_creationdate > time() - (28*24*60*60)) {
+                        //ce token a moins de 28jours
+                        $privileged_access_granted = true;
+                    }                    
+                }
+            }
+        }
+
+        $book_pdf_path = "/assets/extracts/".substr($book->getBookFilename(), 0, -4)."_EXTRAIT.pdf";
+
+        if ($privileged_access_granted) {
+            $book_pdf_path = $book_folder.$book->getBookFilename();
+        } else {
+            if (isset($_SESSION['user_logged'])) {
+                if ($user_logged->getUserStatus() >= 3) {
+                    $book_pdf_path = $book_folder.$book->getBookFilename();
+                }
+            }
+        }
+
     } else {
         //erreur, t'as rien à faire là mon pote
         $a = 0;
