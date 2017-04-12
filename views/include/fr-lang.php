@@ -16,7 +16,7 @@
  	define('TXT_NAVBAR_A_PROPOS', 'à propos');
  	define('TXT_NAVBAR_ARTISTES', 'Artistes');
  	define('TXT_NAVBAR_CATALOGUE', 'collection');
-  	define('TXT_NAVBAR_CONTACT', 'Contact');
+  	define('TXT_NAVBAR_CONTACT', 'contact');
   	define('TXT_NAVBAR_NEWS', 'actualités');
 	define('TXT_NAVBAR_ADHERER', "adhérer");
 	define('TXT_NAVBAR_LANGUE', "langue");
