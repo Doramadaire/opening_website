@@ -30,7 +30,7 @@
                             <?php } ?>
                             <div class="thumbnail col-md-2">
                                 <a href="<?php echo 'book_viewer.php?id='.$book->getBookID(); ?>">
-                                    <img height="150" width="154" src="/assets/thumbnails/OPENINGBOOK_001">
+                                    <img height="150" width="154" src="/assets/thumbnails/<?php echo $book->getBookFilename(); ?>">
                                     <p><?php echo $book->getBookTitle(); ?></p>
                                     <?php //on va afficher le ou les auteurs de ce livre
                                         $book_authors_ids = $book->getBookAuthors();

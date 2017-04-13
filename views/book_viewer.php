@@ -73,7 +73,7 @@
                 </div>	
         
                 <div class="row thumbnail">
-                    <h3>Description du book</h3>
+                    <h3><?php echo $book->getBookTitle(); ?></h3>
                     <?php echo $description; ?>
                 </div>
                 <div class="row thumbnail author_cv">
