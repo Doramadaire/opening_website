@@ -85,13 +85,16 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 		$mail_searched = stripslashes($_POST['mail']);		
 		$sql = SQL::getInstance();
 		$conn = $sql->getBoolConnexion();
-		$retrieved_users = $sql->getUserByMail('%'.$mail_searched.'%');			
+		$retrieved_users = $sql->getUserByMail('%'.$mail_searched.'%');
+		$json_retrieved_users = array();	
 
 		if ($retrieved_users != null) {
 			//Trouvé!
 			$msg_user_search = "";
+			$msg_user_search = "réussi<br>";
 			foreach ($retrieved_users as $index => $user) {
-				$msg_user_search = $msg_user_search.$user->toString()."<br>";
+				$json_retrieved_users[] = json_encode($user);
+				//$msg_user_search = $msg_user_search.$user->toString()."<br>";
 			}
 		} else {
 			//aucun compte n'existe avec cette adresse

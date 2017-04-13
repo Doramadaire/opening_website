@@ -3,7 +3,7 @@
 	/**
 	* Classe représentant un auteur de livre
 	*/
-	class Book
+	class Book implements JsonSerializable
 	{
 		/** 
 	     * Id unique du livre
@@ -311,6 +311,24 @@
   			}
   			return $success;
 		}
+
+		public function toArray() 
+		{
+			return array(
+    	    	'id' => $this->id,
+				'title' => $this->title,
+				'filename' => $this->filename,
+				'authors' => $this->authors,
+				'collection' => $this->collection,
+				'year' => $this->year,
+				'token_container' => $this->token_container
+    	    );
+		}
+
+		public function jsonSerialize () 
+		{
+    	    return $this->toArray();
+    	}
 	}
 
 ?>

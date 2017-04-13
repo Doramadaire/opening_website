@@ -3,7 +3,7 @@
 	/**
 	* Classe représentant un utilisateur du site
 	*/
-	class User 
+	class User implements JsonSerializable
 	{
 		/** 
 	     * Id unique de l'utilisateur
@@ -217,6 +217,24 @@
 		{
 			return "User - id=$this->id; mail=$this->mail; mail_at_account_creation=$this->mail_at_account_creation; firstname=$this->firstname; name=$this->name; status=$this->status; subscription_date=$this->subscription_date";
 		}
+
+		public function toArray() 
+		{
+			return array(
+    	    	'id' => $this->id,
+				'mail' => $this->mail,
+				'status' => $this->status,
+				'subscription_date' => $this->subscription_date,
+				'firstname' => $this->firstname,
+				'name' => $this->name,
+				'mail_at_account_creation' => $this->mail_at_account_creation
+    	    );
+		}
+
+		public function jsonSerialize () 
+		{
+    	    return $this->toArray();
+    	}
 	}
 
 ?>

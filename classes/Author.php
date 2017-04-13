@@ -3,7 +3,7 @@
 	/**
 	* Classe représentant un auteur de livre
 	*/
-	class Author
+	class Author implements JsonSerializable
 	{
 		/** 
 	     * Id unique de l'auteur
@@ -192,6 +192,23 @@
 		{
 			return "Author - id=$this->id; pseudo=$this->name; associated_user_id=$this->user; description_filename=$this->description_filename; news_filename=$this->news_filename; cv_filename=$this->cv_filename";
 		}
+
+		public function toArray() 
+		{
+			return array(
+    	    	'id' => $this->id,
+				'name' => $this->name,
+				'user' => $this->user,
+				'description_filename' => $this->description_filename,
+				'cv_filename' => $this->cv_filename,
+				'news_filename' => $this->news_filename
+    	    );
+		}
+
+		public function jsonSerialize () 
+		{
+    	    return $this->toArray();
+    	}
 	}
 
 ?>

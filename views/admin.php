@@ -4,10 +4,42 @@
         <?php include("include/html_header.php"); ?>
         <title><?php echo TXT_ONGLET; ?></title>
         <!-- Import des fichiers spécifiques à cette page -->
-        <link rel="stylesheet" href="css/admin.css" type="text/css">	
+        <link rel="stylesheet" href="css/admin.css" type="text/css">
+
+        <?php 
+        //DEVDEV faire une unique variable qui active ou pas le script
+        //on initialise ensuite la bonne partie du code
+        if (isset($_POST['search_user_form'])) { ?>
+        <script type="text/javascript">
+        	$(function() {
+			    var json_retrieved_users = '<?php echo $json_retrieved_users; ?>';
+        		var retrieved_users = JSON.parse(json_retrieved_users);
+        		//DEVDEV pb : on passe un ARRAY d'objets json
+        		//voir pour récupérer cet objet array peinard...
+
+        		var retrieved_users_table = document.createElement("table");
+        		var i = 0;
+				for (user in retrieved_users) {
+					var row = retrieved_users_table.insertRow(-1);
+				    var cellId = row.insertCell(-1);
+				    var cellMail = row.insertCell(-1);
+				    var cellName = row.insertCell(-1);
+
+				    cellId.innerHTML = user['id'];
+				    cellMail.innerHTML = user['mail'];
+				    cellName.innerHTML = user['name'];
+				    console.log("id=" + user['id'] + " mail=" + user['mail']);
+				}
+
+        		var parent = document.getElementById("search_user");
+				//var child = document.getElementById("retrieved_users_table");
+				parent.replaceChild(retrieved_users_table, child);
+			});
+        	
+        </script><?php } ?>
 	</head>	
 	<body>
-  
+  	<?php if (isset($json_retrieved_users)){echo $json_retrieved_users;} ?>
 	<?php 
 		include("include/header.php"); 
 
@@ -29,10 +61,15 @@
 							<h2>En construction</h2>
 						</div>
 
-						<div class="row thumbnail">
+						<div id="search_user" class="row thumbnail">
 							<p><?php echo TXT_RECHERCHE_UTILISATEUR; ?></p>							
 							<!-- pouvoir faire une recherche sur les utilisateurs avec le mail - avoir l'info date de la cotis'-->
-							<?php  if (isset($msg_user_search)) { echo $msg_user_search."<br>";} ?>
+							<!-- DEVDEV façon moche <?php  if (isset($msg_user_search)) { echo $msg_user_search."<br>";} ?> -->
+					<?php 	if (isset($_POST['search_user_form'])) {
+								echo "$msg_user_search"; 
+					?>
+								<div id="retrieved_users_table"></div>
+					<?php	} ?>
 							<form action="" method="POST">
 								<label for="user_type"><?php echo TXT_RECHERCHE_USER_QUESTION; ?></label><br>
 								<input type="text" name="mail" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MAIL.'"'; ?> >
