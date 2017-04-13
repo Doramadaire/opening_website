@@ -19,9 +19,9 @@
         <div class="collapse navbar-collapse" id="nav-collapse">
           <ul class="nav navbar-nav">            			
             <!-- Les premiers éléments -->
-            <li><a href="about.php"><?php echo TXT_NAVBAR_A_PROPOS; ?></a></li>
+            <li><a href="catalogue.php"><?php echo TXT_NAVBAR_CATALOGUE; ?></a></li>            
             <li><a href="news.php"><?php echo TXT_NAVBAR_NEWS; ?></a></li>
-            <li><a href="catalogue.php"><?php echo TXT_NAVBAR_CATALOGUE; ?></a></li>
+            <li><a href="about.php"><?php echo TXT_NAVBAR_A_PROPOS; ?></a></li>
             <li><a href="join.php"><?php echo TXT_NAVBAR_ADHERER; ?></a></li>
             <li><a href="contact.php"><?php echo TXT_NAVBAR_CONTACT; ?></a></li>
             <!-- Le dernier élément est dynamique -->

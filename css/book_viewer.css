@@ -11,3 +11,14 @@
 .wowbook-pdf .linkAnnotation > a:hover {
 	opacity : 0;
 }
+
+.text-intro {
+    margin-top: 20px;
+    text-align: center;
+    font-style: italic;
+}
+
+.author_cv {
+    position:relative;
+    overflow:auto;
+}

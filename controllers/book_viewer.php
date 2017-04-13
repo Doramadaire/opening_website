@@ -21,8 +21,7 @@
 
         $book = unserialize($sql->getBookByID($_GET['id']));
         
-
-        $description_filename = "/home/openingbqo/opening_website/assets/book_description/".substr($book->getBookFilename(), 0, -4).".txt";
+        $description_filename = "/home/openingbqo/opening_website/assets/book_description/".$book->getBookFilename().".txt";
         //set_include_path(get_include_path() . PATH_SEPARATOR . $path);
         try {
             $description_file = fopen($description_filename, "r");
@@ -40,6 +39,7 @@
 
         //DEVDEv on prend le 1er auteur c'est moche - faire boucle sur chaque auteur
         $book_author = unserialize($sql->getAuthorByID($book->getBookAuthors()[0]));
+        $cv_filename = "/assets/cv/".$book_author->getAuthorCV();
 
         if (isset($_GET['token'])) {
             $token_provided = $_GET['token'];
@@ -61,16 +61,28 @@
             }
         }
 
-        $book_pdf_path = "/assets/extracts/".substr($book->getBookFilename(), 0, -4)."_EXTRAIT.pdf";
-
+        //déterminons si on affiche un book complet ou un extrait
+        $book_is_extract = true;
         if ($privileged_access_granted) {
+            //on a un token d'accès privilégié
+            $book_is_extract = false;  
             $book_pdf_path = $book_folder.$book->getBookFilename();
         } else {
             if (isset($_SESSION['user_logged'])) {
                 if ($user_logged->getUserStatus() >= 3) {
-                    $book_pdf_path = $book_folder.$book->getBookFilename();
+                    $book_is_extract = false;      
                 }
             }
+        }
+
+        if ($book_is_extract) {
+            //ce sera un extrait
+            $book_pdf_path = "/assets/extracts/".$book->getBookFilename()."_EXTRAIT.pdf";
+            $cover_filename = "/assets/covers/".$book->getBookFilename()."_EXTRAIT.jpg";
+        } else {
+            //book complet!
+            $book_pdf_path = $book_folder.$book->getBookFilename().".pdf";
+            $cover_filename = "/assets/covers/".$book->getBookFilename().".jpg";
         }
 
     } else {
