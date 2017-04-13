@@ -19,6 +19,8 @@
 }
 
 .author_cv {
-    position:relative;
-    overflow:auto;
+    z-index: 10;
+    overflow: auto;
+    position: relative;
+    margin-bottom: 60px;
 }

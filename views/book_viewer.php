@@ -2,16 +2,15 @@
 	<head>
         <?php include("include/html_header.php"); ?>
         <title><?php echo TXT_ONGLET; ?></title>
-        <!-- Import des fichiers spécifiques à cette page -->	
-
-        <!-- Fichiers maison -->
-        <link rel="stylesheet" href="css/book_viewer.css" type="text/css">  
+        <!-- Import des fichiers spécifiques à cette page -->	      
 
         <!-- jQuery est déjà inclus pour bootstrap <script type="text/javascript" src="./js/jquery-1.7.1.min.js"></script> -->
         <!-- Wowbook -->
         <script type="text/javascript" src="./wow_book/pdf.combined.min.js"></script>
         <script type="text/javascript" src="./wow_book/wow_book.min.js"></script>
         <link rel="stylesheet" href="./wow_book/wow_book.css" type="text/css" />
+        <!-- Fichiers maison -->
+        <link rel="stylesheet" href="css/book_viewer.css" type="text/css">
         <script>
         $(function(){
             var bookOptions = {
