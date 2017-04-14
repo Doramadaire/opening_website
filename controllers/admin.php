@@ -92,8 +92,9 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 			//Trouvé!
 			$msg_user_search = "";
 			$msg_user_search = "réussi<br>";
-			foreach ($retrieved_users as $index => $user) {
-				$json_retrieved_users[] = json_encode($user);
+			foreach ($retrieved_users as $user) {
+				echo "id=".$user->getUserID()." mail=".$user->getUserMail();
+				$json_retrieved_users[] = $user;
 				//$msg_user_search = $msg_user_search.$user->toString()."<br>";
 			}
 		} else {
