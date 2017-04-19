@@ -1,3 +1,4 @@
+
 <?php
  	
 	//---------------------------------------------------------
@@ -15,7 +16,7 @@
  
  	define('TXT_NAVBAR_A_PROPOS', 'à propos');
  	define('TXT_NAVBAR_ARTISTES', 'Artistes');
- 	define('TXT_NAVBAR_CATALOGUE', 'collection');
+ 	define('TXT_NAVBAR_CATALOGUE', 'collections');
   	define('TXT_NAVBAR_CONTACT', 'contact');
   	define('TXT_NAVBAR_NEWS', 'actualités');
 	define('TXT_NAVBAR_ADHERER', "adhérer");
@@ -32,8 +33,8 @@
 	define('TXT_BONJOUR', 'Bonjour');
 	define('TXT_MENU', 'vous pouvez');
 	define('TXT_MENU_COMPTE', 'Gérer votre compte');
-	define('TXT_MENU_OEUVRES', 'Partager vos oeuvres');
-	define('TXT_MENU_OEUVRES_ADMIN', 'Partager les oeuvres');
+	define('TXT_MENU_OEUVRES', 'Partager vos books');
+	define('TXT_MENU_OEUVRES_ADMIN', 'Partager les books');
 	define('TXT_MENU_ADMIN_PAGE', "Aller à la page d'administration");
 	
 	define('TXT_BOUTON_SE_DECONNECTER', "Se déconnecter");
@@ -69,8 +70,8 @@
  	// book_management.php
  	//---------------------------------------------------------	
 		
- 	define('TXT_SECTION_GESTION_BOOK_AUTEUR', 'Page de gestion de vos oeuvres');
-	define('TXT_SECTION_GESTION_BOOK_ADMIN', 'Page de gestion des oeuvres');
+ 	define('TXT_SECTION_GESTION_BOOK_AUTEUR', 'Page de gestion de vos books');
+	define('TXT_SECTION_GESTION_BOOK_ADMIN', 'Page de gestion des books');
 	
 	
 	

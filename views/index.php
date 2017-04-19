@@ -22,20 +22,16 @@
 					<li data-target="#myCarousel" data-slide-to="3"></li>
 				</ol>
 			
-				
 				<div class="carousel-inner" role="listbox">
 					<div class="item active">
 						<img src="assets/diapo/Deregibus_1-1170x445.jpg" alt="Deregibus" width="1170" height="445">
-					</div>
-				
+					</div>				
 					<div class="item">
 						<img src="assets/diapo/Deregibus_2-1170x445.jpg" alt="Deregibus" width="1170" height="445">
-					</div>
-					
+					</div>					
 					<div class="item">
 						<img src="assets/diapo/artistes-1170x445.png" alt="Artistes" width="1170" height="445">
-					</div>
-				
+					</div>				
 					<div class="item">
 						<img src="assets/diapo/001-1170x445.jpg" alt="001" width="1170" height="445">
 					</div>
@@ -57,7 +53,7 @@
 		<div class="container-fluid">		
 			<div class="row">
 				<div class="col-xs-12 col-sm-4">
-					<div class="thumbnail">
+					<div id="logging-form" class="thumbnail">
 						<!-- id="form" -->
 						<div class="caption">
 							
@@ -127,7 +123,6 @@
 						</div>
 					</div>
 				</div>
-				
 				
 				<div class="col-xs-12 col-sm-4">
 					<div class="thumbnail">

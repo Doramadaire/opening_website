@@ -74,10 +74,11 @@
         
                 <div class="row thumbnail">
                     <h3><?php echo $book->getBookTitle(); ?></h3>
-                    <?php echo $description; ?>
+                    <?php echo $book_description; ?>
                 </div>
                 <div class="row thumbnail author_cv">
-                    <h3><?php echo $book_author->getAuthorName(); ?> est l'auteur(e) de ce book</h3>
+                    <h3><?php echo $book_author->getAuthorName(); ?></h3>
+                    <?php echo $artist_description; ?>
                     <a href="<?php echo $cv_filename; ?>" target="_blank">Consulter son CV</a>
                 </div>
                 <!--<div class="row">

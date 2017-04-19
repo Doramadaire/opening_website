@@ -58,7 +58,7 @@
               </li>     
             <?php } else { 
               //se connecter si on l'est pas ?> 
-              <li><a href="index.php"><?php echo TXT_BOUTON_SE_CONNECTER; ?></a></li>         
+              <li><a href="index.php#logging-form"><?php echo TXT_BOUTON_SE_CONNECTER; ?></a></li>         
               <?php } ?>  
           </ul>
 

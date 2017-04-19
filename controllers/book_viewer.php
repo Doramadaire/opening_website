@@ -12,7 +12,7 @@
     $book_folder = "/bbff/";
 
     //DEVDEVDEV c'est un peu moche ici
-    $description = "description";
+    $book_description = "description";
     $privileged_access_granted = false;
 
     if (isset($_GET['id'])) {
@@ -21,25 +21,41 @@
 
         $book = unserialize($sql->getBookByID($_GET['id']));
         
-        $description_filename = "/home/openingbqo/opening_website/assets/book_description/".$book->getBookFilename().".txt";
+        $book_description_filename = "/home/openingbqo/opening_website/assets/book_description/".$book->getBookFilename().".txt";
         //set_include_path(get_include_path() . PATH_SEPARATOR . $path);
         try {
-            $description_file = fopen($description_filename, "r");
+            $book_description_file = fopen($book_description_filename, "r");
             //or die("Unable to open file!");
-            if ($description_file) {
-                $description = ''; 
-                while ($line = fgets($description_file)) {
-                  $description = $description.$line;
+            if ($book_description_file) {
+                $book_description = '';
+                while ($line = fgets($book_description_file)) {
+                    $book_description = $book_description.$line;
                 }
-                fclose($description_file);
+                fclose($book_description_file);
             }
         } catch (Exception $e) {
             //exception
-        }        
+        }
 
         //DEVDEv on prend le 1er auteur c'est moche - faire boucle sur chaque auteur
         $book_author = unserialize($sql->getAuthorByID($book->getBookAuthors()[0]));
         $cv_filename = "/assets/cv/".$book_author->getAuthorCV();
+
+        $artist_description_filename = "/home/openingbqo/opening_website/assets/artists_descriptions/".$book_author->getAuthorDescription();
+        //set_include_path(get_include_path() . PATH_SEPARATOR . $path);
+        try {
+            $artist_description_file = fopen($artist_description_filename, "r");
+            //or die("Unable to open file!");
+            if ($artist_description_file) {
+                $artist_description = '';
+                while ($line = fgets($artist_description_file)) {
+                  $artist_description = $artist_description.$line;
+                }
+                fclose($artist_description_file);
+            }
+        } catch (Exception $e) {
+            //exception
+        }
 
         if (isset($_GET['token'])) {
             $token_provided = $_GET['token'];

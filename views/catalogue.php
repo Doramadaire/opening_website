@@ -34,10 +34,10 @@
                                     <p><?php echo $book->getBookTitle(); ?></p>
                                     <?php //on va afficher le ou les auteurs de ce livre
                                         $book_authors_ids = $book->getBookAuthors();
-                                        echo "<p>".TXT_BOOK_BY." ".unserialize($sql->getAuthorByID($book_authors_ids[0]))->getAuthorName()."</p>";
+                                        echo "<p>".unserialize($sql->getAuthorByID($book_authors_ids[0]))->getAuthorName()."</p>";
                                         if (count($book_authors_ids) > 1) {
                                             foreach (array_slice($book_authors_ids, 1, count($book_authors_ids)-1) as $author_id) {
-                                                echo "<p>".TXT_BOOK_BY_AND." ". unserialize($sql->getAuthorByID($author_id))->getAuthorName()."</p>";
+                                                echo "<p>".unserialize($sql->getAuthorByID($author_id))->getAuthorName()."</p>";
                                             }
                                         } ?>
                                 </a>
