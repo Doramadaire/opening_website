@@ -5,41 +5,8 @@
         <title><?php echo TXT_ONGLET; ?></title>
         <!-- Import des fichiers spécifiques à cette page -->
         <link rel="stylesheet" href="css/admin.css" type="text/css">
-
-        <?php 
-        //DEVDEV faire une unique variable qui active ou pas le script
-        //on initialise ensuite la bonne partie du code
-        if (isset($_POST['search_user_form'])) { ?>
-        <script type="text/javascript">
-        	$(function() {
-			    var json_retrieved_users = '<?php echo $json_retrieved_users; ?>';
-        		var retrieved_users = JSON.parse(json_retrieved_users);
-        		//DEVDEV pb : on passe un ARRAY d'objets json
-        		//voir pour récupérer cet objet array peinard...
-
-        		var retrieved_users_table = document.createElement("table");
-        		var i = 0;
-				for (user in retrieved_users) {
-					var row = retrieved_users_table.insertRow(-1);
-				    var cellId = row.insertCell(-1);
-				    var cellMail = row.insertCell(-1);
-				    var cellName = row.insertCell(-1);
-
-				    cellId.innerHTML = user['id'];
-				    cellMail.innerHTML = user['mail'];
-				    cellName.innerHTML = user['name'];
-				    console.log("id=" + user['id'] + " mail=" + user['mail']);
-				}
-
-        		var parent = document.getElementById("search_user");
-				//var child = document.getElementById("retrieved_users_table");
-				parent.replaceChild(retrieved_users_table, child);
-			});
-        	
-        </script><?php } ?>
 	</head>	
 	<body>
-  	<?php if (isset($json_retrieved_users)){echo $json_retrieved_users;} ?>
 	<?php 
 		include("include/header.php"); 
 
@@ -68,7 +35,61 @@
 					<?php 	if (isset($_POST['search_user_form'])) {
 								echo "$msg_user_search"; 
 					?>
-								<div id="retrieved_users_table"></div>
+								<div id="retrieved_users_table">
+									<?php 
+							        //DEVDEV faire une unique variable qui active ou pas le script
+							        //on initialise ensuite la bonne partie du code
+							        //if (isset($_POST['search_user_form'])) { ?>
+							        <script type="text/javascript">
+							        	//création du tableau d'users
+							        	function createUserTable() {
+										    var json_retrieved_users = '<?php echo $json_retrieved_users; ?>';
+							        		var retrieved_users = JSON.parse(json_retrieved_users);
+							        		//DEVDEV pb : on passe un ARRAY encode en json d'users
+							        		//voir pour récupérer cet objet array peinard...
+							
+							        		var retrieved_users_table = document.createElement("table");
+							        		var i = 0;
+											for (user in retrieved_users) {
+												var row = retrieved_users_table.insertRow(-1);
+											    var cellId = row.insertCell(-1);
+											    var cellMail = row.insertCell(-1);
+											    var cellName = row.insertCell(-1);
+							
+											    cellId.innerHTML = user['id'];
+											    cellMail.innerHTML = user['mail'];
+											    cellName.innerHTML = user['name'];
+											    //console.log("id=" + user['id'] + " mail=" + user['mail']);
+											}
+							        		//var parent = document.getElementById("search_user");
+											//var child = document.getElementById("retrieved_users_table");
+											//parent.replaceChild(retrieved_users_table, child);
+										}
+
+										function myPluginLoadEvent(func) {
+										    // assign any pre-defined functions on 'window.onload' to a variable
+										    var oldOnLoad = window.onload;
+										    // if there is not any function hooked to it
+										    if (typeof window.onload != 'function') {
+										        // you can hook your function with it
+										        window.onload = createUserTable
+										    } else { // someone already hooked a function
+										        window.onload = function () {
+										            // call the function hooked already
+										            oldOnLoad();
+										            // call your awesome function
+										            createUserTable();
+										        }
+										    }
+										}
+										 
+										// pass the function you want to call at 'window.onload', in the function defined above
+										myPluginLoadEvent(function(){
+										    // your awesome code to run on window.onload
+										    alert('window loaded');
+										});
+							        </script>
+								</div>
 					<?php	} ?>
 							<form action="" method="POST">
 								<label for="user_type"><?php echo TXT_RECHERCHE_USER_QUESTION; ?></label><br>

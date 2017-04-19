@@ -473,6 +473,33 @@
         }
 
         /**
+         * Méthode qui retourne la liste des book qui ont pour auteur l'id de l'artiste 
+         * 
+         *
+         * @param $artist_id : l'id de l'artiste
+         * @return array(Books) : un array contenant tous les books de cet artiste 
+         */
+        public function getBooksByAuthor($artist_id)
+        {
+            $retrieved_books = array();
+            $query = $this->conn->prepare("SELECT * FROM books;");
+            if ($query->execute()) 
+            {
+                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                    //on vérifie les auteurs de chaque book
+                    $authors_ids = unserialize($row['authors']);
+                    if (in_array($artist_id, $authors_ids)) {
+                        //ce book a été créé par l'artiste demandé, on le garde
+                        $token_container = $row['$token_container'] !== NULL ? unserialize($row['$token_container']) : NULL;
+                        $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['year'], $token_container);
+                        $retrieved_books[] = $book;
+                    }
+                }
+            }
+            return $retrieved_books;
+        }
+
+        /**
          * Méthode qui cherche les livres selon le nom de l'auteur
          *
          * @param $search : la recherche utilisateur

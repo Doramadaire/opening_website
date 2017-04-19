@@ -21,23 +21,14 @@
 				TO DO : prévoir fonction qui affiche erreur
 				-->
 				<?php echo TXT_INTERDICTION; ?>
-	<?php } else {
-				if ($user_logged->getUserStatus()===4) { ?>
-					<!-- L'user connecté est un auteur
-					TO DO : pouvoir corriger des trucs sur ses oeuvres
-					pouvoir en ajouter
-					autres fonctionnalités
-					-->
-					<div class="row">
-						<h1 class="Section"> <?php echo TXT_SECTION_GESTION_BOOK_AUTEUR; ?></h1>
-					</div>
-		<?php  	} else if ($user_logged->getUserStatus()===5) { ?>
-					<!-- L'user connecté est un admin -->
-					<div class="row">
-						<h1 class="Section">
-							<?php echo TXT_SECTION_GESTION_BOOK_ADMIN; ?>
-						</h1>
-					</div>
+			<?php } else { ?>
+				<div class="row">
+					<h1 class="Section">
+						<?php echo TXT_SECTION_GESTION_BOOK_ADMIN; ?>
+					</h1>
+				</div>					
+			<?php  	if ($user_logged->getUserStatus() >= 4) { ?>
+					<!-- L'user connecté est un admin ou un auteur-->					
 					<div class="row thumbnail">
 						<h3><?php //echo TXT_ARTIST_BOOK_MANAGEMENT; ?></h3>
 						<p>Sur cette page vous pouvez générer des liens d'accès privilégiés vers vos Opening book. N'importe quelle personne disposant du lien pourra alors consulter l'oeuvre correspondante.</p>
@@ -66,21 +57,7 @@
 					<?php   }
 				   		} ?>
 					</div>
-			<?php  //des tests
-				$sql = SQL::getInstance();
-				$conn = $sql->getBoolConnexion();
-
-				if (isset($_POST['share_book_form'])) {
-       				$book = unserialize($sql->getBookByID($_POST['book_id']));
-       				if ($book != null) {
-       					echo "mes tokens :<br>";
-						foreach ($book->getAcessTokens() as $tokenc) {
-							echo "tokenc=".implode($tokenc)."<br>";
-						}
-					}
-				}
-				//fin des tests				
-			} 
+		<?php  	} 
 		} ?>
 		</div>
 			<div class="col-xs-1"></div>

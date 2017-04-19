@@ -56,7 +56,7 @@
                 <div class="row text-intro">
             <?php if (!isset($_SESSION['user_logged'])) { ?> 
     				<!-- TO DO : prévoir fonction qui affiche erreur -->
-    				Attention, en tant que visiteur vous n'avez accès qu'à des extraits
+    				Attention, en tant que visiteur vous n'avez accès qu'à des extraits.
     		<?php } else {
     					if ($user_logged->getUserStatus() >= 3) { ?>
     						<!-- En tant qu'adhérent vous avez accès à l'ensemble des books<br> -->

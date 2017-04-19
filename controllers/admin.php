@@ -85,18 +85,15 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 		$mail_searched = stripslashes($_POST['mail']);		
 		$sql = SQL::getInstance();
 		$conn = $sql->getBoolConnexion();
-		$retrieved_users = $sql->getUserByMail('%'.$mail_searched.'%');
-		$json_retrieved_users = array();	
+		$retrieved_users = $sql->getUserByMail('%'.$mail_searched.'%');	
 
 		if ($retrieved_users != null) {
 			//Trouvé!
 			$msg_user_search = "";
 			$msg_user_search = "réussi<br>";
-			foreach ($retrieved_users as $user) {
-				echo "id=".$user->getUserID()." mail=".$user->getUserMail();
-				$json_retrieved_users[] = $user;
+			$json_retrieved_users = json_encode($retrieved_users);
+			//foreach ($retrieved_users as $user) {
 				//$msg_user_search = $msg_user_search.$user->toString()."<br>";
-			}
 		} else {
 			//aucun compte n'existe avec cette adresse
 			//faire variable booléenne qui vaut true si on affiche un message
