@@ -500,6 +500,30 @@
         }
 
         /**
+         * Méthode qui retourne l'artiste ayant le compte utilisateur avec l'user id spécifié
+         * 
+         *
+         * @param $user_id : le user_id du compte utilisateur cherche
+         * @return Artist : l'artist correspondant au compte utilisateur ayant le user_id spécifié
+         */
+        public function getArtistByUserID($user_id)
+        {
+            $author_serialized = null;
+            $query = $this->conn->prepare("SELECT * FROM authors WHERE user=?;");
+            $query-> bindValue(1,$user_id);
+            if ($query->execute()) {
+                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                    $description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
+                    $cv_filename = $row['cv_filename'] !== NULL ? $row['cv_filename'] : NULL;
+                    $news_filename = $row['news_filename'] !== NULL ? $row['news_filename'] : NULL;
+                    $author = new Author($row['id_author'], $row['name'], $row['user'], $description_filename, $cv_filename, $news_filename);;
+                    $author_serialized = serialize($author);
+                }
+            }
+            return $author_serialized;
+        }
+
+        /**
          * Méthode qui cherche les livres selon le nom de l'auteur
          *
          * @param $search : la recherche utilisateur

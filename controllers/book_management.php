@@ -10,12 +10,11 @@
     $conn = $sql->getBoolConnexion();
 
     $books_sharable = NULL;
-    if (!isset($_SESSION['user_logged'])) {
+    if (isset($_SESSION['user_logged'])) {
         if ($user_logged->getUserStatus() === 4) {
-            //un auteur
-            $my_artist_id = NULL;
-            //DEVDEV récupérer mon id artist
-            $books_sharable = $sql->getBooksByAuthor($my_artist_id);
+            //l'user connecté est un auteur
+            $my_artist = unserialize($sql->getArtistByUserID($user_logged->getUserID()));
+            $books_sharable = $sql->getBooksByAuthor($my_artist->getAuthorID());
         } elseif ($user_logged->getUserStatus() === 5) {
             //un admin
             $books_sharable = $sql->getAllBooks();
