@@ -30,6 +30,12 @@
                     //c'est possible s'il a plusieurs auteurs et qu'ils ont été trouvés par la recherhce
                     if (in_array($book_author_id, $retrieved_authors_ids)) {
                         $retrieved_books[] = $book;
+                        $authors = array(); //un array contenant les objets auteurs du book
+                        foreach ($book->getBookAuthors() as $author_id) {
+                            $authors[] = unserialize($sql->getAuthorByID($author_id));
+                        }
+                        $thumbnail_content[] = array( "book" => $book,
+                                                    "authors" => $authors);
                     }
                 }
             }
@@ -55,13 +61,22 @@
         //Par défaut on affiche quand même TOUS les artistes dans l'ordre
         $sort_type = "default";
         foreach ($sql->getAuthorsSortedAlphabetical() as $author) {
-            $thumbnail_element = array("authorID" => $author->getAuthorID(),
-                                       "authorName" => $author->getAuthorName());
+            //on cherche les books de chaque ariste
+            foreach ($sql->getAllBooks() as $book) {
+                $this_book_authors_ids = $book->getBookAuthors();
+                if (in_array($author->getAuthorID(), $this_book_authors_ids)) {
+                    $this_book_authors = array();
+                    foreach ($this_book_authors_ids as $this_book_author_id) {
+                        $this_book_authors[] = unserialize($sql->getAuthorByID($this_book_author_id));
+                    }
+                    $thumbnail_content[] = array(   "book" => $book,
+                                                    "authors" => $this_book_authors);
+                }
+            }
             //DEVDEV
             //$thumbnail_element["vignette_filename"] = "";
             //echo "un element thumbnail<br>";
             //echo implode($thumbnail_element);
-            $thumbnail_content[] = $thumbnail_element;
         }
     }
 

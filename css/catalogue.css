@@ -28,12 +28,6 @@
     color: rgb(59, 59, 59);
 }
 
-.artist_alphabet {
-    text-align: center;
-    font-family: "Arial", cursive, sans-serif;
-    font-size : 20px;
-}
-
 .letter {
     display: inline-block;
     margin-left: 2px;
@@ -49,9 +43,29 @@
     color: rgb(59, 59, 59);
 }
 
+.artist_alphabet {
+    text-align: center;
+    font-family: "Arial", cursive, sans-serif;
+    font-size : 20px;
+    z-index: 10;
+    background: white;
+    margin-bottom: 30px;
+    position: relative;
+}
+
 .artist_alphabet > a:hover {
     background-color: rgba(255,255,255,1);
     cursor: pointer;
+}
+
+.book_vignette {
+    overflow: auto;
+    height: 242px;
+    width: auto;
+}
+
+.artist_retrieved {
+    overflow: auto;
 }
 
 .random_vignettes_small {

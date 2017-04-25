@@ -341,7 +341,7 @@
         public function getAuthorsSortedAlphabetical()
         {
             $retrieved_authors = array();
-            $query = $this->conn->prepare("SELECT name FROM authors order by 'a';");
+            $query = $this->conn->prepare("SELECT * FROM authors order by 'a';");
             if ($query->execute()) {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
