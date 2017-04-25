@@ -15,53 +15,57 @@
                 <!-- bon y a le titre mais pas la section... -->
                 <!-- DEVDEV : mettre les lignes aléatoires dans la div et dans le if -->
                 <!-- L'affichage de toutes les miniatures de la selection par auteurs -->
-                <div class="row artist_section">
+
+                <?php if ($sort_type === "artist_alphabetical") { ?>
+                <div class="row artist_retrieved"> 
+            <?php   if (empty($retrieved_authors)) { ?>
                     <div class="row">
-                        <h1><?php echo TXT_SECTION_CATALOGUE_ARTISTS;?></h1>
-                    </div>
-                    <!-- L'alphabet avec chaque lettre cliquable si y a un auteur -->
-                    <div class="row artist_alphabet">
-                        <div></div>
-                        <?php foreach (range('A', 'Z') as $letter) {
-                            //que ce soit un lien que s'il y a des auteurs pour cette lettre ?>
-                            <div class="letter">
-                                <a href="?letter=<?php echo $letter; ?>"><?php echo $letter; ?></a>
-                            </div>
-                        <?php } ?>
-                    </div>
-                    <!-- On fait un affichage random en mosaique de
-                    5x2 en grand
-                    3x3 en moyen
-                    ? en petit -->
-                    <div class="row artist_retrieved">
-                    <?php if ($sort_type === "artist_alphabetical") {
-                        if (empty($retrieved_authors)) {
-                            echo "Aucun auteur trouvé";
-                        } else {
-                            foreach ($retrieved_authors as $author) {
-                                echo $author->toString().'<br>ON EST DANS artist_alphabetical';
-                            }
-                            foreach ($thumbnail_content as $thumbnail_element) {
-                                $book = $thumbnail_element['book'];
-                                $authors = $thumbnail_element['authors'];
-                                ?>
-                                <!-- On redirige vers le book -->
-                                <div class="thumbnail book_vignette center-block col-xs-4 col-sm-3">
-                                    <a href="<?php echo 'book_viewer.php?id='.$book->getBookID(); ?>">
-                                        <img class="img-responsive" src="/assets/thumbnails/<?php echo $book->getBookFilename(); ?>" height="150px" width="154px">
-                                        <p><?php echo $book->getBookTitle(); ?></p>
-                                        <p><?php foreach ($authors as $author) {echo $author->getAuthorName().'<br>'; } ?></p>
-                                    </a>
-                                </div>
-                    <?php   }
-                        } ?>
-                        <a href="catalogue.php">Retour aux collections</a>
-                <?php   } else {
-                        //sort_type=default si tout va bien
-                        foreach ($thumbnail_content as $thumbnail_element) { 
+                       Aucun auteur trouvé
+                   </div>
+                   <div class="row">            <?php   } else { 
+                        foreach ($retrieved_authors as $author) {
+                            //echo $author->toString().'<br>ON EST DANS artist_alphabetical';
+                        }
+                        foreach ($thumbnail_content as $thumbnail_element) {
                             $book = $thumbnail_element['book'];
                             $authors = $thumbnail_element['authors'];
                             ?>
+                            <!-- On redirige vers le book -->
+                            <div class="thumbnail book_vignette center-block col-xs-4 col-sm-3">
+                                <a href="<?php echo 'book_viewer.php?id='.$book->getBookID(); ?>">
+                                    <img class="img-responsive" src="/assets/thumbnails/<?php echo $book->getBookFilename(); ?>" height="150px" width="154px">
+                                    <p><?php echo $book->getBookTitle(); ?></p>
+                                    <p><?php foreach ($authors as $author) {echo $author->getAuthorName().'<br>'; } ?></p>
+                                </a>
+                            </div>
+                    <?php   }
+                        } ?>
+                    </div>
+                    <div class="row">
+                        <a href="catalogue.php"><?php echo TXT_BUTTON_BACK; ?></a>
+                    </div>
+                </div>
+                <?php   } else { 
+                        //sort_type=default si tout va bien ?>
+                    <div class="row artist_section">
+                        <div class="row">
+                            <h1><?php echo TXT_SECTION_CATALOGUE_ARTISTS; ?></h1>
+                        </div>
+                        <!-- L'alphabet avec chaque lettre cliquable si y a un auteur -->
+                        <div class="row artist_alphabet">
+                            <?php foreach (range('A', 'Z') as $letter) {
+                                //que ce soit un lien que s'il y a des auteurs pour cette lettre ?>
+                                <div class="letter">
+                                    <a href="?letter=<?php echo $letter; ?>"><?php echo $letter; ?></a>
+                                </div>
+                            <?php } ?>
+                        </div>
+
+                <?php   foreach ($thumbnail_content as $thumbnail_element) { 
+                            $book = $thumbnail_element['book'];
+                            $authors = $thumbnail_element['authors'];
+                            ?>
+
                             <!-- Cas où on redirige vers la page de l'artiste -->
                             <div class="thumbnail book_vignette center-block col-xs-4 col-sm-3">
                                 <a href="<?php 'book_viewer.php?id='.$book->getBookID(); ?>">
@@ -73,7 +77,6 @@
                             </div>
                         <?php  }
                     } ?>
-                    </div>
                 </div>
             </div>
             <div class="col-xs-1"></div>

@@ -1,6 +1,11 @@
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
 .thumbnail {
     /*max-width: 158px;*/
-    min-width: 168px;
+    min-width: 190px;
     /*margin: 10px;*/
     margin: auto;
     border: 0px;

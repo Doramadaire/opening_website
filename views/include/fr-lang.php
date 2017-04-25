@@ -62,6 +62,8 @@
 	define('TXT_SECTION_CATALOGUE_ARTISTS', "Par artistes");
 	define('TXT_SECTION_CATALOGUE_COLLECTION', "Toutes nos collections");
 
+	define('TXT_BUTTON_BACK', "Retour à l'ensemble des collections");
+
 	define('TXT_BOOK_BY', 'Par');
 	define('TXT_BOOK_BY_AND', 'et');
 	
