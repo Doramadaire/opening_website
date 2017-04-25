@@ -104,6 +104,9 @@
                 <div class="col-12 col-sm-10"> 
                     <?php 
                         if ($sort_type === "artist_alphabetical") {
+                            foreach ($retrieved_authors as $author) {
+                                echo $author->toString();
+                            }
                             foreach ($thumbnail_content as $current_thumbnail) { ?>
                                 <!-- On redirige vers le book -->
                                 <!-- <div class="col-xs-3 col-lg-2 thumbnail book_vignette"> -->

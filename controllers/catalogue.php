@@ -15,6 +15,27 @@
         $sort_type = "artist_alphabetical";
         $letter_query_author = $_GET['letter']."%";
 
+        $retrieved_authors = $sql->getAuthorsByName($letter_query_author);
+        $retrieved_authors_ids = array();
+        foreach ($retrieved_authors as $author) {
+            $retrieved_authors_ids[] = $author->getAuthorID();
+        }
+
+        $retrieved_books = array();
+
+        foreach ($sql->getAllBooks() as $book) {
+            foreach ($book->getBookAuthors() as $book_author_id) {
+                if(!in_array($book, $retrieved_books)) {
+                    //on vérifie que le book est pas déjà dans l'array
+                    //c'est possible s'il a plusieurs auteurs et qu'ils ont été trouvés par la recherhce
+                    if (in_array($book_author_id, $retrieved_authors_ids)) {
+                        $retrieved_books[] = $book;
+                    }
+                }
+            }
+        }
+
+        /*
         foreach ($sql->getAllBooks() as $book) {
             foreach ($book->getBookAuthors() as $author_id) {
                 if (in_array($author_id, $sql->getAuthorsByName($letter_query_author))) {
@@ -28,7 +49,8 @@
                     $thumbnail_content[] = $thumbnail_element;
                 }
             }
-        }
+        }*/
+
     } else {
         //Par défaut on affiche quand même TOUS les artistes dans l'ordre
         $sort_type = "default";
