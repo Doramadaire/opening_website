@@ -7,10 +7,10 @@
     </head>
     <body>
         <?php include("include/header.php"); ?> 
-        <div class="container-fluid">                      
-            <!-- L'affichage de 2 lignes de vignettes au hasard parmi tous les books -->
+        <div class="container-fluid">
             <div class="col-xs-1"></div>
             <div class="col-xs-10">
+                <!-- DEVDEVDEV TODO : cacher les vignettes en fct de la largeur au delà de 2 ou 3 lignes -->
 
                 <?php if ($sort_type === "artist_alphabetical") { ?>
 
@@ -41,18 +41,34 @@
                         <a href="catalogue.php"><?php echo TXT_BUTTON_BACK; ?></a>
                     </div>
                 </div>
-                <?php   } elseif ($sort_type === "by_collection") {
-                    # code...
-                    } else {
+                <?php   } elseif ($sort_type === "by_collection") { ?>
+                            <div class="row">
+                                <h1><?php echo $collection;?></h1>
+                            </div>
+                        <!-- Les vignettes de la collection demandée -->
+                        <div class="row block-vignettes center-block">
+                <?php   foreach ($my_collection_vignettes as $vignette) {
+                            $book = $vignette['book'];
+                            $authors = $vignette['authors'];
+                            ?>
+                            <div class="thumbnail book_vignette center-block col-xs-4 col-sm-3">
+                                <a href="<?php echo 'book_viewer.php?id='.$book->getBookID(); ?>">
+                                    <!-- DEVDV quand la vignette artiste sera prête -->
+                                    <img class="img-responsive" src="/assets/thumbnails/<?php echo $book->getBookFilename(); ?>" height="150px" width="154px">
+                                    <p><?php echo $book->getBookTitle(); ?></p>
+                                    <p><?php foreach ($authors as $author) {echo $author->getAuthorName().'<br>'; } ?></p>
+                                </a>
+                            </div>
+                <?php  } ?>
+                        </div>
+                  <?php } else {
                         //sort_type=default si tout va bien ?>
 
+                        <!-- L'affichage de 2 lignes de vignettes au hasard parmi tous les books -->
                         <div class="row catalogue_random">
                             <div class="row">
                                 <h1><?php echo TXT_SECTION_CATALOGUE_ALL;?></h1>
                             </div>
-                            <!-- bon y a le titre mais pas la section... -->
-                            <!-- DEVDEV : mettre les lignes aléatoires dans la div et dans le if -->
-                            <!-- mettre les vignettes dans une grande row? -->
                             <div class="row block-vignettes">
                         <?php   foreach ($rand_books as $book) {
                                     $authors = array(); //un array contenant les objets auteurs du book
@@ -61,8 +77,7 @@
                                     }
                                     ?>
                                     <div class="thumbnail book_vignette center-block col-xs-4 col-sm-3">
-                                        <a href="<?php 'book_viewer.php?id='.$book->getBookID(); ?>">
-                                            <!-- DEVDV quand la vignette artiste sera prête -->
+                                        <a href="<?php echo 'book_viewer.php?id='.$book->getBookID(); ?>">
                                             <img class="img-responsive" src="/assets/thumbnails/<?php echo $book->getBookFilename(); ?>" height="150px" width="154px">
                                             <p><?php echo $book->getBookTitle(); ?></p>
                                             <p><?php foreach ($authors as $author) {echo $author->getAuthorName().'<br>'; } ?></p>
@@ -92,29 +107,41 @@
                             $authors = $thumbnail_element['authors'];
                             ?>
                             <div class="thumbnail book_vignette center-block col-xs-4 col-sm-3">
-                                <a href="<?php 'book_viewer.php?id='.$book->getBookID(); ?>">
-                                    <!-- DEVDV quand la vignette artiste sera prête -->
+                                <a href="<?php echo 'book_viewer.php?id='.$book->getBookID(); ?>">
                                     <img class="img-responsive" src="/assets/thumbnails/<?php echo $book->getBookFilename(); ?>" height="150px" width="154px">
                                     <p><?php echo $book->getBookTitle(); ?></p>
                                     <p><?php foreach ($authors as $author) {echo $author->getAuthorName().'<br>'; } ?></p>
                                 </a>
                             </div>
-                <?php  } ?>
+            <?php       } ?>
                         </div>
-            <?php   } ?>
                     </div>
 
                     <div class="row collection_section">
                         <div class="row">
                             <h1><?php echo TXT_SECTION_CATALOGUE_COLLECTION; ?></h1>
                         </div>
+                <?php   foreach ($collections_vignettes as $collection_vignette) {
+                            $collection = $collection_vignette['collection'];
+                            $book = $collection_vignette['book'];
+                            $authors = $collection_vignette['authors'];
+                            ?>
+                            <div class="thumbnail book_vignette center-block col-xs-4 col-sm-3">
+                                <h4><?php echo $collection; ?></h3>
+                                <a href="<?php echo 'catalogue.php?collection='.urlencode($collection); ?>">
+                                    <img class="img-responsive" src="/assets/thumbnails/<?php echo $book->getBookFilename(); ?>" height="150px" width="154px">
+                                    <p><?php echo $book->getBookTitle(); ?></p>
+                                    <p><?php foreach ($authors as $author) {echo $author->getAuthorName().'<br>'; } ?></p>
+                                </a>
+                            </div>
+                <?php       } ?>
                     </div>
+            <?php   } ?>
             </div>
             <div class="col-xs-1"></div>
 
-            <!-- Pour les écrans larges, on met 2 lignes de 5 vignettes -->
-            <!-- DEVDEV : mettre les lignes aléatoires dans la div et dans le if -->
             <!-- le début du bordel
+            <!-- Pour les écrans larges, on met 2 lignes de 5 vignettes
             <div class="row hide_first random_vignettes_large">       
                     <div class="col-md-1"></div>
                     <?php 
@@ -178,13 +205,9 @@
                     <div class="col-sm-1"></div>
                 </div>
             </div>
+            fin bordel -->
 
-            <!-- L'affichage de toutes les miniatures de la selection par collection -->
-            <!-- <h1><?php echo TXT_SECTION_CATALOGUE_COLLECTION; ?></h1> -->
             <!-- L'affichage de toutes les miniatures de la selection par année : on oublie -->
-            
-            <!-- bouton nouvelle recherche -->
-
         </div>
         <?php include("include/footer.php"); ?> 
     </body>

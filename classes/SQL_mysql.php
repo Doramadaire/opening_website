@@ -118,6 +118,7 @@
             if (!($query->execute())) {return false;}
             $query->closeCursor();
 
+            //DEVDEV appeller la colonne collections (pluriel) et changer les requetes qui l'utilisent...
             $query = $this->conn->prepare("CREATE TABLE IF NOT EXISTS 
                 books(
                     id_book MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -500,8 +501,50 @@
         }
 
         /**
+         * Méthode qui retourne la liste des book qui appartienent à la collection
+         *
+         *
+         * @param getBooksByCollection : la collection souhaitée
+         * @return array(Books) : un array contenant tous les books de cette collection
+         */
+        public function getBooksByCollection($collection)
+        {
+            $retrieved_books = array();
+            $query = $this->conn->prepare("SELECT * FROM books WHERE collection=?;");
+            $query-> bindValue(1, $collection);
+            if ($query->execute())
+            {
+                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                    $token_container = $row['$token_container'] !== NULL ? unserialize($row['$token_container']) : NULL;
+                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['year'], $token_container);
+                    $retrieved_books[] = $book;
+                }
+            }
+            return $retrieved_books;
+        }
+
+        /**
+         * Méthode qui retourne la liste collections existantes
+         *
+         *
+         * @return array(string) : un array contenant toutes les collection existantes
+         */
+        public function getAvalaibleCollections()
+        {
+            $available_collections = array();
+            $query = $this->conn->prepare("SELECT collection FROM books GROUP BY collection;");
+            if ($query->execute())
+            {
+                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                    $available_collections[] = $row['collection'];
+                }
+            }
+            return $available_collections;
+        }
+
+        /**
          * Méthode qui retourne l'artiste ayant le compte utilisateur avec l'user id spécifié
-         * 
+         *
          *
          * @param $user_id : le user_id du compte utilisateur cherche
          * @return Artist : l'artist correspondant au compte utilisateur ayant le user_id spécifié

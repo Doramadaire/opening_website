@@ -12,6 +12,7 @@
     $thumbnail_content = array();
     $sort_type = "default";
     if (isset($_GET['letter'])) {
+        // on a une demande par lettre
         $sort_type = "artist_alphabetical";
         $letter_query_author = $_GET['letter']."%";
 
@@ -57,9 +58,30 @@
             }
         }*/
 
+    } elseif (isset($_GET['collection'])) {
+        $sort_type = "by_collection";
+        $my_collection_vignettes = array();
+        $collection = urldecode($_GET['collection']);
+
+        foreach ($sql->getBooksByCollection($collection) as $book) {
+            $this_book_authors = array();
+            foreach ($book->getBookAuthors() as $this_book_author_id) {
+                $this_book_authors[] = unserialize($sql->getAuthorByID($this_book_author_id));
+            }
+            $my_collection_vignettes[] = array( "book" => $book,
+                                                "authors" => $this_book_authors);
+        }
+
     } else {
-        //Par défaut on affiche quand même TOUS les artistes dans l'ordre
+        //Accueil de la page catalogue presentation des collections
         $sort_type = "default";
+
+        //Pour la première section d'une grille aléatoire
+        $all_books = $sql->getAllBooks();
+        shuffle($all_books);
+        $rand_books = array_slice($all_books, 0, min(16, count($all_books)));
+
+        //Pour la section artiste on affiche TOUS les artistes dans l'ordre alpha
         foreach ($sql->getAuthorsSortedAlphabetical() as $author) {
             //on cherche les books de chaque ariste
             foreach ($sql->getAllBooks() as $book) {
@@ -78,11 +100,25 @@
             //echo "un element thumbnail<br>";
             //echo implode($thumbnail_element);
         }
-    }
 
-    $all_books = $sql->getAllBooks();
-    shuffle($all_books);
-    $rand_books = array_slice($all_books, 0, min(16, count($all_books)));
+        //Pour la section par collection pour l'accueil
+        $collections_vignettes = array();
+        $available_collections = $sql->getAvalaibleCollections();
+        foreach ($available_collections as $collection) {
+            //on va mettre l'image d'un book de la collection au hasard
+            $books = $sql->getBooksByCollection($collection);
+            shuffle($books);
+            $book = $books[0];
+            //ses auteurs pour la vignette
+            $this_book_authors = array();
+            foreach ($book->getBookAuthors() as $this_book_author_id) {
+                $this_book_authors[] = unserialize($sql->getAuthorByID($this_book_author_id));
+            }
+            $collections_vignettes[] = array(   "collection" => $collection,
+                                                "book" => $book,
+                                                "authors" => $this_book_authors);
+        }
+    }
      
     include_once('./views/catalogue.php');
 

@@ -11,6 +11,10 @@
     border: 0px;
 }
 
+.thumbnail > h3, h4 {
+    text-align: center;
+}
+
 .thumbnail > a {
     text-decoration: none;   
 }
