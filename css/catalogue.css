@@ -63,6 +63,13 @@
     cursor: pointer;
 }
 
+.back_button {
+    z-index: 10;
+    background: white;
+    margin-bottom: 30px;
+    position: relative;
+}
+
 .book_vignette {
     overflow: auto;
     height: 242px;

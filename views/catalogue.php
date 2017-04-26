@@ -41,7 +41,7 @@
                     <?php   }
                         } ?>
                     </div>
-                    <div class="row">
+                    <div class="row back_button">
                         <a href="catalogue.php"><?php echo TXT_BUTTON_BACK; ?></a>
                     </div>
                 </div>
