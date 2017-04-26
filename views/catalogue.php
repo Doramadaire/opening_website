@@ -11,21 +11,17 @@
             <!-- L'affichage de 2 lignes de vignettes au hasard parmi tous les books -->
             <div class="col-xs-1"></div>
             <div class="col-xs-10">
-                <h1><?php //echo TXT_SECTION_CATALOGUE_ALL;?></h1>
-                <!-- bon y a le titre mais pas la section... -->
-                <!-- DEVDEV : mettre les lignes aléatoires dans la div et dans le if -->
-                <!-- L'affichage de toutes les miniatures de la selection par auteurs -->
 
                 <?php if ($sort_type === "artist_alphabetical") { ?>
+
                 <div class="row artist_retrieved"> 
             <?php   if (empty($retrieved_authors)) { ?>
                     <div class="row">
                        Aucun auteur trouvé
                    </div>
-                   <div class="row">            <?php   } else { 
-                        foreach ($retrieved_authors as $author) {
-                            //echo $author->toString().'<br>ON EST DANS artist_alphabetical';
-                        }
+                   <div class="row">
+                   <!-- L'affichage de toutes les miniatures de la selection par auteurs -->
+            <?php   } else {
                         foreach ($thumbnail_content as $thumbnail_element) {
                             $book = $thumbnail_element['book'];
                             $authors = $thumbnail_element['authors'];
@@ -45,14 +41,43 @@
                         <a href="catalogue.php"><?php echo TXT_BUTTON_BACK; ?></a>
                     </div>
                 </div>
-                <?php   } else { 
+                <?php   } elseif ($sort_type === "by_collection") {
+                    # code...
+                    } else {
                         //sort_type=default si tout va bien ?>
+
+                        <div class="row catalogue_random">
+                            <div class="row">
+                                <h1><?php echo TXT_SECTION_CATALOGUE_ALL;?></h1>
+                            </div>
+                            <!-- bon y a le titre mais pas la section... -->
+                            <!-- DEVDEV : mettre les lignes aléatoires dans la div et dans le if -->
+                            <!-- mettre les vignettes dans une grande row? -->
+                            <div class="row block-vignettes">
+                        <?php   foreach ($rand_books as $book) {
+                                    $authors = array(); //un array contenant les objets auteurs du book
+                                    foreach ($book->getBookAuthors() as $author_id) {
+                                        $authors[] = unserialize($sql->getAuthorByID($author_id));
+                                    }
+                                    ?>
+                                    <div class="thumbnail book_vignette center-block col-xs-4 col-sm-3">
+                                        <a href="<?php 'book_viewer.php?id='.$book->getBookID(); ?>">
+                                            <!-- DEVDV quand la vignette artiste sera prête -->
+                                            <img class="img-responsive" src="/assets/thumbnails/<?php echo $book->getBookFilename(); ?>" height="150px" width="154px">
+                                            <p><?php echo $book->getBookTitle(); ?></p>
+                                            <p><?php foreach ($authors as $author) {echo $author->getAuthorName().'<br>'; } ?></p>
+                                        </a>
+                                    </div>
+                        <?php  } ?>
+                            </div>
+                        </div>
+
                     <div class="row artist_section">
                         <div class="row">
                             <h1><?php echo TXT_SECTION_CATALOGUE_ARTISTS; ?></h1>
                         </div>
                         <!-- L'alphabet avec chaque lettre cliquable si y a un auteur -->
-                        <div class="row artist_alphabet">
+                        <div class="row artist_alphabet center-block">
                             <?php foreach (range('A', 'Z') as $letter) {
                                 //que ce soit un lien que s'il y a des auteurs pour cette lettre ?>
                                 <div class="letter">
@@ -61,23 +86,29 @@
                             <?php } ?>
                         </div>
 
-                <?php   foreach ($thumbnail_content as $thumbnail_element) { 
+                        <div class="row block-vignettes center-block">
+                <?php   foreach ($thumbnail_content as $thumbnail_element) {
                             $book = $thumbnail_element['book'];
                             $authors = $thumbnail_element['authors'];
                             ?>
-
-                            <!-- Cas où on redirige vers la page de l'artiste -->
                             <div class="thumbnail book_vignette center-block col-xs-4 col-sm-3">
                                 <a href="<?php 'book_viewer.php?id='.$book->getBookID(); ?>">
                                     <!-- DEVDV quand la vignette artiste sera prête -->
-                                    <img class="img-responsive" src="/assets/thumbnails/OPENINGBOOKPHOTO_004" height="150px" width="154px">
+                                    <img class="img-responsive" src="/assets/thumbnails/<?php echo $book->getBookFilename(); ?>" height="150px" width="154px">
                                     <p><?php echo $book->getBookTitle(); ?></p>
                                     <p><?php foreach ($authors as $author) {echo $author->getAuthorName().'<br>'; } ?></p>
                                 </a>
                             </div>
-                        <?php  }
-                    } ?>
-                </div>
+                <?php  } ?>
+                        </div>
+            <?php   } ?>
+                    </div>
+
+                    <div class="row collection_section">
+                        <div class="row">
+                            <h1><?php echo TXT_SECTION_CATALOGUE_COLLECTION; ?></h1>
+                        </div>
+                    </div>
             </div>
             <div class="col-xs-1"></div>
 

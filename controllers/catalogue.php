@@ -82,7 +82,7 @@
 
     $all_books = $sql->getAllBooks();
     shuffle($all_books);
-    $ten_rand_books = array_slice($all_books, 0, min(10, count($all_books)));
+    $rand_books = array_slice($all_books, 0, min(16, count($all_books)));
      
     include_once('./views/catalogue.php');
 
