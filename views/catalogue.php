@@ -126,9 +126,9 @@
                             $book = $collection_vignette['book'];
                             $authors = $collection_vignette['authors'];
                             ?>
-                            <div class="thumbnail book_vignette center-block col-xs-4 col-sm-3">
-                                <h4><?php echo $collection; ?></h3>
+                            <div class="thumbnail book_vignette search_collection_vignette center-block col-xs-4 col-sm-3">
                                 <a href="<?php echo 'catalogue.php?collection='.urlencode($collection); ?>">
+                                    <h4><?php echo $collection; ?></h4>
                                     <img class="img-responsive" src="/assets/thumbnails/<?php echo $book->getBookFilename(); ?>" height="150px" width="154px">
                                     <p><?php echo $book->getBookTitle(); ?></p>
                                     <p><?php foreach ($authors as $author) {echo $author->getAuthorName().'<br>'; } ?></p>

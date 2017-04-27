@@ -19,6 +19,14 @@
     text-decoration: none;   
 }
 
+.thumbnail > a > h4 {
+    color: black;
+    text-align: center;
+    margin: 0px;
+    max-width: 158px;
+    height: 40px;
+}
+
 .thumbnail > a > p {
     color: rgb(119, 119, 119);
     text-align: center;
@@ -86,6 +94,10 @@
 
 .random_vignettes_small {
     display: block;
+}
+
+.search_collection_vignette {
+    height: 310px;
 }
 
 @media (min-width: 992px) {
