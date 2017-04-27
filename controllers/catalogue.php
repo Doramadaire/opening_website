@@ -82,6 +82,7 @@
         $rand_books = array_slice($all_books, 0, min(16, count($all_books)));
 
         //Pour la section artiste on affiche TOUS les artistes dans l'ordre alpha
+        $index = 0;
         foreach ($sql->getAuthorsSortedAlphabetical() as $author) {
             //on cherche les books de chaque ariste
             foreach ($sql->getAllBooks() as $book) {
@@ -91,8 +92,9 @@
                     foreach ($this_book_authors_ids as $this_book_author_id) {
                         $this_book_authors[] = unserialize($sql->getAuthorByID($this_book_author_id));
                     }
-                    $thumbnail_content[] = array(   "book" => $book,
-                                                    "authors" => $this_book_authors);
+                    $thumbnail_content[$index] = array( "book" => $book,
+                                                        "authors" => $this_book_authors);
+                    $index++;
                 }
             }
             //DEVDEV

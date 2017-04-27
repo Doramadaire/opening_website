@@ -108,6 +108,7 @@
                 authors(
                     id_author MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
                     name VARCHAR(255) NOT NULL UNIQUE,
+                    search_name VARCHAR(255) NOT NULL,
                     user MEDIUMINT UNSIGNED NOT NULL,                     
                     description_filename VARCHAR(255),
                     news_filename VARCHAR(255),
@@ -342,7 +343,7 @@
         public function getAuthorsSortedAlphabetical()
         {
             $retrieved_authors = array();
-            $query = $this->conn->prepare("SELECT * FROM authors order by 'a';");
+            $query = $this->conn->prepare("SELECT * FROM authors order by authors.search_name ASC;");
             if ($query->execute()) {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;

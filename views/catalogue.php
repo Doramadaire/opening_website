@@ -71,10 +71,11 @@
                         <div class="row">
                             <h1><?php echo TXT_SECTION_CATALOGUE_COLLECTION; ?></h1>
                         </div>
-                <?php   foreach ($collections_vignettes as $collection_vignette) {
-                            $collection = $collection_vignette['collection'];
-                            $book = $collection_vignette['book'];
-                            $authors = $collection_vignette['authors'];
+                <?php       for ($i=0; $i < count($collections_vignettes); $i++) {
+                            //foreach ($collections_vignettes as $collection_vignette) {
+                            $collection = $collections_vignettes[$i]['collection'];
+                            $book = $collections_vignettes[$i]['book'];
+                            $authors = $collections_vignettes[$i]['authors'];
                             ?>
                             <div class="thumbnail book_vignette search_collection_vignette center-block col-xs-4 col-sm-3">
                                 <a href="<?php echo 'catalogue.php?collection='.urlencode($collection); ?>">                
