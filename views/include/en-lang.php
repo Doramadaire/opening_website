@@ -9,7 +9,6 @@
 	define('TXT_INTERDICTION', "You can't access this page");
 	define('TXT_CONFIRMER', "Update");
 	
-	
 	//---------------------------------------------------------
 	// barre de navigation et noms des pages associées
 	//---------------------------------------------------------
@@ -21,12 +20,13 @@
   	define('TXT_NAVBAR_NEWS', 'news');
 	define('TXT_NAVBAR_ADHERER', 'join us');
 	define('TXT_NAVBAR_LANGUE', "language");
+	define('TXT_NAVBAR_DISCONNECT', "Log out");
 	
 	//---------------------------------------------------------
  	// index.php
  	//---------------------------------------------------------
  	 
- 	define('TXT_SECTION_CONNEXION', 'Login');
+ 	define('TXT_SECTION_CONNEXION', 'Log in');
 	define('TXT_SECTION_RECHERCHE', 'Library');
 	define('TXT_MENU_RECHERCHE', 'Find book');
 	define('TXT_MENU_RECHERCHE_EXTRAITS', 'Find extract');
@@ -37,7 +37,7 @@
 	define('TXT_MENU_OEUVRES_ADMIN', 'Share books');
 	define('TXT_MENU_ADMIN_PAGE', "Go to the administration page");
 	
-	define('TXT_BOUTON_SE_DECONNECTER', "Logout");
+	define('TXT_BOUTON_SE_DECONNECTER', "Log out");
 	define('TXT_BOUTON_SE_CONNECTER', "login");
 	define('TXT_ATTENTION_MDP_OUBLIE', "Warning! Will send a new password in your mailbox");
 	define('TXT_BOUTON_RESET_MDP_OUBLIE', "Send me a new password");
@@ -59,8 +59,8 @@
  	//---------------------------------------------------------
 	
 	define('TXT_SECTION_CATALOGUE_ALL', "Les books");
-	define('TXT_SECTION_CATALOGUE_ARTISTS', "Tous nos artistes");
-	define('TXT_SECTION_CATALOGUE_COLLECTION', "Toutes nos collections");
+	define('TXT_SECTION_CATALOGUE_ARTISTS', "Artists");
+	define('TXT_SECTION_CATALOGUE_COLLECTION', "Collections");
 
 	define('TXT_BUTTON_BACK', 'Back to our entire collection');
 	

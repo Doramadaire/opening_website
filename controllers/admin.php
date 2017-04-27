@@ -5,9 +5,6 @@
 		//on crée un compte que pour un mail valide
 		if (filter_var($new_user_mail, FILTER_VALIDATE_EMAIL)) {
 			//Le mail est bien à un format valide			
-			$sql = SQL::getInstance();
-			$conn = $sql->getBoolConnexion();
-			
 			$user = unserialize($sql->getUserByExactMail($new_user_mail));	
 			if ($user != null) {
 				//ce mail est déjà associé à un compte!
@@ -65,11 +62,14 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 		}
 	}
 
-    setLanguage();
+    $lang = setLanguage();
 
-	session_start();
-	$logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
-	$user_logged = (isset($_SESSION['user_logged'])) ? $_SESSION['user_logged'] : false;
+    $sql = SQL::getInstance();
+    $conn = $sql->getBoolConnexion();
+    
+    session_start();    
+    $logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
+    $user_logged = (isset($_SESSION['user_logged'])) ? $_SESSION['user_logged'] : false;
 
 	if (isset($_POST['new_user_form'])) {	
 		$new_user_mail = stripslashes($_POST['mail']);
@@ -82,9 +82,7 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 	}
 
 	if (isset($_POST['search_user_form'])) {
-		$mail_searched = stripslashes($_POST['mail']);		
-		$sql = SQL::getInstance();
-		$conn = $sql->getBoolConnexion();
+		$mail_searched = stripslashes($_POST['mail']);
 		$retrieved_users = $sql->getUserByMail('%'.$mail_searched.'%');	
 
 		if ($retrieved_users != null) {
@@ -103,9 +101,7 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 	}
 
 	if (isset($_POST['search_author_form'])) {
-		$pseudo_searched = stripslashes($_POST['author_pseudo']);		
-		$sql = SQL::getInstance();
-		$conn = $sql->getBoolConnexion();
+		$pseudo_searched = stripslashes($_POST['author_pseudo']);
 		$retrieved_authors = $sql->getAuthorsByName('%'.$pseudo_searched.'%');
 
 		if ($retrieved_authors != null) {
@@ -170,9 +166,6 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 		$isUserCreated = createUser($new_user_mail, $new_user_type, $new_user_sub_date, $new_user_firstname, $new_user_name);
 
 		 if ($isUserCreated) {
-		 	$sql = SQL::getInstance();
-			$conn = $sql->getBoolConnexion();
-
 		 	$user = unserialize($sql->getUserByExactMail($new_user_mail));
 		 	$user_id = $user->getUserID();
 
@@ -207,9 +200,6 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 				//$move_full = move_uploaded_file($_FILES['full_book_file']['tmp_name'], $full_book_path);
 				//$move_extract = move_uploaded_file($_FILES['extract_book_file']['tmp_name'], $book_extract_path);
 				/*if ($move_full and $move_extract) {
-					$sql = SQL::getInstance();
-					$conn = $sql->getBoolConnexion();					
-					
 					//il manque la valeur du champ AUTHORS à mon book
 					//$new_book =  new Book(0, $book_name, $book_name, $authors, $_POST['collection'], $_POST['year']);
 					//$success = $sql->addBook($new_book);

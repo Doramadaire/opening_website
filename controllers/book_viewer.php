@@ -1,10 +1,13 @@
 <?php
 
-    setLanguage();
+    $lang = setLanguage();
 
-	session_start();
-	$logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
-	$user_logged = (isset($_SESSION['user_logged'])) ? $_SESSION['user_logged'] : false;
+    $sql = SQL::getInstance();
+    $conn = $sql->getBoolConnexion();
+    
+    session_start();    
+    $logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
+    $user_logged = (isset($_SESSION['user_logged'])) ? $_SESSION['user_logged'] : false;
 
     //mcrypt-generic
 
@@ -16,9 +19,6 @@
     $privileged_access_granted = false;
 
     if (isset($_GET['id'])) {
-        $sql = SQL::getInstance();
-        $conn = $sql->getBoolConnexion();
-
         $book = unserialize($sql->getBookByID($_GET['id']));
         
         $book_description_filename = "/home/openingbqo/opening_website/assets/book_description/".$book->getBookFilename().".txt";

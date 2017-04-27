@@ -1,13 +1,13 @@
 <?php
 
-    setLanguage();
-
-	session_start();
-	$logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
-	$user_logged = (isset($_SESSION['user_logged'])) ? $_SESSION['user_logged'] : false;
+    $lang = setLanguage();
 
     $sql = SQL::getInstance();
     $conn = $sql->getBoolConnexion();
+    
+    session_start();    
+    $logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
+    $user_logged = (isset($_SESSION['user_logged'])) ? $_SESSION['user_logged'] : false;
 
     $books_sharable = NULL;
     if (isset($_SESSION['user_logged'])) {

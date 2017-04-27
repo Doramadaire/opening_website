@@ -65,7 +65,7 @@
                         //Le paramétrage est bon, on fait rien
                         break;
 
-                    //supprimer ou mettre en commentaire les cas des langues qu'on souhaite proposer
+                    //supprimer ou mettre en commentaire lsfe cas des langues qu'on souhaite proposer
                     case 'de':
                     case 'es':
                     case 'it':
@@ -80,7 +80,8 @@
                 //On enregistre cette valeur
                 $expire = 365*24*3600;    
                 //enregistrement du cookie au nom de lang   
-                setcookie("lang", $lang, time() + $expire, null, null, false, true);  
+                setcookie("lang", $lang, time() + $expire, null, null, false, true);
+                return $lang;
             }
         }        
         include('./views/include/'.$lang.'-lang.php');         

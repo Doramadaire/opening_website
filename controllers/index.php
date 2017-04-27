@@ -1,20 +1,20 @@
 <?php	
 	
-	setLanguage();
+    $lang = setLanguage();
 
-	$sql = SQL::getInstance();
-	$conn = $sql->getBoolConnexion();
-	//$sql->createTables();
-	
-	session_start();	
-	$logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
-	$user_logged = (isset($_SESSION['user_logged'])) ? $_SESSION['user_logged'] : false;
+    $sql = SQL::getInstance();
+    $conn = $sql->getBoolConnexion();
+    //$sql->createTables();
+    
+    session_start();    
+    $logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
+    $user_logged = (isset($_SESSION['user_logged'])) ? $_SESSION['user_logged'] : false;
 
-	//formulaire de déconnexion
-	if (isset($_POST['loggout_form'])) {
-		session_destroy();
-		header('Location: index.php');
-	}
+    //formulaire de déconnexion
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        header('Location: index.php');
+    }
 	
 	//si le formulaire de connexion a été remplie
 	if (isset($_POST['logging_form'])) {
@@ -29,7 +29,6 @@
 				} else {
 				#mdp pas bon
 				$logging_error = "mail ou mot de passe incorrect";
-				
 			}			
 		} else {
 			# mail invalide

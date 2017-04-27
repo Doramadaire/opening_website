@@ -32,26 +32,27 @@
                   <!-- les actions possibles en fonction du status si on est connecté -->              
                   <?php switch($_SESSION['user_logged']->getUserStatus()) {
                     case 2: ?>
-                        <!-- <li><a href="book_viewer.php"><?php echo TXT_MENU_RECHERCHE_EXTRAITS; ?></a></li> -->
                         <li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>
+                        <li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>
+                        <li><a href="index.php?logout=true"><?php echo TXT_NAVBAR_DISCONNECT; ?></a></li>
                         <?php break;
                 
                     case 3: ?>
-                        <!-- <li><a href="book_viewer.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li> -->
                         <li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>
+                        <li><a href="index.php?logout=true"><?php echo TXT_NAVBAR_DISCONNECT; ?></a></li>
                         <?php break; 
                 
                     case 4: ?>
-                        <!-- <li><a href="book_viewer.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li> -->
                         <li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>
                         <li><a href="book_management.php"><?php echo TXT_MENU_OEUVRES; ?></a></li>
+                        <li><a href="index.php?logout=true"><?php echo TXT_NAVBAR_DISCONNECT; ?></a></li>
                         <?php break; 
                         
                     case 5: ?>
-                        <!-- <li><a href="book_viewer.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li> -->
                         <li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>                          
                         <li><a href="book_management.php"><?php echo TXT_MENU_OEUVRES_ADMIN; ?></a></li>
-                        <li><a href="admin.php"><?php echo TXT_MENU_ADMIN_PAGE; ?></a></li>                          
+                        <li><a href="admin.php"><?php echo TXT_MENU_ADMIN_PAGE; ?></a></li>
+                        <li><a href="index.php?logout=true"><?php echo TXT_NAVBAR_DISCONNECT; ?></a></li>
                         <?php break; 
                   } ?>
                 </ul>

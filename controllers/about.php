@@ -1,11 +1,14 @@
 <?php
 
-    setLanguage();
+    $lang = setLanguage();
 
-	session_start();	
-	$logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
-	$user_logged = (isset($_SESSION['user_logged'])) ? $_SESSION['user_logged'] : false;
-	
+    $sql = SQL::getInstance();
+    $conn = $sql->getBoolConnexion();
+
+    session_start();    
+    $logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
+    $user_logged = (isset($_SESSION['user_logged'])) ? $_SESSION['user_logged'] : false;
+
 	include_once('./views/about.php');
 
 ?>

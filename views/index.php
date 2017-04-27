@@ -85,10 +85,8 @@
 											<?php break; 
 									} ?>
 								</ul>
-									
-								<form action="" method="POST">
-									<input class="btn btn-primary" role="button" type="submit" name="loggout_form" value=<?php echo '"'.TXT_BOUTON_SE_DECONNECTER.'"'; ?>>
-								</form>
+
+								<a class="btn btn-primary" href="index.php?logout=true"><?php echo TXT_BOUTON_SE_DECONNECTER; ?></a>
 								
 							<?php } else { ?>
 									<h3><?php echo TXT_SECTION_CONNEXION; ?></h3>
@@ -104,9 +102,9 @@
 									
 							<?php 	if (isset($reset_pswd_error)) {echo '<p class="error_message">'.$reset_pswd_error.'<p>';}?> 
 									<form id="oubli" class="hide_first" action="" method="POST">
-										<p> <input type="text" name="mail_pswd_forgotten" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MAIL.'"'; ?>> </p>
-										<p> <?php echo TXT_ATTENTION_MDP_OUBLIE; ?> </p>
-										<p> <input class="btn btn-primary" role="button" type="submit" name="pswd_forgotten_form" value=<?php echo '"'.TXT_BOUTON_RESET_MDP_OUBLIE.'"'; ?>> </p>
+										<p><input type="text" name="mail_pswd_forgotten" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MAIL.'"'; ?>> </p>
+										<p><?php echo TXT_ATTENTION_MDP_OUBLIE; ?> </p>
+										<p><input class="btn btn-primary" role="button" type="submit" name="pswd_forgotten_form" value=<?php echo '"'.TXT_BOUTON_RESET_MDP_OUBLIE.'"'; ?>> </p>
 									</form>
 							<?php }?>
 											

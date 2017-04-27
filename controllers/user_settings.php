@@ -1,9 +1,13 @@
 <?php
 
-    setLanguage();
+    $lang = setLanguage();
 
-	session_start();
-	$user_logged = (isset($_SESSION['user_logged'])) ? $_SESSION['user_logged'] : false;
+    $sql = SQL::getInstance();
+    $conn = $sql->getBoolConnexion();
+    
+    session_start();    
+    $logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
+    $user_logged = (isset($_SESSION['user_logged'])) ? $_SESSION['user_logged'] : false;
 
 	if (!$user_logged) {$infraction = "vous n'avez pas le droit d'accéder à cette page";}
 
@@ -14,9 +18,6 @@
 		$new_mail = stripslashes($_POST['new_mail']);
 		if (filter_var($new_mail, FILTER_VALIDATE_EMAIL)) {
 			//Le format du mail est valide			
-			//Connection à la BDD
-			$sql = SQL::getInstance();
-			$conn = $sql->getBoolConnexion();
 			$set_is_sucess = $sql->setUserMail($user_logged, $new_mail);
 			if ($set_is_sucess) {
 				$user_logged->setUserMail($new_mail);
@@ -51,9 +52,7 @@
 		}
 	}
 
-	if (isset($_POST['set_new_password_form'])) {
-		$sql = SQL::getInstance();
-		$conn = $sql->getBoolConnexion();		
+	if (isset($_POST['set_new_password_form'])) {	
 		if ($sql->checkUserPassword($user_logged->getUserMail(), stripslashes($_POST['previous_password']))) {
 			if ($_POST['new_password'] === $_POST['new_password_bis']) {
 				$new_pswd_hashed = password_hash($_POST['new_password'], PASSWORD_BCRYPT);

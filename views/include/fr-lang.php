@@ -9,7 +9,6 @@
 	define('TXT_INTERDICTION', "Vous n'avez pas le droit d'accéder à cette page");
 	define('TXT_CONFIRMER', "Confirmer");
 	
-	
 	//---------------------------------------------------------
 	// barre de navigation et noms des pages associées
 	//---------------------------------------------------------
@@ -21,6 +20,7 @@
   	define('TXT_NAVBAR_NEWS', 'actualités');
 	define('TXT_NAVBAR_ADHERER', "adhérer");
 	define('TXT_NAVBAR_LANGUE', "langue");
+	define('TXT_NAVBAR_DISCONNECT', "Vous déconnecter");
 	
 	//---------------------------------------------------------
  	// index.php
@@ -60,13 +60,12 @@
 	
 	define('TXT_SECTION_CATALOGUE_ALL', "Tous nos books");
 	define('TXT_SECTION_CATALOGUE_ARTISTS', "Par artistes");
-	define('TXT_SECTION_CATALOGUE_COLLECTION', "Toutes nos collections");
+	define('TXT_SECTION_CATALOGUE_COLLECTION', "Les collections");
 
 	define('TXT_BUTTON_BACK', "Retour à l'ensemble des collections");
 
 	define('TXT_BOOK_BY', 'Par');
 	define('TXT_BOOK_BY_AND', 'et');
-	
 		
 	//---------------------------------------------------------
  	// book_management.php
@@ -74,8 +73,6 @@
 		
  	define('TXT_SECTION_GESTION_BOOK_AUTEUR', 'Page de gestion de vos books');
 	define('TXT_SECTION_GESTION_BOOK_ADMIN', 'Page de gestion des books');
-	
-	
 	
 	define('TXT_ARTIST_BOOK_MANAGEMENT', "Vos books");
 
@@ -93,7 +90,6 @@
 	define('TXT_COTISATION', "Cotisation effective jusqu'au "); 
 	define('TXT_MODIF_MAIL', "Modifier votre adresse e-mail");
 	define('TXT_MODIF_MDP', 'Modifier votre mot de passe'); 
-	
 	
 	//---------------------------------------------------------
  	// admin.php
