@@ -83,7 +83,12 @@
 
         //Pour la section artiste on affiche TOUS les artistes dans l'ordre alpha
         $index = 0;
+        $possible_letters = array();
         foreach ($sql->getAuthorsSortedAlphabetical() as $author) {
+            $letter = $author->getAuthorSearchName()[0];
+            if (!in_array($letter, $possible_letters)) {
+                $possible_letters[] = $letter;
+            }
             //on cherche les books de chaque ariste
             foreach ($sql->getAllBooks() as $book) {
                 $this_book_authors_ids = $book->getBookAuthors();

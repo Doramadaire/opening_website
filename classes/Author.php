@@ -22,6 +22,14 @@
 		private $name;
 
 	    /** 
+	     * Le nom de l'auteur utilisé pour les recherches
+	     *
+	     * @var string
+	     * @access private
+	     */
+		private $search_name;
+
+	    /** 
 	     * Le compte utilisateur du site que posséde l'auteur
 	     *
 	     * @var int
@@ -58,7 +66,7 @@
 		*
 		* @return void
 		*/
-		function __construct($id, $name, $user, $description_filename = NULL, $cv_filename = NULL, $news_filename = NULL)
+		function __construct($id, $name, $user, $description_filename = NULL, $cv_filename = NULL, $news_filename = NULL, $search_name = NULL)
 		{
 			$this->id = $id;
 			$this->name = $name;
@@ -66,6 +74,7 @@
 			$this->description_filename = $description_filename;
 			$this->cv_filename = $cv_filename;
 			$this->news_filename = $news_filename;
+			$this->search_name = $search_name;
 		}
 
 		/**
@@ -86,6 +95,16 @@
 		public function getAuthorName()
 		{
 			return $this->name;
+		}
+
+		/**
+		* Retourne le search name de l'auteur
+		*
+		* @return string
+		*/
+		public function getAuthorSearchName()
+		{
+			return $this->search_name;
 		}
 
 		/**

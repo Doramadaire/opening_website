@@ -75,6 +75,11 @@
     cursor: pointer;
 }
 
+.inactive-link {
+   pointer-events: none;
+   cursor: default;
+}
+
 .back_button {
     z-index: 10;
     background: white;

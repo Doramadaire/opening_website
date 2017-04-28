@@ -109,7 +109,7 @@
                         <div class="row artist_alphabet center-block">
                             <?php foreach (range('A', 'Z') as $letter) {
                                 //que ce soit un lien que s'il y a des auteurs pour cette lettre ?>
-                                <div class="letter">
+                                <div class="letter<?php if(!in_array($letter, $possible_letters)) echo ' inactive-link'; ?>">
                                     <a href="?letter=<?php echo $letter; ?>"><?php echo $letter; ?></a>
                                 </div>
                             <?php } ?>
