@@ -17,7 +17,7 @@
                 <div class="row artist_retrieved"> 
             <?php   if (empty($retrieved_authors)) { ?>
                     <div class="row">
-                       Aucun auteur trouvé
+                        <?php echo TXT_NO_AUTHOR_FOUND; ?>
                    </div>
                    <div class="row">
                    <!-- L'affichage de toutes les miniatures de la selection par auteurs -->

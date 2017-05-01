@@ -62,6 +62,8 @@
 	define('TXT_SECTION_CATALOGUE_ARTISTS', "Par artistes");
 	define('TXT_SECTION_CATALOGUE_COLLECTION', "Les collections");
 
+	define('TXT_NO_AUTHOR_FOUND', 'Aucun auteur trouvé');
+
 	define('TXT_BUTTON_BACK', "Retourner à l'ensemble des collections");
 
 	define('TXT_BOOK_BY', 'Par');
@@ -73,8 +75,21 @@
 		
  	define('TXT_SECTION_GESTION_BOOK_AUTEUR', 'Page de gestion de vos books');
 	define('TXT_SECTION_GESTION_BOOK_ADMIN', 'Page de gestion des books');
-	
+
+	define('TXT_SHARE_BOOK_EXPLANATION', "Sur cette page vous pouvez générer des liens d'accès privilégiés vers vos Opening book. N'importe quelle personne disposant du lien pourra alors consulter l'oeuvre correspondante.");
+	define('TXT_SHARE_BOOK_LINK_GENERATION_FAIL', "Echec de la création du lien privilégié");
+	define('TXT_SHARE_BOOK_LINK', "Voici le lien d'accès privilégié pour accéder à l'");
+
 	define('TXT_ARTIST_BOOK_MANAGEMENT', "Vos books");
+
+	//---------------------------------------------------------
+ 	// book_viewer.php
+ 	//---------------------------------------------------------
+
+ 	define('TXT_VISITOR', "Attention, en tant que visiteur vous n'avez accès qu'à des extraits.");
+ 	define('TXT_USER_SUBSCRIPTION_EXPIRED', "Attention, votre cotisation n'est pas à jour. Vous n'avez accès qu'à des extraits des books.");
+ 	define('TXT_BOOK_VIEWER_EXPLANATION', 'Veuillez cliquer sur la couverture pour démarrer la consultation de cet opening book');
+ 	define('TXT_ARTIST_CV', 'Consulter son CV');
 
 	//---------------------------------------------------------
  	// user_settings.php

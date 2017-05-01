@@ -54,18 +54,18 @@
 		    </h1> -->
             <div class="col-xs-10">
                 <div class="row text-intro">
-            <?php if (!isset($_SESSION['user_logged'])) { ?> 
-    				<!-- TO DO : prévoir fonction qui affiche erreur -->
-    				Attention, en tant que visiteur vous n'avez accès qu'à des extraits.
-    		<?php } else {
-    					if ($user_logged->getUserStatus() >= 3) { ?>
-    						<!-- En tant qu'adhérent vous avez accès à l'ensemble des books<br> -->
-                            <!-- DEVEVDV mettre une marge en CSS plutot que un br? -->
-    		<?php  		} else { ?>
-    						Attention, votre cotisation n'est pas à jour. Vous n'avez accès qu'à des extraits des books.
-    		<?php		}		
-    			} ?>
-                    Veuillez cliquer sur la couverture pour démarrer la consultation de cet opening book
+            <?php   if (!isset($_SESSION['user_logged'])) {
+                        if (!isset($privileged_access_granted)) {
+                            echo TXT_VISITOR;
+                        }
+                    } else {
+    					if (!$user_logged->getUserStatus() >= 3) {
+                            echo TXT_USER_SUBSCRIPTION_EXPIRED;
+    						//En tant qu'adhérent vous avez accès à l'ensemble des books<br> -->
+                            //DEVEVDV mettre une marge en CSS plutot que un br? -->
+                        }
+                    } 
+                    echo TXT_BOOK_VIEWER_EXPLANATION; ?>
                 </div>
                 <div class="row">
                     <img id="show_wowbook" src="<?php echo $cover_filename; ?>" height="600px" width="616px">
@@ -79,7 +79,7 @@
                 <div class="row thumbnail author_cv">
                     <h3><?php echo $book_author->getAuthorName(); ?></h3>
                     <?php echo $artist_description; ?>
-                    <a href="<?php echo $cv_filename; ?>" target="_blank">Consulter son CV</a>
+                    <a href="<?php echo $cv_filename; ?>" target="_blank"><?php echo TXT_ARTIST_CV; ?></a>
                 </div>
                 <!--<div class="row">
                     <div class="thumbnail">

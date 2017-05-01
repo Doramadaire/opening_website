@@ -23,21 +23,19 @@
 				<?php echo TXT_INTERDICTION; ?>
 			<?php } else { ?>
 				<div class="row">
-					<h1 class="Section">
-						<?php echo TXT_SECTION_GESTION_BOOK_ADMIN; ?>
-					</h1>
+					<h1><?php echo TXT_SECTION_GESTION_BOOK_ADMIN; ?></h1>
 				</div>					
 			<?php  	if ($user_logged->getUserStatus() >= 4) { ?>
 					<!-- L'user connecté est un admin ou un auteur-->					
 					<div class="row thumbnail">
 						<h3><?php //echo TXT_ARTIST_BOOK_MANAGEMENT; ?></h3>
-						<p>Sur cette page vous pouvez générer des liens d'accès privilégiés vers vos Opening book. N'importe quelle personne disposant du lien pourra alors consulter l'oeuvre correspondante.</p>
+						<p><?php echo TXT_SHARE_BOOK_EXPLANATION; ?></p>
 						<?php if (isset($_POST['share_book_form'])) {
 							if ($success == false) {
 								//message d'erreur
-								echo "<b>Echec de la création du lien privilégié</b><br>";
+								echo "<b>".TXT_SHARE_BOOK_LINK_GENERATION_FAIL."</b><br>";
 							} else { ?>
-								<p>Voici le lien d'accès privilégié pour accéder à l'<?php echo $book_shared->getBookTitle();?> : 
+								<p><?php echo TXT_SHARE_BOOK_LINK.$book_shared->getBookTitle();?> : 
 								<a id="link_access" href="<?php echo $generated_link; ?>"><?php echo 'opening-book.com/'.$generated_link; ?></a></p>
 								<!-- <button onclick="copyToClipboard(<?php echo $generated_link; ?>)">Cliquez ici pour copier le lien</button> -->
 								<!-- DEVDEV réparer le mail, le lien est casse à cause du "&" dans les arguments de l'url...

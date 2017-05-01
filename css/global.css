@@ -78,8 +78,10 @@ a:active {
    display:none;
 }
 
-.Section{line-height:150%;
-border-bottom: 1px solid rgba(53,86,129, 0.3);}
+.Section{
+  line-height:150%;
+  /*border-bottom: 1px solid rgba(53,86,129, 0.3);*/
+}
 
 .error_message {color :black;
 font-weight: bold
