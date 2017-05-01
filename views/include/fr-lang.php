@@ -42,6 +42,7 @@
 	define('TXT_ATTENTION_MDP_OUBLIE', "Attention! Cette action génére un nouveau mot de passe qui sera envoyé à l'adresse mail de votre compte");
 	define('TXT_BOUTON_RESET_MDP_OUBLIE', "Générer un nouveau mot de passe");
 	define('TXT_MDP_OUBLIE', "Mot de passe oublié?");
+	define('TXT_RESET_PSWD_SUCCESS', 'Un nouveau mot de passe vous a été envoyé par mail');
 	
 	define('TXT_BOUTON_RECHERCHE', "Recherche");
 	define('TXT_BOUTON_ADHERER', "Adhérer");

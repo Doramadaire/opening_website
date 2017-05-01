@@ -42,6 +42,7 @@
 	define('TXT_ATTENTION_MDP_OUBLIE', "Warning! Will send a new password in your mailbox");
 	define('TXT_BOUTON_RESET_MDP_OUBLIE', "Send me a new password");
 	define('TXT_MDP_OUBLIE', "Forgotten password?");
+	define('TXT_RESET_PSWD_SUCCESS', 'A mail with your new password has been sent');
 	
 	define('TXT_BOUTON_RECHERCHE', "Search");
 	define('TXT_BOUTON_ADHERER', "Join");

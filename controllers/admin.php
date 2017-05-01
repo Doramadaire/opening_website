@@ -23,17 +23,18 @@
 					
 					$msg_new_user = "Un nouvel utilisateur a bien été créé, son mail est : ".$new_user_mail." il a le statut=".$new_user_type;
 					//Pour gérer les fichiers il y a besoin de les include
-					$path = '/home/openingbqo/opening_website_assets/';
+					/*$path = '/home/openingbqo/opening_website_assets/';
 					set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 					//Dans un gros fichier complet
 					$myfile = fopen("mdp.txt", "a+") or die("Unable to open file!");
 					fwrite($myfile, "name=".$new_user_mail." password=".$new_password."\r\n");
-		
+					*/
+
 					// Envoi d'un mail pour activer le compte avec le mdp généré, et invitation à le changer
 					// Préparation du mail contenant le lien d'activation
 					$destinataire = $new_user_mail;
 					$sujet = "Votre compte OPENING BOOK" ;
-				        $headers ='From: noreply@opening-book.eu'."\n";
+				    $headers ='From: noreply@opening-book.eu'."\n";
 					$headers = $headers."Content-Type: text/html; charset=UTF-8\n";
                                         $headers .='Content-Transfer-Encoding: 8bit';
 									

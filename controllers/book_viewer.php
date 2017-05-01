@@ -85,6 +85,7 @@
             $book_pdf_path = $book_folder.$book->getBookFilename();
         } else {
             if (isset($_SESSION['user_logged'])) {
+                //DEVDEVDEV c'est plus compliqué que ça...
                 if ($user_logged->getUserStatus() >= 3) {
                     $book_is_extract = false;      
                 }

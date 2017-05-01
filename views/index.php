@@ -88,7 +88,7 @@
 
 								<a class="btn btn-primary" href="index.php?logout=true"><?php echo TXT_BOUTON_SE_DECONNECTER; ?></a>
 								
-							<?php } else { ?>
+					      <?php } else { ?>
 									<h3><?php echo TXT_SECTION_CONNEXION; ?></h3>
 							
 							<?php 	if (isset($logging_error)) {echo '<p class="error_message">'.$logging_error.'<p>';}?> 
@@ -106,8 +106,10 @@
 										<p><?php echo TXT_ATTENTION_MDP_OUBLIE; ?> </p>
 										<p><input class="btn btn-primary" role="button" type="submit" name="pswd_forgotten_form" value=<?php echo '"'.TXT_BOUTON_RESET_MDP_OUBLIE.'"'; ?>> </p>
 									</form>
-							<?php }?>
-											
+							<?php if (isset($_POST['pswd_forgotten_form'])) {
+										if ($reset_pswd_success) echo TXT_RESET_PSWD_SUCCESS;
+									}
+								} ?>
 						</div>
 					</div>
 				</div>
