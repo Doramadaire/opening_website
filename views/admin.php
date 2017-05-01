@@ -96,7 +96,7 @@
 						<div class="col-xs-1"></div>
 						<div class="col-xs-10">
 							<div class="row">
-								<h1 class="Section"><?php echo TXT_GESTION_DES_UTILISATEURS; ?></h1>
+								<h1><?php echo TXT_GESTION_DES_UTILISATEURS; ?></h1>
 								<h2>En construction</h2>
 							</div>
 	

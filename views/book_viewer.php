@@ -46,50 +46,48 @@
 	<body oncontextmenu="return false" >
 	<?php include("include/header.php"); ?>
 
-	<div class="container-fluid">
-	    <div class="row">
-            <div class="col-xs-1"></div>
-		    <!-- <h1 class="Section">
-			    Page de consultation des Opening book
-		    </h1> -->
-            <div class="col-xs-10">
-                <div class="row text-intro">
-            <?php   if (!isset($_SESSION['user_logged'])) {
-                        if (!isset($privileged_access_granted)) {
-                            echo TXT_VISITOR;
-                        }
-                    } else {
-    					if (!$user_logged->getUserStatus() >= 3) {
-                            echo TXT_USER_SUBSCRIPTION_EXPIRED;
-    						//En tant qu'adhérent vous avez accès à l'ensemble des books<br> -->
-                            //DEVEVDV mettre une marge en CSS plutot que un br? -->
-                        }
-                    } 
-                    echo TXT_BOOK_VIEWER_EXPLANATION; ?>
-                </div>
-                <div class="row">
-                    <img id="show_wowbook" src="<?php echo $cover_filename; ?>" height="600px" width="616px">
-                    <div id="wowbook"></div> <!-- celui avec lightbox et les liens internes -->
-                </div>	
-        
-                <div class="row thumbnail">
-                    <h3><?php echo $book->getBookTitle(); ?></h3>
-                    <?php echo $book_description; ?>
-                </div>
-                <div class="row thumbnail author_cv">
-                    <h3><?php echo $book_author->getAuthorName(); ?></h3>
-                    <?php echo $artist_description; ?>
-                    <a href="<?php echo $cv_filename; ?>" target="_blank"><?php echo TXT_ARTIST_CV; ?></a>
-                </div>
-                <!--<div class="row">
-                    <div class="thumbnail">
-                        <h3>Les autres oeuvres de cet auteur</h3>
-                        <p>Du texte, ou autre?</p>
-                    </div>
-                </div> -->
+	<div class="container-fluid row">
+        <div class="col-xs-1"></div>
+	    <!-- <h1 class="Section">
+		    Page de consultation des Opening book
+	    </h1> -->
+        <div class="col-xs-10">
+            <div class="row text-intro">
+        <?php   if (!isset($_SESSION['user_logged'])) {
+                    if (!isset($privileged_access_granted)) {
+                        echo TXT_VISITOR;
+                    }
+                } else {
+    				if (!$user_logged->getUserStatus() >= 3) {
+                        echo TXT_USER_SUBSCRIPTION_EXPIRED;
+    					//En tant qu'adhérent vous avez accès à l'ensemble des books<br> -->
+                        //DEVEVDV mettre une marge en CSS plutot que un br? -->
+                    }
+                } 
+                echo TXT_BOOK_VIEWER_EXPLANATION; ?>
             </div>
-            <div class="col-xs-1"></div>
+            <div class="row">
+                <img id="show_wowbook" src="<?php echo $cover_filename; ?>" height="600px" width="616px">
+                <div id="wowbook"></div> <!-- celui avec lightbox et les liens internes -->
+            </div>	
+        
+            <div class="row thumbnail">
+                <h3><?php echo $book->getBookTitle(); ?></h3>
+                <?php echo $book_description; ?>
+            </div>
+            <div class="row thumbnail author_cv">
+                <h3><?php echo $book_author->getAuthorName(); ?></h3>
+                <?php echo $artist_description; ?>
+                <a href="<?php echo $cv_filename; ?>" target="_blank"><?php echo TXT_ARTIST_CV; ?></a>
+            </div>
+            <!--<div class="row">
+                <div class="thumbnail">
+                    <h3>Les autres oeuvres de cet auteur</h3>
+                    <p>Du texte, ou autre?</p>
+                </div>
+            </div> -->
         </div>
+        <div class="col-xs-1"></div>
     </div>
 
 	<?php include("include/footer.php"); ?>

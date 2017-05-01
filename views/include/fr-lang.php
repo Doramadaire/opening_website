@@ -58,9 +58,9 @@
  	// catalogue.php
  	//---------------------------------------------------------
 	
-	define('TXT_SECTION_CATALOGUE_ALL', "Tous nos books");
-	define('TXT_SECTION_CATALOGUE_ARTISTS', "Par artistes");
-	define('TXT_SECTION_CATALOGUE_COLLECTION', "Les collections");
+	define('TXT_SECTION_CATALOGUE_ALL', "Les books");
+	define('TXT_SECTION_CATALOGUE_ARTISTS', "Par artiste");
+	define('TXT_SECTION_CATALOGUE_COLLECTION', "Par collection");
 
 	define('TXT_NO_AUTHOR_FOUND', 'Aucun auteur trouvé');
 

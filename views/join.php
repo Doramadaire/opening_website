@@ -12,16 +12,10 @@
             <div class="col-xs-1"></div>
             <div class="col-xs-10">
                 <div class="row">
-                    <h1 class="Section">
-						<?php echo TXT_SECTION_ADHESION; ?>
-					</h1>
+                    <h1><?php echo TXT_SECTION_ADHESION; ?></h1>
 				</div>
 				<div class="row">
 					<?php echo TXT_ADHESION_TEXTE; ?>
-					 <!-- formulaire - version à éviter
-					<div class="row subscription_form">
-					<iframe id="haWidget" src="https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015/widget" style="width:800px;height:1050px;border:none;"></iframe>
-					</div> -->
 
 					<!-- vignette pour mobile -->
 					<div class="row subscription_form hidden-md hidden-lg">

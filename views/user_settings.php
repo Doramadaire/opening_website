@@ -16,7 +16,7 @@
 					<?php echo TXT_INTERDICTION; ?>
 				<?php } else { ?>
 					<div class="row">
-						<h1 class="Section"> <?php echo TXT_GESTION_COMPTE_USER; ?> </h1>
+						<h1><?php echo TXT_GESTION_COMPTE_USER; ?></h1>
 					</div>
 					<br/>
 		
