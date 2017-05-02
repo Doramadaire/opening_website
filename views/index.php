@@ -2,7 +2,7 @@
 <html>
 	<head>
 	    <?php include("include/html_header.php"); ?>
-	    <title><?php echo TXT_ONGLET; ?></title>
+	    <title><?php echo TXT_TAB_INDEX; ?></title>
 	    <!-- Import des fichiers spécifiques à cette page -->
 		<link href="css/index.css" rel="stylesheet">
 	</head>

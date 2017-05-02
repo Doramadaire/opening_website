@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<?php include("include/html_header.php"); ?>
-        <title><?php echo TXT_ONGLET; ?></title>
+        <title><?php echo TXT_TAB_BOOK_MANAGEMENT; ?></title>
         <!-- Import des fichiers spécifiques à cette page -->
         <link href="css/book_management.css" rel="stylesheet">
 

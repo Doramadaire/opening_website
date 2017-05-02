@@ -1,7 +1,7 @@
 <html>
 	<head>
         <?php include("include/html_header.php"); ?>
-        <title><?php echo TXT_ONGLET; ?></title>
+        <title><?php echo TXT_TAB_BOOK_VIEWER; ?></title>
         <!-- Import des fichiers spécifiques à cette page -->	      
 
         <!-- jQuery est déjà inclus pour bootstrap <script type="text/javascript" src="./js/jquery-1.7.1.min.js"></script> -->

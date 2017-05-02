@@ -33,7 +33,6 @@
                   <?php switch($_SESSION['user_logged']->getUserStatus()) {
                     case 2: ?>
                         <li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>
-                        <li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>
                         <li><a href="index.php?logout=true"><?php echo TXT_NAVBAR_DISCONNECT; ?></a></li>
                         <?php break;
                 

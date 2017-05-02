@@ -14,31 +14,35 @@
 	//---------------------------------------------------------
  
  	define('TXT_NAVBAR_A_PROPOS', 'à propos');
- 	define('TXT_NAVBAR_ARTISTES', 'Artistes');
  	define('TXT_NAVBAR_CATALOGUE', 'collections');
   	define('TXT_NAVBAR_CONTACT', 'contact');
   	define('TXT_NAVBAR_NEWS', 'actualités');
 	define('TXT_NAVBAR_ADHERER', "adhérer");
 	define('TXT_NAVBAR_LANGUE', "langue");
-	define('TXT_NAVBAR_DISCONNECT', "Vous déconnecter");
-	
-	//---------------------------------------------------------
- 	// index.php
- 	//---------------------------------------------------------
- 	 	
-	define('TXT_SECTION_CONNEXION', 'Connectez-vous');
-	define('TXT_SECTION_RECHERCHE', 'Parcourir la collection');
-	define('TXT_MENU_RECHERCHE', 'Parcourir la collection');
-	define('TXT_MENU_RECHERCHE_EXTRAITS', 'Parcourir la collection (seulement des extraits)');
-	define('TXT_BONJOUR', 'Bonjour');
+
 	define('TXT_MENU', 'vous pouvez');
 	define('TXT_MENU_COMPTE', 'Gérer votre compte');
 	define('TXT_MENU_OEUVRES', 'Partager vos books');
 	define('TXT_MENU_OEUVRES_ADMIN', 'Partager les books');
 	define('TXT_MENU_ADMIN_PAGE', "Aller à la page d'administration");
+
+	define('TXT_SECTION_CONNEXION', 'Connectez-vous');
+	define('TXT_NAVBAR_DISCONNECT', "Vous déconnecter");
 	
-	define('TXT_BOUTON_SE_DECONNECTER', "Se déconnecter");
+	//---------------------------------------------------------
+ 	// index.php
+ 	//---------------------------------------------------------
+
+	define('TXT_TAB_INDEX', "Accueil - association Opening");
+
+	define('TXT_SECTION_RECHERCHE', 'Parcourir la collection');
+	define('TXT_MENU_RECHERCHE', 'Parcourir la collection');
+	define('TXT_MENU_RECHERCHE_EXTRAITS', 'Parcourir la collection (seulement des extraits)');
+	define('TXT_BONJOUR', 'Bonjour');
+
 	define('TXT_BOUTON_SE_CONNECTER', "se connecter");
+	define('TXT_BOUTON_SE_DECONNECTER', "Se déconnecter");
+
 	define('TXT_ATTENTION_MDP_OUBLIE', "Attention! Cette action génére un nouveau mot de passe qui sera envoyé à l'adresse mail de votre compte");
 	define('TXT_BOUTON_RESET_MDP_OUBLIE', "Générer un nouveau mot de passe");
 	define('TXT_MDP_OUBLIE', "Mot de passe oublié?");
@@ -58,6 +62,8 @@
 	//---------------------------------------------------------
  	// catalogue.php
  	//---------------------------------------------------------
+
+ 	define('TXT_TAB_CATALOGUE', "L'ensemble de notre collection - Retrouvez tous nos Opening book - Opening");
 	
 	define('TXT_SECTION_CATALOGUE_ALL', "Les books");
 	define('TXT_SECTION_CATALOGUE_ARTISTS', "Par artiste");
@@ -73,6 +79,8 @@
 	//---------------------------------------------------------
  	// book_management.php
  	//---------------------------------------------------------	
+
+ 	define('TXT_TAB_BOOK_MANAGEMENT', "Partage de vos Opening books - Opening");
 		
  	define('TXT_SECTION_GESTION_BOOK_AUTEUR', 'Page de gestion de vos books');
 	define('TXT_SECTION_GESTION_BOOK_ADMIN', 'Page de gestion des books');
@@ -87,6 +95,8 @@
  	// book_viewer.php
  	//---------------------------------------------------------
 
+ 	define('TXT_TAB_BOOK_VIEWER', "Consultation d'un Opening book - Opening");
+
  	define('TXT_VISITOR', "Attention, en tant que visiteur vous n'avez accès qu'à des extraits.");
  	define('TXT_USER_SUBSCRIPTION_EXPIRED', "Attention, votre cotisation n'est pas à jour. Vous n'avez accès qu'à des extraits des books.");
  	define('TXT_BOOK_VIEWER_EXPLANATION', 'Veuillez cliquer sur la couverture pour démarrer la consultation de cet opening book');
@@ -95,7 +105,9 @@
 	//---------------------------------------------------------
  	// user_settings.php
  	//---------------------------------------------------------	
-		
+	
+	define('TXT_TAB_USER_SETTINGS', "Gestion de votre compte - Opening");
+
  	define('TXT_GESTION_COMPTE_USER', 'Gestion de votre compte');
 	define('TXT_NOUVEAU_MAIL', 'Votre nouvelle adresse');
 	define('TXT_MAIL_ACTUEL', 'Votre adresse mail actuelle est : ');
@@ -111,6 +123,8 @@
  	// admin.php
  	//---------------------------------------------------------	
 		
+	define('TXT_TAB_ADMIN', "Page d'administration - Opening");
+
  	define('TXT_GESTION_DES_UTILISATEURS', "Page d'administration");
 	define('TXT_RECHERCHE_UTILISATEUR', 'Rechercher des informations sur un utilisateur');
 	define('TXT_RECHERCHE_USER_QUESTION', "Quel utilisateur recherchez-vous?");
@@ -164,6 +178,8 @@
 	//---------------------------------------------------------
  	// join.php
  	//---------------------------------------------------------	
+
+ 	define('TXT_TAB_JOIN', "Adhérez à l'association - Opening");
 		
  	define('TXT_SECTION_ADHESION', 'Adhérer');
 	define('TXT_ADHESION_TEXTE', "En adhérant à l’association Opening :<br>
@@ -180,7 +196,9 @@
 	//---------------------------------------------------------
  	// about.php
  	//---------------------------------------------------------	
-		
+	
+	define('TXT_TAB_ABOUT', "A propos de notre association - Opening");
+
  	define('TXT_SECTION_EDITO', 'Edito');
 	define('TXT_EDITO_TEXTE', "<p>Opening book est un nouvel objet artistique et éditorial conçu pour donner une visibilité aux artistes photographes et plasticiens actifs en région Paca, connus ou moins connus.</p>
                     <p>Opening book n’est ni catalogue d’exposition, ni monographie (il ne tend pas à l’exhaustivité et ne propose pas d’outil critique), ni livre d’artiste (ce n’est pas une création artistique en soi), ni book d’artiste au sens classique du terme.</p>
@@ -192,19 +210,17 @@
  	// news.php
  	//---------------------------------------------------------	
  
+ 	define('TXT_TAB_NEWS', "Actualités de l'association et de nos artistes - Opening");
+	
 	define('TXT_SECTION_ACTUALITES', 'Actualités');
 	define('TXT_ACTUALITES_VIDE', "Il n'y a aucune nouvelle à afficher");
 	
 	//---------------------------------------------------------
- 	// artists.php
- 	//---------------------------------------------------------	
-
- 	define('TXT_SECTION_ARTISTS', 'Artists');
-	
-	//---------------------------------------------------------
  	// contact.php
  	//---------------------------------------------------------	
-		
+	
+	define('TXT_TAB_CONTACT', "Contact - Opening");
+
  	define('TXT_SECTION_CONTACT', 'Contact');
 	define('TXT_CONTACT_TEXTE', "
 			Association Opening<br>

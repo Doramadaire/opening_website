@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <?php include("include/html_header.php"); ?>
-        <title><?php echo TXT_ONGLET; ?></title>
+        <title><?php echo TXT_TAB_ABOUT; ?></title>
         <!-- <link href="css/about.css" rel="stylesheet"> -->
     </head>
     <body>

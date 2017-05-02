@@ -14,31 +14,35 @@
 	//---------------------------------------------------------
  
  	define('TXT_NAVBAR_A_PROPOS', 'about');
- 	define('TXT_NAVBAR_ARTISTES', 'Artists');
  	define('TXT_NAVBAR_CATALOGUE', 'collection');
   	define('TXT_NAVBAR_CONTACT', 'contact');
   	define('TXT_NAVBAR_NEWS', 'news');
 	define('TXT_NAVBAR_ADHERER', 'join us');
 	define('TXT_NAVBAR_LANGUE', "language");
-	define('TXT_NAVBAR_DISCONNECT', "Log out");
-	
-	//---------------------------------------------------------
- 	// index.php
- 	//---------------------------------------------------------
- 	 
- 	define('TXT_SECTION_CONNEXION', 'Log in');
-	define('TXT_SECTION_RECHERCHE', 'Library');
-	define('TXT_MENU_RECHERCHE', 'Find book');
-	define('TXT_MENU_RECHERCHE_EXTRAITS', 'Find extract');
-	define('TXT_BONJOUR', 'Hello');
+
 	define('TXT_MENU', 'you can');
 	define('TXT_MENU_COMPTE', 'Manage your account');
 	define('TXT_MENU_OEUVRES', 'Share your books');
 	define('TXT_MENU_OEUVRES_ADMIN', 'Share books');
 	define('TXT_MENU_ADMIN_PAGE', "Go to the administration page");
+
+	define('TXT_SECTION_CONNEXION', 'Log in');
+	define('TXT_NAVBAR_DISCONNECT', "Log out");
 	
-	define('TXT_BOUTON_SE_DECONNECTER', "Log out");
+	//---------------------------------------------------------
+ 	// index.php
+ 	//---------------------------------------------------------
+
+ 	define('TXT_TAB_INDEX', "Homepage - Opening association");
+
+	define('TXT_SECTION_RECHERCHE', 'Library');
+	define('TXT_MENU_RECHERCHE', 'Find book');
+	define('TXT_MENU_RECHERCHE_EXTRAITS', 'Find extract');
+	define('TXT_BONJOUR', 'Hello');
+	
 	define('TXT_BOUTON_SE_CONNECTER', "login");
+	define('TXT_BOUTON_SE_DECONNECTER', "Log out");
+	
 	define('TXT_ATTENTION_MDP_OUBLIE', "Warning! Will send a new password in your mailbox");
 	define('TXT_BOUTON_RESET_MDP_OUBLIE', "Send me a new password");
 	define('TXT_MDP_OUBLIE', "Forgotten password?");
@@ -58,8 +62,9 @@
 	//---------------------------------------------------------
  	// catalogue.php
  	//---------------------------------------------------------
+ 	define('TXT_TAB_CATALOGUE', "Our entire collection - Navigate through all our Opening books - Opening");
 	
-	define('TXT_SECTION_CATALOGUE_ALL', "Les books");
+	define('TXT_SECTION_CATALOGUE_ALL', "Books");
 	define('TXT_SECTION_CATALOGUE_ARTISTS', "Artists");
 	define('TXT_SECTION_CATALOGUE_COLLECTION', "Collections");
 
@@ -73,7 +78,9 @@
 	//---------------------------------------------------------
  	// book_management.php
  	//---------------------------------------------------------	
-		
+
+ 	define('TXT_TAB_BOOK_MANAGEMENT', "Share your Opening books - Opening");
+	
  	define('TXT_SECTION_GESTION_BOOK_AUTEUR', 'Page de gestion de vos oeuvres');
 	define('TXT_SECTION_GESTION_BOOK_ADMIN', 'Page de gestion des oeuvres');
 
@@ -87,6 +94,8 @@
  	// book_viewer.php
  	//---------------------------------------------------------
 
+ 	define('TXT_TAB_BOOK_VIEWER', "Opening book - Opening");
+
  	define('TXT_VISITOR', "Attention, en tant que visiteur vous n'avez accès qu'à des extraits.");
  	define('TXT_USER_SUBSCRIPTION_EXPIRED', "Attention, votre cotisation n'est pas à jour. Vous n'avez accès qu'à des extraits des books.");
  	define('TXT_BOOK_VIEWER_EXPLANATION', 'Veuillez cliquer sur la couverture pour démarrer la consultation de cet opening book');
@@ -95,6 +104,8 @@
 	//---------------------------------------------------------
  	// user_settings.php
  	//---------------------------------------------------------	
+
+ 	define('TXT_TAB_USER_SETTINGS', "Manage your account - Opening");
 		
  	define('TXT_GESTION_COMPTE_USER', 'Your account');
 	define('TXT_NOUVEAU_MAIL', 'Your new mail adress');
@@ -107,10 +118,11 @@
 	define('TXT_MODIF_MAIL', 'Change your e-mail');
 	define('TXT_MODIF_MDP', "Change your password"); 
 	
-	
 	//---------------------------------------------------------
  	// admin.php
- 	//---------------------------------------------------------	
+ 	//---------------------------------------------------------
+
+ 	define('TXT_TAB_ADMIN', "Administration page - Opening");
 		
  	define('TXT_GESTION_DES_UTILISATEURS', "Page d'administration");
 	define('TXT_RECHERCHE_UTILISATEUR', 'Rechercher des informations sur un utilisateur');
@@ -135,6 +147,8 @@
 	define('TXT_AUTHOR_SUBMIT_CV', "Fichier PDF du CV de l'artiste (optionnel)");
 	define('TXT_CREER_ARTISTE', "Ajout de l'artiste");
 
+	define('TXT_SECTION_NEWS', "News");
+
 	define('TXT_AJOUT_BOOK', "Ajout d'un objet book");
 	define('TXT_AJOUT_BOOK2', "On va ajouter un book");
 	define('TXT_FICHIER_COMPLET', "Le fichier du book : ");
@@ -151,11 +165,9 @@
 	define('TXT_ERR_INCORRECT_FILE_EXTENSION', "Erreur : extension du fichier incorrecte. Veuillez charger un document au format PDF");
 	define('TXT_NEW_BOOK_SUCCESS', "Book chargé en base avec succès");
 
-	define('TXT_SECTION_NEWS', "Mettre à jour les actualités");
-
 	define('TXT_SECTION_LANG', "Modifier les fichiers textes de langue");
 	define('TXT_UPLOAD_LANG_FILES', "Uploader les différents fichiers de langue");
-	define('TXT_BUTTON_SEND', "Envoyer");
+	define('TXT_BUTTON_SEND', "Send");
 	define('TXT_LANG_FILE_FR', "Fichier des textes en français");
 	define('TXT_LANG_FILE_EN', "Fichier des textes en anglais");
 	define('TXT_LANG_FILE_DE', "Fichier des textes en allemand");
@@ -165,7 +177,9 @@
 	
 	//---------------------------------------------------------
  	// join.php
- 	//---------------------------------------------------------	
+ 	//---------------------------------------------------------
+
+ 	define('TXT_TAB_JOIN', "Join our association - Opening");
 		
  	define('TXT_SECTION_ADHESION', 'Join');
 	define('TXT_ADHESION_TEXTE', "Follow the link...<br>
@@ -183,7 +197,9 @@
 	
 	//---------------------------------------------------------
  	// about.php
- 	//---------------------------------------------------------	
+ 	//---------------------------------------------------------
+
+	define('TXT_TAB_ABOUT', "About us - Opening");
 		
  	define('TXT_SECTION_EDITO', 'Edito');
 	define('TXT_EDITO_TEXTE', "<p>Opening book is .......... </p>
@@ -196,6 +212,8 @@
  	// news.php
  	//---------------------------------------------------------	
  
+  	define('TXT_TAB_NEWS', "News - Opening");
+	
 	define('TXT_SECTION_ACTUALITES', 'Actualités');
 	define('TXT_ACTUALITES_VIDE', "Il n'y a aucune nouvelle à afficher");
 
@@ -203,11 +221,15 @@
  	// artists.php
  	//---------------------------------------------------------	
 
+ 	define('TXT_TAB_NEWS', "Actualités de l'association et de nos artistes - Opening");
+
  	define('TXT_SECTION_ARTISTS', 'Artists');
 
 	//---------------------------------------------------------
  	// contact.php
- 	//---------------------------------------------------------	
+ 	//---------------------------------------------------------
+
+ 	define('TXT_TAB_CONTACT', "Contact - Opening");
 		
  	define('TXT_SECTION_CONTACT', 'Contact');
 	define('TXT_CONTACT_TEXTE', "
