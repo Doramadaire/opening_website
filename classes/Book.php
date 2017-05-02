@@ -51,12 +51,12 @@
 		private $collection;
 
 		/** 
-	     * L'année de publication du livre
+	     * La date de publication du livre
 	     *
-	     * @var int
+	     * @var date
 	     * @access private
 	     */
-		private $year;
+		private $publish_date;
 
 		/** 
 	     * Un array sérialisé contenant les id d'accès privilégiés à ce book
@@ -79,14 +79,14 @@
 		*
 		* @return void
 		*/
-		function __construct($id, $title, $filename, $authors, $collection, $year, $token_container = NULL)
+		function __construct($id, $title, $filename, $authors, $collection, $publish_date, $token_container = NULL)
 		{
 			$this->id = $id;
 			$this->title = $title;
 			$this->filename = $filename;
 			$this->authors = $authors;//Un array contenant les ids du/des auteur(s) du livre
 			$this->collection = $collection;
-			$this->year = $year;
+			$this->publish_date = $publish_date;
 			//Un array contenant des tokens
 			$this->token_container = $token_container != NULL ? $token_container : array();
 		}
@@ -173,9 +173,9 @@
 		*
 		* @return int
 		*/
-		public function getBookYear()
+		public function getBookPublishDate()
 		{
-			return $this->year;
+			return $this->publish_date;
 		}
 
 		/**
@@ -261,9 +261,9 @@
 		* @param int
 		* @return void
 		*/
-		public function setBookYear($year)
+		public function setBookPublishDate($publish_date)
 		{
-			$this->$year = $year;
+			$this->$publish_date = $publish_date;
 		}
 
 		/**
@@ -320,7 +320,7 @@
 				'filename' => $this->filename,
 				'authors' => $this->authors,
 				'collection' => $this->collection,
-				'year' => $this->year,
+				'publish_date' => $this->publish_date,
 				'token_container' => $this->token_container
     	    );
 		}

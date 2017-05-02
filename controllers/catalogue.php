@@ -76,10 +76,18 @@
         //Accueil de la page catalogue presentation des collections
         $sort_type = "default";
 
-        //Pour la première section d'une grille aléatoire
-        $all_books = $sql->getAllBooks();
-        shuffle($all_books);
-        $rand_books = array_slice($all_books, 0, min(16, count($all_books)));
+        //Pour la section par collection pour l'accueil
+        $collections_vignettes = array();
+        $books = $sql->getAllBooksOrderedByPubDate();
+        $collections_oderedbypubdate = array();
+        foreach ($books as $book) {
+            $collection = $book->getBookCollection();
+            if (!in_array($collection, $collections_oderedbypubdate)) {
+                $collections_oderedbypubdate[] = $collection;
+                $collections_vignettes[] = array(   "collection" => $collection,
+                                                    "book" => $book);
+            }
+        }
 
         //Pour la section artiste on affiche TOUS les artistes dans l'ordre alpha
         $index = 0;
@@ -102,18 +110,12 @@
                     $index++;
                 }
             }
-            //DEVDEV
-            //$thumbnail_element["vignette_filename"] = "";
-            //echo "un element thumbnail<br>";
-            //echo implode($thumbnail_element);
-        }
 
-        //Pour la section par collection pour l'accueil
-        $collections_vignettes = array();
+        /* Première méthode pour obtenir les vignettes des collections
         $available_collections = $sql->getAvalaibleCollections();
         foreach ($available_collections as $collection) {
             //on va mettre l'image d'un book de la collection au hasard
-            //DEVDEV si la fct renvoie les books rangés par id croissant, le 1er est bien le 1er et on aura sa vignette
+            //POSSIBLE feature si la fct renvoie les books rangés par id croissant, le 1er est bien le 1er et on aura sa vignette
             $books = $sql->getBooksByCollection($collection);
             shuffle($books);
             $book = $books[0];
@@ -125,6 +127,13 @@
             $collections_vignettes[] = array(   "collection" => $collection,
                                                 "book" => $book,
                                                 "authors" => $this_book_authors);
+        }*/
+
+        //section d'une grille aléatoire
+        /*
+        $all_books = $sql->getAllBooks();
+        shuffle($all_books);
+        $rand_books = array_slice($all_books, 0, min(16, count($all_books)));*/
         }
     }
      

@@ -127,7 +127,7 @@
                     filename VARCHAR(255) NOT NULL UNIQUE,
                     authors VARCHAR(255) NOT NULL,                        
                     collection VARCHAR(255) NOT NULL,                     
-                    year TINYINT UNSIGNED NOT NULL,
+                    publish_date DATE NOT NULL,
                     token_container TEXT,
                     PRIMARY KEY (id_book)                
                     );");
@@ -226,12 +226,12 @@
                     //il y a un FALSE, donc au moins un auteur n'a pas été trouvé
                 } else {
                     //on a retrouvé tous les auteurs, on peut ajouter notre livre
-                    $query = $this->conn->prepare("INSERT INTO books(title, filename, authors, collection, year, token_container) VALUES(?,?,?,?,?,?);");
+                    $query = $this->conn->prepare("INSERT INTO books(title, filename, authors, collection, publish_date, token_container) VALUES(?,?,?,?,?,?);");
                     $query-> bindValue(1,$book->getBookTitle());
                     $query-> bindValue(2,$book->getBookFilename());
                     $query-> bindValue(3,serialize($book->getBookAuthors()));                                  
                     $query-> bindValue(4,$book->getBookCollection());
-                    $query-> bindValue(5,$book->getBookYear());
+                    $query-> bindValue(5,$book->getBookpublish_date());
                     $query-> bindValue(6, serialize($book->getAcessTokens()));
                     //$query-> bindValue(6,$book->getBookIsFull());
                     //$query-> bindValue(6,$book->getBookCaptions());
@@ -444,7 +444,7 @@
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $token_container = $row['$token_container'] !== NULL ? unserialize($row['$token_container']) : NULL;
-                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['year'], $token_container);
+                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['publish_date'], $token_container);
                     $book_serialized = serialize($book);
                 }
             }
@@ -467,7 +467,7 @@
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $token_container = $row['token_container'] !== NULL ? unserialize($row['token_container']) : NULL;
-                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['year'], $token_container);
+                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['publish_date'], $token_container);
                     $book_serialized = serialize($book);
                 }
             }
@@ -493,7 +493,7 @@
                     if (in_array($artist_id, $authors_ids)) {
                         //ce book a été créé par l'artiste demandé, on le garde
                         $token_container = $row['$token_container'] !== NULL ? unserialize($row['$token_container']) : NULL;
-                        $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['year'], $token_container);
+                        $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['publish_date'], $token_container);
                         $retrieved_books[] = $book;
                     }
                 }
@@ -517,7 +517,7 @@
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $token_container = $row['$token_container'] !== NULL ? unserialize($row['$token_container']) : NULL;
-                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['year'], $token_container);
+                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['publish_date'], $token_container);
                     $retrieved_books[] = $book;
                 }
             }
@@ -541,6 +541,26 @@
                 }
             }
             return $available_collections;
+        }
+
+        /**
+         * Méthode qui retourne la liste des books dans l'ordre de la date de publication
+         *
+         *
+         * @return array(Book) : un array contenant tous les books
+         */
+        public function getAllBooksOrderedByPubDate()
+        {
+            $books = array();
+            $query = $this->conn->prepare("SELECT * FROM books ORDER BY publish_date ASC;");
+            if ($query->execute())
+            {
+                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                    $token_container = $row['$token_container'] !== NULL ? unserialize($row['$token_container']) : NULL;
+                    $books[] = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['publish_date'], $token_container);
+                }
+            }
+            return $books;
         }
 
         /**
@@ -583,7 +603,7 @@
             if ($query->execute()) {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $token_container = $row['$token_container'] !== NULL ? unserialize($row['$token_container']) : NULL;
-                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['year'], $token_container);
+                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['publish_date'], $token_container);
                     $retrieved_books[] = $book;
                 }
             }
@@ -604,7 +624,7 @@
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $token_container = $row['$token_container'] !== NULL ? unserialize($row['$token_container']) : NULL;
-                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['year'], $token_container);
+                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['publish_date'], $token_container);
                     $retrieved_books[] = $book;
                 }
             }
@@ -820,13 +840,13 @@
          * Méthode qui modifie la date de publication d'un livre de la table books de la base de donnée
          *
          * @param $book : un objet de la classe Book.php
-         * @param int : $new_year - la date de publication du livre
+         * @param int : $new_publish_date - la date de publication du livre
          * @return bool : True si la modification est réussi, False sinon
          */
-        public function setBookYear($book, $new_year)
+        public function setBookPublishDate($book, $new_publish_date)
         {
-            $query = $this->conn->prepare("UPDATE books SET year = ? WHERE id_author = ?");
-            $query-> bindValue(1,$new_year);    
+            $query = $this->conn->prepare("UPDATE books SET publish_date = ? WHERE id_author = ?");
+            $query-> bindValue(1,$new_publish_date);    
             $query-> bindValue(2,$book->getBookID());
             return $query->execute();
         }

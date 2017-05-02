@@ -214,7 +214,7 @@
 										<option value="opening book"><?php echo TXT_COLLECTION_OPENINGBOOK; ?></option>
 										<option value="opening book photo"><?php echo TXT_COLLECTION_OPENINGBOOK_PHOTO; ?></option>
 									</select><br>
-									<?php echo TXT_ANNEE; ?><input type="number" name="year" value="<?php echo date("Y"); ?>" min="2015" required><br>
+									<?php echo TXT_ANNEE; ?><input type="number" name="publish_date" value="<?php echo date("YYYY-MM-DD"); ?>" min="2015-01-01" required><br>
 									<input type="submit" class="btn btn-primary" name="new_book_form" value=<?php echo '"'.TXT_BOUTON_CREER_BOOK.'"'; ?>>	
 								</form>	 
 							</div>

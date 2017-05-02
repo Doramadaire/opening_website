@@ -202,7 +202,7 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 				//$move_extract = move_uploaded_file($_FILES['extract_book_file']['tmp_name'], $book_extract_path);
 				/*if ($move_full and $move_extract) {
 					//il manque la valeur du champ AUTHORS à mon book
-					//$new_book =  new Book(0, $book_name, $book_name, $authors, $_POST['collection'], $_POST['year']);
+					//$new_book =  new Book();
 					//$success = $sql->addBook($new_book);
 				}
 				echo "DL réussi et extensions correctes<br>";

@@ -142,7 +142,7 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 	echo "<br>id=".$livreCherche->getBookID();*/
 	//ajout et récupération OK pour user, author et book :)
 	/* exemple d'insertion SQL
-	INSERT INTO books(title, filename, authors, collection, year) 
+	INSERT INTO books(title, filename, authors, collection, publish_date) 
 	VALUES("Opening Book 1","openingbook_001","a:2:{i:0;i:1;i:1;i:3;}","openingbook",2018);
     */  
 	
