@@ -117,6 +117,7 @@
                     </div>
 
                         <!-- L'affichage de 2 lignes de vignettes au hasard parmi tous les books -->
+                        <!--
                         <div class="row catalogue_random">
                             <div class="row">
                                 <h1><?php echo TXT_SECTION_CATALOGUE_ALL;?></h1>
@@ -137,7 +138,7 @@
                                     </div>
                         <?php  } ?>
                             </div>
-                        </div>
+                        </div> -->
 
             <?php   } ?>
             </div>

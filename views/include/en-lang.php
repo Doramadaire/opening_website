@@ -33,7 +33,7 @@
  	// index.php
  	//---------------------------------------------------------
 
- 	define('TXT_TAB_INDEX', "Homepage - Opening association");
+ 	define('TXT_TAB_INDEX', "Homepage - Opening book association");
 
 	define('TXT_SECTION_RECHERCHE', 'Library');
 	define('TXT_MENU_RECHERCHE', 'Find book');
@@ -62,7 +62,7 @@
 	//---------------------------------------------------------
  	// catalogue.php
  	//---------------------------------------------------------
- 	define('TXT_TAB_CATALOGUE', "Our entire collection - Navigate through all our Opening books - Opening");
+ 	define('TXT_TAB_CATALOGUE', "Our entire collection - Navigate through all our Opening books - Opening book");
 	
 	define('TXT_SECTION_CATALOGUE_ALL', "Books");
 	define('TXT_SECTION_CATALOGUE_ARTISTS', "Artists");
@@ -79,7 +79,7 @@
  	// book_management.php
  	//---------------------------------------------------------	
 
- 	define('TXT_TAB_BOOK_MANAGEMENT', "Share your Opening books - Opening");
+ 	define('TXT_TAB_BOOK_MANAGEMENT', "Share your Opening books - Opening book");
 	
  	define('TXT_SECTION_GESTION_BOOK_AUTEUR', 'Page de gestion de vos oeuvres');
 	define('TXT_SECTION_GESTION_BOOK_ADMIN', 'Page de gestion des oeuvres');
@@ -94,7 +94,7 @@
  	// book_viewer.php
  	//---------------------------------------------------------
 
- 	define('TXT_TAB_BOOK_VIEWER', "Opening book - Opening");
+ 	define('TXT_TAB_BOOK_VIEWER', "Opening book - Opening book");
 
  	define('TXT_VISITOR', "Attention, en tant que visiteur vous n'avez accès qu'à des extraits.");
  	define('TXT_USER_SUBSCRIPTION_EXPIRED', "Attention, votre cotisation n'est pas à jour. Vous n'avez accès qu'à des extraits des books.");
@@ -105,7 +105,7 @@
  	// user_settings.php
  	//---------------------------------------------------------	
 
- 	define('TXT_TAB_USER_SETTINGS', "Manage your account - Opening");
+ 	define('TXT_TAB_USER_SETTINGS', "Manage your account - Opening book");
 		
  	define('TXT_GESTION_COMPTE_USER', 'Your account');
 	define('TXT_NOUVEAU_MAIL', 'Your new mail adress');
@@ -122,7 +122,7 @@
  	// admin.php
  	//---------------------------------------------------------
 
- 	define('TXT_TAB_ADMIN', "Administration page - Opening");
+ 	define('TXT_TAB_ADMIN', "Administration page - Opening book");
 		
  	define('TXT_GESTION_DES_UTILISATEURS', "Page d'administration");
 	define('TXT_RECHERCHE_UTILISATEUR', 'Rechercher des informations sur un utilisateur');
@@ -179,7 +179,7 @@
  	// join.php
  	//---------------------------------------------------------
 
- 	define('TXT_TAB_JOIN', "Join our association - Opening");
+ 	define('TXT_TAB_JOIN', "Join our association - Opening book");
 		
  	define('TXT_SECTION_ADHESION', 'Join');
 	define('TXT_ADHESION_TEXTE', "Follow the link...<br>
@@ -199,7 +199,7 @@
  	// about.php
  	//---------------------------------------------------------
 
-	define('TXT_TAB_ABOUT', "About us - Opening");
+	define('TXT_TAB_ABOUT', "About us - Opening book");
 		
  	define('TXT_SECTION_EDITO', 'Edito');
 	define('TXT_EDITO_TEXTE', "<p>Opening book is .......... </p>
@@ -212,7 +212,7 @@
  	// news.php
  	//---------------------------------------------------------	
  
-  	define('TXT_TAB_NEWS', "News - Opening");
+  	define('TXT_TAB_NEWS', "News - Opening book");
 	
 	define('TXT_SECTION_ACTUALITES', 'Actualités');
 	define('TXT_ACTUALITES_VIDE', "Il n'y a aucune nouvelle à afficher");
@@ -221,7 +221,7 @@
  	// artists.php
  	//---------------------------------------------------------	
 
- 	define('TXT_TAB_NEWS', "Actualités de l'association et de nos artistes - Opening");
+ 	define('TXT_TAB_NEWS', "Actualités de l'association et de nos artistes - Opening book");
 
  	define('TXT_SECTION_ARTISTS', 'Artists');
 
@@ -229,7 +229,7 @@
  	// contact.php
  	//---------------------------------------------------------
 
- 	define('TXT_TAB_CONTACT', "Contact - Opening");
+ 	define('TXT_TAB_CONTACT', "Contact - Opening book");
 		
  	define('TXT_SECTION_CONTACT', 'Contact');
 	define('TXT_CONTACT_TEXTE', "

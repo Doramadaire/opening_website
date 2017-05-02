@@ -5,7 +5,7 @@
 	// généraux
 	//---------------------------------------------------------	
 	
-	define('TXT_ONGLET', "Opening");
+	define('TXT_ONGLET', "Opening book");
 	define('TXT_INTERDICTION', "Vous n'avez pas le droit d'accéder à cette page");
 	define('TXT_CONFIRMER', "Confirmer");
 	
@@ -33,7 +33,7 @@
  	// index.php
  	//---------------------------------------------------------
 
-	define('TXT_TAB_INDEX', "Accueil - association Opening");
+	define('TXT_TAB_INDEX', "Accueil - association Opening book");
 
 	define('TXT_SECTION_RECHERCHE', 'Parcourir la collection');
 	define('TXT_MENU_RECHERCHE', 'Parcourir la collection');
@@ -63,7 +63,7 @@
  	// catalogue.php
  	//---------------------------------------------------------
 
- 	define('TXT_TAB_CATALOGUE', "L'ensemble de notre collection - Retrouvez tous nos Opening book - Opening");
+ 	define('TXT_TAB_CATALOGUE', "L'ensemble de notre collection - Retrouvez tous nos Opening book - Opening book");
 	
 	define('TXT_SECTION_CATALOGUE_ALL', "Les books");
 	define('TXT_SECTION_CATALOGUE_ARTISTS', "Par artiste");
@@ -80,7 +80,7 @@
  	// book_management.php
  	//---------------------------------------------------------	
 
- 	define('TXT_TAB_BOOK_MANAGEMENT', "Partage de vos Opening books - Opening");
+ 	define('TXT_TAB_BOOK_MANAGEMENT', "Partage de vos Opening books - Opening book");
 		
  	define('TXT_SECTION_GESTION_BOOK_AUTEUR', 'Page de gestion de vos books');
 	define('TXT_SECTION_GESTION_BOOK_ADMIN', 'Page de gestion des books');
@@ -95,7 +95,7 @@
  	// book_viewer.php
  	//---------------------------------------------------------
 
- 	define('TXT_TAB_BOOK_VIEWER', "Consultation d'un Opening book - Opening");
+ 	define('TXT_TAB_BOOK_VIEWER', "Consultation d'un Opening book - Opening book");
 
  	define('TXT_VISITOR', "Attention, en tant que visiteur vous n'avez accès qu'à des extraits.");
  	define('TXT_USER_SUBSCRIPTION_EXPIRED', "Attention, votre cotisation n'est pas à jour. Vous n'avez accès qu'à des extraits des books.");
@@ -106,7 +106,7 @@
  	// user_settings.php
  	//---------------------------------------------------------	
 	
-	define('TXT_TAB_USER_SETTINGS', "Gestion de votre compte - Opening");
+	define('TXT_TAB_USER_SETTINGS', "Gestion de votre compte - Opening book");
 
  	define('TXT_GESTION_COMPTE_USER', 'Gestion de votre compte');
 	define('TXT_NOUVEAU_MAIL', 'Votre nouvelle adresse');
@@ -123,7 +123,7 @@
  	// admin.php
  	//---------------------------------------------------------	
 		
-	define('TXT_TAB_ADMIN', "Page d'administration - Opening");
+	define('TXT_TAB_ADMIN', "Page d'administration - Opening book");
 
  	define('TXT_GESTION_DES_UTILISATEURS', "Page d'administration");
 	define('TXT_RECHERCHE_UTILISATEUR', 'Rechercher des informations sur un utilisateur');
@@ -179,7 +179,7 @@
  	// join.php
  	//---------------------------------------------------------	
 
- 	define('TXT_TAB_JOIN', "Adhérez à l'association - Opening");
+ 	define('TXT_TAB_JOIN', "Adhérez à l'association - Opening book");
 		
  	define('TXT_SECTION_ADHESION', 'Adhérer');
 	define('TXT_ADHESION_TEXTE', "En adhérant à l’association Opening :<br>
@@ -197,7 +197,7 @@
  	// about.php
  	//---------------------------------------------------------	
 	
-	define('TXT_TAB_ABOUT', "A propos de notre association - Opening");
+	define('TXT_TAB_ABOUT', "A propos de notre association - Opening book");
 
  	define('TXT_SECTION_EDITO', 'Edito');
 	define('TXT_EDITO_TEXTE', "<p>Opening book est un nouvel objet artistique et éditorial conçu pour donner une visibilité aux artistes photographes et plasticiens actifs en région Paca, connus ou moins connus.</p>
@@ -210,7 +210,7 @@
  	// news.php
  	//---------------------------------------------------------	
  
- 	define('TXT_TAB_NEWS', "Actualités de l'association et de nos artistes - Opening");
+ 	define('TXT_TAB_NEWS', "Actualités de l'association et de nos artistes - Opening book");
 	
 	define('TXT_SECTION_ACTUALITES', 'Actualités');
 	define('TXT_ACTUALITES_VIDE', "Il n'y a aucune nouvelle à afficher");
@@ -219,7 +219,7 @@
  	// contact.php
  	//---------------------------------------------------------	
 	
-	define('TXT_TAB_CONTACT', "Contact - Opening");
+	define('TXT_TAB_CONTACT', "Contact - Opening book");
 
  	define('TXT_SECTION_CONTACT', 'Contact');
 	define('TXT_CONTACT_TEXTE', "
