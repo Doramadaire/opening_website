@@ -86,6 +86,12 @@
                     <p>Du texte, ou autre?</p>
                 </div>
             </div> -->
+            <div class="back-to-catalogue-links">
+                <a href="catalogue.php?collection=<?php echo urlencode($book->getBookCollection()); ?>">collection</a>
+                <!-- foreach artist id auteurs de ce book
+                <br><a href="catalogue.php?artist_id=<?php //echo $artist_id; ?>">Cet artiste</a> -->
+                <br><a href="catalogue.php">Catalogue</a>
+            </div>            
         </div>
         <div class="col-xs-1"></div>
     </div>

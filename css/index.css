@@ -21,7 +21,6 @@
 	/* list-style-image: url('chemin/image.type');  ou item marker à partir d'un fichier */ 
 }
 
-
 /* css pour le diaporama */
 .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
@@ -34,4 +33,3 @@
     margin: auto;
     margin-bottom: 20px;
 }
-

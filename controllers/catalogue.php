@@ -58,6 +58,19 @@
             }
         }*/
 
+    } elseif (isset($_GET['artist_id'])) {
+        $sort_type = "artist_id";
+        $artist_vignettes = array();
+
+        foreach ($sql->getBooksByAuthor($_GET['artist_id']) as $book) {
+            $this_book_authors = array();
+            foreach ($book->getBookAuthors() as $this_book_author_id) {
+                $this_book_authors[] = unserialize($sql->getAuthorByID($this_book_author_id));
+            }
+            $artist_vignettes[] = array(    "book" => $book,
+                                            "authors" => $this_book_authors);
+        }
+
     } elseif (isset($_GET['collection'])) {
         $sort_type = "by_collection";
         $my_collection_vignettes = array();

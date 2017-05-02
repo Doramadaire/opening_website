@@ -4,7 +4,7 @@
         <?php include("include/html_header.php"); ?>
         <title><?php echo TXT_TAB_NEWS; ?></title>
         <!-- Import des fichiers spécifiques à cette page -->
-        <!-- <link href="css/news.css" rel="stylesheet"> -->
+        <link href="css/news.css" rel="stylesheet">
     </head>
     <body>
         <?php include("include/header.php"); ?> 
@@ -12,7 +12,7 @@
             <div class="col-xs-1"></div>
             <div class="col-xs-10">
                 <div class="row">
-                    <h1><?php echo TXT_SECTION_ACTUALITES; ?></h1>
+                    <h1 class="title"><?php echo TXT_SECTION_ACTUALITES; ?></h1>
                 </div>
             
             <?php   

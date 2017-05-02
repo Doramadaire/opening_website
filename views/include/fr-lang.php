@@ -25,6 +25,8 @@
 	define('TXT_MENU_OEUVRES', 'Partager vos books');
 	define('TXT_MENU_OEUVRES_ADMIN', 'Partager les books');
 	define('TXT_MENU_ADMIN_PAGE', "Aller à la page d'administration");
+	define('TXT_MENU_RECHERCHE', 'Parcourir la collection');
+	define('TXT_MENU_RECHERCHE_EXTRAITS', 'Parcourir la collection (seulement des extraits)');
 
 	define('TXT_SECTION_CONNEXION', 'Connectez-vous');
 	define('TXT_NAVBAR_DISCONNECT', "Vous déconnecter");
@@ -35,30 +37,30 @@
 
 	define('TXT_TAB_INDEX', "Accueil - association Opening book");
 
-	define('TXT_SECTION_RECHERCHE', 'Parcourir la collection');
-	define('TXT_MENU_RECHERCHE', 'Parcourir la collection');
-	define('TXT_MENU_RECHERCHE_EXTRAITS', 'Parcourir la collection (seulement des extraits)');
 	define('TXT_BONJOUR', 'Bonjour');
 
 	define('TXT_BOUTON_SE_CONNECTER', "se connecter");
 	define('TXT_BOUTON_SE_DECONNECTER', "Se déconnecter");
 
+	define('TXT_PLACEHOLDER_MAIL', "e-mail");
+	define('TXT_PLACEHOLDER_FIRSTNAME', "Prénom");
+	define('TXT_PLACEHOLDER_NAME', "Nom");
+	define('TXT_PLACEHOLDER_MDP', "mot de passe");
+
 	define('TXT_ATTENTION_MDP_OUBLIE', "Attention! Cette action génére un nouveau mot de passe qui sera envoyé à l'adresse mail de votre compte");
 	define('TXT_BOUTON_RESET_MDP_OUBLIE', "Générer un nouveau mot de passe");
 	define('TXT_MDP_OUBLIE', "Mot de passe oublié?");
 	define('TXT_RESET_PSWD_SUCCESS', 'Un nouveau mot de passe vous a été envoyé par mail');
-	
-	define('TXT_BOUTON_RECHERCHE', "Recherche");
+
+
+	define('TXT_SECTION_RECHERCHE', '<h3>Opening book est un nouvel objet artistique</h3>
+									<h4><a href="about.php"><b>En savoir plus</b></a></h4>');
+	define('TXT_BOUTON_RECHERCHE', "Parcourir la collection");
+
+	define('TXT_SECTION_ADHERER', "Opening book : rejoindre l'association");
+	define('TXT_ADHERER', "Pour adhérer à l'association ou renouveler votre cotisation");
 	define('TXT_BOUTON_ADHERER', "Adhérer");
 	
-	define('TXT_SECTION_ADHERER', "Pour adhérer ");
-	define('TXT_ADHERER', "Pour adhérer à l'association ou renouveler votre cotisation, vous serez redirigé vers Helloasso.");
-	
-	define('TXT_PLACEHOLDER_MAIL', "e-mail");
-	define('TXT_PLACEHOLDER_FIRSTNAME', "Prénom");
-	define('TXT_PLACEHOLDER_NAME', "Nom");
-	define('TXT_PLACEHOLDER_MDP', "mot de passe");	
-
 	//---------------------------------------------------------
  	// catalogue.php
  	//---------------------------------------------------------

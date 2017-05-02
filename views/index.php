@@ -50,7 +50,7 @@
 		</div>						
 		<!-- diaporama -->		
 		
-		<div class="container-fluid">		
+		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-12 col-sm-4">
 					<div id="logging-form" class="thumbnail">
@@ -115,22 +115,18 @@
 				</div>
 						
 				<div class="col-xs-12 col-sm-4">
-					<div class=" thumbnail">
-						<div class="caption">
-							<h3> <?php echo TXT_SECTION_RECHERCHE; ?> </h3>
-							<br><br><br>
-							<p> <a href="book_viewer.php" class="btn btn-primary" role="button"><?php echo TXT_BOUTON_RECHERCHE; ?></a> </p>
-						</div>
+					<div class="thumbnail">
+						<h3><?php echo TXT_SECTION_RECHERCHE; ?></h3>
+						<br><br><br>
+						<p><a href="catalogue.php" class="btn btn-primary" role="button"><?php echo TXT_BOUTON_RECHERCHE; ?></a></p>
 					</div>
 				</div>
 				
 				<div class="col-xs-12 col-sm-4">
 					<div class="thumbnail">
-						<div class="caption">
-							<h3> <?php echo TXT_SECTION_ADHERER; ?> </h3>
-							<p> <?php echo TXT_ADHERER; ?></p>				
-							<p> <a href="join.php" class="btn btn-primary" role="button"><?php echo TXT_BOUTON_ADHERER; ?></a> </p>
-						</div>
+						<h3><?php echo TXT_SECTION_ADHERER; ?></h3>
+						<p><?php echo TXT_ADHERER; ?></p>				
+						<p><a href="join.php" class="btn btn-primary" role="button"><?php echo TXT_BOUTON_ADHERER; ?></a></p>
 					</div>
 				</div>
 				

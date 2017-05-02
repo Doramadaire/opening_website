@@ -25,6 +25,8 @@
 	define('TXT_MENU_OEUVRES', 'Share your books');
 	define('TXT_MENU_OEUVRES_ADMIN', 'Share books');
 	define('TXT_MENU_ADMIN_PAGE', "Go to the administration page");
+	define('TXT_MENU_RECHERCHE', 'Find book');
+	define('TXT_MENU_RECHERCHE_EXTRAITS', 'Find extract');
 
 	define('TXT_SECTION_CONNEXION', 'Log in');
 	define('TXT_NAVBAR_DISCONNECT', "Log out");
@@ -35,30 +37,30 @@
 
  	define('TXT_TAB_INDEX', "Homepage - Opening book association");
 
-	define('TXT_SECTION_RECHERCHE', 'Library');
-	define('TXT_MENU_RECHERCHE', 'Find book');
-	define('TXT_MENU_RECHERCHE_EXTRAITS', 'Find extract');
 	define('TXT_BONJOUR', 'Hello');
 	
 	define('TXT_BOUTON_SE_CONNECTER', "login");
 	define('TXT_BOUTON_SE_DECONNECTER', "Log out");
+
+	define('TXT_PLACEHOLDER_MAIL', "e-mail");
+	define('TXT_PLACEHOLDER_FIRSTNAME', "Prénom");
+	define('TXT_PLACEHOLDER_NAME', "Nom");
+	define('TXT_PLACEHOLDER_MDP', "password");
 	
 	define('TXT_ATTENTION_MDP_OUBLIE', "Warning! Will send a new password in your mailbox");
 	define('TXT_BOUTON_RESET_MDP_OUBLIE', "Send me a new password");
 	define('TXT_MDP_OUBLIE', "Forgotten password?");
 	define('TXT_RESET_PSWD_SUCCESS', 'A mail with your new password has been sent');
 	
-	define('TXT_BOUTON_RECHERCHE', "Search");
+
+	define('TXT_SECTION_RECHERCHE', '<h3>Opening book est un nouvel objet artistique</h3>
+									<h4><a href="about.php"><b>En savoir plus</b></a></h4>');
+	define('TXT_BOUTON_RECHERCHE', "See our collection");
+
+	define('TXT_SECTION_ADHERER', "Opening association");
+	define('TXT_ADHERER', "Join our association or renew your subscription");
 	define('TXT_BOUTON_ADHERER', "Join");
 	
-	define('TXT_SECTION_ADHERER', "Join");
-	define('TXT_ADHERER', "To join, you have to go...");
-	
-	define('TXT_PLACEHOLDER_MAIL', "e-mail");
-	define('TXT_PLACEHOLDER_FIRSTNAME', "Prénom");
-	define('TXT_PLACEHOLDER_NAME', "Nom");
-	define('TXT_PLACEHOLDER_MDP', "password");
-
 	//---------------------------------------------------------
  	// catalogue.php
  	//---------------------------------------------------------
