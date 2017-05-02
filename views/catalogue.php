@@ -86,21 +86,6 @@
                 <?php       } ?>
                     </div>
 
-                    <!-- carrés gris test -->
-                    <div class="row gray-squares">
-                        <div class="box one"></div>
-                        <div class="box two"></div>
-                        <div class="box three"></div>
-                        <div class="box four"></div>
-                    </div>
-
-                    <div class="row gray-squares">
-                        <div class="box box-border one"></div>
-                        <div class="box box-border two"></div>
-                        <div class="box box-border three"></div>
-                        <div class="box box-border four"></div>
-                    </div>
-
                     <div class="row artist_section">
                         <div class="row">
                             <h1><?php echo TXT_SECTION_CATALOGUE_ARTISTS; ?></h1>

@@ -113,6 +113,7 @@
         $available_collections = $sql->getAvalaibleCollections();
         foreach ($available_collections as $collection) {
             //on va mettre l'image d'un book de la collection au hasard
+            //DEVDEV si la fct renvoie les books rangés par id croissant, le 1er est bien le 1er et on aura sa vignette
             $books = $sql->getBooksByCollection($collection);
             shuffle($books);
             $book = $books[0];

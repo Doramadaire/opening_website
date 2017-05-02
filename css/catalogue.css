@@ -125,30 +125,3 @@
         min-width: 100px;
     }
 }
-
-.box {
-    float: left;
-    width: 154px;
-    height: 150px;
-    margin: 20px;
-}
-
-.box-border {
-    border: 3px solid rgba(0, 0, 0, .2);
-}
-
-.one {
-    background: darkgray
-}
-
-.two {
-    background: gray
-}
-
-.three {
-    background: lightgray
-}
-
-.four {
-    background: white
-}
