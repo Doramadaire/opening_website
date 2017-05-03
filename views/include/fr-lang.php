@@ -104,6 +104,10 @@
  	define('TXT_BOOK_VIEWER_EXPLANATION', 'Veuillez cliquer sur la couverture pour démarrer la consultation de cet opening book');
  	define('TXT_ARTIST_CV', 'Consulter son CV');
 
+ 	define('TXT_BACK_TO_COLLECTION_BOOKS', 'Retour aux books de la collection ');
+ 	define('TXT_BACK_TO_ARTIST_BOOKS', "Retour aux books de l'artiste ");
+ 	define('TXT_BACK_TO_CATALOGUE', "Retour à la collection");
+
 	//---------------------------------------------------------
  	// user_settings.php
  	//---------------------------------------------------------	

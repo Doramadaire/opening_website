@@ -60,6 +60,7 @@
 
     } elseif (isset($_GET['artist_id'])) {
         $sort_type = "artist_id";
+        $artist = unserialize($sql->getAuthorByID($_GET['artist_id']));
         $artist_vignettes = array();
 
         foreach ($sql->getBooksByAuthor($_GET['artist_id']) as $book) {

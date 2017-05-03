@@ -24,9 +24,12 @@
     position: relative;
 }
 
+.back-to-catalogue-links {
+    margin-bottom: 60px;
+}
+
 .back-to-catalogue-links > a {
     z-index: 10;
     overflow: auto;
     position: relative;
-    margin-bottom: 60px;
 }

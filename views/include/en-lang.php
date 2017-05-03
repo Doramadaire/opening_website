@@ -102,6 +102,10 @@
  	define('TXT_USER_SUBSCRIPTION_EXPIRED', "Attention, votre cotisation n'est pas à jour. Vous n'avez accès qu'à des extraits des books.");
  	define('TXT_BOOK_VIEWER_EXPLANATION', 'Veuillez cliquer sur la couverture pour démarrer la consultation de cet opening book');
  	define('TXT_ARTIST_CV', 'Read CV');
+
+ 	define('TXT_BACK_TO_COLLECTION_BOOKS', 'Back to the books of collection ');
+ 	define('TXT_BACK_TO_ARTIST_BOOKS', "Back to the books of ");
+ 	define('TXT_BACK_TO_CATALOGUE', "Back to the collection");
 	
 	//---------------------------------------------------------
  	// user_settings.php

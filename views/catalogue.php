@@ -41,6 +41,33 @@
                         <a href="catalogue.php"><?php echo TXT_BUTTON_BACK; ?></a>
                     </div>
                 </div>
+                <?php   } elseif ($sort_type === "artist_id") { ?>
+                            <div class="row">
+                                <h1><?php echo $artist->getAuthorName();?></h1>
+                            </div>
+                        <!-- Les vignettes des books de l'ariste demandée -->
+                        <div class="row block-vignettes center-block">
+                <?php   foreach ($artist_vignettes as $vignette) {
+                            $book = $vignette['book'];
+                            $authors = $vignette['authors'];
+                            ?>
+                            <div class="thumbnail book_vignette center-block col-xs-4 col-sm-3">
+                                <a href="<?php echo 'book_viewer.php?id='.$book->getBookID(); ?>">
+                                    <!-- DEVDV quand la vignette artiste sera prête -->
+                                    <img class="img-responsive" src="/assets/thumbnails/<?php echo $book->getBookFilename(); ?>" height="150px" width="154px">
+                                    <p><?php echo $book->getBookTitle(); ?></p>
+                                    <p><?php foreach ($authors as $author) {echo $author->getAuthorName().'<br>'; } ?></p>
+                                </a>
+                            </div>
+                <?php  } ?>
+                        </div>
+                        <div class="row back_button">
+                            <a href="catalogue.php"><?php echo TXT_BUTTON_BACK; ?></a>
+                        </div>
+
+
+
+
                 <?php   } elseif ($sort_type === "by_collection") { ?>
                             <div class="row">
                                 <h1><?php echo $collection;?></h1>
