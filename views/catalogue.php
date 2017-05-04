@@ -29,7 +29,7 @@
                             <!-- On redirige vers le book -->
                             <div class="thumbnail book_vignette center-block col-xs-4 col-sm-3">
                                 <a href="<?php echo 'book_viewer.php?id='.$book->getBookID(); ?>">
-                                    <img class="img-responsive" src="/assets/thumbnails/<?php echo $book->getBookFilename(); ?>" height="150px" width="154px">
+                                    <img class="img-responsive" src="/assets/thumbnails/<?php echo $book->getBookFilename().'.jpg'; ?>" height="150px" width="154px">
                                     <p><?php echo $book->getBookTitle(); ?></p>
                                     <p><?php foreach ($authors as $author) {echo $author->getAuthorName().'<br>'; } ?></p>
                                 </a>
@@ -54,7 +54,7 @@
                             <div class="thumbnail book_vignette center-block col-xs-4 col-sm-3">
                                 <a href="<?php echo 'book_viewer.php?id='.$book->getBookID(); ?>">
                                     <!-- DEVDV quand la vignette artiste sera prête -->
-                                    <img class="img-responsive" src="/assets/thumbnails/<?php echo $book->getBookFilename(); ?>" height="150px" width="154px">
+                                    <img class="img-responsive" src="/assets/thumbnails/<?php echo $book->getBookFilename().'.jpg'; ?>" height="150px" width="154px">
                                     <p><?php echo $book->getBookTitle(); ?></p>
                                     <p><?php foreach ($authors as $author) {echo $author->getAuthorName().'<br>'; } ?></p>
                                 </a>
@@ -81,7 +81,7 @@
                             <div class="thumbnail book_vignette center-block col-xs-4 col-sm-3">
                                 <a href="<?php echo 'book_viewer.php?id='.$book->getBookID(); ?>">
                                     <!-- DEVDV quand la vignette artiste sera prête -->
-                                    <img class="img-responsive" src="/assets/thumbnails/<?php echo $book->getBookFilename(); ?>" height="150px" width="154px">
+                                    <img class="img-responsive" src="/assets/thumbnails/<?php echo $book->getBookFilename().'.jpg'; ?>" height="150px" width="154px">
                                     <p><?php echo $book->getBookTitle(); ?></p>
                                     <p><?php foreach ($authors as $author) {echo $author->getAuthorName().'<br>'; } ?></p>
                                 </a>
@@ -106,7 +106,7 @@
                             ?>
                             <div class="thumbnail book_vignette search_collection_vignette center-block col-xs-4 col-sm-3">
                                 <a href="<?php echo 'catalogue.php?collection='.urlencode($collection); ?>">                
-                                    <img class="img-responsive" src="/assets/thumbnails/<?php echo $book->getBookFilename(); ?>" height="150px" width="154px">
+                                    <img class="img-responsive" src="/assets/thumbnails/<?php echo $book->getBookFilename().'.jpg'; ?>" height="150px" width="154px">
                                     <p><?php echo $collection; ?></p>
                                 </a>
                             </div>
@@ -134,7 +134,7 @@
                             ?>
                             <div class="thumbnail book_vignette center-block col-xs-4 col-sm-3">
                                 <a href="<?php echo 'book_viewer.php?id='.$book->getBookID(); ?>">
-                                    <img class="img-responsive" src="/assets/thumbnails/<?php echo $book->getBookFilename(); ?>" height="150px" width="154px">
+                                    <img class="img-responsive" src="/assets/thumbnails/<?php echo $book->getBookFilename().'.jpg'; ?>" height="150px" width="154px">
                                     <p><?php echo $book->getBookTitle(); ?></p>
                                     <p><?php foreach ($authors as $author) {echo $author->getAuthorName().'<br>'; } ?></p>
                                 </a>

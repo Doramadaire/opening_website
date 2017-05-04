@@ -21,7 +21,7 @@
     if (isset($_GET['id'])) {
         $book = unserialize($sql->getBookByID($_GET['id']));
         
-        $book_description_filename = "/home/openingbqo/opening_website/assets/book_description/".$book->getBookFilename().".txt";
+        $book_description_filename = "assets/book_description/".$book->getBookFilename().".txt";
         //set_include_path(get_include_path() . PATH_SEPARATOR . $path);
         try {
             $book_description_file = fopen($book_description_filename, "r");

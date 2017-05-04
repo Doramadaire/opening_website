@@ -88,7 +88,7 @@
             </div> -->
             <div class="back-to-catalogue-links">
                 <a href="catalogue.php?collection=<?php echo urlencode($book->getBookCollection()); ?>"><?php echo TXT_BACK_TO_COLLECTION_BOOKS.$book->getBookCollection(); ?></a>
-        <?php   foreach ($book->getBookAuthors() as $artist_id) {echo "<br><a href='catalogue.php?artist_id=$artist_id'>".TXT_BACK_TO_ARTIST_BOOKS."</a>"; } ?>
+        <?php   foreach ($book->getBookAuthors() as $artist_id) {echo "<br><a href='catalogue.php?artist_id=$artist_id'>".TXT_BACK_TO_ARTIST_BOOKS.unserialize($sql->getAuthorByID($artist_id))->getAuthorName()    ."</a>"; } ?>
                 <br><a href="catalogue.php"><?php echo TXT_BACK_TO_CATALOGUE; ?></a>
             </div>            
         </div>
