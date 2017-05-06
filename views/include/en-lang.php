@@ -43,8 +43,8 @@
 	define('TXT_BOUTON_SE_DECONNECTER', "Log out");
 
 	define('TXT_PLACEHOLDER_MAIL', "e-mail");
-	define('TXT_PLACEHOLDER_FIRSTNAME', "Prénom");
-	define('TXT_PLACEHOLDER_NAME', "Nom");
+	define('TXT_PLACEHOLDER_FIRSTNAME', "firstname");
+	define('TXT_PLACEHOLDER_NAME', "Name");
 	define('TXT_PLACEHOLDER_MDP', "password");
 	
 	define('TXT_ATTENTION_MDP_OUBLIE', "Warning! Will send a new password in your mailbox");
@@ -83,14 +83,14 @@
 
  	define('TXT_TAB_BOOK_MANAGEMENT', "Share your Opening books - Opening book");
 	
- 	define('TXT_SECTION_GESTION_BOOK_AUTEUR', 'Page de gestion de vos oeuvres');
+ 	define('TXT_SECTION_GESTION_BOOK_AUTEUR', 'Page of management of your book');
 	define('TXT_SECTION_GESTION_BOOK_ADMIN', 'Page de gestion des oeuvres');
 
-	define('TXT_SHARE_BOOK_EXPLANATION', "Sur cette page vous pouvez générer des liens d'accès privilégiés vers vos Opening book. N'importe quelle personne disposant du lien pourra alors consulter l'oeuvre correspondante.");
-	define('TXT_SHARE_BOOK_LINK_GENERATION_FAIL', "Echec de la création du lien privilégié");
-	define('TXT_SHARE_BOOK_LINK', "Voici le lien d'accès privilégié pour accéder à l'");
+	define('TXT_SHARE_BOOK_EXPLANATION', "On this page you can generate links of accesses favored towards your Opening portfolio. Any person having the link can then consult the corresponding book.");
+	define('TXT_SHARE_BOOK_LINK_GENERATION_FAIL', "Failure of the creation of the privileged link");
+	define('TXT_SHARE_BOOK_LINK', "Here is the link of access favored to reach in l'");
 
-	define('TXT_ARTIST_BOOK_MANAGEMENT', "Vos books");
+	define('TXT_ARTIST_BOOK_MANAGEMENT', "your books");
 
 	//---------------------------------------------------------
  	// book_viewer.php
@@ -98,9 +98,9 @@
 
  	define('TXT_TAB_BOOK_VIEWER', "Opening book - Opening book");
 
- 	define('TXT_VISITOR', "Attention, en tant que visiteur vous n'avez accès qu'à des extraits.");
- 	define('TXT_USER_SUBSCRIPTION_EXPIRED', "Attention, votre cotisation n'est pas à jour. Vous n'avez accès qu'à des extraits des books.");
- 	define('TXT_BOOK_VIEWER_EXPLANATION', 'Veuillez cliquer sur la couverture pour démarrer la consultation de cet opening book');
+ 	define('TXT_VISITOR', "Watch out, as visitor you have access only to extracts.");
+ 	define('TXT_USER_SUBSCRIPTION_EXPIRED', "Watch out, your contribution is not up to date. You have access only to extracts of portfolios.");
+ 	define('TXT_BOOK_VIEWER_EXPLANATION', 'Click the cover to start the reading');
  	define('TXT_ARTIST_CV', 'Read CV');
 
  	define('TXT_BACK_TO_COLLECTION_BOOKS', 'Back to the books of collection ');
@@ -189,16 +189,16 @@
 		
  	define('TXT_SECTION_ADHESION', 'Join');
 	define('TXT_ADHESION_TEXTE', "Follow the link...<br>
-            Après votre adhésion, vous recevrez par mail le lien vers les opening books sous 48 heures.<br>
+            After your membership, you will receive by e-mail your login and password.<br>
             <a href=".'"https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015" target="_blank"'."> Adhérer ou renouveler sa cotisation</a><br>
             En adhérant à l’association Opening :<br>
             <ul>
                 <li>vous contribuez à soutenir les artistes  </li>
                 <li>vous découvrez les opening books dans leur intégralité </li>
             </ul>
-            Montant de la cotisation : 30 € par an<br>
-            Opening est une association loi 1901 répondant aux critères de l’intérêt général, ce qui vous permet de défiscaliser une partie de vos dons et cotisations.<br>
-			<p>Vous pouvez également envoyer un chèque à l’ordre d’Opening  68 rue des dominicaines 13001 Marseille en indiquant vos coordonnées ainsi qu’une adresse mail. Vous recevrez ensuite par mail le lien vers les opening books.</p>");
+            Cotisation : 30 € by year<br>
+            Opening is an association under law 1901 which responds to the general interest criteria according to the conditions prescribed in the articles 200 and 238 bis of the general code of taxation.Donations and subscriptions are tax deductible. The regulations are available for consultation, and please don't hesitate to contact us for further information therein.<br>
+			<p>You can also send a check payable to Opening  68 rue des dominicaines 13001 Marseille by indicating your address and phone number as well as an e-mail address. You will receive by email your password to connect.</p>");
 	
 	
 	//---------------------------------------------------------
@@ -209,10 +209,9 @@
 		
  	define('TXT_SECTION_EDITO', 'Edito');
 	define('TXT_EDITO_TEXTE', "<p>Opening book is .......... </p>
-                    <p>Opening book n’est ni catalogue d’exposition, ni monographie (il ne tend pas à l’exhaustivité et ne propose pas d’outil critique), ni livre d’artiste (ce n’est pas une création artistique en soi), ni book d’artiste au sens classique du terme.</p>
-                    <p>Opening book est un format pré-défini de douze pages offertes à un artiste pour y exposer douze œuvres et les diffuser sur tout type d’écran : ordinateur, tablette, smartphone. La collection propose une approche directe des œuvres grâce à la qualité des reproductions, à une mise en page épurée construite autour de l’œuvre et du détail et à un mode de navigation conçu pour le numérique.</p>
-                    <p>Opening book est aussi un dispositif qui offre aux artistes des outils essentiels pour promouvoir leur travail : des reproductions photographiques de qualité professionnelle, une interface de gestion en ligne des archives photographiques (espace membres) et l’inscription dans un large réseau de diffusion.</p>
-                    <a href=".'"join.php"'.">Pour consulter les opening books dans leur intégralité, devenez adhérents.</a>");
+                    <p>Opening book is a new editorial and artistic object, conceived in order to give visibility to artistic photographers and visual art artists, both known and less well known.</p>
+                    <p>It is a collection that can be referred to on-screen, and which deliberately places the emphasis on the works of art, thanks to High Definition photographic reproductions especially realized to this effect, along with conscientious graphic design and a navigation conceived for digital technology.</p>
+                    <p>Opening book est aussi un dispositif qui offre aux artistes des outils essentiels pour promouvoir leur travail : des reproductions photographiques de qualité professionnelle, une interface de gestion en ligne des archives photographiques (espace membres) et l’inscription dans un large réseau de diffusion.</p>");
 
 	//---------------------------------------------------------
  	// news.php

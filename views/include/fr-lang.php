@@ -99,10 +99,10 @@
 
  	define('TXT_TAB_BOOK_VIEWER', "Consultation d'un Opening book - Opening book");
 
- 	define('TXT_VISITOR', "Attention, en tant que visiteur vous n'avez accès qu'à des extraits.");
+ 	define('TXT_VISITOR', "En tant que visiteur vous n'avez accès qu'à des extraits.");
  	define('TXT_USER_SUBSCRIPTION_EXPIRED', "Attention, votre cotisation n'est pas à jour. Vous n'avez accès qu'à des extraits des books.");
- 	define('TXT_BOOK_VIEWER_EXPLANATION', 'Veuillez cliquer sur la couverture pour démarrer la consultation de cet opening book');
- 	define('TXT_ARTIST_CV', 'Consulter son CV');
+ 	define('TXT_BOOK_VIEWER_EXPLANATION', 'Cliquez sur la couverture pour démarrer la lecture');
+ 	define('TXT_ARTIST_CV', 'Consulter le CV');
 
  	define('TXT_BACK_TO_COLLECTION_BOOKS', 'Retour aux books de la collection ');
  	define('TXT_BACK_TO_ARTIST_BOOKS', "Retour aux books de l'artiste ");
@@ -195,7 +195,7 @@
             </ul>
             Montant de la cotisation : 30 € par an<br>
             Opening est une association loi 1901 répondant aux critères de l’intérêt général, ce qui vous permet de défiscaliser une partie de vos dons et cotisations.<br>
-			<p>Vous pouvez adhérer en remplissant le formulaire ci-dessous ou en envoyant un chèque à l’ordre d’Opening 68 rue des Dominicaines 13001 Marseille en indiquant vos coordonnées ainsi qu’une adresse mail. Vous recevrez ensuite par mail le lien vers les opening books.</p>
+			<p>Vous pouvez adhérer en remplissant le formulaire ci-dessous ou en envoyant un chèque à l’ordre d’Opening 68 rue des Dominicaines 13001 Marseille en indiquant vos coordonnées ainsi qu’une adresse mail. Vous recevrez ensuite par mail votre identifiant et mot de passe.</p>
 			Laissez-vous guider par le formulaire ci-dessous pour l’adhésion en ligne et le paiement sécurisé<br>");
 	
 	
@@ -209,8 +209,7 @@
 	define('TXT_EDITO_TEXTE', "<p>Opening book est un nouvel objet artistique et éditorial conçu pour donner une visibilité aux artistes photographes et plasticiens actifs en région Paca, connus ou moins connus.</p>
                     <p>Opening book n’est ni catalogue d’exposition, ni monographie (il ne tend pas à l’exhaustivité et ne propose pas d’outil critique), ni livre d’artiste (ce n’est pas une création artistique en soi), ni book d’artiste au sens classique du terme.</p>
                     <p>Opening book est un format pré-défini de douze pages offertes à un artiste pour y exposer douze œuvres et les diffuser sur tout type d’écran : ordinateur, tablette, smartphone. La collection propose une approche directe des œuvres grâce à la qualité des reproductions, à une mise en page épurée construite autour de l’œuvre et du détail et à un mode de navigation conçu pour le numérique.</p>
-                    <p>Opening book est aussi un dispositif qui offre aux artistes des outils essentiels pour promouvoir leur travail : des reproductions photographiques de qualité professionnelle, une interface de gestion en ligne des archives photographiques (espace membres) et l’inscription dans un large réseau de diffusion.</p>
-                    <a href=".'"join.php"'.">Pour consulter les opening books dans leur intégralité, devenez adhérents.</a>");
+                    <p>Opening book est aussi un dispositif qui offre aux artistes des outils essentiels pour promouvoir leur travail : des reproductions photographiques de qualité professionnelle, une interface de gestion en ligne des archives photographiques (espace membres) et l’inscription dans un large réseau de diffusion.</p>");
 
 	//---------------------------------------------------------
  	// news.php

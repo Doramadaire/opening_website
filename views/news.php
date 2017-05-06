@@ -54,7 +54,8 @@
                     
                     <i>Mai</i>
                     <p>
-                    Exposition<b> Emmanuelle Germain</b> à la Galerie Charivari 7 rue Fontange, Marseille
+                    Exposition<b> Emmanuelle Germain</b> du 30 mai au 10 juin à la Galerie Charivari 7 rue Fontange, Marseille
+                    <br>vernissage jeudi 1 juin
                     </p>
                     <p>
                     Exposition <b>Isabelle Schneider</b> du 18 mai au 3 juin Casa Consolat Marseille
@@ -62,7 +63,8 @@
                     
                     <i>Juin </i><br>
                     <p>
-                    Exposition <b>Joséphine de Saint-Seine</b> à L’autoportrait, 66 rue des Trois Frères Barthélémy, Marseille vernissage vendredi 2 juin 2017<br>
+                    Exposition <b>Joséphine de Saint-Seine</b> à L’autoportrait, 66 rue des Trois Frères Barthélémy, Marseille
+                    <br>vernissage vendredi 2 juin 2017
                     </p>
                 </div>
                 <div class="row thumbnail">
