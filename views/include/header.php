@@ -69,6 +69,7 @@
 		      <li><a class="social" href="https://twitter.com/opening_asso" target="_blank">
             <img src="assets/twitter.png" width="25" height="25">
           </a></li>
+          <!-- Desactive tant que les textes sont pas bons
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo TXT_NAVBAR_LANGUE; ?><span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -79,8 +80,8 @@
               <!-- <li><a href="index.php?lang=de">De</a></li> -->
               <!-- <li><a href="index.php?lang=es">Es</a></li> -->
               <!-- <li><a href="index.php?lang=it">It</a></li> -->
-            </ul>
-          </li>
+        <!--    </ul>
+          </li> -->
         </ul>
 
       </div><!-- /.navbar-collapse -->

@@ -18,15 +18,27 @@
         include_once('classes/User.php');
         include_once('classes/Author.php');
         include_once('classes/Book.php');
-        require("/home/openingbqo/opening_website_assets/beta_database_configuration.php");
+        require("/home/openingbqo/opening_website_assets/database_configuration.php");
         include_once('classes/SQL_'.DB_TYPE.'.php');
     }
+
+    // fonction bricole pour la mise en prod
+    function setLanguage()
+    {
+        $lang = 'fr';
+        include('./views/include/'.$lang.'-lang.php');
+        return $lang;
+    }
+
+    //fonction desactive pour la mise en prod
 
     /**
     * Paramétrage de la langue de la page
     *
     * @return void
     */
+
+    /* fonction desactive pour la mise en prod
     function setLanguage()
     {  
         if (isset($_GET['lang'])) {
@@ -81,11 +93,11 @@
                 $expire = 365*24*3600;    
                 //enregistrement du cookie au nom de lang   
                 setcookie("lang", $lang, time() + $expire, null, null, false, true);
-                return $lang;
             }
-        }        
-        include('./views/include/'.$lang.'-lang.php');         
-    }
+        }
+        include('./views/include/'.$lang.'-lang.php');
+        return $lang;
+    } */
 
     function generateAccessToken() {
         //génération d'un token pour avoir un accès privilégié à un book
