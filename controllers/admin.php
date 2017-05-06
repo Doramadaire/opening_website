@@ -4,6 +4,8 @@
 	{
 		//on crée un compte que pour un mail valide
 		if (filter_var($new_user_mail, FILTER_VALIDATE_EMAIL)) {
+		    $sql = SQL::getInstance();
+		    $conn = $sql->getBoolConnexion();
 			//Le mail est bien à un format valide			
 			$user = unserialize($sql->getUserByExactMail($new_user_mail));	
 			if ($user != null) {

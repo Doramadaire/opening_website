@@ -22,6 +22,10 @@ un border radius égal à 0 donne des boutons rectangulaires.
   --border_radius : 5px;
 }
 
+html {
+  overflow-x: hidden; 
+}
+
 html, body {
   font-family: "Arial", cursive, sans-serif;
 }
@@ -84,9 +88,9 @@ a:active {
 }
 
 .error_message {color :black;
-font-weight: bold
+  font-weight: bold
 }
 
-.thumbnail .h3, .thumbnail h3 {
-    margin-top: 0px
+.thumbnail h3 {
+  margin-top: 0px
 }

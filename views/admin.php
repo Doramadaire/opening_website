@@ -98,13 +98,24 @@
 							<div class="row">
 								<h1><?php echo TXT_GESTION_DES_UTILISATEURS; ?></h1>
 								<h2>En construction</h2>
+								<p>Les prochaines fonctionnalités sont :</p>
+								<ul>
+									<li>recherche et modifications d'un utilisateur</li>
+									<li>recherche et modifications d'un artiste</li>
+									<li>recherche et modifications d'un book</li>
+									<li>gestion des actualités</li>
+									<li>ajout d'un artiste</li>
+									<li>ajout d'un book</li>
+								</ul>
 							</div>
+
+							<!-- on cache tout pour la 1.0 tant que c'est pas fonctionnel
 	
 							<div id="search_user" class="row thumbnail">
 								<p><?php echo TXT_RECHERCHE_UTILISATEUR; ?></p>							
 								<!-- pouvoir faire une recherche sur les utilisateurs avec le mail - avoir l'info date de la cotis'-->
 								<!-- DEVDEV façon moche <?php  if (isset($msg_user_search)) { echo $msg_user_search."<br>";} ?> -->
-						<?php 	if (isset($_POST['search_user_form'])) {
+					<!--	<?php 	if (isset($_POST['search_user_form'])) {
 									echo "$msg_user_search";
 								} ?>
 									<div id="retrieved_users_table">
@@ -123,13 +134,16 @@
 							<div class="row thumbnail">
 								<p><?php echo TXT_RECHERCHE_AUTHOR; ?></p>							
 								<!-- GERER MESSAGES MIEUX -->
-								<?php  if (isset($msg_author_search)) { echo $msg_author_search."<br>";} ?>
+						<!--		<?php  if (isset($msg_author_search)) { echo $msg_author_search."<br>";} ?>
 								<form action="" method="POST">
 									<label for="user_type"><?php echo TXT_RECHERCHE_AUTHOR_QUESTION; ?></label><br>
 									<input type="text" name="author_pseudo" placeholder=<?php echo '"'.TXT_PLACEHOLDER_ARTIST_NAME.'"'; ?> >
 									<input type="submit" name="search_author_form" class="btn btn-primary" value=<?php echo '"'.TXT_BOUTON_SEARCH_AUTHOR.'"'; ?>>	
 								</form>	
 							</div>
+
+							-->
+							<!-- La création d'user est fonctionnel et on en a besoin -->
 	
 							<div class="row thumbnail">
 								<p><?php echo TXT_NOUVEL_UTILISATEUR; ?></p>
@@ -150,6 +164,8 @@
 									<input type="submit" name="new_user_form" class="btn btn-primary" value=<?php echo '"'.TXT_CREER_COMPTE.'"'; ?>>	
 								</form>	 
 							</div>
+
+							<!-- on cache tout pour la 1.0 tant que c'est pas fonctionnel
 	
 							<div class="row thumbnail">
 								<p><?php echo TXT_NOUVEL_ARTISTE; ?></p>
@@ -158,7 +174,7 @@
 								champ pour le nom
 								champ pour taper la description - on stocke le path du fichier
 								champ pour taper les news - on stocke le path du fichier -->
-								<form action="" method="POST" enctype="multipart/form-data">
+					<!--			<form action="" method="POST" enctype="multipart/form-data">
 									<input type="text" name="firstname" placeholder=<?php echo '"'.TXT_PLACEHOLDER_FIRSTNAME.'"'; ?> >
 									<input type="text" name="name" placeholder=<?php echo '"'.TXT_PLACEHOLDER_NAME.'"'; ?> >
 									<input type="text" name="mail" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MAIL.'"'; ?>  required>
@@ -186,7 +202,7 @@
 								<p><?php if (isset($incorrect_file_extension_error)) echo TXT_ERR_INCORRECT_FILE_EXTENSION; ?></p>
 								<form action="admin.php" method="post" enctype="multipart/form-data">
 									<!-- <label for="new_book_form"><?php echo TXT_AJOUT_BOOK2; ?></label><br> -->
-									<?php echo TXT_FICHIER_COMPLET; ?>
+					<!--				<?php echo TXT_FICHIER_COMPLET; ?>
 									<div class="fileUpload btn btn-primary">
 										<span>Upload</span>		
 										<input type="file" name="full_book_file" required/>					
@@ -209,7 +225,7 @@
 										<span>Upload</span>		
 										<input type="file" class="book_file" />						
 									</div				-->							
-									<input type="text" name="title" placeholder=<?php echo '"'.TXT_PLACEHOLDER_TITRE.'"'; ?> required><br>
+					<!--				<input type="text" name="title" placeholder=<?php echo '"'.TXT_PLACEHOLDER_TITRE.'"'; ?> required><br>
 									<?php echo TXT_COLLECTION; ?><select name="collection" required>
 										<option value="opening book"><?php echo TXT_COLLECTION_OPENINGBOOK; ?></option>
 										<option value="opening book photo"><?php echo TXT_COLLECTION_OPENINGBOOK_PHOTO; ?></option>
@@ -230,7 +246,7 @@
 										<option value='fr'>Fr</option>
 										<option value='en'>En</option>
 										<!-- <option value='es'>Es</option> -->
-									</select>
+					<!--				</select>
 									<br>	
 									<textarea style="max-width: 100%;  max-height: 100%;" rows="10" cols="400" name="news_text"></textarea>
 									<br>
@@ -241,6 +257,8 @@
 							<div class="row">
 							    <h1 class="Section"><?php echo TXT_SECTION_LANG; ?></h1>
 							</div>
+
+							-->
 	
 							<div class="row thumbnail">
 								<!-- DEVDEVDEV TO DO : affichage propre des messages d'erreurs/confirmation -->

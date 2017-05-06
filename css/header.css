@@ -21,6 +21,7 @@ donne le code ci dessous pour les couleurs de la navbar */
 #logo {  
   width: 100px;   /*la taille du logo */ 
   height: auto;   /*la taille du logo */ 
+  margin-left: 15px;
   margin-right: 50px;
   margin-bottom: 10px;
 }
