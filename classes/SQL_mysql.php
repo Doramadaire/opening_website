@@ -231,7 +231,7 @@
                     $query-> bindValue(2,$book->getBookFilename());
                     $query-> bindValue(3,serialize($book->getBookAuthors()));                                  
                     $query-> bindValue(4,$book->getBookCollection());
-                    $query-> bindValue(5,$book->getBookpublish_date());
+                    $query-> bindValue(5,$book->getBookPublishDate());
                     $query-> bindValue(6, serialize($book->getAcessTokens()));
                     //$query-> bindValue(6,$book->getBookIsFull());
                     //$query-> bindValue(6,$book->getBookCaptions());
@@ -358,7 +358,7 @@
 
         /**
         * Méthode qui récupère une liste d'auteurs correspondant à la recherche
-        *        *
+        *
         * @param $name : le nom de l'auteur
         * @return array(Author) : l'array d'objets Author qui correspond aux auteurs trouvés
         */
