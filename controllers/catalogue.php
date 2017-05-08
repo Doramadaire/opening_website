@@ -42,22 +42,6 @@
             }
         }
 
-        /*
-        foreach ($sql->getAllBooks() as $book) {
-            foreach ($book->getBookAuthors() as $author_id) {
-                if (in_array($author_id, $sql->getAuthorsByName($letter_query_author))) {
-                    $author  = unserialize($sql->getAuthorByID($author_id));
-                    $thumbnail_element = array("bookID" => $book->getBookID(),
-                                               "authorID" => $author_id,
-                                               "authorName" => $author->getAuthorName(),
-                                               "vignette_filename" =>$book->getBookFilename());
-                    //echo "un element thumbnail<br>";
-                    //echo implode($thumbnail_element);
-                    $thumbnail_content[] = $thumbnail_element;
-                }
-            }
-        }*/
-
     } elseif (isset($_GET['artist_id'])) {
         $sort_type = "artist_id";
         $artist = unserialize($sql->getAuthorByID($_GET['artist_id']));

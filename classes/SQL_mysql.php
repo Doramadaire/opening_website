@@ -374,6 +374,7 @@
                     $cv_filename = $row['cv_filename'] !== NULL ? $row['cv_filename'] : NULL;
                     $news_filename = $row['news_filename'] !== NULL ?  : NULL;
                     $author = new Author($row['id_author'], $row['name'], $row['user'], $row['search_name'], $description_filename, $cv_filename, $news_filename);
+                    $retrieved_authors[] = $author;
                 }
             }
             return $retrieved_authors;

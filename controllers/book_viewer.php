@@ -9,8 +9,6 @@
     $logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
     $user_logged = (isset($_SESSION['user_logged'])) ? $_SESSION['user_logged'] : false;
 
-    //mcrypt-generic
-
     //Dossier dans lequel il y a les books
     $book_folder = "/bbff/";
 
@@ -85,9 +83,54 @@
             $book_pdf_path = $book_folder.$book->getBookFilename();
         } else {
             if (isset($_SESSION['user_logged'])) {
-                //DEVDEVDEV c'est plus compliqué que ça...
-                if ($user_logged->getUserStatus() >= 3) {
-                    $book_is_extract = false;      
+                switch ($user_logged->getUserStatus()) {
+                    case 2:
+                        $book_is_extract = true;
+                        break;
+
+                    case 3:
+                        //si date du jour plus petite que date de fin d'adhesion
+                        $date_today = date('Y-m-d');
+                        if ($user_logged->getUserSubscriptionDate() < $date_today) {
+                            //adhésion expirée
+                            $book_is_extract = true;
+                        } else {
+                            //adhésion encore valide
+                            $book_is_extract = false;
+                        }
+                        break;
+
+                    case 4:
+                        $my_artist_account = unserialize($sql->getArtistByUserID($user_logged->getUserID()));
+                        $my_books = $sql->getBooksByAuthor($my_artist_account->getAuthorID());
+                        $is_my_book = false;
+                        foreach ($my_books as $my_book) {
+                            if (in_array($my_artist_account->getAuthorID(), $my_book->getBookAuthors())) {
+                                //si c'est un de mes books j'y ai toujours accès
+                                $is_my_book = true;
+                                $book_is_extract = false;
+                            }
+                        }
+                        if (!$is_my_book) {
+                            //si date du jour plus petite que date de fin d'adhesion
+                            $date_today = date('Y-m-d');
+                            if ($user_logged->getUserSubscriptionDate() < $date_today) {
+                                //adhésion expirée
+                                $book_is_extract = true;
+                            } else {
+                                //adhésion encore valide
+                                $book_is_extract = false;
+                            }
+                        }
+                        break;
+
+                    case 5:
+                        $book_is_extract = false;
+                        break;
+
+                    default:
+                        $book_is_extract = true;
+                        break;
                 }
             }
         }
@@ -101,10 +144,9 @@
             $book_pdf_path = $book_folder.$book->getBookFilename().".pdf";
             $cover_filename = "/assets/covers/".$book->getBookFilename().".jpg";
         }
-
     } else {
         //erreur, t'as rien à faire là mon pote
-        $a = 0;
+        header('Location: index.php');
     }
 
 	include_once('./views/book_viewer.php');
