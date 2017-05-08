@@ -66,15 +66,15 @@
 		*
 		* @return void
 		*/
-		function __construct($id, $name, $user, $description_filename = NULL, $cv_filename = NULL, $news_filename = NULL, $search_name = NULL)
+		function __construct($id, $name, $user, $search_name, $description_filename = NULL, $cv_filename = NULL,  $news_filename = NULL)
 		{
 			$this->id = $id;
 			$this->name = $name;
-			$this->user = $user;			
+			$this->user = $user;
+			$this->search_name = $search_name;
 			$this->description_filename = $description_filename;
 			$this->cv_filename = $cv_filename;
 			$this->news_filename = $news_filename;
-			$this->search_name = $search_name;
 		}
 
 		/**

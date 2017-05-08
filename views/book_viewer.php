@@ -78,7 +78,7 @@
             <div class="row thumbnail author_cv">
                 <h3><?php echo $book_author->getAuthorName(); ?></h3>
                 <?php echo $artist_description; ?>
-                <a href="<?php echo $cv_filename; ?>" target="_blank"><?php echo TXT_ARTIST_CV; ?></a>
+                <a href="<?php echo $cv_link; ?>" target="_blank"><?php echo TXT_ARTIST_CV; ?></a>
             </div>
             <!--<div class="row">
                 <div class="thumbnail">

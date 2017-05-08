@@ -182,12 +182,13 @@
          */
         public function addAuthor($author)
         {
-            $query = $this->conn->prepare("INSERT INTO authors(name, user, description_filename, news_filename, cv_filename) VALUES(?,?,?,?,?);");
+            $query = $this->conn->prepare("INSERT INTO authors(name, user, search_name, description_filename, news_filename, cv_filename) VALUES(?,?,?,?,?,?);");
             $query-> bindValue(1,$author->getAuthorName());
             $query-> bindValue(2,$author->getAuthorAccount());
-            $query-> bindValue(3,$author->getAuthorDescription());
-            $query-> bindValue(4,$author->getAuthorNews());
-            $query-> bindValue(5,$author->getAuthorCV());
+            $query-> bindValue(3,$author->getAuthorSearchName());
+            $query-> bindValue(4,$author->getAuthorDescription());
+            $query-> bindValue(5,$author->getAuthorNews());
+            $query-> bindValue(6,$author->getAuthorCV());
             return $query->execute();
         }
 
@@ -349,7 +350,7 @@
                     $description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
                     $cv_filename = $row['cv_filename'] !== NULL ? $row['cv_filename'] : NULL;
                     $news_filename = $row['news_filename'] !== NULL ? $row['news_filename'] : NULL;
-                    $author = new Author($row['id_author'], $row['name'], $row['user'], $description_filename, $cv_filename, $news_filename, $row['search_name']);
+                    $author = new Author($row['id_author'], $row['name'], $row['user'], $row['search_name'], $description_filename, $cv_filename, $news_filename);
                     $retrieved_authors[] = $author;
                 }
             }
@@ -372,8 +373,7 @@
                     $description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
                     $cv_filename = $row['cv_filename'] !== NULL ? $row['cv_filename'] : NULL;
                     $news_filename = $row['news_filename'] !== NULL ?  : NULL;
-                    $author = new Author($row['id_author'], $row['name'], $row['user'], $description_filename, $cv_filename, $news_filename, $row['search_name']);
-                    $retrieved_authors[] = $author;
+                    $author = new Author($row['id_author'], $row['name'], $row['user'], $row['search_name'], $description_filename, $cv_filename, $news_filename);
                 }
             }
             return $retrieved_authors;
@@ -397,7 +397,7 @@
                     $description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
                     $cv_filename = $row['cv_filename'] !== NULL ? $row['cv_filename'] : NULL;
                     $news_filename = $row['news_filename'] !== NULL ? $row['news_filename'] : NULL;
-                    $author = new Author($row['id_author'], $row['name'], $row['user'], $description_filename, $cv_filename, $news_filename, $row['search_name']);
+                    $author = new Author($row['id_author'], $row['name'], $row['user'], $row['search_name'], $description_filename, $cv_filename, $news_filename);
                     $author_serialized = serialize($author);
                 }
             }
@@ -421,7 +421,7 @@
                     $description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
                     $cv_filename = $row['cv_filename'] !== NULL ? $row['cv_filename'] : NULL;
                     $news_filename = $row['news_filename'] !== NULL ? $row['news_filename'] : NULL;
-                    $author = new Author($row['id_author'], $row['name'], $row['user'], $description_filename, $cv_filename, $news_filename, $row['search_name']);
+                    $author = new Author($row['id_author'], $row['name'], $row['user'], $row['search_name'], $description_filename, $cv_filename, $news_filename);
                     $author_serialized = serialize($author);
                 }
             }
@@ -580,7 +580,7 @@
                     $description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
                     $cv_filename = $row['cv_filename'] !== NULL ? $row['cv_filename'] : NULL;
                     $news_filename = $row['news_filename'] !== NULL ? $row['news_filename'] : NULL;
-                    $author = new Author($row['id_author'], $row['name'], $row['user'], $description_filename, $cv_filename, $news_filename);;
+                    $author = new Author($row['id_author'], $row['name'], $row['user'], $row['search_name'], $description_filename, $cv_filename, $news_filename);
                     $author_serialized = serialize($author);
                 }
             }

@@ -13,10 +13,10 @@
         $compte = new User(0, "admin", 5, "2020-01-01");
 
         //$sql->addUser($compte, "password");
-        $sql->addUser($compte, "6mayOpening");
+        //$sql->addUser($compte, "6mayOpening");
 
 
-        // new Author($id, $name, $user, $description_filename = NULL, $cv_filename = NULL, $news_filename = NULL, $search_name = NULL)
+        // new Author($id, $name, $user, $search_name, $description_filename = NULL, $cv_filename = NULL,  $news_filename = NULL)
         //$artist_id = 0;
         //$unAuteur = new Author(0, "Didier Petit", $artist_id, "PETIT.txt", "PETIT.pdf", "Petit");
         //$sql->addAuthor($unAuteur);
@@ -36,7 +36,7 @@
 
         foreach ($authors as $author_array) {
             //d'abord on crée l'utilisateur
-            $user = new User(0, $author_array['mail'], 3, "2017-06-06", $author_array['prenoml'], $author_array['noml']);
+            $user = new User(0, $author_array['mail'], 3, "2017-06-06", $author_array['prenom'], $author_array['nom']);
             $pswd = $sql->generatePassword();
             $sql->addUser($user, $pswd);
 
@@ -50,7 +50,7 @@
             mail($destinataire, '=?UTF-8?B?'.base64_encode($sujet).'?=', $message, $headers) ; // Envoi du mail
 
             //ensuite on cree l'artiste
-            $artist = new Author(0, $author_array['nom_artiste'], unserialize($sql->getUserByExactMail($author_array['mail']))->getUserID(), $author_array['descr_file'], $author_array['cv'], $author_array['nom']);
+            $artist = new Author(0, $author_array['nom_artiste'], unserialize($sql->getUserByExactMail($author_array['mail']))->getUserID(), $author_array['nom'], $author_array['descr_file'], $author_array['cv']);
             $sql->addAuthor($artist);
         }
 
@@ -58,6 +58,7 @@
         // new Book($id, $title, $filename, $authors, $collection, $publish_date, $token_container = NULL)
         //$unLivre = new Book(0, "Opening book 002", "OPENINGBOOK_002", [2], "Opening book", "2017-05-07");
         //$sql->addBook($unLivre);
+
 
         $books = array();
 

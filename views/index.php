@@ -117,7 +117,7 @@
 				<div class="col-xs-12 col-sm-4">
 					<div class="thumbnail">
 						<h3><?php echo TXT_SECTION_RECHERCHE; ?></h3>
-						<br><br><br>
+						<br>
 						<p><a href="catalogue.php" class="btn btn-primary" role="button"><?php echo TXT_BOUTON_RECHERCHE; ?></a></p>
 					</div>
 				</div>

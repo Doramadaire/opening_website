@@ -173,7 +173,8 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 		 	$user_id = $user->getUserID();
 
 		 	$description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
-		 	$new_author = new Author(0, $_POST['artist_name'], $user_id, $description_filename, $cv_filename);
+		 	//DEVDEV a verifier
+		 	//$new_author = new Author(0, $_POST['artist_name'], $user_id, $description_filename, $cv_filename);
 
 		 	$success = $sql->addAuthor($new_author);
 		 	if ($success) {
