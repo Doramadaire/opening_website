@@ -1,5 +1,3 @@
-<div class="footer clearfix">
-	<form action="index.php">
-    	<input type="submit" class="btn btn-primary"  value="Retour à l'accueil" />
-	</form>
+<div class="row footer">
+    <a href="index.php" class="btn btn-primary"><?php echo TXT_FOOTER_BACK_HOME; ?></a>
 </div>

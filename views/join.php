@@ -27,10 +27,9 @@
 						<iframe id="haWidget" src="https://www.helloasso.com/associations/opening/adhesions/adhesion-opening-2015/widget-vignette-horizontale" style="width:800px;height:400px;border:none;"></iframe>
 					</div>
 				</div>
-			</div>
+                <?php include("include/footer.php"); ?>
+            </div>
 			<div class="col-xs-1"></div>
 		</div>
-
-        <?php include("include/footer.php"); ?> 
     </body>
 </html>

@@ -43,7 +43,7 @@
                 </div>
                 <?php   } elseif ($sort_type === "artist_id") { ?>
                             <div class="row">
-                                <h1><?php echo $artist->getAuthorName();?></h1>
+                                <h3><?php echo $artist->getAuthorName();?></h3>
                             </div>
                         <!-- Les vignettes des books de l'ariste demandée -->
                         <div class="row block-vignettes center-block">
@@ -65,12 +65,9 @@
                             <a href="catalogue.php"><?php echo TXT_BUTTON_BACK; ?></a>
                         </div>
 
-
-
-
                 <?php   } elseif ($sort_type === "by_collection") { ?>
                             <div class="row">
-                                <h1><?php echo $collection;?></h1>
+                                <h3><?php echo $collection;?></h3>
                             </div>
                         <!-- Les vignettes de la collection demandée -->
                         <div class="row block-vignettes center-block">
@@ -168,6 +165,7 @@
                         </div> -->
 
             <?php   } ?>
+                <?php include("include/footer.php"); ?>
             </div>
             <div class="col-xs-1"></div>
 
@@ -240,6 +238,5 @@
 
             <!-- L'affichage de toutes les miniatures de la selection par année : on oublie -->
         </div>
-        <?php include("include/footer.php"); ?> 
     </body>
 </html>

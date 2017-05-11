@@ -74,10 +74,9 @@
                     Parution d’un book hors-série avec <b>Anne-Valérie Gasc</b>, artiste invitée de cette 4e édition. 
                     </p>
                 </div>
+                <?php include("include/footer.php"); ?>
             </div>
             <div class="col-xs-1"></div>
         </div>
-
-        <?php include("include/footer.php"); ?> 
     </body>
 </html>

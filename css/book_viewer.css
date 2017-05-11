@@ -17,19 +17,16 @@
     text-align: center;
     font-style: italic;
 }
-
-.author_cv {
-    z-index: 10;
-    overflow: auto;
-    position: relative;
+.back-to-catalogue-links .btn {
+    margin-bottom: 5px;
 }
 
-.back-to-catalogue-links {
-    margin-bottom: 60px;
+.row .col-xs-6 a {
+    z-index: 5;
+    position: fixed;
+    bottom: 3px;
 }
 
-.back-to-catalogue-links > a {
-    z-index: 10;
-    overflow: auto;
-    position: relative;
+.footer {
+    margin-bottom: 40px;
 }

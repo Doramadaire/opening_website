@@ -3,6 +3,7 @@
     overflow: hidden;
     margin-bottom: 10px;
 }
+
 .fileUpload input {
     position: absolute;
     top: 0;
@@ -15,6 +16,6 @@
     /*filter: alpha(opacity=0);*/
 }
 
-thead{
+thead {
     font-weight: bold;
 }

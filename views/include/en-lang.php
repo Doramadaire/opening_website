@@ -1,4 +1,3 @@
-
 <?php
  	 
 	//---------------------------------------------------------
@@ -13,6 +12,7 @@
 	// barre de navigation et noms des pages associées
 	//---------------------------------------------------------
  
+ 	define('TXT_NAVBAR_HOME', 'home');
  	define('TXT_NAVBAR_A_PROPOS', 'about');
  	define('TXT_NAVBAR_CATALOGUE', 'collection');
   	define('TXT_NAVBAR_CONTACT', 'contact');
@@ -30,6 +30,8 @@
 
 	define('TXT_SECTION_CONNEXION', 'Log in');
 	define('TXT_NAVBAR_DISCONNECT', "Log out");
+
+	define('TXT_FOOTER_BACK_HOME', "Back to home page");
 	
 	//---------------------------------------------------------
  	// index.php
@@ -211,7 +213,8 @@
 	define('TXT_EDITO_TEXTE', "<p>Opening book is .......... </p>
                     <p>Opening book is a new editorial and artistic object, conceived in order to give visibility to artistic photographers and visual art artists, both known and less well known.</p>
                     <p>It is a collection that can be referred to on-screen, and which deliberately places the emphasis on the works of art, thanks to High Definition photographic reproductions especially realized to this effect, along with conscientious graphic design and a navigation conceived for digital technology.</p>
-                    <p>Opening book est aussi un dispositif qui offre aux artistes des outils essentiels pour promouvoir leur travail : des reproductions photographiques de qualité professionnelle, une interface de gestion en ligne des archives photographiques (espace membres) et l’inscription dans un large réseau de diffusion.</p>");
+                    <p>Opening book est aussi un dispositif qui offre aux artistes des outils essentiels pour promouvoir leur travail : des reproductions photographiques de qualité professionnelle, une interface de gestion en ligne des archives photographiques (espace membres) et l’inscription dans un large réseau de diffusion.</p>
+                    <a href=".'"join.php"'.);
 
 	//---------------------------------------------------------
  	// news.php

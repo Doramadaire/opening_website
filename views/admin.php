@@ -300,6 +300,7 @@
 									<input type="submit" class="btn btn-primary" name="set_lang_files_form" value="<?php echo TXT_BUTTON_SEND; ?>">	
 								</form>	 
 							</div>
+							<?php include("include/footer.php"); ?>
 						</div>
 						<div class="col-xs-1"></div>
 					</div>	
@@ -314,8 +315,6 @@
 		*changer statu
 		*changer mdp?
 	-->
-	
-	<?php include("include/footer.php"); ?> 
-	
+
 	</body>
 </html>

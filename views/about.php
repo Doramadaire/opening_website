@@ -16,9 +16,9 @@
                 <div class="row">
                     <?php echo TXT_EDITO_TEXTE; ?>
                 </div>
-            </div>
+                <?php include("include/footer.php"); ?>
+            </div>            
             <div class="col-xs-1"></div>
-        </div>
-        <?php include("include/footer.php"); ?> 
+        </div>        
     </body>
 </html>

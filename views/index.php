@@ -8,13 +8,11 @@
 	</head>
 	
 	<body>
-		<?php include("include/header.php"); ?> 
+		<?php include("include/header.php"); ?>
 				
 		<!-- diaporama -->
 		<div class="container">
-		<br>
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
-				
 				<ol class="carousel-indicators">
 					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 					<li data-target="#myCarousel" data-slide-to="1"></li>
@@ -47,90 +45,85 @@
 				<span class="sr-only">Next</span>
 				</a>
 			</div>
-		</div>						
-		<!-- diaporama -->		
+		</div>							
 		
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-xs-12 col-sm-4">
-					<div id="logging-form" class="thumbnail">
-						<!-- id="form" -->
-						<div class="caption">
-							
-							<?php if ($user_logged) { ?>
-								<h3> <?php echo TXT_BONJOUR; ?> <?php echo $user_logged->getUserFirstname(); ?> </h3>
-								<ul>
-									<?php switch($_SESSION['user_logged']->getUserStatus()) {
-										case 2: ?>
-											<li> <a href="catalogue.php"><?php echo TXT_MENU_RECHERCHE_EXTRAITS; ?></a> </li>
-											<li> <a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a> </li>
-											<?php break;
-					
-										case 3: ?>
-											<li> <a href="catalogue.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li>
-											<li> <a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>
-											<?php break;
-					
-										case 4: ?>
-											<li> <a href="catalogue.php"><?php echo TXT_MENU_RECHERCHE; ?></a> </li>
-											<li> <a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a> </li>
-											<li> <a href="book_management.php"><?php echo TXT_MENU_OEUVRES; ?></a> </li>
-											<?php break;
-												
-										case 5: ?>
-											<li> <a href="catalogue.php"><?php echo TXT_MENU_RECHERCHE; ?></a> </li>
-											<li> <a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a> </li>                          
-											<li> <a href="book_management.php"><?php echo TXT_MENU_OEUVRES_ADMIN; ?></a> </li>
-											<li> <a href="admin.php"><?php echo TXT_MENU_ADMIN_PAGE; ?></a> </li>                          
-											<?php break; 
-									} ?>
-								</ul>
+		<div class="container-fluid row">
+			<div class="col-xs-1"></div>
+			<div class="col-xs-10">
+				<div class="row">
+					<div class="col-xs-12 col-sm-4">
+						<div id="logging-form" class="thumbnail">							
+			<?php 	if ($user_logged) { ?>
+						<h3><?php 	echo TXT_BONJOUR." ".$user_logged->getUserFirstname(); ?></h3>
 
-								<a class="btn btn-primary" href="index.php?logout=true"><?php echo TXT_BOUTON_SE_DECONNECTER; ?></a>
-								
-					      <?php } else { ?>
-									<h3><?php echo TXT_SECTION_CONNEXION; ?></h3>
+						<ul>
+					<?php 	switch($_SESSION['user_logged']->getUserStatus()) {
+								case 2: ?>
+									<li><a href="catalogue.php"><?php echo TXT_MENU_RECHERCHE_EXTRAITS; ?></a></li>
+									<li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>
+									<?php break;
+			
+								case 3: ?>
+									<li><a href="catalogue.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li>
+									<li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>
+									<?php break;
+			
+								case 4: ?>
+									<li><a href="catalogue.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li>
+									<li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>
+									<li><a href="book_management.php"><?php echo TXT_MENU_OEUVRES; ?></a></li>
+									<?php break;
+										
+								case 5: ?>
+									<li><a href="catalogue.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li>
+									<li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>                         
+									<li><a href="book_management.php"><?php echo TXT_MENU_OEUVRES_ADMIN; ?></a></li>
+									<li><a href="admin.php"><?php echo TXT_MENU_ADMIN_PAGE; ?></a></li>                         
+									<?php break; 
+							} ?>
+						</ul>
+						<a class="btn btn-primary" href="index.php?logout=true"><?php echo TXT_BOUTON_SE_DECONNECTER; ?></a>
 							
-							<?php 	if (isset($logging_error)) {echo '<p class="error_message">'.$logging_error.'<p>';}?> 
-									<form action="index.php" method="POST">
-										<input type="text" name="mail" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MAIL.'"'; ?>> <br>
-										<input type="password" name="password" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MDP.'"'; ?>>		<br> <br>
-										<p><input class="btn btn-primary" role="button" type="submit" name="logging_form" value=<?php echo '"'.TXT_BOUTON_SE_CONNECTER.'"'; ?>> </p>
-									</form> 
-									
-									<a onclick="hideThis('oubli')"><?php echo TXT_MDP_OUBLIE; ?> </a>
-									
-							<?php 	if (isset($reset_pswd_error)) {echo '<p class="error_message">'.$reset_pswd_error.'<p>';}?> 
-									<form id="oubli" class="hide_first" action="" method="POST">
-										<p><input type="text" name="mail_pswd_forgotten" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MAIL.'"'; ?>> </p>
-										<p><?php echo TXT_ATTENTION_MDP_OUBLIE; ?> </p>
-										<p><input class="btn btn-primary" role="button" type="submit" name="pswd_forgotten_form" value=<?php echo '"'.TXT_BOUTON_RESET_MDP_OUBLIE.'"'; ?>> </p>
-									</form>
-							<?php if (isset($_POST['pswd_forgotten_form'])) {
-										if ($reset_pswd_success) echo TXT_RESET_PSWD_SUCCESS;
-									}
-								} ?>
+			<?php   } else { ?>
+						<h3><?php echo TXT_SECTION_CONNEXION; ?></h3>					
+				<?php 	if (isset($logging_error)) {echo '<p class="error_message">'.$logging_error.'<p>';}?>
+						<form action="index.php" method="POST">
+							<input type="text" name="mail" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MAIL.'"'; ?>><br>
+							<input type="password" name="password" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MDP.'"'; ?>>		<br><br>
+							<p><input class="btn btn-primary" role="button" type="submit" name="logging_form" value=<?php echo '"'.TXT_BOUTON_SE_CONNECTER.'"'; ?>></p>
+						</form>
+								
+						<a onclick="hideThis('oubli')"><?php echo TXT_MDP_OUBLIE; ?></a>
+								
+				<?php 	if (isset($reset_pswd_error)) {echo '<p class="error_message">'.$reset_pswd_error.'<p>';}?>
+						<form id="oubli" class="hide_first" action="" method="POST">
+							<p><input type="text" name="mail_pswd_forgotten" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MAIL.'"'; ?>></p>
+							<p><?php echo TXT_ATTENTION_MDP_OUBLIE; ?></p>
+							<p><input class="btn btn-primary" role="button" type="submit" name="pswd_forgotten_form" value=<?php echo '"'.TXT_BOUTON_RESET_MDP_OUBLIE.'"'; ?>></p>
+						</form>
+				<?php   if (isset($_POST['pswd_forgotten_form'])) {if ($reset_pswd_success) echo TXT_RESET_PSWD_SUCCESS;}
+					} ?>
+					</div>
+				</div>
+					
+					<div class="col-xs-12 col-sm-4">
+						<div class="thumbnail">
+						<h3><?php echo TXT_SECTION_RECHERCHE; ?></h3>
+						<p><a href="catalogue.php" class="btn btn-primary" role="button"><?php echo TXT_BOUTON_RECHERCHE; ?></a></p>
 						</div>
 					</div>
-				</div>
-						
-				<div class="col-xs-12 col-sm-4">
-					<div class="thumbnail">
-						<h3><?php echo TXT_SECTION_RECHERCHE; ?></h3>
-						<br>
-						<p><a href="catalogue.php" class="btn btn-primary" role="button"><?php echo TXT_BOUTON_RECHERCHE; ?></a></p>
-					</div>
-				</div>
 				
-				<div class="col-xs-12 col-sm-4">
-					<div class="thumbnail">
-						<h3><?php echo TXT_SECTION_ADHERER; ?></h3>
-						<p><?php echo TXT_ADHERER; ?></p>				
-						<p><a href="join.php" class="btn btn-primary" role="button"><?php echo TXT_BOUTON_ADHERER; ?></a></p>
+					<div class="col-xs-12 col-sm-4">
+						<div class="thumbnail">
+							<h3><?php echo TXT_SECTION_ADHERER; ?></h3>
+							<p><?php echo TXT_ADHERER; ?></p>				
+							<p><a href="join.php" class="btn btn-primary" role="button"><?php echo TXT_BOUTON_ADHERER; ?></a></p>
+						</div>
 					</div>
+
 				</div>
-				
 			</div>
+			<div class="col-xs-1"></div>
 		</div>				
 
 	</body>				

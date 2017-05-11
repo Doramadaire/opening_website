@@ -6,7 +6,6 @@
 .thumbnail {
     /*max-width: 158px;*/
     min-width: 190px;
-    /*margin: 10px;*/
     margin: auto;
     border: 0px;
 }
@@ -79,13 +78,13 @@
    pointer-events: none;
    cursor: default;
 }
-
+/*
 .back_button {
     z-index: 10;
     background: white;
-    margin-bottom: 30px;
     position: relative;
-}
+    margin-bottom: 30px;
+}*/
 
 .book_vignette {
     overflow: auto;
@@ -97,12 +96,13 @@
     overflow: auto;
 }
 
-.random_vignettes_small {
-    display: block;
-}
-
 .search_collection_vignette {
     height: 182px;
+}
+
+/*
+.random_vignettes_small {
+    display: block;
 }
 
 @media (min-width: 992px) {
@@ -124,4 +124,4 @@
     .thumbnail {
         min-width: 100px;
     }
-}
+}*/

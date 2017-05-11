@@ -15,7 +15,6 @@
     text-decoration: underline;
 }
 	
-	
 .action ul {
     list-style-type:none; /* item marker : none, square, circle, disc ...... */
 	/* list-style-image: url('chemin/image.type');  ou item marker à partir d'un fichier */ 
@@ -23,13 +22,13 @@
 
 /* css pour le diaporama */
 .carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-            margin: auto;
-	  
-	  }
+.carousel-inner > .item > a > img {
+    margin: auto;  
+}
       
 #myCarousel {
     width : 75%;
     margin: auto;
+    margin-top: 20px;
     margin-bottom: 20px;
 }

@@ -11,9 +11,12 @@
 
         //new User($id, $mail, $status, $subscription_date, $firstname = NULL, $name = NULL, $first_mail = NULL):
         $compte = new User(0, "admin", 5, "2020-01-01");
+        // $compte5 = new User(0, "compte5", 5, "2020-01-01");
+        // $compte4 = new User(0, "compte4", 4, "2020-01-01");
+        // $compte3 = new User(0, "compte3", 3, "2020-01-01");
+        // $compte2 = new User(0, "compte2", 2, "2016-01-01");
 
         //$sql->addUser($compte, "password");
-        //$sql->addUser($compte, "6mayOpening");
 
 
         // new Author($id, $name, $user, $search_name, $description_filename = NULL, $cv_filename = NULL,  $news_filename = NULL)
@@ -23,16 +26,16 @@
 
         $authors = array();
 
-        $authors[] = array("mail" => "dpetit", "prenom" => "Didier", "nom" => "Petit", "sub_date" => "2017-06-06", "nom_artiste" => "Didier Petit", "descr_file" => "PETIT.txt", "cv" => "PETIT.pdf");
-        $authors[] = array("mail" => "ischneider", "prenom" => "Isabelle", "nom" => "Schneider", "sub_date" => "2017-06-06", "nom_artiste" => "Isabelle Schneider", "descr_file" => "SCHNEIDER.txt", "cv" => "SCHNEIDER.pdf");
-        $authors[] = array("mail" => "ythiriet", "prenom" => "Yannick", "nom" => "Thiriet", "sub_date" => "2017-06-06", "nom_artiste" => "Yannick Thiriet", "descr_file" => "THIRIET.txt", "cv" => "THIRIET.pdf");
-        $authors[] = array("mail" => "sdamoy", "prenom" => "Sophie", "nom" => "Damoy", "sub_date" => "2017-06-06", "nom_artiste" => "Sophie Damoy", "descr_file" => "DAMOY.txt", "cv" => "DAMOY.pdf");
-        $authors[] = array("mail" => "fbuadas", "prenom" => "Françoise", "nom" => "Buadas", "sub_date" => "2017-06-06", "nom_artiste" => "Françoise Buadas", "descr_file" => "BUADAS.txt", "cv" => "BUADAS.pdf");
-        $authors[] = array("mail" => "mderegibus", "prenom" => "Monique", "nom" => "Deregibus", "sub_date" => "2017-06-06", "nom_artiste" => "Monique Deregibus", "descr_file" => "DEREGIBUS.txt", "cv" => "DEREGIBUS.pdf");
-        $authors[] = array("mail" => "orebuta", "prenom" => "Olivier", "nom" => "Rebuta", "sub_date" => "2017-06-06", "nom_artiste" => "Olivier Rebuta", "descr_file" => "REBUTA.txt", "cv" => "REBUTA.pdf");
-        $authors[] = array("mail" => "amerian", "prenom" => "André", "nom" => "Mérian", "sub_date" => "2017-06-06", "nom_artiste" => "André Mérian", "descr_file" => "MERIAN.txt", "cv" => "MERIAN.pdf");
-        $authors[] = array("mail" => "vhorwitz", "prenom" => "Valérie", "nom" => "Horwitz", "sub_date" => "2017-06-06", "nom_artiste" => "Valérie Horwitz", "descr_file" => "HORWITZ.txt", "cv" => "HORWITZ.pdf");
-        $authors[] = array("mail" => "esarrouy", "prenom" => "Emmanuelle", "nom" => "Sarrouy", "sub_date" => "2017-06-06", "nom_artiste" => "Emmanuelle Sarrouy", "descr_file" => "SARROUY.txt", "cv" => "SARROUY.pdf");
+        $authors[] = array("mail" => "dpetit", "prenom" => "Didier", "nom" => "Petit", "sub_date" => "2017-06-06", "nom_artiste" => "Didier Petit", "descr_file" => "PETIT.txt", "cv" => "CV_PETIT.pdf");
+        $authors[] = array("mail" => "ischneider", "prenom" => "Isabelle", "nom" => "Schneider", "sub_date" => "2017-06-06", "nom_artiste" => "Isabelle Schneider", "descr_file" => "SCHNEIDER.txt", "cv" => "CV_SCHNEIDER.pdf");
+        $authors[] = array("mail" => "ythiriet", "prenom" => "Yannick", "nom" => "Thiriet", "sub_date" => "2017-06-06", "nom_artiste" => "Yannick Thiriet", "descr_file" => "THIRIET.txt", "cv" => "CV_THIRIET.pdf");
+        $authors[] = array("mail" => "sdamoy", "prenom" => "Sophie", "nom" => "Damoy", "sub_date" => "2017-06-06", "nom_artiste" => "Sophie Damoy", "descr_file" => "DAMOY.txt", "cv" => "CV_DAMOY.pdf");
+        $authors[] = array("mail" => "fbuadas", "prenom" => "Françoise", "nom" => "Buadas", "sub_date" => "2017-06-06", "nom_artiste" => "Françoise Buadas", "descr_file" => "BUADAS.txt", "cv" => "CV_BUADAS.pdf");
+        $authors[] = array("mail" => "mderegibus", "prenom" => "Monique", "nom" => "Deregibus", "sub_date" => "2017-06-06", "nom_artiste" => "Monique Deregibus", "descr_file" => "DEREGIBUS.txt", "cv" => "CV_DEREGIBUS.pdf");
+        $authors[] = array("mail" => "orebufa", "prenom" => "Olivier", "nom" => "Rebufa", "sub_date" => "2017-06-06", "nom_artiste" => "Olivier Rebufa", "descr_file" => "REBUFA.txt", "cv" => "CV_REBUFA.pdf");
+        $authors[] = array("mail" => "amerian", "prenom" => "André", "nom" => "Mérian", "sub_date" => "2017-06-06", "nom_artiste" => "André Mérian", "descr_file" => "MERIAN.txt", "cv" => "CV_MERIAN.pdf");
+        $authors[] = array("mail" => "vhorwitz", "prenom" => "Valérie", "nom" => "Horwitz", "sub_date" => "2017-06-06", "nom_artiste" => "Valérie Horwitz", "descr_file" => "HORWITZ.txt", "cv" => "CV_HORWITZ.pdf");
+        $authors[] = array("mail" => "esarrouy", "prenom" => "Emmanuelle", "nom" => "Sarrouy", "sub_date" => "2017-06-06", "nom_artiste" => "Emmanuelle Sarrouy", "descr_file" => "SARROUY.txt", "cv" => "CV_SARROUY.pdf");
 
         foreach ($authors as $author_array) {
             //d'abord on crée l'utilisateur
@@ -68,7 +71,7 @@
         $books[] = array("titre" => "Opening book 004", "filename" => "OPENINGBOOK_004", "authors_ids" => [unserialize($sql->getAuthorByExactName("Sophie Damoy"))->getAuthorID()], "collection" => "Opening book", "publish_date" => "2016-01-01");
         $books[] = array("titre" => "Opening book 005", "filename" => "OPENINGBOOK_005", "authors_ids" => [unserialize($sql->getAuthorByExactName("Françoise Buadas"))->getAuthorID()], "collection" => "Opening book", "publish_date" => "2016-12-01");
         $books[] = array("titre" => "Opening book photo 001", "filename" => "OPENINGBOOKPHOTO_001", "authors_ids" => [unserialize($sql->getAuthorByExactName("Monique Deregibus"))->getAuthorID()], "collection" => "Opening book photo", "publish_date" => "2016-01-01");
-        $books[] = array("titre" => "Opening book photo 002", "filename" => "OPENINGBOOKPHOTO_002", "authors_ids" => [unserialize($sql->getAuthorByExactName("Olivier Rebuta"))->getAuthorID()], "collection" => "Opening book photo", "publish_date" => "2016-05-01");
+        $books[] = array("titre" => "Opening book photo 002", "filename" => "OPENINGBOOKPHOTO_002", "authors_ids" => [unserialize($sql->getAuthorByExactName("Olivier Rebufa"))->getAuthorID()], "collection" => "Opening book photo", "publish_date" => "2016-05-01");
         $books[] = array("titre" => "Opening book photo 003", "filename" => "OPENINGBOOKPHOTO_003", "authors_ids" => [unserialize($sql->getAuthorByExactName("André Mérian"))->getAuthorID()], "collection" => "Opening book photo", "publish_date" => "2016-10-01");
         $books[] = array("titre" => "Opening book photo 004", "filename" => "OPENINGBOOKPHOTO_004", "authors_ids" => [unserialize($sql->getAuthorByExactName("Valérie Horwitz"))->getAuthorID()], "collection" => "Opening book photo", "publish_date" => "2016-11-01");
         $books[] = array("titre" => "Opening book photo 005", "filename" => "OPENINGBOOKPHOTO_005", "authors_ids" => [unserialize($sql->getAuthorByExactName("Emmanuelle Sarrouy"))->getAuthorID()], "collection" => "Opening book photo", "publish_date" => "2017-01-01");

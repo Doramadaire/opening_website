@@ -18,8 +18,11 @@ un border radius égal à 0 donne des boutons rectangulaires.
 /* déclaration des variables dans la pseudo-classe root */
 :root {
   --couleur_texte: white;
-  --couleur_arriere_plan_bouton: #006dcc;
-  --border_radius : 5px;
+  --couleur_bouton_arriere_plan: #999999;
+  --couleur_bouton_survol: #767676;
+  --couleur_bouton_clique: #555555;
+  --couleur_bouton_visite: #BBBBBB;
+  --border_radius : 3px;
 }
 
 html {
@@ -28,6 +31,10 @@ html {
 
 html, body {
   font-family: "Arial", cursive, sans-serif;
+}
+
+h1 {
+  font-size: 28px;
 }
 
 p {
@@ -52,34 +59,52 @@ a:active {
 }*/
 
 /* personnalisation des boutons */
+.btn {
+  padding: 4px 10px;
+  border: 0px !important;
+}
+
 .btn-primary {
+  border: 0px;
   color: var(--couleur_texte);
-  background-color: var(--couleur_arriere_plan_bouton);
+  background-color: var(--couleur_bouton_arriere_plan);
   border-radius: var(--border_radius);
 }
 
 /*passage de la souris au dessus du bouton */
 .btn-primary:hover {
   box-shadow: inset 0 0 0 20rem var(--darken-1);
-}
-/* clic souris enfoncé sur le bouton*/
-.btn-primary:active {
-  box-shadow: inset 0 0 0 20rem var(--darken-2),
-    inset 0 3px 4px 0 var(--darken-3),
-    0 0 1px var(--darken-2);
+  background-color: var(--couleur_bouton_survol) !important;
 }
 
-.btn-primary:disabled,
+.btn-primary:focus {
+  background-color: var(--couleur_bouton_survol);
+  outline-color: var(--couleur_bouton_survol) !important;
+}
+
+/* clic souris enfoncé sur le bouton*/
+.btn-primary:active {
+  background-color: var(--couleur_bouton_clique) !important;
+  box-shadow: inset 0 0 0 20rem var(--darken-2), inset 0 3px 4px 0 var(--darken-3), 0 0 1px var(--darken-2);
+}
+
+.btn-primary:active:hover {
+  background-color: var(--couleur_bouton_clique);
+  box-shadow: inset 0 0 0 20rem var(--darken-2), inset 0 3px 4px 0 var(--darken-3), 0 0 1px var(--darken-2);
+}
+
+/*
+.btn-primary:visited {
+  background-color: var(--couleur_bouton_visite);
+}*/
+
+.btn-primary:disabled, 
 .btn-primary.is-disabled {
   opacity: .5;
 }
 
-.btn-primary:hover {
-  box-shadow: inset 0 0 0 20rem var(--darken-1);
-}
-
 .hide_first{
-   display:none;
+   display: none;
 }
 
 .Section{
@@ -87,10 +112,25 @@ a:active {
   /*border-bottom: 1px solid rgba(53,86,129, 0.3);*/
 }
 
-.error_message {color :black;
+.error_message {
+  color :black;
   font-weight: bold
 }
 
 .thumbnail h3 {
   margin-top: 0px
+}
+
+/*
+.footer {
+  background-color: #FFFFFFF ; //Couleur de fond
+  bottom: 0;
+  width: 100%;
+  color : white;
+  font-family: "Arial", cursive, sans-serif;
+  z-index: 5;
+}*/
+
+.footer > a {
+  float: right;
 }

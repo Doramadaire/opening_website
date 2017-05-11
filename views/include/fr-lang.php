@@ -1,4 +1,3 @@
-
 <?php
  	
 	//---------------------------------------------------------
@@ -13,6 +12,7 @@
 	// barre de navigation et noms des pages associées
 	//---------------------------------------------------------
  
+ 	define('TXT_NAVBAR_HOME', 'accueil');
  	define('TXT_NAVBAR_A_PROPOS', 'à propos');
  	define('TXT_NAVBAR_CATALOGUE', 'collections');
   	define('TXT_NAVBAR_CONTACT', 'contact');
@@ -28,8 +28,10 @@
 	define('TXT_MENU_RECHERCHE', 'Parcourir la collection');
 	define('TXT_MENU_RECHERCHE_EXTRAITS', 'Parcourir la collection (seulement des extraits)');
 
-	define('TXT_SECTION_CONNEXION', 'Connectez-vous');
+	define('TXT_SECTION_CONNEXION', 'Déjà adhérent?');
 	define('TXT_NAVBAR_DISCONNECT', "Vous déconnecter");
+
+	define('TXT_FOOTER_BACK_HOME', "Retour à l'accueil");
 	
 	//---------------------------------------------------------
  	// index.php
@@ -40,7 +42,7 @@
 	define('TXT_BONJOUR', 'Bonjour');
 
 	define('TXT_BOUTON_SE_CONNECTER', "se connecter");
-	define('TXT_BOUTON_SE_DECONNECTER', "Se déconnecter");
+	define('TXT_BOUTON_SE_DECONNECTER', "se déconnecter");
 
 	define('TXT_PLACEHOLDER_MAIL', "e-mail");
 	define('TXT_PLACEHOLDER_FIRSTNAME', "Prénom");
@@ -53,12 +55,12 @@
 	define('TXT_RESET_PSWD_SUCCESS', 'Un nouveau mot de passe vous a été envoyé par mail');
 
 
-	define('TXT_SECTION_RECHERCHE', '<h3>Opening book est un nouvel objet artistique</h3>
-									<h4><a href="about.php"><b>En savoir plus</b></a></h4>');
-	define('TXT_BOUTON_RECHERCHE', "Parcourir la collection");
+	define('TXT_SECTION_RECHERCHE', '<h3>Opening book </h3>des collections numériques à la croisée du livre d’art et du book d’artiste
+									<h4><a href="about.php"><b></b></a></h4>');
+	define('TXT_BOUTON_RECHERCHE', "Parcourir les collections");
 
-	define('TXT_SECTION_ADHERER', "Opening book : rejoindre l'association");
-	define('TXT_ADHERER', "Pour adhérer à l'association ou renouveler votre cotisation");
+	define('TXT_SECTION_ADHERER', "<h3>Opening book </h3> pour accéder à l'ensemble des collections devenez membre");
+	define('TXT_ADHERER', "devenir membre ou renouveler votre cotisation");
 	define('TXT_BOUTON_ADHERER', "Adhérer");
 	
 	//---------------------------------------------------------
@@ -205,11 +207,12 @@
 	
 	define('TXT_TAB_ABOUT', "A propos de notre association - Opening book");
 
- 	define('TXT_SECTION_EDITO', 'Edito');
+ 	define('TXT_SECTION_EDITO', 'à propos');
 	define('TXT_EDITO_TEXTE', "<p>Opening book est un nouvel objet artistique et éditorial conçu pour donner une visibilité aux artistes photographes et plasticiens actifs en région Paca, connus ou moins connus.</p>
                     <p>Opening book n’est ni catalogue d’exposition, ni monographie (il ne tend pas à l’exhaustivité et ne propose pas d’outil critique), ni livre d’artiste (ce n’est pas une création artistique en soi), ni book d’artiste au sens classique du terme.</p>
                     <p>Opening book est un format pré-défini de douze pages offertes à un artiste pour y exposer douze œuvres et les diffuser sur tout type d’écran : ordinateur, tablette, smartphone. La collection propose une approche directe des œuvres grâce à la qualité des reproductions, à une mise en page épurée construite autour de l’œuvre et du détail et à un mode de navigation conçu pour le numérique.</p>
-                    <p>Opening book est aussi un dispositif qui offre aux artistes des outils essentiels pour promouvoir leur travail : des reproductions photographiques de qualité professionnelle, une interface de gestion en ligne des archives photographiques (espace membres) et l’inscription dans un large réseau de diffusion.</p>");
+                    <p>Opening book est aussi un dispositif qui offre aux artistes des outils essentiels pour promouvoir leur travail : des reproductions photographiques de qualité professionnelle, une interface de gestion en ligne des archives photographiques (espace membres) et l’inscription dans un large réseau de diffusion.</p>
+                    <img src='http://coloriage.info/images/ccovers/1460917190bananes-fruit.gif' width='476' height='405'>");
 
 	//---------------------------------------------------------
  	// news.php

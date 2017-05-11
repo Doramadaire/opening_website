@@ -14,13 +14,12 @@
                 <div class="row">
                     <h1><?php echo TXT_SECTION_CONTACT; ?></h1>
 				</div>
-			
 				<div class="row">
 					<?php echo TXT_CONTACT_TEXTE; ?>
 				</div>
-			</div>
+                <?php include("include/footer.php"); ?>
+            </div>
             <div class="col-xs-1"></div>
         </div>
-		<?php include("include/footer.php"); ?> 
-	</body>    
+	</body>
 </html>
