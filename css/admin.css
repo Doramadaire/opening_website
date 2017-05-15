@@ -19,3 +19,7 @@
 thead {
     font-weight: bold;
 }
+
+.dl-lang-files a {
+    margin-bottom: 3px;
+}

@@ -152,7 +152,7 @@
 								<form action="" method="POST">
 									<label for="user_type"><?php echo TXT_TYPE_COMPTE; ?></label><br>
 									<select name="user_type" required>
-										<option value=2><?php echo TXT_TYPE_NON_ADHERENT; ?></option>
+										<!-- <option value=2><?php echo TXT_TYPE_NON_ADHERENT; ?></option> je désactive car dans les faits je m'en sert pas, mais je me sers de la date de subscription... -->
 										<option value=3><?php echo TXT_TYPE_ADHERENT; ?></option>
 										<option value=4><?php echo TXT_TYPE_ARTISTE; ?></option>
 										<option value=5><?php echo TXT_TYPE_ADMINISTRATEUR; ?></option>
@@ -300,6 +300,13 @@
 									<input type="submit" class="btn btn-primary" name="set_lang_files_form" value="<?php echo TXT_BUTTON_SEND; ?>">	
 								</form>	 
 							</div>
+
+							<div class="row thumbnail dl-lang-files">
+								<h3>Télécharger les fichiers définissant les textes du site dans chaque langue</h3>
+								<a href="admin.php?dl=fr" class="btn btn-primary">Download fr-lang.php</a><br>
+								<a href="admin.php?dl=en" class="btn btn-primary">Download en-lang.php</a>
+							</div>
+
 							<?php include("include/footer.php"); ?>
 						</div>
 						<div class="col-xs-1"></div>

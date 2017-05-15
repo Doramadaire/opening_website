@@ -44,7 +44,7 @@
             $sql->addUser($user, $pswd);
 
             // Préparation du mail contenant le lien d'activation
-            $destinataire = "guilhem.claverie+".$author_array['mail']."@gmail.fr";
+            $destinataire = "guilhem.claverie+".$author_array['mail']."@gmail.com";
             $sujet = $author_array['mail']." artiste opening user account creation";
             $headers = "From: noreply@opening-book.eu"."\n";
             $headers .= "Content-Type: text/html; charset=UTF-8\n";
