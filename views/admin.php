@@ -307,7 +307,6 @@
 								<a href="admin.php?dl=en" class="btn btn-primary">Download en-lang.php</a>
 							</div>
 
-							<?php include("include/footer.php"); ?>
 						</div>
 						<div class="col-xs-1"></div>
 					</div>	

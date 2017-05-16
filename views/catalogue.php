@@ -38,7 +38,7 @@
                         } ?>
                     </div>
                     <div class="row back_button">
-                        <a href="catalogue.php"><?php echo TXT_BUTTON_BACK; ?></a>
+                        <a class="btn btn-primary" href="catalogue.php"><?php echo TXT_BUTTON_BACK; ?></a>
                     </div>
                 </div>
                 <?php   } elseif ($sort_type === "artist_id") { ?>
@@ -86,7 +86,7 @@
                 <?php  } ?>
                         </div>
                         <div class="row back_button">
-                            <a href="catalogue.php"><?php echo TXT_BUTTON_BACK; ?></a>
+                            <a class="btn btn-primary" href="catalogue.php"><?php echo TXT_BUTTON_BACK; ?></a>
                         </div>
                   <?php } else {
                         //sort_type=default si tout va bien ?>
@@ -165,7 +165,6 @@
                         </div> -->
 
             <?php   } ?>
-                <?php include("include/footer.php"); ?>
             </div>
             <div class="col-xs-1"></div>
 

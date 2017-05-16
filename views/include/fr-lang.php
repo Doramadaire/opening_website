@@ -28,10 +28,9 @@
 	define('TXT_MENU_RECHERCHE', 'Parcourir la collection');
 	define('TXT_MENU_RECHERCHE_EXTRAITS', 'Parcourir la collection (seulement des extraits)');
 
-	define('TXT_SECTION_CONNEXION', 'Déjà adhérent?');
-	define('TXT_NAVBAR_DISCONNECT', "Vous déconnecter");
+	define('TXT_NAVBAR_DISCONNECT', "vous déconnecter");
 
-	define('TXT_FOOTER_BACK_HOME', "Retour à l'accueil");
+	define('TXT_FOOTER_BACK_HOME', "R");
 	
 	//---------------------------------------------------------
  	// index.php
@@ -41,6 +40,7 @@
 
 	define('TXT_BONJOUR', 'Bonjour');
 
+	define('TXT_H3_SECTION_CONNEXION', 'Déjà membre?');
 	define('TXT_BOUTON_SE_CONNECTER', "se connecter");
 	define('TXT_BOUTON_SE_DECONNECTER', "se déconnecter");
 
@@ -54,14 +54,15 @@
 	define('TXT_MDP_OUBLIE', "Mot de passe oublié?");
 	define('TXT_RESET_PSWD_SUCCESS', 'Un nouveau mot de passe vous a été envoyé par mail');
 
+	define('TXT_H3_SECTION_RECHERCHE', 'Découvrir opening book');
+	define('TXT_P_RECHERCHE', 'des collections numériques à la croisée du livre d’art et du book d’artiste');
+	//exemple balise liens : <a href="about.php"><b>En savoir plus</b></a>
+	define('TXT_BOUTON_VISITOR_COLLECTION', "découvrir des extraits");
+	define('TXT_BOUTON_LOGGED_COLLECTION', "découvrir les collections");
 
-	define('TXT_SECTION_RECHERCHE', '<h3>Opening book </h3>des collections numériques à la croisée du livre d’art et du book d’artiste
-									<h4><a href="about.php"><b></b></a></h4>');
-	define('TXT_BOUTON_RECHERCHE', "Parcourir les collections");
-
-	define('TXT_SECTION_ADHERER', "<h3>Opening book </h3> pour accéder à l'ensemble des collections devenez membre");
-	define('TXT_ADHERER', "devenir membre ou renouveler votre cotisation");
-	define('TXT_BOUTON_ADHERER', "Adhérer");
+	define('TXT_H3_SECTION_ADHERER', "Devenir membre");
+	define('TXT_P_ADHERER', "pour accéder à l'ensemble de nos contenus");
+	define('TXT_BOUTON_ADHERER', "adhérer");
 	
 	//---------------------------------------------------------
  	// catalogue.php
@@ -75,7 +76,7 @@
 
 	define('TXT_NO_AUTHOR_FOUND', 'Aucun auteur trouvé');
 
-	define('TXT_BUTTON_BACK', "Retourner à l'ensemble des collections");
+	define('TXT_BUTTON_BACK', "toutes les collections");
 
 	define('TXT_BOOK_BY', 'Par');
 	define('TXT_BOOK_BY_AND', 'et');
@@ -106,9 +107,9 @@
  	define('TXT_BOOK_VIEWER_EXPLANATION', 'Cliquez sur la couverture pour démarrer la lecture');
  	define('TXT_ARTIST_CV', 'Consulter le CV');
 
- 	define('TXT_BACK_TO_COLLECTION_BOOKS', 'Retour aux books de la collection ');
- 	define('TXT_BACK_TO_ARTIST_BOOKS', "Retour aux books de l'artiste ");
- 	define('TXT_BACK_TO_CATALOGUE', "Retour à la collection");
+	define('TXT_BACK_TO_COLLECTION_BOOKS', 'collection ');
+	define('TXT_BACK_TO_ARTIST_BOOKS', "");
+	define('TXT_BACK_TO_CATALOGUE', "toutes les collections");
 
 	//---------------------------------------------------------
  	// user_settings.php
@@ -211,8 +212,8 @@
 	define('TXT_EDITO_TEXTE', "<p>Opening book est un nouvel objet artistique et éditorial conçu pour donner une visibilité aux artistes photographes et plasticiens actifs en région Paca, connus ou moins connus.</p>
                     <p>Opening book n’est ni catalogue d’exposition, ni monographie (il ne tend pas à l’exhaustivité et ne propose pas d’outil critique), ni livre d’artiste (ce n’est pas une création artistique en soi), ni book d’artiste au sens classique du terme.</p>
                     <p>Opening book est un format pré-défini de douze pages offertes à un artiste pour y exposer douze œuvres et les diffuser sur tout type d’écran : ordinateur, tablette, smartphone. La collection propose une approche directe des œuvres grâce à la qualité des reproductions, à une mise en page épurée construite autour de l’œuvre et du détail et à un mode de navigation conçu pour le numérique.</p>
-                    <p>Opening book est aussi un dispositif qui offre aux artistes des outils essentiels pour promouvoir leur travail : des reproductions photographiques de qualité professionnelle, une interface de gestion en ligne des archives photographiques (espace membres) et l’inscription dans un large réseau de diffusion.</p>
-                    <img src='http://coloriage.info/images/ccovers/1460917190bananes-fruit.gif' width='476' height='405'>");
+                    <p>Opening book est aussi un dispositif qui offre aux artistes des outils essentiels pour promouvoir leur travail : des reproductions photographiques de qualité professionnelle, une interface de gestion en ligne des archives photographiques (espace membres) et l’inscription dans un large réseau de diffusion.</p>");
+    //exemple de balise pour mettre une image : <img src='http://coloriage.info/images/ccovers/1460917190bananes-fruit.gif' width='476' height='405'>
 
 	//---------------------------------------------------------
  	// news.php

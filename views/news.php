@@ -33,7 +33,7 @@
                 <div class="row thumbnail">
                     <h3>A paraître prochainement</h3>
                     <p>
-                    Opening book photo 006 / Françoise Buadas<br>
+                    Opening book photo 006 / Brigitte Bauer<br>
                     Opening book photo 007 / Emmanuelle Germain<br>
                     <br>
                     Opening book 006 / Aldric Mathieu<br>
@@ -42,26 +42,26 @@
                 </div>
                 <div class="row thumbnail">
                     <h3>Actualités des artistes</h3>
-                    <i>Avril</i><br>
+                    <i>Mai</i>
                     <p>
-                    <b>Emmanuelle Sarrouy</b> présente <i> PERSIKOV </i>(… le chemin des fleurs)
-                    30 avril 2017 de 11h à 19h dans le cadre des Dimanche de la Canebière, Espace POC, cours Joseph Thierry, Marseille
+                    <b>Emmanuelle Sarrouy</b> présente <i>PERSIKOV</i>(… le chemin des fleurs)
+                    30 avril 2017 de 11h à 19h dans le cadre des Dimanche de la Canebière, Espace POC
+                    <br>cours Joseph Thierry, Marseille
                     </p>
                     <p>
                     <b>Aldric Mathieu</b>, exposition collective <i>« Sur fond blanc »</i> 
                     du 7 avril au 28 mai 2017, Centre d'Art Langage Plus, Alma, Québec
                     </p>
-                    
-                    <i>Mai</i>
-                    <p>
-                    Exposition<b> Emmanuelle Germain</b> du 30 mai au 10 juin à la Galerie Charivari 7 rue Fontange, Marseille
-                    <br>vernissage jeudi 1 juin
-                    </p>
                     <p>
                     Exposition <b>Isabelle Schneider</b> du 18 mai au 3 juin Casa Consolat Marseille
+                    <br>vernissage 18mai 18h30</p>
+
+                    <p>
+                    Exposition <b>Emmanuelle Germain</b> du 30 mai au 10 juin à la Galerie Charivari 7 rue Fontange, Marseille
+                    <br>vernissage jeudi 1 juin
                     </p>
-                    
-                    <i>Juin </i><br>
+
+                    <i>Juin</i>
                     <p>
                     Exposition <b>Joséphine de Saint-Seine</b> à L’autoportrait, 66 rue des Trois Frères Barthélémy, Marseille
                     <br>vernissage vendredi 2 juin 2017
@@ -74,7 +74,6 @@
                     Parution d’un book hors-série avec <b>Anne-Valérie Gasc</b>, artiste invitée de cette 4e édition. 
                     </p>
                 </div>
-                <?php include("include/footer.php"); ?>
             </div>
             <div class="col-xs-1"></div>
         </div>

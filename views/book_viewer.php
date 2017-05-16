@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 	<head>
         <?php include("include/html_header.php"); ?>
@@ -91,7 +92,7 @@
                 </div> -->
                 <div class="row back-to-catalogue-links">
                     <a class="btn btn-primary" href="catalogue.php"><?php echo TXT_BACK_TO_CATALOGUE; ?></a>
-            <?php   foreach ($book->getBookAuthors() as $artist_id) {echo "<br><a class='btn btn-primary' href='catalogue.php?artist_id=$artist_id'>".TXT_BACK_TO_ARTIST_BOOKS.unserialize($sql->getAuthorByID($artist_id))->getAuthorName()    ."</a>"; } ?>
+            <?php //foreach ($book->getBookAuthors() as $artist_id) {echo "<br><a class='btn btn-primary' href='catalogue.php?artist_id=$artist_id'>".TXT_BACK_TO_ARTIST_BOOKS.unserialize($sql->getAuthorByID($artist_id))->getAuthorName()    ."</a>"; } ?>
                 </div>
 
                 <div class="row">
@@ -100,7 +101,6 @@
                         <a id="fixed-button" class="btn btn-primary" href="catalogue.php?collection=<?php echo urlencode($book->getBookCollection()); ?>"><?php echo TXT_BACK_TO_COLLECTION_BOOKS.$book->getBookCollection(); ?></a>
                     </div>
                 </div>
-                <?php include("include/footer.php"); ?>
             </div>
             <div id="right-margin" class="col-xs-1"></div>
         </div>           

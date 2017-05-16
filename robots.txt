@@ -4,7 +4,7 @@ Disallow: /admin.php
 Disallow: /user_settings.php
 Disallow: /book_management.php
 
-# Hello human, how did you get there?
+# Hello human, how did you got there?
 #                  ,--.    ,--.
 #                 ((O ))--((O ))
 #               ,'_`--'____`--'_`.

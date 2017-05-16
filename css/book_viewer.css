@@ -17,16 +17,18 @@
     text-align: center;
     font-style: italic;
 }
+
 .back-to-catalogue-links .btn {
     margin-bottom: 5px;
+    float: right;
+}
+
+.back-to-catalogue-links .btn:last-child {
+    margin-bottom: 40px;
 }
 
 .row .col-xs-6 a {
     z-index: 5;
     position: fixed;
     bottom: 3px;
-}
-
-.footer {
-    margin-bottom: 40px;
 }

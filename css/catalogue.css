@@ -78,13 +78,10 @@
    pointer-events: none;
    cursor: default;
 }
-/*
-.back_button {
-    z-index: 10;
-    background: white;
-    position: relative;
-    margin-bottom: 30px;
-}*/
+
+.back_button a {
+    float: right;
+}
 
 .book_vignette {
     overflow: auto;

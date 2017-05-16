@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<?php include("include/html_header.php"); ?>
@@ -69,7 +70,6 @@
 				<?php  	}
 					}
 				} ?>
-				<?php include("include/footer.php"); ?>
 			</div>
 			<div class="col-xs-1"></div>
 		</div>

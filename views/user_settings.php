@@ -64,7 +64,6 @@
 					</div>
 				<?php } ?>
 				</div>
-				<?php include("include/footer.php"); ?>
 			</div>
 			<div class="col-xs-1"></div>
 		</div>
