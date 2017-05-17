@@ -14,8 +14,11 @@
         <link rel="stylesheet" href="css/book_viewer.css" type="text/css">
         <script>
         $(function(){
-            var rightColMargin = document.getElementById('right-margin').offsetWidth;
-            document.getElementById('fixed-button').style.right = rightColMargin;
+            //var PreviousButtonWidth = document.getElementById('before-fixed-button').offsetWidth;
+            //var fixedButtonWidth = document.getElementById('fixed-button').offsetWidth;
+            var fixedButtonWidth = document.getElementById('fixed-button').style.width;
+            console.log(fixedButtonWidth);
+            document.getElementById('pull-right-box').style.width = fixedButtonWidth;
 
             var bookOptions = {
                 height   : 500,
@@ -91,18 +94,16 @@
                     </div>
                 </div> -->
                 <div class="row back-to-catalogue-links">
-                    <a class="btn btn-primary" href="catalogue.php"><?php echo TXT_BACK_TO_CATALOGUE; ?></a>
+                    <div id="positioner-box">
+                        <a id="before-fixed-button" class="btn btn-primary" href="catalogue.php"><?php echo TXT_BACK_TO_CATALOGUE; ?></a>
+                    </div>
             <?php //foreach ($book->getBookAuthors() as $artist_id) {echo "<br><a class='btn btn-primary' href='catalogue.php?artist_id=$artist_id'>".TXT_BACK_TO_ARTIST_BOOKS.unserialize($sql->getAuthorByID($artist_id))->getAuthorName()    ."</a>"; } ?>
-                </div>
-
-                <div class="row">
-                    <div class="col-xs-6"></div>
-                    <div class="col-xs-6">
+                    <br><div id="pull-right-box">
                         <a id="fixed-button" class="btn btn-primary" href="catalogue.php?collection=<?php echo urlencode($book->getBookCollection()); ?>"><?php echo TXT_BACK_TO_COLLECTION_BOOKS.$book->getBookCollection(); ?></a>
                     </div>
                 </div>
             </div>
-            <div id="right-margin" class="col-xs-1"></div>
+            <div class="col-xs-1"></div>
         </div>           
 	</body>
 </html>

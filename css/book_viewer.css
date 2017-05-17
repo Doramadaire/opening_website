@@ -1,6 +1,8 @@
 #show_wowbook {
 	display: block;
-    margin: 20 auto;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .wowbook-lightbox > .wowbook-close{
@@ -23,12 +25,17 @@
     float: right;
 }
 
-.back-to-catalogue-links .btn:last-child {
+#before-fixed-button { 
     margin-bottom: 40px;
 }
 
-.row .col-xs-6 a {
+#pull-right-box {
+    float: right;
+}
+
+#fixed-button {
+    float: right;
+    bottom: 3px;
     z-index: 5;
     position: fixed;
-    bottom: 3px;
 }
