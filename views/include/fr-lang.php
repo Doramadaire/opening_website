@@ -153,7 +153,7 @@
 	define('TXT_CREER_COMPTE', "Créer l'utilisateur");
 	
 	define('TXT_NOUVEL_ARTISTE', "Création d'un compte artiste");
-	define('TXT_PLACEHOLDER_ARTIST_NAME', "Pseudo");	
+	define('TXT_PLACEHOLDER_ARTIST_NAME', "Nom d'artiste");	
 	define('TXT_AUTHOR_SUBMIT_CV', "Fichier PDF du CV de l'artiste (optionnel)");	
 	define('TXT_CREER_ARTISTE', "Ajout de l'artiste");
 

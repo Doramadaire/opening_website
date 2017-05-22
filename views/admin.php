@@ -146,7 +146,7 @@
 							<!-- La création d'user est fonctionnel et on en a besoin -->
 	
 							<div class="row thumbnail">
-								<p><?php echo TXT_NOUVEL_UTILISATEUR; ?></p>
+								<h3><?php echo TXT_NOUVEL_UTILISATEUR; ?></h3>
 								<?php  if (isset($msg_new_user)) { echo $msg_new_user."<br>";} ?> 
 								<!-- TO DO : la patie du controlleur, création mdp aléatoire, et envoi d'un mail! -->
 								<form action="" method="POST">
@@ -157,46 +157,40 @@
 										<!-- il faut crer le compte artiste associe en meme temps <option value=4><?php echo TXT_TYPE_ARTISTE; ?></option> -->
 										<option value=5><?php echo TXT_TYPE_ADMINISTRATEUR; ?></option>
 									</select>
-									<input type="text" name="firstname" placeholder=<?php echo '"'.TXT_PLACEHOLDER_FIRSTNAME.'"'; ?> >
-									<input type="text" name="name" placeholder=<?php echo '"'.TXT_PLACEHOLDER_NAME.'"'; ?> >
-									<input type="text" name="mail" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MAIL.'"'; ?> required>
-									<input type="date" name="subscripion_end_date" placeholder=<?php echo '"'.TXT_PLACEHOLDER_DATE.'"'; ?> required>
-									<input type="submit" name="new_user_form" class="btn btn-primary" value=<?php echo '"'.TXT_CREER_COMPTE.'"'; ?>>	
+									<input type="text" name="firstname" placeholder="<?php echo TXT_PLACEHOLDER_FIRSTNAME; ?>" >
+									<input type="text" name="name" placeholder="<?php echo TXT_PLACEHOLDER_NAME; ?>" >
+									<input type="text" name="mail" placeholder="<?php echo TXT_PLACEHOLDER_MAIL; ?>" required>
+									<input type="date" name="subscripion_end_date" placeholder="<?php echo TXT_PLACEHOLDER_DATE; ?>" required>
+									<input type="submit" name="new_user_form" class="btn btn-primary" value="<?php echo TXT_CREER_COMPTE; ?>" >	
 								</form>	 
 							</div>
 
-							<!-- on cache tout pour la 1.0 tant que c'est pas fonctionnel
-	
 							<div class="row thumbnail">
-								<p><?php echo TXT_NOUVEL_ARTISTE; ?></p>
-								<!-- TO DO : 
-								d'abord récupérer l'id_user du compte utilisateur à associer au compte
-								champ pour le nom
-								champ pour taper la description - on stocke le path du fichier
-								champ pour taper les news - on stocke le path du fichier -->
-					<!--			<form action="" method="POST" enctype="multipart/form-data">
-									<input type="text" name="firstname" placeholder=<?php echo '"'.TXT_PLACEHOLDER_FIRSTNAME.'"'; ?> >
-									<input type="text" name="name" placeholder=<?php echo '"'.TXT_PLACEHOLDER_NAME.'"'; ?> >
-									<input type="text" name="mail" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MAIL.'"'; ?>  required>
-									<input type="text" name="artist_name" placeholder=<?php echo '"'.TXT_PLACEHOLDER_ARTIST_NAME.'"'; ?>  required>
-									<input type="date" name="subscripion_end_date" placeholder=<?php echo '"'.TXT_PLACEHOLDER_DATE.'"'; ?>  required>
+								<h3><?php echo TXT_NOUVEL_ARTISTE; ?></h3>
+								<form action="" method="POST" enctype="multipart/form-data">
+									<input type="text" name="firstname" placeholder="<?php echo TXT_PLACEHOLDER_FIRSTNAME; ?>" >
+									<input type="text" name="name" placeholder="<?php echo TXT_PLACEHOLDER_NAME; ?>" >
+									<input type="text" name="mail" placeholder="<?php echo TXT_PLACEHOLDER_MAIL; ?>" required>
+									<input type="text" name="artist_name" placeholder="<?php echo TXT_PLACEHOLDER_ARTIST_NAME; ?>" required>
+									<input type="date" name="subscripion_end_date" placeholder="<?php echo TXT_PLACEHOLDER_DATE; ?>" required>
 									<br>
 									<?php echo TXT_AUTHOR_SUBMIT_CV; ?>
 									<div class="fileUpload btn btn-primary">
-										<span>Upload</span>		
-										<input type="file" name="author_cv_file"/>					
+										<span>Upload</span>
+										<input type="file" name="author_cv_file">
 									</div>
-									Fichier .txt de decription de l'artiste :
+									<br>Fichier .txt (en français) de description de l'artiste :
 									<div class="fileUpload btn btn-primary">
-										<span>Upload</span>		
-										<input type="file" name="author_description_file"/>					
+										<span>Upload</span>
+										<input type="file" name="author_description_file">
 									</div>
 									<br>
-									<input type="submit" name="new_author_form" class="btn btn-primary" value=<?php echo '"'.TXT_CREER_ARTISTE.'"'; ?> >	
-								</form>	 
+									<input type="submit" name="new_author_form" class="btn btn-primary" value="<?php echo TXT_CREER_ARTISTE; ?>" >
+								</form>
 							</div>
 	
-							<div class="row thumbnail">
+					<!--		on cache tout pour la 1.0 tant que c'est pas fonctionnel
+								<div class="row thumbnail">
 								<p><?php echo TXT_AJOUT_BOOK; ?></p>
 								<p><?php if (isset($dl_fail_error)) echo TXT_ERR_UPLOAD_FAIL; ?></p>
 								<p><?php if (isset($incorrect_file_extension_error)) echo TXT_ERR_INCORRECT_FILE_EXTENSION; ?></p>

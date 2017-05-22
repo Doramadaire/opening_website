@@ -19,7 +19,7 @@
     if (isset($_GET['id'])) {
         $book = unserialize($sql->getBookByID($_GET['id']));
         
-        $book_description_filename = "assets/book_description/".$book->getBookFilename().".txt";
+        $book_description_filename = "assets/".$lang."book_description/".$book->getBookFilename().".txt";
         //set_include_path(get_include_path() . PATH_SEPARATOR . $path);
         try {
             $book_description_file = fopen($book_description_filename, "r");
@@ -39,7 +39,7 @@
         $book_author = unserialize($sql->getAuthorByID($book->getBookAuthors()[0]));
         $cv_link = "/assets/cv/".$book_author->getAuthorCV();
 
-        $artist_description_filename = "assets/artists_descriptions/".$book_author->getAuthorDescription();
+        $artist_description_filename = "assets/".$lang."artists_descriptions/".$book_author->getAuthorDescription();
         //set_include_path(get_include_path() . PATH_SEPARATOR . $path);
         try {
             $artist_description_file = fopen($artist_description_filename, "r");

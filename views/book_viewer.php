@@ -17,7 +17,6 @@
             //var PreviousButtonWidth = document.getElementById('before-fixed-button').offsetWidth;
             //var fixedButtonWidth = document.getElementById('fixed-button').offsetWidth;
             var fixedButtonWidth = document.getElementById('fixed-button').style.width;
-            console.log(fixedButtonWidth);
             document.getElementById('pull-right-box').style.width = fixedButtonWidth;
 
             var bookOptions = {

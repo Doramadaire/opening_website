@@ -41,16 +41,16 @@
                                         $headers .='Content-Transfer-Encoding: 8bit';
 									
 					//Message de confirmation
-					$message = '<PRE>'."Vous êtes désormais inscrit sur le site d'OPENING, en tant que cotistant à l'association. Votre adhésion expirera le $new_user_sub_date.\n
+					$message = '<PRE style="font-size:14px;">'."Vous êtes désormais inscrit sur le site d'OPENING, en tant que cotisant à l'association. Votre adhésion expirera le $new_user_sub_date.\n
 Voici votre mot de passe : $new_password\n
 Je vous conseille de le modifier dès votre première visite sur notre site.\n
-Pour modifier votre mot de passe, identifier vous sur http://opening-book.com/ et allez sur la page 'Gestion de votre compte'\n
+Pour modifier votre mot de passe, identifiez-vous sur <a href='https://opening-book.com/index.php'>opening-book.com</a> et allez sur la page 'Gestion de votre compte'\n
 \n
-Nous vous souhaitons une agréable consultation de notre collection\n
+Nous vous souhaitons une agréable consultation de notre collection.\n
 \n
 ---------------\n
-Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img style="float: right;"'." src='http://beta.opening-book.eu/assets/mini_logo.jpg' width='80px' height='47px'>";	 
-				        
+Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img style="float: right;"'." src='https://alpha.opening-book.eu/assets/logo.png' width='80px' height='47px'>";
+
 					mail($destinataire, '=?UTF-8?B?'.base64_encode($sujet).'?=', $message, $headers) ; // Envoi du mail
 					return true;
 				} else {
