@@ -3,5 +3,8 @@
 mdp.txt
 *.jpg
 
+#DEV files
+change_pswd.php
+
 #But not these files
 !facebook.jpg
