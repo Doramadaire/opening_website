@@ -154,7 +154,7 @@
 									<select name="user_type" required>
 										<!-- <option value=2><?php echo TXT_TYPE_NON_ADHERENT; ?></option> je désactive car dans les faits je m'en sert pas, mais je me sers de la date de subscription... -->
 										<option value=3><?php echo TXT_TYPE_ADHERENT; ?></option>
-										<option value=4><?php echo TXT_TYPE_ARTISTE; ?></option>
+										<!-- il faut crer le compte artiste associe en meme temps <option value=4><?php echo TXT_TYPE_ARTISTE; ?></option> -->
 										<option value=5><?php echo TXT_TYPE_ADMINISTRATEUR; ?></option>
 									</select>
 									<input type="text" name="firstname" placeholder=<?php echo '"'.TXT_PLACEHOLDER_FIRSTNAME.'"'; ?> >

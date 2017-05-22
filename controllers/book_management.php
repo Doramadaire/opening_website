@@ -10,16 +10,32 @@
     $user_logged = (isset($_SESSION['user_logged'])) ? $_SESSION['user_logged'] : false;
 
     $books_sharable = NULL;
-    if (isset($_SESSION['user_logged'])) {
-        if ($user_logged->getUserStatus() === 4) {
-            //l'user connecté est un auteur
-            $my_artist = unserialize($sql->getArtistByUserID($user_logged->getUserID()));
-            $books_sharable = $sql->getBooksByAuthor($my_artist->getAuthorID());
-        } elseif ($user_logged->getUserStatus() === 5) {
-            //un admin
-            $books_sharable = $sql->getAllBooks();
+    try {
+        if (isset($_SESSION['user_logged'])) {
+            if ($user_logged->getUserStatus() === 4) {
+                //l'user connecté est un auteur
+                $my_artist = unserialize($sql->getArtistByUserID($user_logged->getUserID()));
+                if ($my_artist == NULL) {
+                    //echo "Pas de compte artiste associe trouve...<br>";
+                    //echo "mon compte user : ".$user_logged->toString()."<br>";
+                } else {
+                    $books_sharable = $sql->getBooksByAuthor($my_artist->getAuthorID());
+                }
+            } elseif ($user_logged->getUserStatus() === 5) {
+                //un admin
+                $books_sharable = $sql->getAllBooks();
+            }
         }
+    } catch (Exception $e) {
+        //Pour gérer les fichiers il y a besoin de les include
+        $path = '/home/openingbqo/opening_website_assets/';
+        set_include_path(get_include_path() . PATH_SEPARATOR . $path);
+        //Dans un gros fichier complet
+        $myLogFile = fopen("log.txt", "a+") or die("Unable to open file!");
+        $now = date("Y-m-d H:i:s");
+        fwrite($myLogFile, $now." Exception : ".$e->getMessage());
     }
+
 
     if (isset($_POST['share_book_form'])) {
         $book_shared = unserialize($sql->getBookByID($_POST['book_id']));

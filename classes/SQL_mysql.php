@@ -573,9 +573,9 @@
          */
         public function getArtistByUserID($user_id)
         {
-            $author_serialized = null;
+            $author_serialized = NULL;
             $query = $this->conn->prepare("SELECT * FROM authors WHERE user=?;");
-            $query-> bindValue(1,$user_id);
+            $query-> bindValue(1, $user_id);
             if ($query->execute()) {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
