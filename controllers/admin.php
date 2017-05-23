@@ -182,8 +182,6 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 
 		if (strcmp($description_filename_fr, $description_filename_en) != 0) {
 			$file_upload_success_sofar = false;
-			$new_author_msg .= "fr_file=$description_filename_fr<br>";
-			$new_author_msg .= "en_file=$description_filename_en<br>";
 			$new_author_msg .= "Erreur : les 2 fichiers de description doivent avoir le même nom<br>";
 		}
 
@@ -205,7 +203,7 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 			 	$new_author = new Author(0, $_POST['artist_name'], $user_id, $new_user_name, $description_filename_fr, $cv_filename);
 				$success = $sql->addAuthor($new_author);
 				if ($success) {
-					$new_author_msg .= "Succès : creation du compte artiste réussi";
+					$new_author_msg  .= "Succès : creation du compte artiste réussi";
 				} else {
 					$new_author_msg .= "Echec lors de la creation du compte artiste";
 				}
@@ -218,6 +216,8 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 	}
 
 	if (isset($_POST['new_book_form'])) {
+		$new_book_msg = "Haha je t'ai vu t'as cliqué! Bon désolé en fait ça rien pour l'instant...";
+		/*
 		if ($_FILES['full_book_file']['error'] > 0 and $_FILES['extract_book_file']['error'] > 0) {
 			$dl_fail_error = true;
 		} else {
@@ -231,18 +231,9 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 				$full_book_path = "bbff/".$book_name;
 				//Le nom du fichier est le même pour les deux, seul le dossier change
 				$book_extract_path = "assets/extracts/".$book_name;
-				//$move_full = move_uploaded_file($_FILES['full_book_file']['tmp_name'], $full_book_path);
-				//$move_extract = move_uploaded_file($_FILES['extract_book_file']['tmp_name'], $book_extract_path);
-				/*if ($move_full and $move_extract) {
-					//il manque la valeur du champ AUTHORS à mon book
-					//$new_book =  new Book();
-					//$success = $sql->addBook($new_book);
-				}
-				echo "DL réussi et extensions correctes<br>";
-				echo "Mais rien ne s'est passé, la fonctionnalitée n'est pas finie";
-				*/
 			}			
-		}		
+		}
+		*/
 	}
 
 	if (isset($_POST['set_lang_files_form'])) {
@@ -271,30 +262,6 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 				echo "DL réussi et extensions correctes - fichiers de langues mis à jour<br>";
 			}			
 		}		
-	}
-
-	if (isset($_GET['dl'])) {
-		switch ($_GET['dl']) {
-			case 'fr':
-			case 'en':
-				$file = 'views/include/'.$_GET['dl'].'-lang.php';
-				if (file_exists($file)) {
-				    header('Content-Description: File Transfer');
-				    header('Content-Type: application/octet-stream');
-				    header('Content-Disposition: attachment; filename="'.basename($file).'"');
-				    header('Expires: 0');
-				    header('Cache-Control: must-revalidate');
-				    header('Pragma: public');
-				    header('Content-Length: ' . filesize($file));
-				    readfile($file);
-				    exit;
-				}
-				break;
-			
-			default:
-				//version pas reconnue, on envoie rien à part un message?
-				break;
-		}
 	}
 
 	include_once('./views/admin.php');

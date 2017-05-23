@@ -5,6 +5,34 @@
         <title><?php echo TXT_TAB_ADMIN; ?></title>
         <!-- Import des fichiers spécifiques à cette page -->
         <link rel="stylesheet" href="css/admin.css" type="text/css">
+        <script type="text/javascript">
+        	function collectionSelecChange(value) {
+        		if (value === "other") {
+        			var newSpanText = document.createElement("span");
+        			newSpanText.id = "add-collection-span";
+        			newSpanText.innerHTML = "Attention, ceci va créer une nouvelle collection sur la page catalogue";
+
+        			var newInputBox = document.createElement("input");
+        			newInputBox.id = "add-collection-input";
+        			newInputBox.setAttribute("type", "text");
+        			newInputBox.setAttribute("name", "new_collection");
+
+        			var selectBlock = document.getElementById("select-collection");
+        			selectBlock.parentNode.insertBefore(newInputBox , selectBlock.nextSibling);
+        			newInputBox.parentNode.insertBefore(newSpanText , newInputBox.nextSibling);
+        		} else {
+        			var uselessInputBox = document.getElementById("add-collection-input");
+        			var uselessSpanText = document.getElementById("add-collection-span");
+
+        			if (uselessInputBox !== null) {
+        				uselessInputBox.parentNode.removeChild(uselessInputBox);
+        			}
+        			if (uselessSpanText !== null) {
+        				uselessSpanText.parentNode.removeChild(uselessSpanText);
+        			}
+        		}
+        	}
+        </script>
         <?php if (isset($json_retrieved_users)) { ?>
         <script type="text/javascript">
         	//création du tableau d'users
@@ -73,7 +101,7 @@
 				console.log("val" + $(this).find("cell-id").val());
     			});
 			});
-        </script> 
+        </script>
         <?php } ?>
 	</head>	
 	<body>
@@ -167,7 +195,7 @@
 
 							<div class="row thumbnail">
 								<h3><?php echo TXT_NOUVEL_ARTISTE; ?></h3>
-								<?php if(isset($new_author_msg)) {echo "<b>$new_author_msg</b><br>";} ?>
+								<?php if(isset($new_author_msg)) echo "<b>$new_author_msg</b><br>"; ?>
 								<form action="" method="POST" enctype="multipart/form-data">
 									<input type="text" name="firstname" placeholder="<?php echo TXT_PLACEHOLDER_FIRSTNAME; ?>" >
 									<input type="text" name="name" placeholder="<?php echo TXT_PLACEHOLDER_NAME; ?>" required>
@@ -183,46 +211,43 @@
 									<input type="submit" name="new_artist_form" class="btn btn-primary" value="<?php echo TXT_CREER_ARTISTE; ?>">
 								</form>
 							</div>
-	
-					<!--		on cache tout pour la 1.0 tant que c'est pas fonctionnel
+
 								<div class="row thumbnail">
-								<p><?php echo TXT_AJOUT_BOOK; ?></p>
-								<p><?php if (isset($dl_fail_error)) echo TXT_ERR_UPLOAD_FAIL; ?></p>
-								<p><?php if (isset($incorrect_file_extension_error)) echo TXT_ERR_INCORRECT_FILE_EXTENSION; ?></p>
+								<h3><?php echo TXT_AJOUT_BOOK; ?></h3>
+								<?php if(isset($new_book_msg)) echo "<p><b>$new_book_msg</b><p>"; ?>
+								<!-- Supprimer les deux autres messages -->
+								<?php if (isset($dl_fail_error)) echo TXT_ERR_UPLOAD_FAIL; ?>
+								<?php if (isset($incorrect_file_extension_error)) echo TXT_ERR_INCORRECT_FILE_EXTENSION; ?>
 								<form action="admin.php" method="post" enctype="multipart/form-data">
-									<!-- <label for="new_book_form"><?php echo TXT_AJOUT_BOOK2; ?></label><br> -->
-					<!--				<?php echo TXT_FICHIER_COMPLET; ?>
-									<div class="fileUpload btn btn-primary">
-										<span>Upload</span>		
-										<input type="file" name="full_book_file" required/>					
-									</div>
+									<!-- on peut mettre des labels mais j'aime pas ça fait juste du texte en gras<label for="new_book_form"><?php echo TXT_FICHIER_COMPLET; ?></label> -->
+									<?php echo TXT_FICHIER_COMPLET; ?>
+									<input class="btn btn-file" type="file" name="full_book_file" required>
+									<br><?php echo TXT_FICHIER_EXTRAIT; ?>
+									<input class="btn btn-file" type="file" name="extract_book_file" required>
+									<br><?php echo TXT_BOOK_DESCRIPTION_FILE; ?>
+									<input class="btn btn-file" type="file" name="description_book_file" required>
+									<br>Titre du book : 
+									<input type="text" name="title" placeholder="<?php echo TXT_PLACEHOLDER_TITRE; ?>" required>
+									<br>L'artiste auteur du book : 
+									<select name="author" required>
+										<?php foreach ($sql->getAuthorsSortedAlphabetical() as $artist) {
+											echo "<option value='".$artist->getAuthorID()."'>".$artist->getAuthorName()."</option>";
+										} ?>
+									</select>
+									<br><?php echo TXT_COLLECTION; ?>
+									<select id="select-collection" name="collection" onchange="collectionSelecChange(value);" required>
+										<?php foreach ($sql->getAvalaibleCollections() as $collection) {
+											echo '<option value="'.$collection.'">'.$collection.'</option>';
+										}  ?>
+										<option value="other">Autre: nouvelle collection</option>
+									</select>
+									<br><?php echo TXT_PUBLISH_DATE; ?><input type="date" name="publish_date" value="<?php echo date("Y-m-d"); ?>" min="2015-01-01" required>
 									<br>
-									<?php echo TXT_FICHIER_EXTRAIT; ?>
-									<div class="fileUpload btn btn-primary">
-										<span>Upload</span>		
-										<input type="file" name="extract_book_file" required/>				
-									</div>
-									<br>
-									<?php echo TXT_BOOK_DESCRIPTION_FILE; ?>
-									<div class="fileUpload btn btn-primary">
-										<span>Upload</span>		
-										<input type="file" name="description_book_file"/>				
-									</div>
-									<br>
-									<!-- Autre façon de faire
-									<div class="fileUpload btn btn-primary">
-										<span>Upload</span>		
-										<input type="file" class="book_file" />						
-									</div				-->							
-					<!--				<input type="text" name="title" placeholder=<?php echo '"'.TXT_PLACEHOLDER_TITRE.'"'; ?> required><br>
-									<?php echo TXT_COLLECTION; ?><select name="collection" required>
-										<option value="opening book"><?php echo TXT_COLLECTION_OPENINGBOOK; ?></option>
-										<option value="opening book photo"><?php echo TXT_COLLECTION_OPENINGBOOK_PHOTO; ?></option>
-									</select><br>
-									<?php echo TXT_ANNEE; ?><input type="number" name="publish_date" value="<?php echo date("YYYY-MM-DD"); ?>" min="2015-01-01" required><br>
-									<input type="submit" class="btn btn-primary" name="new_book_form" value=<?php echo '"'.TXT_BOUTON_CREER_BOOK.'"'; ?>>	
+									<input type="submit" class="btn btn-primary" name="new_book_form" value="<?php echo TXT_BOUTON_CREER_BOOK; ?>">	
 								</form>	 
 							</div>
+
+							<!--		on cache tout pour la 1.0 tant que c'est pas fonctionnel
 	
 							<div class="row">
 							    <h1 class="Section"><?php echo TXT_SECTION_NEWS; ?></h1>

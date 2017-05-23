@@ -165,7 +165,7 @@
 	define('TXT_COLLECTION', "Collection : ");
 	define('TXT_COLLECTION_OPENINGBOOK', "OpeningBook");
 	define('TXT_COLLECTION_OPENINGBOOK_PHOTO', "OpeningBook Photo");
-	define('TXT_ANNEE', "Année : ");
+	define('TXT_PUBLISH_DATE', "Publish date : ");
 	define('TXT_BOUTON_CREER_BOOK', "Créer le book");
 	define('TXT_COLLECTION_OPENINGBOOK_AUTRE', "Nouvelle collection");
 	define('TXT_PLACEHOLDER_TITRE', "Titre");

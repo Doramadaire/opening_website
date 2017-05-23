@@ -161,13 +161,13 @@
 
 	define('TXT_AJOUT_BOOK', "Ajout d'un objet book");
 	define('TXT_AJOUT_BOOK2', "On va ajouter un book");
-	define('TXT_FICHIER_COMPLET', "Le fichier du book : ");
+	define('TXT_FICHIER_COMPLET', "Le fichier du book complet : ");
 	define('TXT_FICHIER_EXTRAIT', "Le fichier de l'extrait : ");
 	define('TXT_BOOK_DESCRIPTION_FILE', "Le fichier de description du book : ");
 	define('TXT_COLLECTION', "Collection : ");
 	define('TXT_COLLECTION_OPENINGBOOK', "OpeningBook");
 	define('TXT_COLLECTION_OPENINGBOOK_PHOTO', "OpeningBook Photo");
-	define('TXT_ANNEE', "Année : ");	
+	define('TXT_PUBLISH_DATE', "Date de publication 20AA-MM-JJ : ");	
 	define('TXT_BOUTON_CREER_BOOK', "Créer le book");	
 	define('TXT_COLLECTION_OPENINGBOOK_AUTRE', "Nouvelle collection");
 	define('TXT_PLACEHOLDER_TITRE', "Titre");
