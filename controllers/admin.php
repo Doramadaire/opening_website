@@ -122,8 +122,6 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 	}
 
 	if (isset($_POST['new_artist_form'])) {
-		/*echo isset($_POST['artist_cv_file']);
-		echo "<br>y avait un fichier?";*/
 		$new_author_msg = "";
 		$cv_filename = NULL;
 		$description_filename_fr = NULL;
@@ -219,6 +217,8 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 
 	if (isset($_POST['new_book_form'])) {
 		$new_book_msg = "Haha je t'ai vu t'as cliqué! Bon désolé en fait ça rien pour l'instant...";
+		//loo over DL files
+		//$dl_files = array("full_book_file", "extract_book_file", );
 		/*
 		if ($_FILES['full_book_file']['error'] > 0 and $_FILES['extract_book_file']['error'] > 0) {
 			$dl_fail_error = true;

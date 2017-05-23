@@ -10,7 +10,7 @@
         		if (value === "other") {
         			var newSpanText = document.createElement("span");
         			newSpanText.id = "add-collection-span";
-        			newSpanText.innerHTML = "Attention, ceci va créer une nouvelle collection sur la page catalogue";
+        			newSpanText.innerHTML = "Attention, ceci va créer une nouvelle collection sur la page catalogue<br>";
 
         			var newInputBox = document.createElement("input");
         			newInputBox.id = "add-collection-input";
@@ -222,13 +222,22 @@
 									<!-- on peut mettre des labels mais j'aime pas ça fait juste du texte en gras<label for="new_book_form"><?php echo TXT_FICHIER_COMPLET; ?></label> -->
 									<?php echo TXT_FICHIER_COMPLET; ?>
 									<input class="btn btn-file" type="file" name="full_book_file" required>
-									<br><?php echo TXT_FICHIER_EXTRAIT; ?>
+									<?php echo TXT_FICHIER_EXTRAIT; ?>
 									<input class="btn btn-file" type="file" name="extract_book_file" required>
-									<br><?php echo TXT_BOOK_DESCRIPTION_FILE; ?>
-									<input class="btn btn-file" type="file" name="description_book_file" required>
+									<!-- <br><?php echo TXT_BOOK_DESCRIPTION_FILE; ?> -->
+									<br>Le fichier de description du book en <b>français</b>:
+									<input class="btn btn-file" type="file" name="description_book_file_fr" required>
+									et celui en <b>anglais</b> :
+									<input class="btn btn-file" type="file" name="description_book_file_en" required>
+									<br>La couverture du book (616x600) <b>complet</b>:
+									<input class="btn btn-file" type="file" name="cover_file" required>
+									et celle de <b>l'extrait</b> :
+									<input class="btn btn-file" type="file" name="cover_file_extract" required>
+									<br>La vignette du book (450x438) :
+									<input class="btn btn-file" type="file" name="thumbnail_file" required>
 									<br>Titre du book : 
 									<input type="text" name="title" placeholder="<?php echo TXT_PLACEHOLDER_TITRE; ?>" required>
-									<br>L'artiste auteur du book : 
+									L'artiste auteur du book : 
 									<select name="author" required>
 										<?php foreach ($sql->getAuthorsSortedAlphabetical() as $artist) {
 											echo "<option value='".$artist->getAuthorID()."'>".$artist->getAuthorName()."</option>";
@@ -241,7 +250,7 @@
 										}  ?>
 										<option value="other">Autre: nouvelle collection</option>
 									</select>
-									<br><?php echo TXT_PUBLISH_DATE; ?><input type="date" name="publish_date" value="<?php echo date("Y-m-d"); ?>" min="2015-01-01" required>
+									<?php echo TXT_PUBLISH_DATE; ?><input type="date" name="publish_date" value="<?php echo date("Y-m-d"); ?>" min="2015-01-01" required>
 									<br>
 									<input type="submit" class="btn btn-primary" name="new_book_form" value="<?php echo TXT_BOUTON_CREER_BOOK; ?>">	
 								</form>	 
