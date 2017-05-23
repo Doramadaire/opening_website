@@ -30,7 +30,7 @@
 		private $search_name;
 
 	    /** 
-	     * Le compte utilisateur du site que posséde l'auteur
+	     * L'id du compte utilisateur que posséde l'auteur
 	     *
 	     * @var int
 	     * @access private

@@ -121,69 +121,99 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 		}
 	}
 
-	if (isset($_POST['new_author_form'])) {
-		/*echo isset($_POST['author_cv_file']);
+	if (isset($_POST['new_artist_form'])) {
+		/*echo isset($_POST['artist_cv_file']);
 		echo "<br>y avait un fichier?";*/
+		$new_author_msg = "";
 		$cv_filename = NULL;
-		$description_filename = NULL;
+		$description_filename_fr = NULL;
+		$description_filename_en = NULL;
 
-		if ($_FILES['author_cv_file']['error'] > 0) {
-			$dl_fail_error = true;
+		$file_upload_success_sofar = true;
+
+		if ($_FILES['artist_cv_file']['error'] > 0) {
+			$file_upload_success_sofar = false;
 		} else {
-			$cv_extension = strtolower(substr(strrchr($_FILES['author_cv_file']['name'], '.'), 1));
+			$cv_extension = strtolower(substr(strrchr($_FILES['artist_cv_file']['name'], '.'), 1));
 			if ($cv_extension != "pdf") {
 				$incorrect_file_extension_error = true;
 			} else {
-				$cv_filename = $_FILES['author_cv_file']['name'];
-				$path = "/home/openingbqo/opening_website/assets/artists/cv/".$cv_filename;
-				$move_file = move_uploaded_file($_FILES['author_cv_file']['tmp_name'], $path);
-				/*if ($move_file) {
-					import cv réussi
-				}*/
+				$cv_filename = $_FILES['artist_cv_file']['name'];
+				$path = "assets/cv/".$cv_filename;
+				$move_file = move_uploaded_file($_FILES['artist_cv_file']['tmp_name'], $path);
+				if (!$move_file) {
+					$file_upload_success_sofar = false;
+				}
 			}			
 		}
 
-		if ($_FILES['author_description_file']['error'] > 0) {
-			$dl_fail_error = true;
+		if ($_FILES['artist_description_file_fr']['error'] > 0) {
+			$file_upload_success_sofar = false;
 		} else {
-			$description_extension = strtolower(substr(strrchr($_FILES['author_description_file']['name'], '.')  ,1)  );
+			$description_extension = strtolower(substr(strrchr($_FILES['artist_description_file_fr']['name'], '.')  ,1)  );
 			if ($description_extension != "txt") {
 				$incorrect_file_extension_error = true;
 			} else {
-				$description_filename = $_FILES['author_description_file']['name'];
-				$path = "/home/openingbqo/opening_website/assets/artists/description/".$description_filename;
-				$move_file = move_uploaded_file($_FILES['author_description_file']['tmp_name'], $path);
-				/*if ($move_file) {
-					import description
-				}*/
+				$description_filename_fr = $_FILES['artist_description_file_fr']['name'];
+				$path = "assets/artists_descriptions/fr/".$description_filename_fr;
+				$move_file = move_uploaded_file($_FILES['artist_description_file_fr']['tmp_name'], $path);
+				if (!$move_file) {
+					$file_upload_success_sofar = false;
+				}
 			}			
 		}
 
-		$new_user_mail = stripslashes($_POST['mail']);
-		$new_user_sub_date = $_POST['subscripion_end_date'];
-		//Si on utilise le formulaire, c'est pour créer un auteur
-		$new_user_type = 3;
-		$new_user_firstname = isset($_POST['firstname']) ? $_POST['firstname'] : NULL;
-		$new_user_name = isset($_POST['name']) ? $_POST['name'] : NULL;
+		//rebelote en anglais
+		if ($_FILES['artist_description_file_en']['error'] > 0) {
+			$file_upload_success_sofar = false;
+		} else {
+			$description_extension = strtolower(substr(strrchr($_FILES['artist_description_file_en']['name'], '.')  ,1)  );
+			if ($description_extension != "txt") {
+				$incorrect_file_extension_error = true;
+			} else {
+				$description_filename_en = $_FILES['artist_description_file_en']['name'];
+				$path = "assets/artists_descriptions/en/".$description_filename_en;
+				$move_file = move_uploaded_file($_FILES['artist_description_file_en']['tmp_name'], $path);
+				if (!$move_file) {
+					$file_upload_success_sofar = false;
+				}
+			}			
+		}
 
-		$isUserCreated = createUser($new_user_mail, $new_user_type, $new_user_sub_date, $new_user_firstname, $new_user_name);
+		if (strcmp($description_filename_fr, $description_filename_en) != 0) {
+			$file_upload_success_sofar = false;
+			$new_author_msg .= "fr_file=$description_filename_fr<br>";
+			$new_author_msg .= "en_file=$description_filename_en<br>";
+			$new_author_msg .= "Erreur : les 2 fichiers de description doivent avoir le même nom<br>";
+		}
 
-		 if ($isUserCreated) {
-		 	$user = unserialize($sql->getUserByExactMail($new_user_mail));
-		 	$user_id = $user->getUserID();
+		if ($file_upload_success_sofar) {
+			//files correctly uploaded, we go on
+			$new_user_mail = stripslashes($_POST['mail']);
+			$new_user_sub_date = $_POST['subscripion_end_date'];
+			//Si on utilise le formulaire, c'est pour créer un auteur
+			$new_user_type = 4;
+			$new_user_firstname = isset($_POST['firstname']) ? $_POST['firstname'] : NULL;
+			$new_user_name = $_POST['name'];
 
-		 	$description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
-		 	//DEVDEV a verifier
-		 	//$new_author = new Author(0, $_POST['artist_name'], $user_id, $description_filename, $cv_filename);
+			$isUserCreated = createUser($new_user_mail, $new_user_type, $new_user_sub_date, $new_user_firstname, $new_user_name);
 
-		 	$success = $sql->addAuthor($new_author);
-		 	if ($success) {
-		 		echo "ajout auteur réussi";
-		 	} else {
-		 		echo "ajout auteur BDD raté";
-		 	}
+			if ($isUserCreated) {
+			 	$user = unserialize($sql->getUserByExactMail($new_user_mail));
+			 	$user_id = $user->getUserID();
+
+			 	$new_author = new Author(0, $_POST['artist_name'], $user_id, $new_user_name, $description_filename_fr, $cv_filename);
+				$success = $sql->addAuthor($new_author);
+				if ($success) {
+					$new_author_msg .= "Succès : creation du compte artiste réussi";
+				} else {
+					$new_author_msg .= "Echec lors de la creation du compte artiste";
+				}
+			} else {
+				$new_author_msg .= "Echec lors de la creation du compte user de l'artiste";
+			}
 		 } else {
-		 	echo "<br>pb création auteur - (et même avant lors de la création de l'user)";
+		 	$new_author_msg .= "Echec lors de l'upload des fichiers de l'artiste";
 		 }
 	}
 

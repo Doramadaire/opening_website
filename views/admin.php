@@ -167,25 +167,20 @@
 
 							<div class="row thumbnail">
 								<h3><?php echo TXT_NOUVEL_ARTISTE; ?></h3>
+								<?php if(isset($new_author_msg)) {echo "<b>$new_author_msg</b><br>";} ?>
 								<form action="" method="POST" enctype="multipart/form-data">
 									<input type="text" name="firstname" placeholder="<?php echo TXT_PLACEHOLDER_FIRSTNAME; ?>" >
-									<input type="text" name="name" placeholder="<?php echo TXT_PLACEHOLDER_NAME; ?>" >
+									<input type="text" name="name" placeholder="<?php echo TXT_PLACEHOLDER_NAME; ?>" required>
 									<input type="text" name="mail" placeholder="<?php echo TXT_PLACEHOLDER_MAIL; ?>" required>
 									<input type="text" name="artist_name" placeholder="<?php echo TXT_PLACEHOLDER_ARTIST_NAME; ?>" required>
 									<input type="date" name="subscripion_end_date" placeholder="<?php echo TXT_PLACEHOLDER_DATE; ?>" required>
+									<br><?php echo TXT_AUTHOR_SUBMIT_CV; ?><input class="btn btn-file" type="file" name="artist_cv_file" required>
+									<br>Fichier .txt de description de l'artiste en français :
+									<input class="btn btn-file" type="file" name="artist_description_file_fr" required>
+									<br>Fichier .txt de description de l'artiste en anglais :
+									<input class="btn btn-file" type="file" name="artist_description_file_en" required>
 									<br>
-									<?php echo TXT_AUTHOR_SUBMIT_CV; ?>
-									<div class="fileUpload btn btn-primary">
-										<span>Upload</span>
-										<input type="file" name="author_cv_file">
-									</div>
-									<br>Fichier .txt (en français) de description de l'artiste :
-									<div class="fileUpload btn btn-primary">
-										<span>Upload</span>
-										<input type="file" name="author_description_file">
-									</div>
-									<br>
-									<input type="submit" name="new_author_form" class="btn btn-primary" value="<?php echo TXT_CREER_ARTISTE; ?>" >
+									<input type="submit" name="new_artist_form" class="btn btn-primary" value="<?php echo TXT_CREER_ARTISTE; ?>">
 								</form>
 							</div>
 	
@@ -261,17 +256,11 @@
 								<p><?php if (isset($incorrect_file_extension_error)) echo TXT_ERR_INCORRECT_FILE_EXTENSION; ?></p> -->
 								<!-- Autre façon de faire pour l'upload de fichier : voir upload book -->
 								<form action="admin.php" method="post" enctype="multipart/form-data">
-									<?php echo TXT_LANG_FILE_FR; ?>
-									<div class="fileUpload btn btn-primary">
-										<span>Upload</span>		
-										<input type="file" name="fr_lang_file" required/>			
-									</div>	
+									<?php echo TXT_LANG_FILE_FR; ?>	
+									<input class="btn btn-file" type="file" name="fr_lang_file" required/>			
 									<br>							
 									<?php echo TXT_LANG_FILE_EN; ?>
-									<div class="fileUpload btn btn-primary">
-										<span>Upload</span>		
-										<input type="file" name="en_lang_file" required/>		
-									</div>	
+									<input class="btn btn-file" type="file" name="en_lang_file" required/>
 									<br>
 									<!-- pour rajouter des langues
 									<?php echo TXT_LANG_FILE_DE; ?>
