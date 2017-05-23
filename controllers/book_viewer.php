@@ -37,7 +37,10 @@
 
         //DEVDEv on prend le 1er auteur c'est moche - faire boucle sur chaque auteur
         $book_author = unserialize($sql->getAuthorByID($book->getBookAuthors()[0]));
-        $cv_link = "/assets/cv/".$book_author->getAuthorCV();
+        $author_cv_filename = $book_author->getAuthorCV();
+        if (!is_null($author_cv_filename)) {
+            $cv_link = "/assets/cv/".$author_cv_filename;
+        }
 
         $artist_description_filename = "assets/artists_descriptions/".$lang."/".$book_author->getAuthorDescription();
         //set_include_path(get_include_path() . PATH_SEPARATOR . $path);

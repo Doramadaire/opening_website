@@ -202,7 +202,7 @@
 									<input type="text" name="mail" placeholder="<?php echo TXT_PLACEHOLDER_MAIL; ?>" required>
 									<input type="text" name="artist_name" placeholder="<?php echo TXT_PLACEHOLDER_ARTIST_NAME; ?>" required>
 									<input type="date" name="subscripion_end_date" placeholder="<?php echo TXT_PLACEHOLDER_DATE; ?>" required>
-									<br><?php echo TXT_AUTHOR_SUBMIT_CV; ?><input class="btn btn-file" type="file" name="artist_cv_file" required>
+									<br><?php echo TXT_AUTHOR_SUBMIT_CV; ?><input class="btn btn-file" type="file" name="artist_cv_file">
 									<br>Fichier .txt de description de l'artiste en français :
 									<input class="btn btn-file" type="file" name="artist_description_file_fr" required>
 									<br>Fichier .txt de description de l'artiste en anglais :

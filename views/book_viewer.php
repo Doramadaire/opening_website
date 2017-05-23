@@ -69,7 +69,7 @@
         					//En tant qu'adhérent vous avez accès à l'ensemble des books<br> -->
                             //DEVEVDV mettre une marge en CSS plutot que un br? -->
                         }
-                    } 
+                    }
                     echo TXT_BOOK_VIEWER_EXPLANATION; ?>
                 </div>
                 <div class="row">
@@ -84,7 +84,9 @@
                 <div class="row thumbnail author_cv">
                     <h3><?php echo $book_author->getAuthorName(); ?></h3>
                     <?php echo $artist_description; ?>
-                    <a href="<?php echo $cv_link; ?>" target="_blank"><?php echo TXT_ARTIST_CV; ?></a>
+                    <?php if (isset($cv_link)) { ?>
+                        <a href="<?php echo $cv_link; ?>" target="_blank"><?php echo TXT_ARTIST_CV; ?></a>
+                    <?php } ?>
                 </div>
                 <!--<div class="row">
                     <div class="thumbnail">

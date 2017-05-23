@@ -131,20 +131,22 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 
 		$file_upload_success_sofar = true;
 
-		if ($_FILES['artist_cv_file']['error'] > 0) {
-			$file_upload_success_sofar = false;
-		} else {
-			$cv_extension = strtolower(substr(strrchr($_FILES['artist_cv_file']['name'], '.'), 1));
-			if ($cv_extension != "pdf") {
-				$incorrect_file_extension_error = true;
+		if (isset($_POST['artist_cv_file'])) {
+			if ($_FILES['artist_cv_file']['error'] > 0) {
+				$file_upload_success_sofar = false;
 			} else {
-				$cv_filename = $_FILES['artist_cv_file']['name'];
-				$path = "assets/cv/".$cv_filename;
-				$move_file = move_uploaded_file($_FILES['artist_cv_file']['tmp_name'], $path);
-				if (!$move_file) {
-					$file_upload_success_sofar = false;
+				$cv_extension = strtolower(substr(strrchr($_FILES['artist_cv_file']['name'], '.'), 1));
+				if ($cv_extension != "pdf") {
+					$incorrect_file_extension_error = true;
+				} else {
+					$cv_filename = $_FILES['artist_cv_file']['name'];
+					$path = "assets/cv/".$cv_filename;
+					$move_file = move_uploaded_file($_FILES['artist_cv_file']['tmp_name'], $path);
+					if (!$move_file) {
+						$file_upload_success_sofar = false;
+					}
 				}
-			}			
+			}
 		}
 
 		if ($_FILES['artist_description_file_fr']['error'] > 0) {
