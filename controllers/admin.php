@@ -85,39 +85,34 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 	}
 
 	if (isset($_POST['search_user_form'])) {
+		$search_user_msg = "";
+
 		$mail_searched = stripslashes($_POST['mail']);
 		$retrieved_users = $sql->getUserByMail('%'.$mail_searched.'%');	
 
 		if ($retrieved_users != null) {
 			//Trouvé!
-			$msg_user_search = "";
-			$msg_user_search = "réussi<br>";
+			$search_user_msg .= "recherche réussi<br>";
 			$json_retrieved_users = json_encode($retrieved_users);
-			//foreach ($retrieved_users as $user) {
-				//$msg_user_search = $msg_user_search.$user->toString()."<br>";
 		} else {
 			//aucun compte n'existe avec cette adresse
-			//faire variable booléenne qui vaut true si on affiche un message
-			//le message est définie dans la constanste...
-			$msg_user_search = "Pas d'utilisateur correspondant trouvé";
+			$search_user_msg .= "Pas d'utilisateur correspondant trouvé";
 		}
 	}
 
-	if (isset($_POST['search_author_form'])) {
-		$pseudo_searched = stripslashes($_POST['author_pseudo']);
-		$retrieved_authors = $sql->getAuthorsByName('%'.$pseudo_searched.'%');
+	if (isset($_POST['search_artist_form'])) {
+		$search_artist_msg = "";
 
-		if ($retrieved_authors != null) {
+		$pseudo_searched = stripslashes($_POST['author_pseudo']);
+		$retrieved_artists = $sql->getAuthorsByName('%'.$pseudo_searched.'%');
+
+		if ($retrieved_artists != null) {
 			//Trouvé!
-			$msg_author_search = "";
-			foreach ($retrieved_authors as $index => $author) {
-				$msg_author_search = $msg_author_search.$author->toString()."<br>";
-			}
+			$search_artist_msg .= "recherche réussi<br>";
+			$json_retrieved_artists = json_encode($retrieved_artists);
 		} else {
 			//aucun compte n'existe avec cette adresse
-			//faire variable booléenne qui vaut true si on affiche un message
-			//le message est définie dans la constanste...
-			$msg_author_search = "Pas d'auteur correspondant trouvé";
+			$search_artist_msg = "Pas d'auteur correspondant trouvé";
 		}
 	}
 

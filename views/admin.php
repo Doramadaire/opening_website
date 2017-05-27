@@ -52,11 +52,17 @@
         		var header = retrieved_users_table.createTHead();
         		var row = header.insertRow(0);
         		var cellId = row.insertCell(-1);
-        		var cellMail = row.insertCell(-1);
-        		var cellName = row.insertCell(-1);
+				var cellMail = row.insertCell(-1);
+				var cellFirstname = row.insertCell(-1);
+				var cellLastname = row.insertCell(-1);
+				var cellStatus = row.insertCell(-1);
+				var cellSubscriptionDate = row.insertCell(-1);
 				cellId.innerHTML = 'user_id';
 				cellMail.innerHTML = 'mail';
-				cellName.innerHTML = 'name';
+				cellFirstname.innerHTML = 'prenom';
+				cellLastname.innerHTML = 'nom';
+				cellStatus.innerHTML = 'statut';
+				cellSubscriptionDate.innerHTML = 'date fin adhesion';
 
 				var body = document.createElement('tbody');
 				retrieved_users_table.appendChild(body);
@@ -78,11 +84,18 @@
 				    var cellId = row.insertCell(-1);
 				    cellId.className = "cell-id";
 				    var cellMail = row.insertCell(-1);
-				    var cellName = row.insertCell(-1);
+				    var cellFirstname = row.insertCell(-1);
+				    var cellLastname = row.insertCell(-1);
+				    var cellStatus = row.insertCell(-1);
+				    var cellSubscriptionDate = row.insertCell(-1);
 
 				    cellId.innerHTML = user['id'];
 				    cellMail.innerHTML = user['mail'];
-				    cellName.innerHTML = user['name'];
+					cellFirstname.innerHTML = user['firstname'];
+					cellLastname.innerHTML = user['name'];
+					cellStatus.innerHTML = user['status'];
+					cellSubscriptionDate.innerHTML = user['subscription_date'];
+
 				    //console.log("id=" + user['id'] + " mail=" + user['mail']);
 				}
         		var parent = document.getElementById("search_user");
@@ -91,16 +104,72 @@
 			}
 
 			$(function() {
-			    console.log("ready!");
+			    //console.log("ready!");
 			    createUserTable();
 
+			    /*
 			    $(".user-row").click(function() {
 				console.log("click sur ma ligne");
 				console.log($(this).find("cell-id"));
-				console.log("html" + $(this).find("cell-id").html());
+				consol e.log("html" + $(this).find("cell-id").html());
 				console.log("text" + $(this).find("cell-id").text());
 				console.log("val" + $(this).find("cell-id").val());
-    			});
+				});*/
+			});
+        </script>
+        <?php } ?>
+
+        <?php if (isset($json_retrieved_artists)) { ?>
+        <script type="text/javascript">
+		//création du tableau d'artistes
+
+			function createArtistTable() {
+				var json_retrieved_artists = '<?php echo $json_retrieved_artists; ?>';
+				var retrieved_artists = JSON.parse(json_retrieved_artists);
+
+				var retrieved_artist_table = document.createElement("table");
+				retrieved_artist_table.className = "table table-striped";
+
+				//on fabrique la 1ère ligne
+				var header = retrieved_artist_table.createTHead();
+				var row = header.insertRow(0);
+				var cellId = row.insertCell(-1);
+				var cellName = row.insertCell(-1);
+				//var cellSearchName = row.insertCell(-1);
+				var cellUserId = row.insertCell(-1);
+				cellId.innerHTML = 'artist_id';
+				cellName.innerHTML = 'nom';
+				//cellSearchName.innerHTML = 'nom recherche';
+				cellUserId.innerHTML = 'user_id';
+
+				var body = document.createElement('tbody');
+				retrieved_artist_table.appendChild(body);
+
+				var i = 0;
+				for (var i = 0; i < retrieved_artists.length; i++) {
+					artist = retrieved_artists[i];
+					var row = body.insertRow(-1);
+					row.className = "artist-row";
+
+				    var cellId = row.insertCell(-1);
+				    cellId.className = "cell-id";
+				    var cellName = row.insertCell(-1);
+				    //var cellSearchName = row.insertCell(-1);
+				    var cellUserId = row.insertCell(-1);
+
+				    cellId.innerHTML = artist['id'];
+				    cellName.innerHTML = artist['name'];
+					//cellSearchName.innerHTML = artist['search_name'];
+					cellUserId.innerHTML = artist['user'];
+
+				}
+				var parent = document.getElementById("search_artist");
+				var child = document.getElementById("retrieved_artist_table");
+				parent.replaceChild(retrieved_artist_table, child);
+			}
+
+			$(function() {
+			    createArtistTable();
 			});
         </script>
         <?php } ?>
@@ -133,20 +202,14 @@
 									<li>recherche et modifications d'un artiste</li>
 									<li>recherche et modifications d'un book</li>
 									<li>gestion des actualités</li>
-									<li>ajout d'un artiste</li>
-									<li>ajout d'un book</li>
 								</ul>
 							</div>
 
-							<!-- on cache tout pour la 1.0 tant que c'est pas fonctionnel
-	
 							<div id="search_user" class="row thumbnail">
 								<p><?php echo TXT_RECHERCHE_UTILISATEUR; ?></p>							
 								<!-- pouvoir faire une recherche sur les utilisateurs avec le mail - avoir l'info date de la cotis'-->
 								<!-- DEVDEV façon moche <?php  if (isset($msg_user_search)) { echo $msg_user_search."<br>";} ?> -->
-					<!--	<?php 	if (isset($_POST['search_user_form'])) {
-									echo "$msg_user_search";
-								} ?>
+								<?php if(isset($search_user_msg)) echo "<p><b>$search_user_msg</b><p>"; ?>
 									<div id="retrieved_users_table">
 										<?php 
 								        //DEVDEV faire une unique variable qui active ou pas le script
@@ -155,24 +218,21 @@
 									</div>
 									<form action="" method="POST">
 									<label for="user_type"><?php echo TXT_RECHERCHE_USER_QUESTION; ?></label><br>
-									<input type="text" name="mail" placeholder=<?php echo '"'.TXT_PLACEHOLDER_MAIL.'"'; ?> >
-									<input type="submit" name="search_user_form" class="btn btn-primary" value=<?php echo '"'.TXT_BOUTON_RECHERCHE_UTILISATEUR.'"'; ?>>	
-								</form>	
-							</div>
-	
-							<div class="row thumbnail">
-								<p><?php echo TXT_RECHERCHE_AUTHOR; ?></p>							
-								<!-- GERER MESSAGES MIEUX -->
-						<!--		<?php  if (isset($msg_author_search)) { echo $msg_author_search."<br>";} ?>
-								<form action="" method="POST">
-									<label for="user_type"><?php echo TXT_RECHERCHE_AUTHOR_QUESTION; ?></label><br>
-									<input type="text" name="author_pseudo" placeholder=<?php echo '"'.TXT_PLACEHOLDER_ARTIST_NAME.'"'; ?> >
-									<input type="submit" name="search_author_form" class="btn btn-primary" value=<?php echo '"'.TXT_BOUTON_SEARCH_AUTHOR.'"'; ?>>	
-								</form>	
+									<input type="text" name="mail" placeholder="<?php echo TXT_PLACEHOLDER_MAIL; ?>" >
+									<input type="submit" name="search_user_form" class="btn btn-primary" value="<?php echo TXT_BOUTON_RECHERCHE_UTILISATEUR; ?>" >
+								</form>
 							</div>
 
-							-->
-							<!-- La création d'user est fonctionnel et on en a besoin -->
+							<div id="search_artist" class="row thumbnail">
+								<p><?php echo TXT_RECHERCHE_AUTHOR; ?></p>
+								<?php if(isset($search_artist_msg)) echo "<p><b>$search_artist_msg</b><p>"; ?>
+								<div id="retrieved_artist_table"></div>
+								<form action="" method="POST">
+									<label for="user_type"><?php echo TXT_RECHERCHE_AUTHOR_QUESTION; ?></label><br>
+									<input type="text" name="author_pseudo" placeholder="<?php echo TXT_PLACEHOLDER_ARTIST_NAME; ?>" >
+									<input type="submit" name="search_artist_form" class="btn btn-primary" value="<?php echo TXT_BOUTON_SEARCH_AUTHOR; ?>" >
+								</form>	
+							</div>
 	
 							<div class="row thumbnail">
 								<h3><?php echo TXT_NOUVEL_UTILISATEUR; ?></h3>
