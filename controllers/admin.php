@@ -150,7 +150,7 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 		if ($_FILES['artist_description_file_fr']['error'] > 0) {
 			$file_upload_success_sofar = false;
 		} else {
-			$description_extension = strtolower(substr(strrchr($_FILES['artist_description_file_fr']['name'], '.')  ,1)  );
+			$description_extension = strtolower(substr(strrchr($_FILES['artist_description_file_fr']['name'], '.')  ,1));
 			if ($description_extension != "txt") {
 				$incorrect_file_extension_error = true;
 			} else {
@@ -167,7 +167,7 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 		if ($_FILES['artist_description_file_en']['error'] > 0) {
 			$file_upload_success_sofar = false;
 		} else {
-			$description_extension = strtolower(substr(strrchr($_FILES['artist_description_file_en']['name'], '.')  ,1)  );
+			$description_extension = strtolower(substr(strrchr($_FILES['artist_description_file_en']['name'], '.')  ,1));
 			if ($description_extension != "txt") {
 				$incorrect_file_extension_error = true;
 			} else {
@@ -177,7 +177,7 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 				if (!$move_file) {
 					$file_upload_success_sofar = false;
 				}
-			}			
+			}
 		}
 
 		if (strcmp($description_filename_fr, $description_filename_en) != 0) {
@@ -216,26 +216,101 @@ Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img sty
 	}
 
 	if (isset($_POST['new_book_form'])) {
-		$new_book_msg = "Haha je t'ai vu t'as cliqué! Bon désolé en fait ça rien pour l'instant...";
+		//$new_book_msg = "Haha je t'ai vu t'as cliqué! Bon désolé en fait ça rien pour l'instant...";
+		$new_book_msg = "";
 		//loo over DL files
-		//$dl_files = array("full_book_file", "extract_book_file", );
-		/*
-		if ($_FILES['full_book_file']['error'] > 0 and $_FILES['extract_book_file']['error'] > 0) {
-			$dl_fail_error = true;
-		} else {
-			$full_book_extension = strtolower(substr(strrchr($_FILES['full_book_file']['name'], '.')  ,1)  );
-			$book_extract_extension = strtolower(substr(strrchr($_FILES['extract_book_file']['name'], '.')  ,1)  );
-			if ($full_book_extension != "pdf" and $book_extract_extension != "pdf") {
-				$incorrect_file_extension_error = true;
-			} else {
-				$book_name = $_FILES['full_book_file']['name'];
-				//$book_extract_name = $_FILES['extract_book_file']['name'];
-				$full_book_path = "bbff/".$book_name;
-				//Le nom du fichier est le même pour les deux, seul le dossier change
-				$book_extract_path = "assets/extracts/".$book_name;
-			}			
+		$dl_files = array();
+		$dl_files[] = "full_book_file";
+		$dl_files[] = "extract_book_file";
+		$dl_files[] = "description_book_file_fr";
+		$dl_files[] = "description_book_file_en";
+		$dl_files[] = "cover_file";
+		$dl_files[] = "cover_file_extract";
+		$dl_files[] = "thumbnail_file";
+
+		$file_upload_success_sofar = true;
+
+		foreach ($dl_files as $file) {
+			if ($_FILES[$file]['error'] > 0) {
+				$file_upload_success_sofar = false;
+			}
 		}
-		*/
+		$new_book_filename = explode(".", $_FILES['full_book_file']['name'], 2)[0];
+
+		$move_file = move_uploaded_file($_FILES['description_book_file_fr']['tmp_name'], "assets/book_description/fr/".$new_book_filename.".txt");
+		if (!$move_file) {
+			$file_upload_success_sofar = false;
+		}
+
+		$move_file = move_uploaded_file($_FILES['description_book_file_en']['tmp_name'], "assets/book_description/en/".$new_book_filename.".txt");
+		if (!$move_file) {
+			$file_upload_success_sofar = false;
+		}
+
+		$move_file = move_uploaded_file($_FILES['thumbnail_file']['tmp_name'], "assets/thumbnails/".$new_book_filename.".jpg");
+		if (!$move_file) {
+			$file_upload_success_sofar = false;
+		}
+
+		$move_file = move_uploaded_file($_FILES['cover_file']['tmp_name'], "assets/covers/".$new_book_filename.".jpg");
+		if (!$move_file) {
+			$file_upload_success_sofar = false;
+		}
+
+		$move_file = move_uploaded_file($_FILES['cover_file_extract']['tmp_name'], "assets/covers/".$new_book_filename."_EXTRAIT.jpg");
+		if (!$move_file) {
+			$file_upload_success_sofar = false;
+		}
+
+		if ($file_upload_success_sofar) {
+			$move_file = move_uploaded_file($_FILES['extract_book_file']['tmp_name'], "assets/extracts/".$new_book_filename."_EXTRAIT.pdf");
+			if (!$move_file) {
+				$file_upload_success_sofar = false;
+			}
+		}
+
+		if ($file_upload_success_sofar) {
+			$move_file = move_uploaded_file($_FILES['full_book_file']['tmp_name'], "bbff/".$new_book_filename.".pdf");
+			if (!$move_file) {
+				$file_upload_success_sofar = false;
+			}
+		}
+
+		//upload des fichiers sur le serveur réussis!
+		if ($file_upload_success_sofar) {
+			$infos_seems_correct = true;
+			$title = $_POST['title'];
+			$authors_ids = array();
+			$authors_ids[] = $_POST['author']; //l'id de l'auteur specifie
+			$collection = $_POST['collection'];
+			if ($collection === "other") {
+				if (isset($_POST['new_collection'])) {
+					$collection = $_POST['new_collection'];
+				} else {
+					$infos_seems_correct = false;
+					$new_book_msg .= "Erreur : pas de nom specifie pour la nouvelle collection<br>";
+				}
+			}
+			$publish_date = $_POST['publish_date'];
+			$date_format = '%Y-%m-%d';
+			if (strptime($publish_date, $date_format)) {
+				//Date valide, tout est bon on peut créer notre user!
+			} else {
+				$infos_seems_correct = false;
+				$new_book_msg .= "Erreur : la date specifie n'est pas au format valide<br>";
+			}
+
+			if ($infos_seems_correct) {
+				$new_book = new Book(0, $title, $new_book_filename, $authors_ids, $collection, $publish_date);
+				if ($sql->addBook($new_book)) {
+					$new_book_msg .= "Ajout du book réussi";
+				} else {
+					$new_book_msg .= "Echec de l'ajout du book à la base de données";
+				}
+			}
+		} else {
+			$new_book_msg .= "upload failed :/";
+		}
 	}
 
 	if (isset($_POST['set_lang_files_form'])) {
