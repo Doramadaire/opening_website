@@ -49,7 +49,7 @@
                     <br>cours Joseph Thierry, Marseille
                     </p>
                     <p>
-                    <b>Aldric Mathieu</b>, exposition collective <i>« Sur fond blanc »</i> 
+                    <b>Aldric Mathieu</b>, exposition collective <i>« Sur fond blanc »</i>
                     du 7 avril au 28 mai 2017, Centre d'Art Langage Plus, Alma, Québec
                     </p>
                     <p>
@@ -58,7 +58,7 @@
 
                     <p>
                     Exposition <b>Emmanuelle Germain</b> du 30 mai au 10 juin à la Galerie Charivari 7 rue Fontange, Marseille
-                    <br>vernissage jeudi 1 juin
+                    <br>vernissage jeudi 1 juin à partir de 18h30
                     </p>
 
                     <i>Juin</i>
