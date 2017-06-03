@@ -241,7 +241,7 @@
 								<form action="" method="POST">
 									<label for="user_type"><?php echo TXT_TYPE_COMPTE; ?></label><br>
 									<select name="user_type" required>
-										<!-- <option value=2><?php echo TXT_TYPE_NON_ADHERENT; ?></option> je désactive car dans les faits je m'en sert pas, mais je me sers de la date de subscription... -->
+										<option value=2><?php echo TXT_TYPE_PRESENTATION; ?></option>
 										<option value=3><?php echo TXT_TYPE_ADHERENT; ?></option>
 										<!-- il faut crer le compte artiste associe en meme temps <option value=4><?php echo TXT_TYPE_ARTISTE; ?></option> -->
 										<option value=5><?php echo TXT_TYPE_ADMINISTRATEUR; ?></option>
