@@ -51,7 +51,11 @@
 						<?php   foreach ($books_sharable as $book) { ?>
 									<option value="<?php echo $book->getBookID(); ?>"><?php echo $book->getBookTitle(); ?></option>
 						<?php 	} ?>
-						</select>
+						</select><br>
+				<?php   if ($user_logged->getUserStatus() >= 5) { ?>
+<!-- 							<label for="duration">Durée du partage du book (en nombre de jours)</label>
+							<input id="duration" name="duration" type="number" value="28" min="1" max="31"><br> -->
+				<?php } ?>
 						<input type="submit" name="share_book_form" class="btn btn-primary" value="<?php echo $msg_partager_book ?>">
 					</form>
 		<?php	}

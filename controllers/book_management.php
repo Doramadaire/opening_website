@@ -48,6 +48,9 @@
 
         $success = false;
         if ($book_shared != null) {
+            //erf, pour avoir une durée variable je dois changer ma façon de faire
+            //il faut stocker la date de fin de validiter et dans clean token comparer à la date du jour...
+            //$share_duration = isset($_POST['duration']) ? $_POST['duration'] : 28;
             $new_token = generateAccessToken();
             if ($book_shared->addAccessToken($new_token)) {
                 $authors_ids = $book_shared->getBookAuthors();
