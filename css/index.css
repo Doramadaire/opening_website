@@ -37,3 +37,22 @@
 .logging-form input {
     margin-bottom: 3px;
 }
+
+.blocks-parent {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.col-sm-4 {
+    align-items: stretch;
+}
+
+.thumbnail {
+    /*height: auto;*/
+    /*height: 100%;*/
+    margin: 0px;
+}
+
+/*.thumbnail btn {
+
+}*/

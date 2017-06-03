@@ -6,7 +6,6 @@
 	    <!-- Import des fichiers spécifiques à cette page -->
 		<link href="css/index.css" rel="stylesheet">
 	</head>
-	
 	<body>
 		<?php include("include/header.php"); ?>
 
@@ -46,7 +45,7 @@
 						<span class="sr-only">Next</span>
 					</a>
 				</div>
-				<div class="row">
+				<div class="row blocks-parent">
 					<div class="col-xs-12 col-sm-4">
 						<div id="logging-form" class="thumbnail">							
 			<?php 	if ($user_logged) { ?>
@@ -57,18 +56,18 @@
 									<li><a href="catalogue.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li>
 									<li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>
 									<?php break;
-			
+
 								case 3: ?>
 									<li><a href="catalogue.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li>
 									<li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>
 									<?php break;
-			
+
 								case 4: ?>
 									<li><a href="catalogue.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li>
 									<li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>
 									<li><a href="book_management.php"><?php echo TXT_MENU_OEUVRES; ?></a></li>
 									<?php break;
-										
+
 								case 5: ?>
 									<li><a href="catalogue.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li>
 									<li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>                         
@@ -78,7 +77,7 @@
 							} ?>
 						</ul>
 						<a class="btn btn-primary" href="index.php?logout=true"><?php echo TXT_BOUTON_SE_DECONNECTER; ?></a>
-							
+
 			<?php   } else { ?>
 						<h3><?php echo TXT_H3_SECTION_CONNEXION; ?></h3>
 				<?php 	if (isset($logging_error)) {echo '<p class="error_message">'.$logging_error.'<p>';}?>
@@ -87,9 +86,9 @@
 							<input type="password" name="password" placeholder="<?php echo TXT_PLACEHOLDER_MDP; ?>"><br>
 							<input class="btn btn-primary" role="button" type="submit" name="logging_form" value="<?php echo TXT_BOUTON_SE_CONNECTER; ?>">
 						</form>
-								
+
 						<a onclick="hideThis('oubli')"><?php echo TXT_MDP_OUBLIE; ?></a>
-								
+
 				<?php 	if (isset($reset_pswd_error)) {echo '<p class="error_message">'.$reset_pswd_error.'<p>';}?>
 						<form id="oubli" class="hide_first" action="" method="POST">
 							<p><input type="text" name="mail_pswd_forgotten" placeholder="<?php echo TXT_PLACEHOLDER_MAIL; ?>"></p>
@@ -100,7 +99,7 @@
 					} ?>
 					</div>
 				</div>
-					
+
 					<div class="col-xs-12 col-sm-4">
 						<div class="thumbnail">
 							<h3><?php echo TXT_H3_SECTION_RECHERCHE; ?></h3>
@@ -112,7 +111,7 @@
 					<?php		} ?>
 						</div>
 					</div>
-				
+
 					<div class="col-xs-12 col-sm-4">
 						<div class="thumbnail">
 							<h3><?php echo TXT_H3_SECTION_ADHERER; ?></h3>
@@ -124,7 +123,6 @@
 				</div>
 			</div>
 			<div class="col-xs-1"></div>
-		</div>				
-
+		</div>
 	</body>				
 </html>
