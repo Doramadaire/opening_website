@@ -9,6 +9,9 @@
     $logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
     $user_logged = (isset($_SESSION['user_logged'])) ? $_SESSION['user_logged'] : false;
 
+    $msg_choix_book = "Choix du book à partager";
+    $msg_partager_book = "Partager le book";
+
     $books_sharable = NULL;
     try {
         if (isset($_SESSION['user_logged'])) {
@@ -39,6 +42,9 @@
 
     if (isset($_POST['share_book_form'])) {
         $book_shared = unserialize($sql->getBookByID($_POST['book_id']));
+
+        $msg_choix_book = "Choix d'un autre book à partager";
+        $msg_partager_book = "Partager un autre book";
 
         $success = false;
         if ($book_shared != null) {
