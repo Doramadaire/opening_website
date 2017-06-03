@@ -34,16 +34,16 @@
 				    $headers .='Content-Transfer-Encoding: 8bit';
 
 				    $message = '<html><body style="font-size:20px;">
-				    <p>Vous êtes désormais inscrit sur le site d\'Opening en tant que cotisant à l\'association. Votre adhésion expirera le $new_user_sub_date.<br>
+				    <p>Vous êtes désormais inscrit sur le site d\'Opening en tant que cotisant à l\'association. Votre adhésion expirera le '.$new_user_sub_date.'.<br>
 				    <br>
-				    <p>Voici votre mot de passe : $new_password<br>
+				    <p>Voici votre mot de passe : '.$new_password.'<br>
 				    Je vous conseille de le modifier dès votre première visite sur notre site. Pour cela, identifiez-vous sur <a href="https://opening-book.com/index.php">opening-book.com</a> et allez sur la page "Gestion de votre compte".<br>
 				    <br>
 				    Nous vous souhaitons une agréable consultation de notre collection.</p>
 				    ---------------<br>
 				    Ceci est un mail automatique, merci de ne pas y répondre.<br>
 				    Si vous rencontrer des difficultés lors de l\'utilisation de notre site, vous pouvez contactez <a href="mailto:support@opening-book.com">support@opening-book.com</a><br>
-				    <img style="float: right;"" src="https://opening-book.com/assets/logo.png" width="80px" height="47px"></body></html>';
+				    <img style="float: right;" src="https://opening-book.com/assets/logo.png" width="80px" height="47px"></body></html>';
 
 				    mail($destinataire, $sujet, $message, $headers); // Envoi du mail
 
@@ -55,11 +55,11 @@
 
 				    $mail_admin_content = '<html><body style="font-size:20px;">
 				    Un nouveau compte vient d\'être créé sur le site opening-book.com<br>
-				    mail=$new_user_mail<br>
-				    prenom=$new_user_firstname<br>
-				    nom=$new_user_name<br>
-				    status=$new_user_type<br>
-				    date de fin d\'adhesion=$new_user_sub_date<br>
+				    mail='.$new_user_mail.'<br>
+				    prenom='.$new_user_firstname.'<br>
+				    nom='.$new_user_name.'<br>
+				    status='.$new_user_type.'<br>
+				    date de fin d\'adhesion='.$new_user_sub_date.'<br>
 				    <br>
 				    Signé : un script qui veut t\'aider<br>
 				    <img src="https://opening-book.com/assets/wink.jpg" width="544px" height="255px"></body></html>

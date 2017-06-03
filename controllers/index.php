@@ -45,30 +45,30 @@
 			$new_password = $sql->generatePassword();	
 			$sql->setUserPassword($user, password_hash($new_password, PASSWORD_BCRYPT));
 			$reset_pswd_success = true;
-			$msg_new_user = "Nouveau mot de passe : ".$new_password;
-			//envoi d'un mail plutot
-			//echo $msg_new_user;
+			$msg_reset_pswd = "Un nouveau mot de passe a été généré pour et envoyé à l'adresse : <b> ".$_POST['mail_pswd_forgotten'];
+			//echo $msg_reset_pswd;
 
 			// Envoi d'un mail pour activer le compte avec le mdp généré, et invitation à le changer
 			// Préparation du mail contenant le lien d'activation
 			$destinataire = $user->getUserMail();
-			$sujet = "Modification du mot de passe de votre compte OPENING BOOK";
-			$headers ='From: noreply@opening-book.eu'."\n";
-			$headers = $headers."Content-Type: text/html; charset=UTF-8\n";
+			$sujet = "Modification du mot de passe de votre compte sur le site Opening book";
+			$headers = "From: support@opening-book.com\n";
+			$headers .= "Content-Type: text/html; charset=UTF-8\n";
 			$headers .='Content-Transfer-Encoding: 8bit';
-									
+
 			//Message de confirmation
-			$message = "<PRE>Vous avez demandé la réinitialisation du mot de passe de votre compte.\n
-Voici votre nouveau mot de passe : $new_password\n
-Je vous conseille de le modifier dès votre prochaine visite sur notre site.\n
-Pour modifier votre mot de passe, identifier vous sur http://opening-book.com/ et allez sur la page 'Gestion de votre compte'\n
-\n
-Nous vous souhaitons une agréable consultation de notre collection\n
-\n
----------------\n
-Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img style="float: right;"'." src='http://beta.opening-book.eu/assets/mini_logo.jpg' width='80px' height='47px'>";	 
-				        
-			mail($destinataire, '=?UTF-8?B?'.base64_encode($sujet).'?=', $message, $headers) ; // Envoi du mail
+			$message = '<html><body style="font-size:20px;">
+			<p>Vous avez demandé la génération d\'un nouveau mot de passe pour votre compte.<br>
+			Voici votre nouveau mot de passe : '.$new_password.'<br>
+			Je vous conseille de le modifier dès votre prochaine visite sur notre site. Pour cela, identifiez-vous sur <a href="https://opening-book.com/index.php">opening-book.com</a> et allez sur la page "Gestion de votre compte".<p>
+
+			<p>Nous vous souhaitons une agréable consultation de notre collection.</p>
+			---------------
+			<p>Ceci est un mail automatique, merci de ne pas y répondre.<br>
+			Si vous rencontrer des difficultés lors de l\'utilisation de notre site, vous pouvez contactez <a href="mailto:support@opening-book.com">support@opening-book.com</a><br>
+			<img style="float: right;" src="https://opening-book.com/assets/logo.png" width="80px" height="47px"></p></body></html>';
+
+			mail($destinataire, $sujet, $message, $headers) ; // Envoi du mail
 		}		
 	}
 

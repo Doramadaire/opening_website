@@ -16,7 +16,7 @@
     ---------------<br>
     Ceci est un mail automatique, merci de ne pas y répondre.<br>
     Si vous rencontrer des difficultés lors de l\'utilisation de notre site, vous pouvez contactez <a href="mailto:support@opening-book.com">support@opening-book.com</a><br>
-    <img style="float: right;"" src="https://opening-book.com/assets/logo.png" width="80px" height="47px"></body></html>';
+    <img style="float: right;" src="https://opening-book.com/assets/logo.png" width="80px" height="47px"></body></html>';
 
     //mail($destinataire, $sujet, $message, $headers) ; // Envoi du mail
 
