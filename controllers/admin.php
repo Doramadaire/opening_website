@@ -24,34 +24,48 @@
 					$sql->addUser($new_user, $new_password);
 					
 					$msg_new_user = "Un nouvel utilisateur a bien été créé, son mail est : ".$new_user_mail." il a le statut=".$new_user_type;
-					//Pour gérer les fichiers il y a besoin de les include
-					/*$path = '/home/openingbqo/opening_website_assets/';
-					set_include_path(get_include_path() . PATH_SEPARATOR . $path);
-					//Dans un gros fichier complet
-					$myfile = fopen("mdp.txt", "a+") or die("Unable to open file!");
-					fwrite($myfile, "name=".$new_user_mail." password=".$new_password."\r\n");
-					*/
 
 					// Envoi d'un mail pour activer le compte avec le mdp généré, et invitation à le changer
 					// Préparation du mail contenant le lien d'activation
 					$destinataire = $new_user_mail;
-					$sujet = "Votre compte OPENING BOOK" ;
-				    $headers ='From: noreply@opening-book.eu'."\n";
-					$headers = $headers."Content-Type: text/html; charset=UTF-8\n";
-                                        $headers .='Content-Transfer-Encoding: 8bit';
-									
-					//Message de confirmation
-					$message = '<PRE style="font-size:14px;">'."Vous êtes désormais inscrit sur le site d'OPENING, en tant que cotisant à l'association. Votre adhésion expirera le $new_user_sub_date.\n
-Voici votre mot de passe : $new_password\n
-Je vous conseille de le modifier dès votre première visite sur notre site.\n
-Pour modifier votre mot de passe, identifiez-vous sur <a href='https://opening-book.com/index.php'>opening-book.com</a> et allez sur la page 'Gestion de votre compte'\n
-\n
-Nous vous souhaitons une agréable consultation de notre collection.\n
-\n
----------------\n
-Ceci est un mail automatique, Merci de ne pas y répondre.\n".'</PRE>'.'<img style="float: right;"'." src='https://alpha.opening-book.eu/assets/logo.png' width='80px' height='47px'>";
+				    $sujet = "Votre compte Opening book" ;
+				    $headers ='From: support@opening-book.com'."\n";
+				    $headers = $headers."Content-Type: text/html; charset=UTF-8\n";
+				    $headers .='Content-Transfer-Encoding: 8bit';
 
-					mail($destinataire, '=?UTF-8?B?'.base64_encode($sujet).'?=', $message, $headers) ; // Envoi du mail
+				    $message = '<html><body style="font-size:20px;">
+				    <p>Vous êtes désormais inscrit sur le site d\'Opening en tant que cotisant à l\'association. Votre adhésion expirera le $new_user_sub_date.<br>
+				    <br>
+				    <p>Voici votre mot de passe : $new_password<br>
+				    Je vous conseille de le modifier dès votre première visite sur notre site. Pour cela, identifiez-vous sur <a href="https://opening-book.com/index.php">opening-book.com</a> et allez sur la page "Gestion de votre compte".<br>
+				    <br>
+				    Nous vous souhaitons une agréable consultation de notre collection.</p>
+				    ---------------<br>
+				    Ceci est un mail automatique, merci de ne pas y répondre.<br>
+				    Si vous rencontrer des difficultés lors de l\'utilisation de notre site, vous pouvez contactez <a href="mailto:support@opening-book.com">support@opening-book.com</a><br>
+				    <img style="float: right;"" src="https://opening-book.com/assets/logo.png" width="80px" height="47px"></body></html>';
+
+				    mail($destinataire, $sujet, $message, $headers); // Envoi du mail
+
+				    //mail admin
+				    $object_mail_admin = "Nouveau compte opening" ;
+				    $headers_mail_admin = "From: leserveuropeningchezovh\n";
+				    $headers_mail_admin .= "Content-Type: text/html; charset=UTF-8\n";
+				    $headers_mail_admin .= 'Content-Transfer-Encoding: 8bit';
+
+				    $mail_admin_content = '<html><body style="font-size:20px;">
+				    Un nouveau compte vient d\'être créé sur le site opening-book.com<br>
+				    mail=$new_user_mail<br>
+				    prenom=$new_user_firstname<br>
+				    nom=$new_user_name<br>
+				    status=$new_user_type<br>
+				    date de fin d\'adhesion=$new_user_sub_date<br>
+				    <br>
+				    Signé : un script qui veut t\'aider<br>
+				    <img src="https://opening-book.com/assets/wink.jpg" width="544px" height="255px"></body></html>
+				    </body></html>';
+				    //mail("admin", $object_mail_admin, $mail_admin_content, $headers_mail_admin);
+
 					return true;
 				} else {
 					//Date invalide

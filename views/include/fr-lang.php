@@ -212,7 +212,8 @@
 	define('TXT_EDITO_TEXTE', "<p>Opening book est un nouvel objet artistique et éditorial conçu pour donner une visibilité aux artistes photographes et plasticiens actifs en région Paca, connus ou moins connus.</p>
                     <p>Opening book n’est ni catalogue d’exposition, ni monographie (il ne tend pas à l’exhaustivité et ne propose pas d’outil critique), ni livre d’artiste (ce n’est pas une création artistique en soi), ni book d’artiste au sens classique du terme.</p>
                     <p>Opening book est un format pré-défini de douze pages offertes à un artiste pour y exposer douze œuvres et les diffuser sur tout type d’écran : ordinateur, tablette, smartphone. La collection propose une approche directe des œuvres grâce à la qualité des reproductions, à une mise en page épurée construite autour de l’œuvre et du détail et à un mode de navigation conçu pour le numérique.</p>
-                    <p>Opening book est aussi un dispositif qui offre aux artistes des outils essentiels pour promouvoir leur travail : des reproductions photographiques de qualité professionnelle, une interface de gestion en ligne des archives photographiques (espace membres) et l’inscription dans un large réseau de diffusion.</p>");
+                    <p>Opening book est aussi un dispositif qui offre aux artistes des outils essentiels pour promouvoir leur travail : des reproductions photographiques de qualité professionnelle, une interface de gestion en ligne des archives photographiques (espace membres) et l’inscription dans un large réseau de diffusion.</p>
+                    Opening reçoit le soutien de la Région Provence-Alpes-Côte d'Azur et du Conseil départemental des Bouches-du-Rhône.</p>");
     //exemple de balise pour mettre une image : <img src='http://coloriage.info/images/ccovers/1460917190bananes-fruit.gif' width='476' height='405'>
 
 	//---------------------------------------------------------
