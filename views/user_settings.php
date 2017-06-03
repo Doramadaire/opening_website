@@ -23,6 +23,8 @@
 					<!-- Si on modifie le mail, il faut garder tracer du mail précédent, un nouveau champ en base avec la liste des mails? ou seulement celui avec lequel le compte a été créé?-->
 					
 				<div class="row thumbnail">
+
+			<?php   if ($user_logged->getUserStatus() > 2) { ?>
 					<div class="row">
 						<?php 
 							if (isset($msg_new_mail)) {
@@ -33,20 +35,20 @@
 							} 
 							else {echo TXT_MAIL_ACTUEL.$user_logged->getUserMail()."<br>";}
 							?><br>
-						<input type="button" class="btn btn-primary"  value=<?php echo '"'.TXT_MODIF_MAIL.'"'; ?> onclick="hideThis('form1')" />	
+						<input type="button" class="btn btn-primary"  value="<?php echo TXT_MODIF_MAIL; ?>" onclick="hideThis('form1')" />	
 			
 						<!-- form1 et form2 sont des très mauvais id, faut trouver de meilleurs noms, plus clairs -->
 						<form id="form1" class="hide_first" action="" method="POST">		
 							<label for="new_mail"><?php echo TXT_NOUVEAU_MAIL; ?></label>
 							<input type="text" name="new_mail" required>  	
-							<input type="submit" class="btn btn-primary"  name="set_new_mail_form" value=<?php echo '"'.TXT_CONFIRMER.'"'; ?>>	
+							<input type="submit" class="btn btn-primary"  name="set_new_mail_form" value="<?php echo TXT_CONFIRMER; ?>">	
 						</form>	 
 					</div>			
 			
 					<br>
 					<div class="row">
 						<?php  if (isset($msg_new_pswd)) { echo $msg_new_pswd."<br>";} ?> 
-						<input type="button"  class="btn btn-primary"  value=<?php echo '"'.TXT_MODIF_MDP.'"'; ?> onclick="hideThis('form2')" />
+						<input type="button"  class="btn btn-primary"  value="<?php echo TXT_MODIF_MDP; ?>" onclick="hideThis('form2')" />
 			
 						<form  id="form2" class="hide_first" action="" method="POST">
 							<label for="previous_password"><?php echo TXT_MDP_ACTUEL; ?></label>
@@ -55,9 +57,12 @@
 							<input type="password" name="new_password" required><br>
 							<label for="new_password_bis"><?php echo TXT_CONFIRME_MDP; ?></label>
 							<input type="password" name="new_password_bis" required><br>
-							<input type="submit" class="btn btn-primary"  name="set_new_password_form" value=<?php echo '"'.TXT_CONFIRMER.'"'; ?>>		
+							<input type="submit" class="btn btn-primary"  name="set_new_password_form" value="<?php echo TXT_CONFIRMER; ?>">		
 						</form>
-					</div>	
+					</div>		
+			<?php	} else {
+						echo TXT_MAIL_ACTUEL.$user_logged->getUserMail()."<br>";
+					} ?>
 					<br>
 					<div class="row">
 						<?php echo TXT_COTISATION.$_SESSION['user_logged']->getUserSubscriptionDate() ?>

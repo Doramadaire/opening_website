@@ -54,7 +54,7 @@
 						<ul>
 					<?php 	switch($_SESSION['user_logged']->getUserStatus()) {
 								case 2: ?>
-									<li><a href="catalogue.php"><?php echo TXT_MENU_RECHERCHE_EXTRAITS; ?></a></li>
+									<li><a href="catalogue.php"><?php echo TXT_MENU_RECHERCHE; ?></a></li>
 									<li><a href="user_settings.php"><?php echo TXT_MENU_COMPTE; ?></a></li>
 									<?php break;
 			
