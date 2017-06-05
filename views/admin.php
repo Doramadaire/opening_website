@@ -73,16 +73,15 @@
 					var row = body.insertRow(-1);
 					row.className = "user-row";
 
-					//à tester
-					/*
+					//à tester					
 					row.id = "user" + i;// attribut id incertain
 					function editUser (index) {
 						var parent = document.getElementById("user" + index);
 						// insert blabla
-					}*/
+					}
 
 				    var cellId = row.insertCell(-1);
-				    cellId.className = "cell-id";
+				    cellId.className = "cell-id-" + user['id'];
 				    var cellMail = row.insertCell(-1);
 				    var cellFirstname = row.insertCell(-1);
 				    var cellLastname = row.insertCell(-1);
@@ -107,14 +106,18 @@
 			    //console.log("ready!");
 			    createUserTable();
 
-			    /*
+			    
 			    $(".user-row").click(function() {
 				console.log("click sur ma ligne");
-				console.log($(this).find("cell-id"));
-				consol e.log("html" + $(this).find("cell-id").html());
-				console.log("text" + $(this).find("cell-id").text());
-				console.log("val" + $(this).find("cell-id").val());
-				});*/
+				console.log("objet");
+				console.log($(this).(".cell-id"));
+				console.log("delicat")
+				console.log($(this).getElementsClassName("cell-id"));
+				console.log($(this).getElementById("cell-id").innerHTML);
+				// console.log("html" + $(this).find("cell-id").html());
+				// console.log("text" + $(this).find("cell-id").text());
+				// console.log("val" + $(this).find("cell-id").val());
+				});
 			});
         </script>
         <?php } ?>
