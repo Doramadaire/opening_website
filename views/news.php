@@ -33,38 +33,26 @@
                 <div class="row thumbnail">
                     <h3>A paraître prochainement</h3>
                     <p>
-                    Opening book photo 006 / Brigitte Bauer<br>
-                    Opening book photo 007 / Emmanuelle Germain<br>
-                    <br>
                     Opening book 006 / Aldric Mathieu<br>
                     Opening book 007 / Joséphine de Saint Seine
                     </p>
                 </div>
                 <div class="row thumbnail">
                     <h3>Actualités des artistes</h3>
-                    <i>Mai</i>
-                    <p>
-                    <b>Emmanuelle Sarrouy</b> présente <i>PERSIKOV</i>(… le chemin des fleurs)
-                    30 avril 2017 de 11h à 19h dans le cadre des Dimanche de la Canebière, Espace POC
-                    <br>cours Joseph Thierry, Marseille
-                    </p>
-                    <p>
-                    <b>Aldric Mathieu</b>, exposition collective <i>« Sur fond blanc »</i>
-                    du 7 avril au 28 mai 2017, Centre d'Art Langage Plus, Alma, Québec
-                    </p>
-                    <p>
-                    Exposition <b>Isabelle Schneider</b> du 18 mai au 3 juin Casa Consolat Marseille
-                    <br>vernissage 18mai 18h30</p>
-
+                    <i>juin</i>                   
                     <p>
                     Exposition <b>Emmanuelle Germain</b> du 30 mai au 10 juin à la Galerie Charivari 7 rue Fontange, Marseille
                     <br>vernissage jeudi 1 juin à partir de 18h30
                     </p>
-
-                    <i>Juin</i>
                     <p>
                     Exposition <b>Joséphine de Saint-Seine</b> à L’autoportrait, 66 rue des Trois Frères Barthélémy, Marseille
                     <br>vernissage vendredi 2 juin 2017
+                    </p>
+                    <p><b>Nuit de l'Instant</b> vendredi 9 juin samedi 10 juin 2017</p>
+                    <p><b>Valérie Horwitz</b> "5 years" Exposition visible jusqu'au 15 juillet
+                    Galerie trajectoire 17 rue du panier 13002 Marseille </p>
+                    <p><b>Didier Petit</b> "quoi? l'éternité" vidéo 5'
+                    49 rue de la république Marseille
                     </p>
                 </div>
                 <div class="row thumbnail">

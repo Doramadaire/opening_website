@@ -74,14 +74,15 @@
 					row.className = "user-row";
 
 					//à tester					
-					row.id = "user" + i;// attribut id incertain
-					function editUser (index) {
-						var parent = document.getElementById("user" + index);
-						// insert blabla
-					}
+					// row.id = "user" + i;// attribut id incertain
+					// function editUser (index) {
+					// 	var parent = document.getElementById("user" + index);
+					// 	// insert blabla
+					// }
 
 				    var cellId = row.insertCell(-1);
-				    cellId.className = "cell-id-" + user['id'];
+				    // cellId.className = "cell-id-" + user['id'];
+				    cellId.className = "cell-user-id";
 				    var cellMail = row.insertCell(-1);
 				    var cellFirstname = row.insertCell(-1);
 				    var cellLastname = row.insertCell(-1);
@@ -106,17 +107,22 @@
 			    //console.log("ready!");
 			    createUserTable();
 
-			    
 			    $(".user-row").click(function() {
-				console.log("click sur ma ligne");
-				console.log("objet");
-				console.log($(this).(".cell-id"));
-				console.log("delicat")
-				console.log($(this).getElementsClassName("cell-id"));
-				console.log($(this).getElementById("cell-id").innerHTML);
-				// console.log("html" + $(this).find("cell-id").html());
-				// console.log("text" + $(this).find("cell-id").text());
-				// console.log("val" + $(this).find("cell-id").val());
+				console.log("click sur ma ligne - voici this");
+				console.log($(this));
+				console.log("mes enfants");
+				var count = 0;
+				$(this).children().each(function() {
+					console.log("un enfant! number=" + count);
+					count++;
+					//console.log("class")
+					if (this.className === "cell-user-id") {
+						console.log("ma cell-user-id")
+						console.log("innerHTML = " + this.innerHTML);
+						// aller, on fait un modal avec un formulaire et tout le tralala
+					};
+				} );
+				console.log("à bientôt");
 				});
 			});
         </script>
