@@ -1,57 +1,54 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <?php include("include/html_header.php"); ?>
-        <title><?php echo TXT_TAB_ADMIN; ?></title>
-        <!-- Import des fichiers spécifiques à cette page -->
-        <link rel="stylesheet" href="css/admin.css" type="text/css">
-        <script type="text/javascript">
-        	function collectionSelecChange(value) {
-        		if (value === "other") {
-        			var newSpanText = document.createElement("span");
-        			newSpanText.id = "add-collection-span";
+		<?php include("include/html_header.php"); ?>
+		<title><?php echo TXT_TAB_ADMIN; ?></title>
+		<!-- Import des fichiers spécifiques à cette page -->
+		<link rel="stylesheet" href="css/admin.css" type="text/css">
+		<script type="text/javascript">
+			function collectionSelecChange(value) {
+				if (value === "other") {
+					var newSpanText = document.createElement("span");
+					newSpanText.id = "add-collection-span";
 					newSpanText.innerHTML = "Attention, cette action va créer une nouvelle collection sur la page catalogue<br>";
 
-        			var newInputBox = document.createElement("input");
+					var newInputBox = document.createElement("input");
 					newInputBox.required = true;
-        			newInputBox.id = "add-collection-input";
-        			newInputBox.setAttribute("type", "text");
-        			newInputBox.setAttribute("name", "new_collection");
+					newInputBox.id = "add-collection-input";
+					newInputBox.setAttribute("type", "text");
+					newInputBox.setAttribute("name", "new_collection");
 
-        			var selectBlock = document.getElementById("select-collection");
-        			selectBlock.parentNode.insertBefore(newInputBox , selectBlock.nextSibling);
-        			newInputBox.parentNode.insertBefore(newSpanText , newInputBox.nextSibling);
-        		} else {
-        			var uselessInputBox = document.getElementById("add-collection-input");
-        			var uselessSpanText = document.getElementById("add-collection-span");
+					var selectBlock = document.getElementById("select-collection");
+					selectBlock.parentNode.insertBefore(newInputBox , selectBlock.nextSibling);
+					newInputBox.parentNode.insertBefore(newSpanText , newInputBox.nextSibling);
+				} else {
+					var uselessInputBox = document.getElementById("add-collection-input");
+					var uselessSpanText = document.getElementById("add-collection-span");
 
-        			if (uselessInputBox !== null) {
-        				uselessInputBox.parentNode.removeChild(uselessInputBox);
-        			}
-        			if (uselessSpanText !== null) {
-        				uselessSpanText.parentNode.removeChild(uselessSpanText);
-        			}
-        		}
-        	}
-        </script>
-        <?php if (isset($json_retrieved_users)) { ?>
-        <script type="text/javascript">
-        	//création du tableau d'users
-        	
-        	function createUserTable() {
-			    var json_retrieved_users = '<?php echo $json_retrieved_users; ?>';
-        		var retrieved_users = JSON.parse(json_retrieved_users);
-        		//DEVDEV pb : on passe un ARRAY encode en json d'users
-        		//voir pour récupérer cet objet array peinard...
-        		//ça m'a l'air bon là
+					if (uselessInputBox !== null) {
+						uselessInputBox.parentNode.removeChild(uselessInputBox);
+					}
+					if (uselessSpanText !== null) {
+						uselessSpanText.parentNode.removeChild(uselessSpanText);
+					}
+				}
+			}
+		</script>
+		<?php if (isset($json_retrieved_users)) { ?>
+		<script type="text/javascript">
+			var json_retrieved_users = '<?php echo $json_retrieved_users; ?>';
+			var retrieved_users = JSON.parse(json_retrieved_users);
 
-        		var retrieved_users_table = document.createElement("table");
-        		retrieved_users_table.className = "table table-striped";
+			//création du tableau d'users			
+			function createUserTable(retrieved_users, parentID, childID) {
+				var retrieved_users_table = document.createElement("table");
+				retrieved_users_table.className = "table table-striped";
+				retrieved_users_table.id = childID;
 
-        		//on fabrique la 1ère ligne
-        		var header = retrieved_users_table.createTHead();
-        		var row = header.insertRow(0);
-        		var cellId = row.insertCell(-1);
+				//on fabrique la 1ère ligne
+				var header = retrieved_users_table.createTHead();
+				var row = header.insertRow(0);
+				var cellId = row.insertCell(-1);
 				var cellMail = row.insertCell(-1);
 				var cellFirstname = row.insertCell(-1);
 				var cellLastname = row.insertCell(-1);
@@ -67,69 +64,98 @@
 				var body = document.createElement('tbody');
 				retrieved_users_table.appendChild(body);
 
-        		var i = 0;
-				for (var i = 0; i < retrieved_users.length; i++) {
+				var nbRetrievedUsers = retrieved_users.length;
+				for (var i = 0; i < nbRetrievedUsers; i++) {
 					user = retrieved_users[i];
+					var user = retrieved_users[i];
 					var row = body.insertRow(-1);
 					row.className = "user-row";
 
-					//à tester					
-					// row.id = "user" + i;// attribut id incertain
-					// function editUser (index) {
-					// 	var parent = document.getElementById("user" + index);
-					// 	// insert blabla
-					// }
+					var cellId = row.insertCell(-1);
+					// cellId.className = "cell-id-" + user['id'];
+					cellId.className = "cell-user-id";
+					var cellMail = row.insertCell(-1);
+					var cellFirstname = row.insertCell(-1);
+					var cellLastname = row.insertCell(-1);
+					var cellStatus = row.insertCell(-1);
+					var cellSubscriptionDate = row.insertCell(-1);
 
-				    var cellId = row.insertCell(-1);
-				    // cellId.className = "cell-id-" + user['id'];
-				    cellId.className = "cell-user-id";
-				    var cellMail = row.insertCell(-1);
-				    var cellFirstname = row.insertCell(-1);
-				    var cellLastname = row.insertCell(-1);
-				    var cellStatus = row.insertCell(-1);
-				    var cellSubscriptionDate = row.insertCell(-1);
-
-				    cellId.innerHTML = user['id'];
-				    cellMail.innerHTML = user['mail'];
+					cellId.innerHTML = user['id'];
+					cellMail.innerHTML = user['mail'];
 					cellFirstname.innerHTML = user['firstname'];
 					cellLastname.innerHTML = user['name'];
 					cellStatus.innerHTML = user['status'];
 					cellSubscriptionDate.innerHTML = user['subscription_date'];
-
-				    //console.log("id=" + user['id'] + " mail=" + user['mail']);
 				}
-        		var parent = document.getElementById("search_user");
-				var child = document.getElementById("retrieved_users_table");
+
+				var parent = document.getElementById(parentID);
+				var child = document.getElementById(childID);
 				parent.replaceChild(retrieved_users_table, child);
 			}
 
 			$(function() {
-			    //console.log("ready!");
-			    createUserTable();
+				//console.log("ready!");
+				createUserTable(retrieved_users, "search_user", "retrieved_users_table");
 
-			    $(".user-row").click(function() {
-				console.log("click sur ma ligne - voici this");
-				console.log($(this));
-				console.log("mes enfants");
-				var count = 0;
-				$(this).children().each(function() {
-					console.log("un enfant! number=" + count);
-					count++;
-					//console.log("class")
-					if (this.className === "cell-user-id") {
-						console.log("ma cell-user-id")
-						console.log("innerHTML = " + this.innerHTML);
-						// aller, on fait un modal avec un formulaire et tout le tralala
+				var updateUserModal = document.getElementById('updateUserModal');
+
+				var userSelected = null;
+				var userIDSelected = null;
+				$(".user-row").click(function() {
+					// aller, on fait un modal avec un formulaire et tout le tralala
+					updateUserModal.style.display = "block";
+					updateUserModal.focus();
+
+					//on recupere l'user sur lequel on a cliqué
+					$(this).children().each(function() {
+						if (this.className === "cell-user-id") {
+							userIDSelected = this.innerHTML;
+						};
+					});
+					var nbRetrievedUsers = retrieved_users.length;
+					for (var i = 0; i < nbRetrievedUsers; i++) {
+						var user = retrieved_users[i];
+						if (userIDSelected === user['id']) {
+							userSelected = user;
+						};
+					}
+					//on affiche les valeurs actuelles de cet user
+					createUserTable([userSelected], "update-user-header", "user-selected-table");
+					//on met les valeurs actuelles dans le formulaire
+					var updateUserFormChildNodes = document.getElementById("update-user-form").childNodes;
+					for (var i = updateUserFormChildNodes.length - 1; i >= 0; i--) {
+						node = updateUserFormChildNodes[i];
+						if (node.tagName === "INPUT") {
+							var nodeNameAttribute = node.getAttribute("name");
+							if (userSelected[nodeNameAttribute] != null) {
+								node.setAttribute("value", userSelected[nodeNameAttribute]);
+							}
+						} else if (node.tagName === "SELECT") {
+							//donc le select index dépend du nombre d'option
+							//le -2 est une valeur hardcoded pour que ça marche sans se prendre la tête
+							//sinon il faut itérer sur les options pour trouver la bonne... la flemme
+							node.selectedIndex = userSelected['status']-2;
+						};
 					};
-				} );
-				console.log("à bientôt");
 				});
-			});
-        </script>
-        <?php } ?>
 
-        <?php if (isset($json_retrieved_artists)) { ?>
-        <script type="text/javascript">
+				$(".closeModal").click(function() {
+					updateUserModal.style.display = "none";
+				});
+
+				// When the user clicks anywhere outside of the modal, close it
+				//deactivated : we don't want to lose data
+				// window.onclick = function(event) {
+				// 	if (event.target == updateUserModal) {
+				// 		updateUserModal.style.display = "none";
+				// 	}
+				// }
+			});
+		</script>
+		<?php } ?>
+
+		<?php if (isset($json_retrieved_artists)) { ?>
+		<script type="text/javascript">
 		//création du tableau d'artistes
 
 			function createArtistTable() {
@@ -160,14 +186,14 @@
 					var row = body.insertRow(-1);
 					row.className = "artist-row";
 
-				    var cellId = row.insertCell(-1);
-				    cellId.className = "cell-id";
-				    var cellName = row.insertCell(-1);
-				    //var cellSearchName = row.insertCell(-1);
-				    var cellUserId = row.insertCell(-1);
+					var cellId = row.insertCell(-1);
+					cellId.className = "cell-id";
+					var cellName = row.insertCell(-1);
+					//var cellSearchName = row.insertCell(-1);
+					var cellUserId = row.insertCell(-1);
 
-				    cellId.innerHTML = artist['id'];
-				    cellName.innerHTML = artist['name'];
+					cellId.innerHTML = artist['id'];
+					cellName.innerHTML = artist['name'];
 					//cellSearchName.innerHTML = artist['search_name'];
 					cellUserId.innerHTML = artist['user'];
 
@@ -178,10 +204,10 @@
 			}
 
 			$(function() {
-			    createArtistTable();
+				createArtistTable();
 			});
-        </script>
-        <?php } ?>
+		</script>
+		<?php } ?>
 	</head>	
 	<body>
 	<?php 
@@ -221,15 +247,45 @@
 								<?php if(isset($search_user_msg)) echo "<p><b>$search_user_msg</b><p>"; ?>
 									<div id="retrieved_users_table">
 										<?php 
-								        //DEVDEV faire une unique variable qui active ou pas le script
-								        //on initialise ensuite la bonne partie du code
-								        //if (isset($_POST['search_user_form'])) { ?>
+										//DEVDEV faire une unique variable qui active ou pas le script
+										//on initialise ensuite la bonne partie du code
+										//if (isset($_POST['search_user_form'])) { ?>
 									</div>
 									<form action="" method="POST">
 									<label for="user_type"><?php echo TXT_RECHERCHE_USER_QUESTION; ?></label><br>
 									<input type="text" name="mail" placeholder="<?php echo TXT_PLACEHOLDER_MAIL; ?>" >
 									<input type="submit" name="search_user_form" class="btn btn-primary" value="<?php echo TXT_BOUTON_RECHERCHE_UTILISATEUR; ?>" >
 								</form>
+							</div>
+
+							<div id="updateUserModal" class="modal" role="dialog" aria-labelledby="updateUserModalLabel">
+								<div class="modal-dialog modal-lg">
+									<div class="modal-content">
+	  									<div id="update-user-header" class="modal-header">
+	  										<button type="button" class="close closeModal" data-dismiss="modal">&times;</button>
+											<h3 id="updateUserModalLabel">Modification des propriétés d'un utilisateur</h3>
+											<div id="user-selected-table"></div>
+										</div>
+										<div class="modal-body">
+											<form id="update-user-form" method="POST">
+												<label for="user_type">Nouvelles valeurs des propriétés de cet utilisateur</label><br>
+												<input type="hidden" name="id">
+												<select name="status" required>
+													<option value=2><?php echo TXT_TYPE_PRESENTATION; ?></option>
+													<option value=3><?php echo TXT_TYPE_ADHERENT; ?></option>
+													<option value=4><?php echo TXT_TYPE_ARTISTE; ?></option>
+													<option value=5><?php echo TXT_TYPE_ADMINISTRATEUR; ?></option>
+												</select>
+												<input type="text" name="firstname" placeholder="<?php echo TXT_PLACEHOLDER_FIRSTNAME; ?>" >
+												<input type="text" name="name" placeholder="<?php echo TXT_PLACEHOLDER_NAME; ?>" ><br>
+												<input type="text" name="mail" placeholder="<?php echo TXT_PLACEHOLDER_MAIL; ?>" required>
+												<input type="date" name="subscription_date" placeholder="<?php echo TXT_PLACEHOLDER_DATE; ?>" required><br>
+												<input type="submit" name="update-user" class="btn btn-primary" value="Sauvegarder les modifications">
+												<button type="button" class="btn btn-default btn-lg pull-right closeModal" data-dismiss="modal">Fermer</button>
+											</form>
+										</div>
+									</div>
+								</div>
 							</div>
 
 							<div id="search_artist" class="row thumbnail">
@@ -329,11 +385,11 @@
 							<!--		on cache tout pour la 1.0 tant que c'est pas fonctionnel
 	
 							<div class="row">
-							    <h1 class="Section"><?php echo TXT_SECTION_NEWS; ?></h1>
+								<h1 class="Section"><?php echo TXT_SECTION_NEWS; ?></h1>
 							</div>
 	
-							<div class="thumbnail">      
-							    <h3>Ajouter une actualité</h3>  
+							<div class="thumbnail">	  
+								<h3>Ajouter une actualité</h3>  
 								<form action="" method="POST">  
 									<select name="lang" required>
 										<option value='fr'>Fr</option>
@@ -348,7 +404,7 @@
 							</div>
 	
 							<div class="row">
-							    <h1 class="Section"><?php echo TXT_SECTION_LANG; ?></h1>
+								<h1 class="Section"><?php echo TXT_SECTION_LANG; ?></h1>
 							</div>
 
 							-->
@@ -383,7 +439,7 @@
 									<div class="fileUpload btn btn-primary">
 										<span>Upload</span>		
 										<input type="file" name="it_lang_file" required/>
-									<br>    -->													
+									<br>	-->													
 									<input type="submit" class="btn btn-primary" name="set_lang_files_form" value="<?php echo TXT_BUTTON_SEND; ?>">	
 								</form>	 
 							</div>

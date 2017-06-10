@@ -262,7 +262,32 @@
                 }
             }
             return $id_book;
-        }      
+        }
+
+        /**
+        * Méthode qui récupère un user en le cherchant grâce à son id
+        * 
+        *
+        * @param user_id : l'id de l'utilisateur
+        * @return User : l'objet User qui correspond à l'utilisateur trouvé 
+        */
+        public function getUserByID($user_id)
+        {
+            $user_serialized = null;
+            $query = $this->conn->prepare("SELECT * FROM users WHERE id_user=?;");
+            $query-> bindValue(1, $user_id);
+            if ($query->execute()) 
+            {
+                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                    $firstname = $row['firstname'] !== NULL ? $row['firstname'] : NULL;
+                    $name = $row['name'] !== NULL ? $row['name'] : NULL;
+                    $first_mail = $row['mail_at_account_creation'] !== NULL ? $row['mail_at_account_creation'] : NULL;
+                    $user = new User($row['id_user'], $row['mail'], $row['status'], $row['subscription_date'], $firstname, $name, $first_mail);
+                    $user_serialized = serialize($user);
+                }
+            }
+            return $user_serialized;
+        }
 
         /**
         * Méthode qui récupère un user en le cherchant grâce à son mail

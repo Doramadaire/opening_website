@@ -114,6 +114,11 @@
 		}
 	}
 
+	if (isset($_POST['update-user'])) {
+		$search_user_msg = "";
+		$user = unserialize($sql->getUserByID($_POST['id']));
+	}
+
 	if (isset($_POST['search_artist_form'])) {
 		$search_artist_msg = "";
 
