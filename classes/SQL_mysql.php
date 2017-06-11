@@ -687,6 +687,36 @@
         }
 
         /**
+         * Méthode qui modifie le prénom d'un utilisateur dans la table users de la base de donnée
+         *
+         * @param $user : un objet de la classe User.php
+         * @param string : $new_firstname - le nouveau prénom de l'utilisateur 
+         * @return bool : True si la modification est réussi, False sinon
+         */
+        public function setUserFirstname($user, $new_firstname)
+        {
+            $query = $this->conn->prepare("UPDATE users SET firstname = ? WHERE id_user = ?");
+            $query-> bindValue(1,$new_firstname);    
+            $query-> bindValue(2,$user->getUserID());
+            return $query->execute();
+        }
+
+        /**
+         * Méthode qui modifie le nom d'un utilisateur dans la table users de la base de donnée
+         *
+         * @param $user : un objet de la classe User.php
+         * @param string : $new_name - le nouveau nom de l'utilisateur 
+         * @return bool : True si la modification est réussi, False sinon
+         */
+        public function setUserName($user, $new_name)
+        {
+            $query = $this->conn->prepare("UPDATE users SET name = ? WHERE id_user = ?");
+            $query-> bindValue(1,$new_name);    
+            $query-> bindValue(2,$user->getUserID());
+            return $query->execute();
+        }
+
+        /**
          * Méthode qui modifie le mot de passe d'un utilisateur dans la table users de la base de donnée
          *
          * @param $user : un objet de la classe User.php

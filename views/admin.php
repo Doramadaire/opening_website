@@ -129,6 +129,11 @@
 							var nodeNameAttribute = node.getAttribute("name");
 							if (userSelected[nodeNameAttribute] != null) {
 								node.setAttribute("value", userSelected[nodeNameAttribute]);
+							} else {
+								//si pas de valeur, on supprime une éventuelle valeur
+								if (node.getAttribute("type") !== "submit" && node.hasAttribute("value")) {
+									node.removeAttribute("value");
+								}
 							}
 						} else if (node.tagName === "SELECT") {
 							//donc le select index dépend du nombre d'option
@@ -140,6 +145,8 @@
 				});
 
 				$(".closeModal").click(function() {
+					//reset les valeurs du formulaire avant de le fermer
+					document.getElementById("update-user-form").reset();
 					updateUserModal.style.display = "none";
 				});
 

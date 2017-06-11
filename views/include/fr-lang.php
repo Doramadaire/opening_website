@@ -144,10 +144,10 @@
 	define('TXT_NOUVEL_UTILISATEUR', "Création d'un compte utilisateur du site");
 	
 	define('TXT_TYPE_COMPTE', "Quel type de compte souhaitez vous créer?");
-	define('TXT_TYPE_PRESENTATION', "Compte de présentation");
-	define('TXT_TYPE_ADHERENT', "Compte adhérent (cotisant à jour)");
-	define('TXT_TYPE_ARTISTE', "Compte artiste");
-	define('TXT_TYPE_ADMINISTRATEUR', "Compte administrateur");
+	define('TXT_TYPE_PRESENTATION', "Compte de présentation (2)");
+	define('TXT_TYPE_ADHERENT', "Compte adhérent (cotisant à jour - 3)");
+	define('TXT_TYPE_ARTISTE', "Compte artiste (4)");
+	define('TXT_TYPE_ADMINISTRATEUR', "Compte administrateur (5)");
 	
 	define('TXT_PLACEHOLDER_DATE', "Date AAAA-MM-JJ");
 	define('TXT_CREER_COMPTE', "Créer l'utilisateur");

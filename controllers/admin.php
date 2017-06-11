@@ -117,6 +117,64 @@
 	if (isset($_POST['update-user'])) {
 		$search_user_msg = "";
 		$user = unserialize($sql->getUserByID($_POST['id']));
+
+		if ($_POST['status'] !== $user->getUserStatus()) {
+			$status_modified = $sql->setUserStatus($user, $_POST['status']);
+			if ($status_modified) {
+				$search_user_msg .= "Statut modifié avec succès, nouveau statut=".$_POST['status']."<br>";
+			} else {
+				$search_user_msg .= "Echec de la modification du statut<br>";
+			}
+		}
+
+		if (isset($_POST['firstname'])) {
+			if ($_POST['firstname'] !== $user->getUserFirstname()) {
+				$firstname_modified = $sql->setUserFirstname($user, $_POST['firstname']);
+				if ($firstname_modified) {
+					$search_user_msg .= "Prénom modifié avec succès, nouveau prénom=".$_POST['firstname']."<br>";
+				} else {
+					$search_user_msg .= "Echec de la modification du prénom<br>";
+				}
+			}
+		}
+
+		if (isset($_POST['name'])) {
+			if ($_POST['name'] !== $user->getUserName()) {
+				$name_modified = $sql->setUserName($user, $_POST['name']);
+				if ($name_modified) {
+					$search_user_msg .= "Nom modifié avec succès, nouveau nom=".$_POST['name']."<br>";
+				} else {
+					$search_user_msg .= "Echec de la modification du nom<br>";
+				}
+			}
+		}
+
+		if (isset($_POST['mail'])) {
+			if ($_POST['mail'] !== $user->getUserMail()) {
+				$mail_modified = $sql->setUserMail($user, $_POST['mail']);
+				if ($mail_modified) {
+					$search_user_msg .= "Mail modifié avec succès, nouveau mail=".$_POST['mail']."<br>";
+				} else {
+					$search_user_msg .= "Echec de la modification du mail<br>";
+				}
+			}
+		}
+
+		if (isset($_POST['subscription_date'])) {
+			if ($_POST['subscription_date'] !== $user->getUserSubscriptionDate()) {
+				$sub_date_modified = $sql->setUserSubscriptionDate($user, $_POST['subscription_date']);
+				if ($sub_date_modified) {
+					$search_user_msg .= "Date de fin d'adhésion modifiée avec succès, nouvelle date=".$_POST['subscription_date']."<br>";
+				} else {
+					$search_user_msg .= "Echec de la modification de la date de fin d'adhésion<br>";
+				}
+			}
+		}
+
+		$user = unserialize($sql->getUserByID($_POST['id']));
+
+		$search_user_msg .= "Cet utilisateur a désormais les propriétés suivantes :<br>";
+		$search_user_msg .= $user->toString();
 	}
 
 	if (isset($_POST['search_artist_form'])) {
