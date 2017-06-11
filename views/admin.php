@@ -179,11 +179,7 @@
 		<?php if (isset($json_retrieved_artists)) { ?>
 		<script type="text/javascript">
 		//création du tableau d'artistes
-
-			function createArtistTable() {
-				var json_retrieved_artists = '<?php echo $json_retrieved_artists; ?>';
-				var retrieved_artists = JSON.parse(json_retrieved_artists);
-
+			function createArtistTable(retrieved_artists, parentID, childID) {
 				var retrieved_artist_table = document.createElement("table");
 				retrieved_artist_table.className = "table table-striped";
 
@@ -218,15 +214,17 @@
 					cellName.innerHTML = artist['name'];
 					//cellSearchName.innerHTML = artist['search_name'];
 					cellUserId.innerHTML = artist['user'];
-
 				}
-				var parent = document.getElementById("search_artist");
-				var child = document.getElementById("retrieved_artist_table");
+				var parent = document.getElementById(parentID);
+				var child = document.getElementById(childID);
 				parent.replaceChild(retrieved_artist_table, child);
 			}
 
+			var json_retrieved_artists = '<?php echo $json_retrieved_artists; ?>';
+			var retrieved_artists = JSON.parse(json_retrieved_artists);
+
 			$(function() {
-				createArtistTable();
+				createArtistTable(retrieved_artists, "search_artist", "retrieved_artist_table");
 			});
 		</script>
 		<?php } ?>
@@ -255,10 +253,8 @@
 								<h2>En construction</h2>
 								<p>Les prochaines fonctionnalités sont :</p>
 								<ul>
-									<li>recherche et modifications d'un utilisateur</li>
-									<li>recherche et modifications d'un artiste</li>
+									<li>modifications d'un artiste</li>
 									<li>recherche et modifications d'un book</li>
-									<li>gestion des actualités</li>
 								</ul>
 							</div>
 
@@ -304,7 +300,7 @@
 												</select>
 												<input type="text" name="firstname" placeholder="<?php echo TXT_PLACEHOLDER_FIRSTNAME; ?>" >
 												<input type="text" name="name" placeholder="<?php echo TXT_PLACEHOLDER_NAME; ?>" ><br>
-												<input type="text" name="mail" placeholder="<?php echo TXT_PLACEHOLDER_MAIL; ?>" required>
+												<input type="text" name="mail" class="input-mail" placeholder="<?php echo TXT_PLACEHOLDER_MAIL; ?>" required>
 												<input type="date" name="subscription_date" placeholder="<?php echo TXT_PLACEHOLDER_DATE; ?>" required><br>
 												<input type="submit" name="update-user" class="btn btn-primary" value="Sauvegarder les modifications">
 												<button type="button" class="btn btn-default btn-lg pull-right closeModal" data-dismiss="modal">Fermer</button>
@@ -339,7 +335,7 @@
 									</select>
 									<input type="text" name="firstname" placeholder="<?php echo TXT_PLACEHOLDER_FIRSTNAME; ?>" >
 									<input type="text" name="name" placeholder="<?php echo TXT_PLACEHOLDER_NAME; ?>" >
-									<input type="text" name="mail" placeholder="<?php echo TXT_PLACEHOLDER_MAIL; ?>" required>
+									<input type="text" name="mail" class="input-mail" placeholder="<?php echo TXT_PLACEHOLDER_MAIL; ?>" required>
 									<input type="date" name="subscripion_end_date" placeholder="<?php echo TXT_PLACEHOLDER_DATE; ?>" required>
 									<input type="submit" name="new_user_form" class="btn btn-primary" value="<?php echo TXT_CREER_COMPTE; ?>" >	
 								</form>	 
@@ -351,7 +347,7 @@
 								<form action="" method="POST" enctype="multipart/form-data">
 									<input type="text" name="firstname" placeholder="<?php echo TXT_PLACEHOLDER_FIRSTNAME; ?>" >
 									<input type="text" name="name" placeholder="<?php echo TXT_PLACEHOLDER_NAME; ?>" required>
-									<input type="text" name="mail" placeholder="<?php echo TXT_PLACEHOLDER_MAIL; ?>" required>
+									<input type="text" name="mail" class="input-mail" placeholder="<?php echo TXT_PLACEHOLDER_MAIL; ?>" required>
 									<input type="text" name="artist_name" placeholder="<?php echo TXT_PLACEHOLDER_ARTIST_NAME; ?>" required>
 									<input type="date" name="subscripion_end_date" placeholder="<?php echo TXT_PLACEHOLDER_DATE; ?>" required>
 									<br><?php echo TXT_AUTHOR_SUBMIT_CV; ?><input class="btn btn-file" type="file" name="artist_cv_file">
