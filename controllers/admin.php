@@ -177,6 +177,18 @@
 		$search_user_msg .= $user->toString();
 	}
 
+	if (isset($_POST['delete-user'])) {
+		$search_user_msg = "";
+		if (isset($_POST['id'])) {
+			$success = $sql->deleteUser($_POST['id']);
+			if ($success) {
+				$search_user_msg = "Suppression de l'utilisateur ayant pour id=".$_POST['id']." réussie";
+			} else {
+				$search_user_msg = "Echec de la suppression de l'utilisateur ayant pour id=".$_POST['id'];
+			}
+		}
+	}
+
 	if (isset($_POST['search_artist_form'])) {
 		$search_artist_msg = "";
 

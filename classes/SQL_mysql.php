@@ -952,6 +952,19 @@
             return $query->execute();
         }*/
 
+        /**
+         * Méthode qui supprime un utilisateur de la base de données
+         *
+         * @param $user_id : l'id de l'user à supprimer
+         * @return bool : True si la suppression est réussi, False sinon
+         */
+        public function deleteUser($user_id)
+        {
+            $query = $this->conn->prepare("DELETE FROM users WHERE id_user = ?");     
+            $query-> bindValue(1, $user_id);
+            return $query->execute();
+        }
+
         public function generatePassword() {
             //génération d'un mot de passe aléatoire pour le nouveau compte
             //https://www.it-connect.fr/php-generateur-de-mot-de-passe-parametrable/

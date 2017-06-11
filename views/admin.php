@@ -121,7 +121,7 @@
 					}
 					//on affiche les valeurs actuelles de cet user
 					createUserTable([userSelected], "update-user-header", "user-selected-table");
-					//on met les valeurs actuelles dans le formulaire
+					//on met les valeurs actuelles dans les formulaire
 					var updateUserFormChildNodes = document.getElementById("update-user-form").childNodes;
 					for (var i = updateUserFormChildNodes.length - 1; i >= 0; i--) {
 						node = updateUserFormChildNodes[i];
@@ -142,6 +142,21 @@
 							node.selectedIndex = userSelected['status']-2;
 						};
 					};
+					//besoin du user_id dans mon formulaire pour supprimer un user
+					var deleteUserFormChildNodes = document.getElementById("delete-user-form").childNodes;
+					for (var i = deleteUserFormChildNodes.length - 1; i >= 0; i--) {
+						node = deleteUserFormChildNodes[i];
+						if (node.tagName === "INPUT" && node.getAttribute("name") === "id") {
+							node.setAttribute("value", userSelected['id']);
+						}
+					}
+				});
+
+				$("#delete-user-button").click(function() {
+					var confirmation = confirm("Etes vous sûr de vouloir supprimer cet utilisateur?");
+					if (!confirmation) {
+						return false;
+					}
 				});
 
 				$(".closeModal").click(function() {
@@ -269,8 +284,12 @@
 								<div class="modal-dialog modal-lg">
 									<div class="modal-content">
 	  									<div id="update-user-header" class="modal-header">
-	  										<button type="button" class="close closeModal" data-dismiss="modal">&times;</button>
-											<h3 id="updateUserModalLabel">Modification des propriétés d'un utilisateur</h3>
+		  									<button type="button" class="close closeModal" data-dismiss="modal">&times;</button>
+											<br><h3 id="updateUserModalLabel">Modification des propriétés d'un utilisateur</h3>
+											<form id="delete-user-form" method="POST">
+												<input type="hidden" name="id">
+												<input id="delete-user-button" type="submit" name="delete-user" class="btn btn-danger" value="Supprimer cet utilisateur">
+											</form>
 											<div id="user-selected-table"></div>
 										</div>
 										<div class="modal-body">

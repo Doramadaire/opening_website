@@ -1,7 +1,3 @@
-.btn-file[type=file] {
-    display: initial;
-}
-
 thead {
     font-weight: bold;
 }
@@ -10,13 +6,31 @@ thead {
     margin-bottom: 3px;
 }
 
-.modal {
-    background-color: rgba(0,0,0,0.6);
+.btn-file[type=file] {
+    display: initial;
 }
 
 .btn-default {
     padding: 6px 12px;
     border: 1px solid #999999 !important;
+}
+
+/*.closeModal {
+    margin-bottom: 20px;
+}*/
+
+#updateUserModalLabel {
+    display: inline;
+}
+
+#delete-user-form {
+    display: inline;
+    float: right;
+    margin-top: 10px;
+}
+
+.modal {
+    background-color: rgba(0,0,0,0.6);
 }
 
 .modal-body {
