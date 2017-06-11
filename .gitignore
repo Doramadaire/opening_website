@@ -2,6 +2,7 @@
 *.db
 mdp.txt
 *.jpg
+*.pdf
 
 #DEV files
 change_pswd.php
