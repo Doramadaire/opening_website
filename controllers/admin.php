@@ -425,6 +425,30 @@
 				}
 			}
 		}
+
+		if (isset($_GET['dl'])) {
+                switch ($_GET['dl']) {
+                        case 'fr':
+                        case 'en':
+                                $file = 'views/include/'.$_GET['dl'].'-lang.php';
+                                if (file_exists($file)) {
+                                    header('Content-Description: File Transfer');
+                                    header('Content-Type: application/octet-stream');
+                                    header('Content-Disposition: attachment; filename="'.basename($file).'"');
+                                    header('Expires: 0');
+                                    header('Cache-Control: must-revalidate');
+                                    header('Pragma: public');
+                                    header('Content-Length: ' . filesize($file));
+                                    readfile($file);
+                                    exit;
+                                }
+                                break;
+
+                        default:
+                                //version pas reconnue, on envoie rien à part un message?
+                                break;
+                }
+        }
     }
 
 	include_once('./views/admin.php');

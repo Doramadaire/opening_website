@@ -88,9 +88,6 @@
             if (isset($_SESSION['user_logged'])) {
                 switch ($user_logged->getUserStatus()) {
                     case 2:
-                        $book_is_extract = true;
-                        break;
-
                     case 3:
                         //si date du jour plus petite que date de fin d'adhesion
                         $date_today = date('Y-m-d');
