@@ -2,7 +2,7 @@
  	
 	//---------------------------------------------------------
 	// généraux
-	//---------------------------------------------------------	
+	//---------------------------------------------------------
 	
 	define('TXT_ONGLET', "Opening book");
 	define('TXT_INTERDICTION', "Vous n'avez pas le droit d'accéder à cette page");
@@ -11,12 +11,12 @@
 	//---------------------------------------------------------
 	// barre de navigation et noms des pages associées
 	//---------------------------------------------------------
- 
- 	define('TXT_NAVBAR_HOME', 'accueil');
- 	define('TXT_NAVBAR_A_PROPOS', 'à propos');
- 	define('TXT_NAVBAR_CATALOGUE', 'collections');
-  	define('TXT_NAVBAR_CONTACT', 'contact');
-  	define('TXT_NAVBAR_NEWS', 'actualités');
+
+	define('TXT_NAVBAR_HOME', 'accueil');
+	define('TXT_NAVBAR_A_PROPOS', 'à propos');
+	define('TXT_NAVBAR_CATALOGUE', 'collections');
+	define('TXT_NAVBAR_CONTACT', 'contact');
+	define('TXT_NAVBAR_NEWS', 'actualités');
 	define('TXT_NAVBAR_ADHERER', "adhérer");
 	define('TXT_NAVBAR_LANGUE', "langue");
 
@@ -33,8 +33,8 @@
 	define('TXT_FOOTER_BACK_HOME', "R");
 	
 	//---------------------------------------------------------
- 	// index.php
- 	//---------------------------------------------------------
+	// index.php
+	//---------------------------------------------------------
 
 	define('TXT_TAB_INDEX', "Accueil - association Opening book");
 
@@ -65,10 +65,10 @@
 	define('TXT_BOUTON_ADHERER', "adhérer");
 	
 	//---------------------------------------------------------
- 	// catalogue.php
- 	//---------------------------------------------------------
+	// catalogue.php
+	//---------------------------------------------------------
 
- 	define('TXT_TAB_CATALOGUE', "L'ensemble de notre collection - Retrouvez tous nos Opening book - Opening book");
+	define('TXT_TAB_CATALOGUE', "L'ensemble de notre collection - Retrouvez tous nos Opening book - Opening book");
 	
 	define('TXT_SECTION_CATALOGUE_ALL', "Les books");
 	define('TXT_SECTION_CATALOGUE_ARTISTS', "Par artiste");
@@ -82,12 +82,12 @@
 	define('TXT_BOOK_BY_AND', 'et');
 		
 	//---------------------------------------------------------
- 	// book_management.php
- 	//---------------------------------------------------------	
+	// book_management.php
+	//---------------------------------------------------------
 
- 	define('TXT_TAB_BOOK_MANAGEMENT', "Partage de vos Opening books - Opening book");
+	define('TXT_TAB_BOOK_MANAGEMENT', "Partage de vos Opening books - Opening book");
 		
- 	define('TXT_SECTION_GESTION_BOOK_AUTEUR', 'Page de gestion de vos books');
+	define('TXT_SECTION_GESTION_BOOK_AUTEUR', 'Page de gestion de vos books');
 	define('TXT_SECTION_GESTION_BOOK_ADMIN', 'Page de gestion des books');
 
 	define('TXT_SHARE_BOOK_EXPLANATION', "Sur cette page vous pouvez générer des liens d'accès privilégiés vers vos Opening book. N'importe quelle personne disposant du lien pourra alors consulter l'oeuvre correspondante.");
@@ -97,44 +97,44 @@
 	define('TXT_ARTIST_BOOK_MANAGEMENT', "Vos books");
 
 	//---------------------------------------------------------
- 	// book_viewer.php
- 	//---------------------------------------------------------
+	// book_viewer.php
+	//---------------------------------------------------------
 
- 	define('TXT_TAB_BOOK_VIEWER', "Consultation d'un Opening book - Opening book");
+	define('TXT_TAB_BOOK_VIEWER', "Consultation d'un Opening book - Opening book");
 
- 	define('TXT_VISITOR', "En tant que visiteur vous n'avez accès qu'à des extraits.");
- 	define('TXT_USER_SUBSCRIPTION_EXPIRED', "Attention, votre cotisation n'est pas à jour. Vous n'avez accès qu'à des extraits des books.");
- 	define('TXT_BOOK_VIEWER_EXPLANATION', 'Cliquez sur la couverture pour démarrer la lecture');
- 	define('TXT_ARTIST_CV', 'Consulter le CV');
+	define('TXT_VISITOR', "En tant que visiteur vous n'avez accès qu'à des extraits.");
+	define('TXT_USER_SUBSCRIPTION_EXPIRED', "Attention, votre cotisation n'est pas à jour. Vous n'avez accès qu'à des extraits des books.");
+	define('TXT_BOOK_VIEWER_EXPLANATION', 'Cliquez sur la couverture pour démarrer la lecture');
+	define('TXT_ARTIST_CV', 'Consulter le CV');
 
 	define('TXT_BACK_TO_COLLECTION_BOOKS', 'collection ');
 	define('TXT_BACK_TO_ARTIST_BOOKS', "");
 	define('TXT_BACK_TO_CATALOGUE', "toutes les collections");
 
 	//---------------------------------------------------------
- 	// user_settings.php
- 	//---------------------------------------------------------	
-	
+	// user_settings.php
+	//---------------------------------------------------------
+
 	define('TXT_TAB_USER_SETTINGS', "Gestion de votre compte - Opening book");
 
- 	define('TXT_GESTION_COMPTE_USER', 'Gestion de votre compte');
+	define('TXT_GESTION_COMPTE_USER', 'Gestion de votre compte');
 	define('TXT_NOUVEAU_MAIL', 'Votre nouvelle adresse');
 	define('TXT_MAIL_ACTUEL', 'Votre adresse mail actuelle est : ');
 	define('TXT_MAIL_CONFIRM', 'Votre mail est désormais : ');
 	define('TXT_MDP_ACTUEL', 'Mot de passe actuel');
-	define('TXT_NOUVEAU_MPD', 'Nouveau mot de passe');  
+	define('TXT_NOUVEAU_MPD', 'Nouveau mot de passe');
 	define('TXT_CONFIRME_MDP', 'Confirmer le nouveau mot de passe');
 	define('TXT_COTISATION', "Cotisation effective jusqu'au "); 
 	define('TXT_MODIF_MAIL', "Modifier votre adresse e-mail");
 	define('TXT_MODIF_MDP', 'Modifier votre mot de passe'); 
-	
+
 	//---------------------------------------------------------
- 	// admin.php
- 	//---------------------------------------------------------	
-		
+	// admin.php
+	//---------------------------------------------------------
+
 	define('TXT_TAB_ADMIN', "Page d'administration - Opening book");
 
- 	define('TXT_GESTION_DES_UTILISATEURS', "Page d'administration");
+	define('TXT_GESTION_DES_UTILISATEURS', "Page d'administration");
 	define('TXT_RECHERCHE_UTILISATEUR', 'Rechercher des informations sur un utilisateur');
 	define('TXT_RECHERCHE_USER_QUESTION', "Quel utilisateur recherchez-vous?");
 	define('TXT_BOUTON_RECHERCHE_UTILISATEUR', "Rechercher un utilisateur");
@@ -148,10 +148,10 @@
 	define('TXT_TYPE_ADHERENT', "Compte adhérent (cotisant à jour - 3)");
 	define('TXT_TYPE_ARTISTE', "Compte artiste (4)");
 	define('TXT_TYPE_ADMINISTRATEUR', "Compte administrateur (5)");
-	
+
 	define('TXT_PLACEHOLDER_DATE', "Date AAAA-MM-JJ");
 	define('TXT_CREER_COMPTE', "Créer l'utilisateur");
-	
+
 	define('TXT_NOUVEL_ARTISTE', "Création d'un compte artiste");
 	define('TXT_PLACEHOLDER_ARTIST_NAME', "Nom d'artiste");	
 	define('TXT_AUTHOR_SUBMIT_CV', "Fichier PDF du CV de l'artiste");	
@@ -167,8 +167,8 @@
 	define('TXT_COLLECTION', "Collection : ");
 	define('TXT_COLLECTION_OPENINGBOOK', "OpeningBook");
 	define('TXT_COLLECTION_OPENINGBOOK_PHOTO', "OpeningBook Photo");
-	define('TXT_PUBLISH_DATE', "Date de publication 20AA-MM-JJ : ");	
-	define('TXT_BOUTON_CREER_BOOK', "Créer le book");	
+	define('TXT_PUBLISH_DATE', "Date de publication 20AA-MM-JJ : ");
+	define('TXT_BOUTON_CREER_BOOK', "Créer le book");
 	define('TXT_COLLECTION_OPENINGBOOK_AUTRE', "Nouvelle collection");
 	define('TXT_PLACEHOLDER_TITRE', "Titre");
 	define('TXT_ERR_UPLOAD_FAIL', "Erreur lors du transfert des fichiers");
@@ -182,56 +182,78 @@
 	define('TXT_LANG_FILE_EN', "Fichier des textes en anglais");
 	define('TXT_LANG_FILE_DE', "Fichier des textes en allemand");
 	define('TXT_LANG_FILE_ES', "Fichier des textes en espagnol");
-	define('TXT_LANG_FILE_IT', "Fichier des textes en italien");	
+	define('TXT_LANG_FILE_IT', "Fichier des textes en italien");
 	
 	//---------------------------------------------------------
- 	// join.php
- 	//---------------------------------------------------------	
+	// join.php
+	//---------------------------------------------------------
 
- 	define('TXT_TAB_JOIN', "Adhérez à l'association - Opening book");
-		
- 	define('TXT_SECTION_ADHESION', 'Adhérer');
+	define('TXT_TAB_JOIN', "Adhérez à l'association - Opening book");
+
+	define('TXT_SECTION_ADHESION', 'Adhérer');
 	define('TXT_ADHESION_TEXTE', "En adhérant à l’association Opening :<br>
-            <ul>
-                <li>vous contribuez à soutenir les artistes  </li>
-                <li>vous découvrez les opening books dans leur intégralité </li>
-            </ul>
-            Montant de la cotisation : 30 € par an<br>
-            Opening est une association loi 1901 répondant aux critères de l’intérêt général, ce qui vous permet de défiscaliser une partie de vos dons et cotisations.<br>
+			<ul>
+				<li>vous contribuez à soutenir les artistes</li>
+				<li>vous découvrez les opening books dans leur intégralité </li>
+			</ul>
+			Montant de la cotisation : 30 € par an<br>
+			Opening est une association loi 1901 répondant aux critères de l’intérêt général, ce qui vous permet de défiscaliser une partie de vos dons et cotisations.<br>
 			<p>Vous pouvez adhérer en remplissant le formulaire ci-dessous ou en envoyant un chèque à l’ordre d’Opening 68 rue des Dominicaines 13001 Marseille en indiquant vos coordonnées ainsi qu’une adresse mail. Vous recevrez ensuite par mail votre identifiant et mot de passe.</p>
 			Laissez-vous guider par le formulaire ci-dessous pour l’adhésion en ligne et le paiement sécurisé<br>");
-	
-	
+
 	//---------------------------------------------------------
- 	// about.php
- 	//---------------------------------------------------------	
-	
+	// about.php
+	//---------------------------------------------------------
+
 	define('TXT_TAB_ABOUT', "A propos de notre association - Opening book");
 
- 	define('TXT_SECTION_EDITO', 'à propos');
-	define('TXT_EDITO_TEXTE', "<p>Opening book est un nouvel objet artistique et éditorial conçu pour donner une visibilité aux artistes photographes et plasticiens actifs en région Paca, connus ou moins connus.</p>
-                    <p>Opening book n’est ni catalogue d’exposition, ni monographie (il ne tend pas à l’exhaustivité et ne propose pas d’outil critique), ni livre d’artiste (ce n’est pas une création artistique en soi), ni book d’artiste au sens classique du terme.</p>
-                    <p>Opening book est un format pré-défini de douze pages offertes à un artiste pour y exposer douze œuvres et les diffuser sur tout type d’écran : ordinateur, tablette, smartphone. La collection propose une approche directe des œuvres grâce à la qualité des reproductions, à une mise en page épurée construite autour de l’œuvre et du détail et à un mode de navigation conçu pour le numérique.</p>
-                    <p>Opening book est aussi un dispositif qui offre aux artistes des outils essentiels pour promouvoir leur travail : des reproductions photographiques de qualité professionnelle, une interface de gestion en ligne des archives photographiques (espace membres) et l’inscription dans un large réseau de diffusion.</p>
-                    Opening reçoit le soutien de la Région Provence-Alpes-Côte d'Azur et du Conseil départemental des Bouches-du-Rhône.</p>");
-    //exemple de balise pour mettre une image : <img src='http://coloriage.info/images/ccovers/1460917190bananes-fruit.gif' width='476' height='405'>
+	define('TXT_SECTION_EDITO', 'à propos');
+	define('TXT_EDITO_TEXTE', "<p><b>Collection numérique </b>de books d’artistes conçue pour offrir une visibilité aux artistes plasticiens, opening book est née en 2015 de la volonté d’une passionnée d’art et d’une artiste. Suivie en 2016 par opening book photo, elle permet à un public d’amateurs et de professionnels de l’art de découvrir des artistes émergents ou déjà reconnus. <p/>
+
+		<p>Dans chaque book, douze oeuvres sont à découvrir dans une mise en page épurée construite autour de l’oeuvre et du détail, avec une navigation fluide entre les pages et un zoom puissant pour observer des détails. Opening offre ainsi aux artistes des atouts essentiels pour construire ou consolider leur cote : des reproductions photographiques de qualité professionnelle et l’inscription dans un large réseau de diffusion.<p/>
+
+		<p><b>Pourquoi adhérer ?</b>
+		Des extraits sont consultables gratuitement sur le site opening-book.com. Les versions intégrales sont réservées aux adhérents.Pourquoi ? Parce que construire cette collection avec des moyens professionnels et défendre les artistes a un prix, le prix de notre travail et celui de nos prestataires. </p>
+
+		<p>L’adhésion annuelle coûte 30 €. C’est beaucoup et c’est peu. Avec cette somme vous découvrez jusqu’à 12 nouveaux artistes par an, vous vous constituez une bibliothèque numérique d’art et vous participez au fonctionnement de l’association, aux côtés des indispensables partenaires publics (actuellement, la Région Paca et le Département des Bouches-du-Rhône). Vous pouvez aussi faire un don. Dons et cotisations sont déductibles fiscalement car l’association répond aux critères de l’intérêt général.</p>
+
+		<p><b>Appel à candidature </b>
+		Les artistes souhaitant intégrer la collection sont invités à proposer une sélection cohérente de douze oeuvres, accompagnée d’une courte note expliquant la pertinence de cette sélection. La sélection définitive des oeuvres sera faite avec Opening. Les candidatures doivent être adressées à contact@opening-book.com en précisant dans l’objet du mail «candidature opening book». </p>
+
+		<p>Eléments demandés : douze images + note explicative + CV (éventuellement, lien vers un site internet, blog ou documentation de projets réalisés). Formats : .pdf, .jpg, .doc, .odt (word ou open office). Plus d'infos : nous contacter.</p>
+
+		<p>Critères de sélection : qualité et sérieux du travail artistique / justifier d’un parcours professionnel et d’un certain nombre de travaux / pertinence du choix d’oeuvres proposées.</p>
+
+		<p><b>Modalités</b>
+		Les artistes sélectionnés doivent adhérer à l’association Opening au tarif artiste de 50€. Si nécessaire, Opening prend en charge la numérisation (photographie ou scan) des œuvres choisies pour la publication. </p>
+
+		<p><b>Qui sommes-nous ?</b></p>
+		<p>Caroline CIRENDINI</p>
+		<p>Historienne de l’art de formation, médiatrice culturelle pendant 14 ans, elle a coordonné de nombreux projets d'édition et de commandes artistiques avec le Bureau des compétences et désirs (Action Nouveaux commanditaires de la Fondation de France), et auparavant avec le centre d'art contemporain du Crestet (co-édition avec Actes Sud).</p>
+
+		<p>Isabelle SCHNEIDER</p>
+		<p>Artiste, elle mène en parallèle des travaux en peinture et en vidéo. Elle participe à la programmation du festival de vidéo expérimentale Images Contre Nature à Marseille. Elle collabore régulièrement avec des compagnies de théâtre expérimental (Allemagne, Grèce, France.) </p>
+		<p><img src='assets/media/img/portrait_opening.jpg' width='900px'></p>
+		<p>Opening reçoit le soutien de la Région Provence-Alpes-Côte d'Azur et du Conseil départemental des Bouches-du-Rhône.</p>" );
+
+	//exemple de balise pour mettre une image : <img src='https://coloriage.info/images/ccovers/1460917190bananes-fruit.gif' width='476' height='405'>
 
 	//---------------------------------------------------------
- 	// news.php
- 	//---------------------------------------------------------	
- 
- 	define('TXT_TAB_NEWS', "Actualités de l'association et de nos artistes - Opening book");
-	
+	// news.php
+	//---------------------------------------------------------
+
+	define('TXT_TAB_NEWS', "Actualités de l'association et de nos artistes - Opening book");
+
 	define('TXT_SECTION_ACTUALITES', 'Actualités');
 	define('TXT_ACTUALITES_VIDE', "Il n'y a aucune nouvelle à afficher");
-	
+
 	//---------------------------------------------------------
- 	// contact.php
- 	//---------------------------------------------------------	
-	
+	// contact.php
+	//---------------------------------------------------------
+
 	define('TXT_TAB_CONTACT', "Contact - Opening book");
 
- 	define('TXT_SECTION_CONTACT', 'Contact');
+	define('TXT_SECTION_CONTACT', 'Contact');
 	define('TXT_CONTACT_TEXTE', "
 			Association Opening<br>
 			68 rue des dominicaines<br>
@@ -240,5 +262,5 @@
 			mail : <a href=".'"mailto:contact@opening-book.com"'.">contact@opening-book.com</a><br>
 			<a href=".'"https://www.facebook.com/opening-book-872866662728445/"'.">facebook</a><br>
 			<a href=".'"https://twitter.com/opening_asso"'.">twitter</a><br>");
- 
- ?>
+
+?>
