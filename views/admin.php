@@ -5,244 +5,29 @@
 		<title><?php echo TXT_TAB_ADMIN; ?></title>
 		<!-- Import des fichiers spécifiques à cette page -->
 		<link rel="stylesheet" href="css/admin.css" type="text/css">
+		<script src="js/admin.js"></script>
 		<script type="text/javascript">
-			function collectionSelecChange(value) {
-				if (value === "other") {
-					var newSpanText = document.createElement("span");
-					newSpanText.id = "add-collection-span";
-					newSpanText.innerHTML = "Attention, cette action va créer une nouvelle collection sur la page catalogue<br>";
-
-					var newInputBox = document.createElement("input");
-					newInputBox.required = true;
-					newInputBox.id = "add-collection-input";
-					newInputBox.setAttribute("type", "text");
-					newInputBox.setAttribute("name", "new_collection");
-
-					var selectBlock = document.getElementById("select-collection");
-					selectBlock.parentNode.insertBefore(newInputBox , selectBlock.nextSibling);
-					newInputBox.parentNode.insertBefore(newSpanText , newInputBox.nextSibling);
-				} else {
-					var uselessInputBox = document.getElementById("add-collection-input");
-					var uselessSpanText = document.getElementById("add-collection-span");
-
-					if (uselessInputBox !== null) {
-						uselessInputBox.parentNode.removeChild(uselessInputBox);
-					}
-					if (uselessSpanText !== null) {
-						uselessSpanText.parentNode.removeChild(uselessSpanText);
-					}
-				}
-			}
-		</script>
-		<?php if (isset($json_retrieved_users)) { ?>
-		<script type="text/javascript">
+<?php 	if (isset($json_retrieved_users)) { ?>
 			var json_retrieved_users = '<?php echo $json_retrieved_users; ?>';
-			var retrieved_users = JSON.parse(json_retrieved_users);
-
-			//création du tableau d'users			
-			function createUserTable(retrieved_users, parentID, childID) {
-				var retrieved_users_table = document.createElement("table");
-				retrieved_users_table.className = "table table-striped";
-				retrieved_users_table.id = childID;
-
-				//on fabrique la 1ère ligne
-				var header = retrieved_users_table.createTHead();
-				var row = header.insertRow(0);
-				var cellId = row.insertCell(-1);
-				var cellMail = row.insertCell(-1);
-				var cellFirstname = row.insertCell(-1);
-				var cellLastname = row.insertCell(-1);
-				var cellStatus = row.insertCell(-1);
-				var cellSubscriptionDate = row.insertCell(-1);
-				cellId.innerHTML = 'user_id';
-				cellMail.innerHTML = 'mail';
-				cellFirstname.innerHTML = 'prenom';
-				cellLastname.innerHTML = 'nom';
-				cellStatus.innerHTML = 'statut';
-				cellSubscriptionDate.innerHTML = 'date fin adhesion';
-
-				var body = document.createElement('tbody');
-				retrieved_users_table.appendChild(body);
-
-				var nbRetrievedUsers = retrieved_users.length;
-				for (var i = 0; i < nbRetrievedUsers; i++) {
-					user = retrieved_users[i];
-					var user = retrieved_users[i];
-					var row = body.insertRow(-1);
-					row.className = "user-row";
-
-					var cellId = row.insertCell(-1);
-					// cellId.className = "cell-id-" + user['id'];
-					cellId.className = "cell-user-id";
-					var cellMail = row.insertCell(-1);
-					var cellFirstname = row.insertCell(-1);
-					var cellLastname = row.insertCell(-1);
-					var cellStatus = row.insertCell(-1);
-					var cellSubscriptionDate = row.insertCell(-1);
-
-					cellId.innerHTML = user['id'];
-					cellMail.innerHTML = user['mail'];
-					cellFirstname.innerHTML = user['firstname'];
-					cellLastname.innerHTML = user['name'];
-					cellStatus.innerHTML = user['status'];
-					cellSubscriptionDate.innerHTML = user['subscription_date'];
-				}
-
-				var parent = document.getElementById(parentID);
-				var child = document.getElementById(childID);
-				parent.replaceChild(retrieved_users_table, child);
-			}
-
-			$(function() {
-				//console.log("ready!");
-				createUserTable(retrieved_users, "search_user", "retrieved_users_table");
-
-				var updateUserModal = document.getElementById('updateUserModal');
-
-				var userSelected = null;
-				var userIDSelected = null;
-				$(".user-row").click(function() {
-					// aller, on fait un modal avec un formulaire et tout le tralala
-					updateUserModal.style.display = "block";
-					updateUserModal.focus();
-
-					//on recupere l'user sur lequel on a cliqué
-					$(this).children().each(function() {
-						if (this.className === "cell-user-id") {
-							userIDSelected = this.innerHTML;
-						};
-					});
-					var nbRetrievedUsers = retrieved_users.length;
-					for (var i = 0; i < nbRetrievedUsers; i++) {
-						var user = retrieved_users[i];
-						if (userIDSelected === user['id']) {
-							userSelected = user;
-						};
-					}
-					//on affiche les valeurs actuelles de cet user
-					createUserTable([userSelected], "update-user-header", "user-selected-table");
-					//on met les valeurs actuelles dans les formulaire
-					var updateUserFormChildNodes = document.getElementById("update-user-form").childNodes;
-					for (var i = updateUserFormChildNodes.length - 1; i >= 0; i--) {
-						node = updateUserFormChildNodes[i];
-						if (node.tagName === "INPUT") {
-							var nodeNameAttribute = node.getAttribute("name");
-							if (userSelected[nodeNameAttribute] != null) {
-								node.setAttribute("value", userSelected[nodeNameAttribute]);
-							} else {
-								//si pas de valeur, on supprime une éventuelle valeur
-								if (node.getAttribute("type") !== "submit" && node.hasAttribute("value")) {
-									node.removeAttribute("value");
-								}
-							}
-						} else if (node.tagName === "SELECT") {
-							//donc le select index dépend du nombre d'option
-							//le -2 est une valeur hardcoded pour que ça marche sans se prendre la tête
-							//sinon il faut itérer sur les options pour trouver la bonne... la flemme
-							node.selectedIndex = userSelected['status']-2;
-						};
-					};
-					//besoin du user_id dans mon formulaire pour supprimer un user
-					var deleteUserFormChildNodes = document.getElementById("delete-user-form").childNodes;
-					for (var i = deleteUserFormChildNodes.length - 1; i >= 0; i--) {
-						node = deleteUserFormChildNodes[i];
-						if (node.tagName === "INPUT" && node.getAttribute("name") === "id") {
-							node.setAttribute("value", userSelected['id']);
-						}
-					}
-				});
-
-				$("#delete-user-button").click(function() {
-					var confirmation = confirm("Etes vous sûr de vouloir supprimer cet utilisateur?");
-					if (!confirmation) {
-						return false;
-					}
-				});
-
-				$(".closeModal").click(function() {
-					//reset les valeurs du formulaire avant de le fermer
-					document.getElementById("update-user-form").reset();
-					updateUserModal.style.display = "none";
-				});
-
-				// When the user clicks anywhere outside of the modal, close it
-				//deactivated : we don't want to lose data
-				// window.onclick = function(event) {
-				// 	if (event.target == updateUserModal) {
-				// 		updateUserModal.style.display = "none";
-				// 	}
-				// }
-			});
-		</script>
-		<?php } ?>
-
-		<?php if (isset($json_retrieved_artists)) { ?>
-		<script type="text/javascript">
-		//création du tableau d'artistes
-			function createArtistTable(retrieved_artists, parentID, childID) {
-				var retrieved_artist_table = document.createElement("table");
-				retrieved_artist_table.className = "table table-striped";
-
-				//on fabrique la 1ère ligne
-				var header = retrieved_artist_table.createTHead();
-				var row = header.insertRow(0);
-				var cellId = row.insertCell(-1);
-				var cellName = row.insertCell(-1);
-				//var cellSearchName = row.insertCell(-1);
-				var cellUserId = row.insertCell(-1);
-				cellId.innerHTML = 'artist_id';
-				cellName.innerHTML = 'nom';
-				//cellSearchName.innerHTML = 'nom recherche';
-				cellUserId.innerHTML = 'user_id';
-
-				var body = document.createElement('tbody');
-				retrieved_artist_table.appendChild(body);
-
-				var i = 0;
-				for (var i = 0; i < retrieved_artists.length; i++) {
-					artist = retrieved_artists[i];
-					var row = body.insertRow(-1);
-					row.className = "artist-row";
-
-					var cellId = row.insertCell(-1);
-					cellId.className = "cell-id";
-					var cellName = row.insertCell(-1);
-					//var cellSearchName = row.insertCell(-1);
-					var cellUserId = row.insertCell(-1);
-
-					cellId.innerHTML = artist['id'];
-					cellName.innerHTML = artist['name'];
-					//cellSearchName.innerHTML = artist['search_name'];
-					cellUserId.innerHTML = artist['user'];
-				}
-				var parent = document.getElementById(parentID);
-				var child = document.getElementById(childID);
-				parent.replaceChild(retrieved_artist_table, child);
-			}
-
+<?php	} elseif (isset($json_retrieved_artists)) { ?>
 			var json_retrieved_artists = '<?php echo $json_retrieved_artists; ?>';
-			var retrieved_artists = JSON.parse(json_retrieved_artists);
-
-			$(function() {
-				createArtistTable(retrieved_artists, "search_artist", "retrieved_artist_table");
-			});
+<?php	} ?>
 		</script>
-		<?php } ?>
+<?php 	if (isset($json_retrieved_users)) {
+			echo "<script src='js/admin_users.js'></script>";
+		} elseif (isset($json_retrieved_artists)) {
+			echo "<script src='js/admin_artists.js'></script>";
+		} ?>
 	</head>	
 	<body>
 	<?php 
 		include("include/header.php"); 
 
 		if (!isset($_SESSION['user_logged'])) { ?> 
-			<!-- 
-			TO DO : prévoir fonction qui affiche erreur
-			-->
+			<!-- TO DO : prévoir fonction qui affiche erreur -->
 			<?php echo TXT_INTERDICTION; ?>	
 	<?php } else {
 				if ($user_logged->getUserStatus()!==5) { ?>
-					<!-- 
-					TO DO : prévoir fonction qui affiche erreur
-					-->
 					<?php echo TXT_INTERDICTION; ?>
 	<?php   	} else { ?>
 					<div class="container-fluid row">
@@ -270,7 +55,7 @@
 										//if (isset($_POST['search_user_form'])) { ?>
 									</div>
 									<form action="" method="POST">
-									<label for="user_type"><?php echo TXT_RECHERCHE_USER_QUESTION; ?></label><br>
+									<label for="mail"><?php echo TXT_RECHERCHE_USER_QUESTION; ?></label><br>
 									<input type="text" name="mail" placeholder="<?php echo TXT_PLACEHOLDER_MAIL; ?>" >
 									<input type="submit" name="search_user_form" class="btn btn-primary" value="<?php echo TXT_BOUTON_RECHERCHE_UTILISATEUR; ?>" >
 								</form>
@@ -279,8 +64,8 @@
 							<div id="updateUserModal" class="modal" role="dialog" aria-labelledby="updateUserModalLabel">
 								<div class="modal-dialog modal-lg">
 									<div class="modal-content">
-	  									<div id="update-user-header" class="modal-header">
-		  									<button type="button" class="close closeModal" data-dismiss="modal">&times;</button>
+										<div id="update-user-header" class="modal-header">
+											<button type="button" class="close closeModal" data-dismiss="modal">&times;</button>
 											<br><h3 id="updateUserModalLabel">Modification des propriétés d'un utilisateur</h3>
 											<form id="delete-user-form" method="POST">
 												<input type="hidden" name="id">
@@ -290,7 +75,7 @@
 										</div>
 										<div class="modal-body">
 											<form id="update-user-form" method="POST">
-												<label for="user_type">Nouvelles valeurs des propriétés de cet utilisateur</label><br>
+												<label for="id">Nouvelles valeurs des propriétés de cet utilisateur</label><br>
 												<input type="hidden" name="id">
 												<select name="status" required>
 													<option value=2><?php echo TXT_TYPE_PRESENTATION; ?></option>
@@ -315,12 +100,44 @@
 								<?php if(isset($search_artist_msg)) echo "<p><b>$search_artist_msg</b><p>"; ?>
 								<div id="retrieved_artist_table"></div>
 								<form action="" method="POST">
-									<label for="user_type"><?php echo TXT_RECHERCHE_AUTHOR_QUESTION; ?></label><br>
+									<label for="author_pseudo"><?php echo TXT_RECHERCHE_AUTHOR_QUESTION; ?></label><br>
 									<input type="text" name="author_pseudo" placeholder="<?php echo TXT_PLACEHOLDER_ARTIST_NAME; ?>" >
 									<input type="submit" name="search_artist_form" class="btn btn-primary" value="<?php echo TXT_BOUTON_SEARCH_AUTHOR; ?>" >
 								</form>	
 							</div>
-	
+
+							<div id="updateArtistModal" class="modal" role="dialog" aria-labelledby="updateArtistModalLabel">
+								<div class="modal-dialog modal-lg">
+									<div class="modal-content">
+										<div id="update-artist-header" class="modal-header">
+											<button type="button" class="close closeModal" data-dismiss="modal">&times;</button>
+											<br><h3 id="updateArtistModalLabel">Modification des propriétés d'un artiste</h3>
+											<form id="delete-artist-form" method="POST">
+												<input type="hidden" name="id">
+												<input id="delete-artist-button" type="submit" name="delete-artist" class="btn btn-danger" value="Supprimer cet artiste">
+											</form>
+											<div id="artist-selected-table"></div>
+										</div>
+										<div class="modal-body">
+											<form id="update-artist-form" method="POST">
+												<label for="id">Nouvelles valeurs des propriétés de cet artiste</label><br>
+												<input type="hidden" name="id">
+												<input type="text" name="artist_name" placeholder="<?php echo TXT_PLACEHOLDER_ARTIST_NAME; ?>" required>
+												<!-- <input type="text" name="artist_search_name" placeholder="Search name (en général le nom de famille)" required> -->
+												<br><?php echo TXT_AUTHOR_SUBMIT_CV; ?><input class="btn btn-file" type="file" name="artist_cv_file">
+												<br>Fichier .txt de description de l'artiste en français :
+												<input class="btn btn-file" type="file" name="artist_description_file_fr" >
+												<!-- <br>Fichier .txt de description de l'artiste en anglais :
+												<input class="btn btn-file" type="file" name="artist_description_file_en" > -->
+												<br>
+												<input type="submit" name="update-artist" class="btn btn-primary" value="Sauvegarder les modifications">
+												<button type="button" class="btn btn-default btn-lg pull-right closeModal" data-dismiss="modal">Fermer</button>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+
 							<div class="row thumbnail">
 								<h3><?php echo TXT_NOUVEL_UTILISATEUR; ?></h3>
 								<?php  if (isset($msg_new_user)) { echo $msg_new_user."<br>";} ?> 
@@ -405,11 +222,11 @@
 							</div>
 
 							<!--		on cache tout pour la 1.0 tant que c'est pas fonctionnel
-	
+
 							<div class="row">
 								<h1 class="Section"><?php echo TXT_SECTION_NEWS; ?></h1>
 							</div>
-	
+
 							<div class="thumbnail">	  
 								<h3>Ajouter une actualité</h3>  
 								<form action="" method="POST">  
@@ -430,7 +247,7 @@
 							</div>
 
 							-->
-	
+
 							<div class="row thumbnail">
 								<!-- DEVDEVDEV TO DO : affichage propre des messages d'erreurs/confirmation -->
 								<h3><?php echo TXT_UPLOAD_LANG_FILES; ?></h3>
@@ -475,17 +292,7 @@
 						</div>
 						<div class="col-xs-1"></div>
 					</div>	
-	<?php  	}	 
-		} ?> 	
-
-	<!-- TO DO :
-	rajouter boutons:
-		*ajouter user
-		*changer mail
-		*changer date de cotis'
-		*changer statu
-		*changer mdp?
-	-->
-
+	<?php  	}
+		} ?>
 	</body>
 </html>
