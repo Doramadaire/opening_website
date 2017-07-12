@@ -15,10 +15,11 @@
                 </div>
                 <div class="row">
                     <?php echo TXT_EDITO_TEXTE; ?>
-                    <p>Artiste? Participez à l'aventure Opening book !</p>
                     <form method="POST">
                         <input type="submit" class="btn btn-primary" name="dl_call_application" value="Télécharger l'appel à candidature">
                     </form>
+                    <br>
+                    <br>
                 </div>
             </div>            
             <div class="col-xs-1"></div>
