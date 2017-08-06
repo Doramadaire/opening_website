@@ -23,14 +23,13 @@
     }
 
     // fonction bricole pour la mise en prod
+    /*
     function setLanguage()
     {
         $lang = 'fr';
         include('./views/include/'.$lang.'-lang.php');
         return $lang;
-    }
-
-    //fonction desactive pour la mise en prod
+    }*/
 
     /**
     * Paramétrage de la langue de la page
@@ -38,29 +37,25 @@
     * @return void
     */
 
-    /* fonction desactive pour la mise en prod
     function setLanguage()
-    {  
-        if (isset($_GET['lang'])) {
-            //L'utilisateur a demandé une langue
-            if ($_GET['lang']=='fr') {
-                $lang = 'fr';
-            } elseif ($_GET['lang']=='en') {
-                $lang = 'en';       
-            } elseif ($_GET['lang']=='de') {
-                $lang = 'de';       
-            } elseif ($_GET['lang']=='es') {
-                $lang = 'es';       
-            } elseif ($_GET['lang']=='it') {
-                $lang = 'it';       
-            } 
+    {
+         if (isset($_GET['lang'])) {
+            $lang = $_GET['lang'];
+            switch ($lang) { # filtre pour pas qu'on puisse demander des langues qu'on a pas
+                case 'fr':
+                case 'en':
+                    break;
+
+                default:
+                    $lang = "fr"; # on revient en français si on reconnait pas la langue
+                    break;
             //On enregistre la préférence de l'utilisateur dans un cookie
             //définition de la durée du cookie (1 an)   
             $expire = 365*24*3600;    
             //enregistrement du cookie au nom de lang   
             setcookie("lang", $lang, time() + $expire, null, null, false, true);  
-        } else {
-            //Pas de demande particulière
+            }
+         } else { # on a pas demandé de langue
             if(isset($_COOKIE['lang']))  
             {   
                $lang = $_COOKIE['lang'];
@@ -77,14 +72,14 @@
                         //Le paramétrage est bon, on fait rien
                         break;
 
-                    //supprimer ou mettre en commentaire lsfe cas des langues qu'on souhaite proposer
+                    //supprimer ou mettre en commentaire les cas des langues qu'on souhaite proposer
                     case 'de':
                     case 'es':
                     case 'it':
                         //Pour les internationaux par défaut on met en anglais
                         $lang = 'en';
                         break;
-                    
+
                     default:
                         $lang = 'fr';
                         break;
@@ -94,10 +89,11 @@
                 //enregistrement du cookie au nom de lang   
                 setcookie("lang", $lang, time() + $expire, null, null, false, true);
             }
-        }
+         }
+
         include('./views/include/'.$lang.'-lang.php');
         return $lang;
-    } */
+    }
 
     function generateAccessToken() {
         //génération d'un token pour avoir un accès privilégié à un book

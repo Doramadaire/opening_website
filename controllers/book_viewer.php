@@ -146,7 +146,7 @@
         }
     } else {
         //erreur, t'as rien à faire là mon pote
-        header('Location: index.php');
+        header('Location: catalogue.php');
     }
 
 	include_once('./views/book_viewer.php');
