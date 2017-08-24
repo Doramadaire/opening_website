@@ -1,10 +1,9 @@
 <?php
 
     //---------------------------------------------------------
-    // généraux
+    // généraux # test DL
     //---------------------------------------------------------
 
-    define('TXT_ONGLET', "Opening");
     define('TXT_INTERDICTION', "You can't access this page");
     define('TXT_CONFIRMER', "Update");
 
@@ -18,7 +17,7 @@
     define('TXT_NAVBAR_CONTACT', 'contact');
     define('TXT_NAVBAR_NEWS', 'news');
     define('TXT_NAVBAR_ADHERER', 'join us');
-    define('TXT_NAVBAR_LANGUE', "language");
+    define('TXT_NAVBAR_LANGUE', 'language');
 
     define('TXT_MENU', 'you can');
     define('TXT_MENU_COMPTE', 'Manage your account');
@@ -30,7 +29,7 @@
 
     define('TXT_NAVBAR_DISCONNECT', "Log out");
 
-    define('TXT_FOOTER_BACK_HOME', "R"); # Back to home page
+    define('TXT_FOOTER_BACK_HOME', "Back to home page");
 
     //---------------------------------------------------------
     // index.php
@@ -45,24 +44,22 @@
     define('TXT_BOUTON_SE_DECONNECTER', "log out");
 
     define('TXT_PLACEHOLDER_MAIL', "e-mail");
-    define('TXT_PLACEHOLDER_FIRSTNAME', "firstname");
-    define('TXT_PLACEHOLDER_NAME', "Name");
     define('TXT_PLACEHOLDER_MDP', "password");
 
-    define('TXT_ATTENTION_MDP_OUBLIE', "Warning! Will send a new password in your mailbox");
+    define('TXT_ATTENTION_MDP_OUBLIE', "Warning! Will send a new password to your mailbox");
     define('TXT_BOUTON_RESET_MDP_OUBLIE', "Send me a new password");
-    define('TXT_MDP_OUBLIE', "Password forgotten ?");
+    define('TXT_MDP_OUBLIE', "Forgot password?");
     define('TXT_RESET_PSWD_SUCCESS', 'A mail with your new password has been sent');
 
-    define('TXT_H3_SECTION_RECHERCHE', 'Découvrir opening book');
-    define('TXT_P_RECHERCHE', 'des collections numériques à la croisée du livre d’art et du book d’artiste');
+    define('TXT_H3_SECTION_RECHERCHE', 'Know about opening book');
+    define('TXT_P_RECHERCHE', "Digital collections between the art book and between artist's portfolio");
     //exemple balise liens : <a href="about.php"><b>En savoir plus</b></a>
-    define('TXT_BOUTON_VISITOR_COLLECTION', "découvrir des extraits");
-    define('TXT_BOUTON_LOGGED_COLLECTION', "découvrir les collections");
+    define('TXT_BOUTON_VISITOR_COLLECTION', "Extracts");
+    define('TXT_BOUTON_LOGGED_COLLECTION', "See our collection");
 
-    define('TXT_H3_SECTION_ADHERER', "Subscribe");
-    define('TXT_P_ADHERER', "Get access to our entire collection");
-    define('TXT_BOUTON_ADHERER', "subscribe");
+    define('TXT_H3_SECTION_ADHERER', "Opening association");
+    define('TXT_P_ADHERER', "Join our association or renew your subscription");
+    define('TXT_BOUTON_ADHERER', "Join");
 
     //---------------------------------------------------------
     // catalogue.php
@@ -85,31 +82,31 @@
     // book_management.php
     //---------------------------------------------------------
 
-    define('TXT_TAB_BOOK_MANAGEMENT', "Partage de vos Opening books - Opening book");
+    define('TXT_TAB_BOOK_MANAGEMENT', "Share your Opening books - Opening book");
 
-    define('TXT_SECTION_GESTION_BOOK_AUTEUR', 'Page de gestion de vos books');
-    define('TXT_SECTION_GESTION_BOOK_ADMIN', 'Page de gestion des books'); # texte vu par admin uniquement
+    define('TXT_SECTION_GESTION_BOOK_AUTEUR', 'Management page of your book');
+    define('TXT_SECTION_GESTION_BOOK_ADMIN', 'Page de gestion des oeuvres'); # texte vu par admin uniquement
 
-    define('TXT_SHARE_BOOK_EXPLANATION', "Sur cette page vous pouvez générer des liens d'accès privilégiés vers vos Opening book. N'importe quelle personne disposant du lien pourra alors consulter l'oeuvre correspondante.");
-    define('TXT_SHARE_BOOK_LINK_GENERATION_FAIL', "Echec de la création du lien privilégié");
-    define('TXT_SHARE_BOOK_LINK', "Voici le lien d'accès privilégié pour accéder à l'");
+    define('TXT_SHARE_BOOK_EXPLANATION', "On this page you can generate access links to you favourite  Opening portfolio. Any person having the link can then consult the corresponding book.");
+    define('TXT_SHARE_BOOK_LINK_GENERATION_FAIL', "Privileged link creation failure");
+    define('TXT_SHARE_BOOK_LINK', "Here is the favored access link to reach in l'");
 
-    define('TXT_ARTIST_BOOK_MANAGEMENT', "Vos books");
+    define('TXT_ARTIST_BOOK_MANAGEMENT', "your books");
 
     //---------------------------------------------------------
     // book_viewer.php
     //---------------------------------------------------------
 
-    define('TXT_TAB_BOOK_VIEWER', "Consultation d'un Opening book - Opening book");
+    define('TXT_TAB_BOOK_VIEWER', "Opening book - Opening book");
 
-    define('TXT_VISITOR', "As visitor you only have access to extracts.");
-    define('TXT_USER_SUBSCRIPTION_EXPIRED', "Your contribution is not up to date. You only have access to extracts of portfolios.");
+    define('TXT_VISITOR', "Attention, as visitor you only have access  to portfolio extracts.");
+    define('TXT_USER_SUBSCRIPTION_EXPIRED', "Watch out, your contribution is not up to date. You have access only to extracts of portfolios.");
     define('TXT_BOOK_VIEWER_EXPLANATION', 'Click the cover to start the reading');
     define('TXT_ARTIST_CV', 'Read CV');
 
     define('TXT_BACK_TO_COLLECTION_BOOKS', 'collection ');
     define('TXT_BACK_TO_ARTIST_BOOKS', "");
-    define('TXT_BACK_TO_CATALOGUE', "toutes les collections");
+    define('TXT_BACK_TO_CATALOGUE', "All collections");
 
     //---------------------------------------------------------
     // user_settings.php
@@ -119,12 +116,12 @@
 
     define('TXT_GESTION_COMPTE_USER', 'Your account');
     define('TXT_NOUVEAU_MAIL', 'Your new mail adress');
-    define('TXT_MAIL_ACTUEL', 'Your current mail adress :');
-    define('TXT_MAIL_CONFIRM', 'Your mail is now :');
+    define('TXT_MAIL_ACTUEL', 'Your current mail adress : ');
+    define('TXT_MAIL_CONFIRM', 'Your mail is now : ');
     define('TXT_MDP_ACTUEL', 'Current password');
     define('TXT_NOUVEAU_MPD', 'New password');
     define('TXT_CONFIRME_MDP', 'Confirm your new password');
-    define('TXT_COTISATION', "Your membership lasts until :");
+    define('TXT_COTISATION', "Your membership lasts until : ");
     define('TXT_MODIF_MAIL', 'Change your e-mail');
     define('TXT_MODIF_MDP', "Change your password");
 
@@ -148,6 +145,9 @@
     define('TXT_TYPE_ADHERENT', "Compte adhérent (cotisant à jour - 3)");
     define('TXT_TYPE_ARTISTE', "Compte artiste (4)");
     define('TXT_TYPE_ADMINISTRATEUR', "Compte administrateur (5)");
+
+    define('TXT_PLACEHOLDER_FIRSTNAME', "firstname");
+    define('TXT_PLACEHOLDER_NAME', "Name");
 
     define('TXT_PLACEHOLDER_DATE', "Date AAAA-MM-JJ");
     define('TXT_CREER_COMPTE', "Créer l'utilisateur");
@@ -191,15 +191,13 @@
     define('TXT_TAB_JOIN', "Join our association - Opening book");
 
     define('TXT_SECTION_ADHESION', 'Join');
-    define('TXT_ADHESION_TEXTE',
-            "En adhérant à l’association Opening :<br>
+    define('TXT_ADHESION_TEXTE', "Follow the link...<br>
             <ul>
                 <li>vous contribuez à soutenir les artistes  </li>
                 <li>vous découvrez les opening books dans leur intégralité </li>
             </ul>
             Cotisation : 30 € by year<br>
             Opening is an association under law 1901 which responds to the general interest criteria according to the conditions prescribed in the articles 200 and 238 bis of the general code of taxation.Donations and subscriptions are tax deductible. The regulations are available for consultation, and please don't hesitate to contact us for further information therein.<br>
-            Plese subscribe using the secured form below.
             <p>You can also send a check payable to Opening  68 rue des dominicaines 13001 Marseille by indicating your address and phone number as well as an e-mail address. You will receive by email your password to connect.</p>");
 
     //---------------------------------------------------------
@@ -209,10 +207,35 @@
     define('TXT_TAB_ABOUT', "About our association - Opening book");
 
     define('TXT_SECTION_EDITO', 'about');
-    define('TXT_EDITO_TEXTE', "<p>Opening book is .......... </p>
-                    <p>Opening book is a new editorial and artistic object, conceived in order to give visibility to artistic photographers and visual art artists, both known and less well known.</p>
-                    <p>It is a collection that can be referred to on-screen, and which deliberately places the emphasis on the works of art, thanks to High Definition photographic reproductions especially realized to this effect, along with conscientious graphic design and a navigation conceived for digital technology.</p>
-                    <p>Opening book est aussi un dispositif qui offre aux artistes des outils essentiels pour promouvoir leur travail : des reproductions photographiques de qualité professionnelle, une interface de gestion en ligne des archives photographiques (espace membres) et l’inscription dans un large réseau de diffusion.</p>");
+    define('TXT_EDITO_TEXTE', "<p>Opening book about.......... </p>
+                    <p><b>A digital collection </b>of artists books, conceived in order to offer a visibiity platform for visual arts artists, opening book was born from the vision of a passionate art lover and a professional artist in 2015. Followed in 2016 by opening book photo, it allows both amateur and professional art lovers to discover and explore both emerging and established artists.</p>
+
+                    <p>In each book, twelve works of art can be explored in a  refined page layout constructed around the works and their details, with fluid navigation between the pages and a powerful zoom for in depth examination. Opening thereby offers artists essential tools for building and consolidating their reputation : professional quality photographic reproductions and membership of a wide diffusion network.</p>
+
+                    <p><b>Why join? </b></p>
+                    <p>Extracts are freely consultable on the site opening-book.com. Integral versions are reserved for members. Why? Because building this collection with professional means and defending artists has a cost, the cost of our labour and that of our service providers.</p>
+
+                    <p>The annual membership costs 30 Euros. It is a lot yet a little. With this sum of money you will discover up to twelve new artists each year, you will be able to consult a digital art library and you wil be participating in the running of the association, along side our indispensible public partners (at this time, the regional Provence Alps Côte d'Azure council and the departement council Bouches-du-Rhône). You may also make a donation. Donations and memebership fees are tax-deductible, as our association complies with the General Interest criteria.</p>
+
+                    <p><b>Call for applications</b>
+                    Artists wishing to integrate the collection are invited to present a coherent selection of twelve works, accompanied by a short text explaining the pertinence of their selection. The definitive selection will be made in collaboration with Opening. Propositions should be addressed to “contact@opening-book.com” with, in the object section of the email, the precision “candidature opening book”. </p>
+
+                    <p>Requested elements : twelve images + explanatory note + C.V ( potentially links to internet sites or blogs or documentation about projects already realised.) Formats pdf jpg doc odt (word or open office) for more information contact us.</p>
+
+                    <p>Selection criteria : the quality and seriousness of the artistic work / justification of a professional career history and a certain number of works of art/ the pertinence of the proposed works of art.</p>
+                    <p><b>Terms and conditions.</b>
+                    Selected artists must become members of the association Opening at the artists price of 50 Euros. If necessary Opening will take charge of the digitalisation (photography or scanning) of the works chosen for publication.</p>
+                    <form method='POST'>
+                        <input type='submit' class='btn btn-primary' name='dl_call_application' value=\"Download the call for applications\">
+                    </form>
+                    <br>
+                    <p><b>Who we are?</b></p>
+                    <p>Caroline CIRENDINI</p>
+                    <p>A qualified art historian, a cultural mediater for the past 14 years, she has co-ordinated numerous publishing projects and art commissions with the Bureau des compétences et désirs (Action Nouveaux commanditaires de la Fondation de France), and before that with centre d'art contemporain du Crestet (co-édition avec Actes Sud).</p>
+                    <p>Isabelle SCHNEIDER</p>
+                    <p>An artist, she workes concurrently as a painter and videographer. She is part of the Experimental video festival,  Images Contre Nature in Marseilles. She regulary collaborates with experimental theatre companies.(Germany, Greece, France.) </p>
+                    <p><img src='assets/media/img/portrait_opening.jpg' width='900px'></p>
+                    <p>Opening recieves funding from the Regional Provence-Alpes-Côte d'Azur and the Bouches-du-Rhône councils.</p>");
 
     //exemple de balise pour mettre une image : <img src='https://coloriage.info/images/ccovers/1460917190bananes-fruit.gif' width='476' height='405'>
 

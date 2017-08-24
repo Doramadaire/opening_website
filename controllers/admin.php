@@ -398,30 +398,38 @@
 			}
 		}
 
-		if (isset($_POST['set_lang_files_form'])) {
-			if ($_FILES['fr_lang_file']['error'] > 0 and $_FILES['en_lang_file']['error'] > 0) {
-				//rajouter une condition par fichier de langue
+		if (isset($_POST['set_fr_lang_file'])) {
+			if ($_FILES['fr_lang_file']['error'] > 0) {
 				$dl_fail_error = true;
 			} else {
-				$fr_lang_file_extension = strtolower(substr(strrchr($_FILES['fr_lang_file']['name'], '.')  ,1)  );
-				$en_lang_file_extension = strtolower(substr(strrchr($_FILES['en_lang_file']['name'], '.')  ,1)  );
-				/*$de_lang_file_extension = strtolower(substr(strrchr($_FILES['de_lang_file']['name'], '.')  ,1)  );
-				$es_lang_file_extension = strtolower(substr(strrchr($_FILES['es_lang_file']['name'], '.')  ,1)  );
-				$it_lang_file_extension = strtolower(substr(strrchr($_FILES['it_lang_file']['name'], '.')  ,1)  );*/
+				$lang_file_extension = strtolower(substr(strrchr($_FILES['fr_lang_file']['name'], '.')  ,1)  );
 
-				if ($fr_lang_file_extension != "php" and $en_lang_file_extension != "php") {
-					//rajouter une condition par fichier de langue
+				if ($lang_file_extension != "php") {
 					$incorrect_file_extension_error = true;
 				} else {
 					$lang_file_name = "-lang.php";
 					$folder_path = "views/include/";
 
 					$move_fr_file = move_uploaded_file($_FILES['fr_lang_file']['tmp_name'], $folder_path."fr".$lang_file_name);
-					$move_en_file = move_uploaded_file($_FILES['en_lang_file']['tmp_name'], $folder_path."en".$lang_file_name);
-					/*$move_de_file = move_uploaded_file($_FILES['de_lang_file']['tmp_name'], $folder_path."de".$lang_file_name);
-					$move_es_file = move_uploaded_file($_FILES['es_lang_file']['tmp_name'], $folder_path."es".$lang_file_name);
-					$move_it_file = move_uploaded_file($_FILES['it_lang_file']['tmp_name'], $folder_path."it".$lang_file_name);*/
-					echo "DL réussi et extensions correctes - fichiers de langues mis à jour<br>";
+					$msg_upload_lang_file = "fichier fr-lang.php mis à jour avec succès";
+				}
+			}
+		}
+
+		if (isset($_POST['set_en_lang_file'])) {
+			if ($_FILES['en_lang_file']['error'] > 0) {
+				$dl_fail_error = true;
+			} else {
+				$lang_file_extension = strtolower(substr(strrchr($_FILES['en_lang_file']['name'], '.')  ,1)  );
+
+				if ($lang_file_extension != "php") {
+					$incorrect_file_extension_error = true;
+				} else {
+					$lang_file_name = "-lang.php";
+					$folder_path = "views/include/";
+
+					$move_fr_file = move_uploaded_file($_FILES['en_lang_file']['tmp_name'], $folder_path."en".$lang_file_name);
+					$msg_upload_lang_file = "fichier en-lang.php mis à jour avec succès";
 				}
 			}
 		}

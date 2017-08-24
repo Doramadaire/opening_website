@@ -19,6 +19,7 @@
         include_once('classes/Author.php');
         include_once('classes/Book.php');
         require("/home/openingbqo/opening_website_assets/database_configuration.php");
+        //require("/home/openingbqo/opening_website_assets/beta_database_configuration.php");
         include_once('classes/SQL_'.DB_TYPE.'.php');
     }
 

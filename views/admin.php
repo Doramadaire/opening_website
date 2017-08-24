@@ -251,36 +251,27 @@
 							<div class="row thumbnail">
 								<!-- DEVDEVDEV TO DO : affichage propre des messages d'erreurs/confirmation -->
 								<h3><?php echo TXT_UPLOAD_LANG_FILES; ?></h3>
+							<?php if (isset($msg_upload_lang_file)) echo "<b>$msg_upload_lang_file</b>"; ?>
 								<!-- <p><?php if (isset($dl_fail_error)) echo TXT_ERR_UPLOAD_FAIL; ?></p>
 								<p><?php if (isset($incorrect_file_extension_error)) echo TXT_ERR_INCORRECT_FILE_EXTENSION; ?></p> -->
 								<!-- Autre façon de faire pour l'upload de fichier : voir upload book -->
 								<form action="admin.php" method="post" enctype="multipart/form-data">
 									<?php echo TXT_LANG_FILE_FR; ?>	
-									<input class="btn btn-file" type="file" name="fr_lang_file" required/>			
-									<br>							
+									<input class="btn btn-file" type="file" name="fr_lang_file" required/>
+									<input type="submit" class="btn btn-primary" name="set_fr_lang_file" value="<?php echo TXT_BUTTON_SEND; ?>">
+								</form>
+								<br>
+								<form action="admin.php" method="post" enctype="multipart/form-data">
 									<?php echo TXT_LANG_FILE_EN; ?>
 									<input class="btn btn-file" type="file" name="en_lang_file" required/>
-									<br>
-									<!-- pour rajouter des langues
+									<input type="submit" class="btn btn-primary" name="set_en_lang_file" value="<?php echo TXT_BUTTON_SEND; ?>">
+								</form>
+								<!-- pour rajouter des langues
+								<form action="admin.php" method="post" enctype="multipart/form-data">
 									<?php echo TXT_LANG_FILE_DE; ?>
-									<div class="fileUpload btn btn-primary">
-										<span>Upload</span>		
-										<input type="file" name="de_lang_file" required/>	
-									</div>
-									<br>
-									<?php echo TXT_LANG_FILE_ES; ?>
-									<div class="fileUpload btn btn-primary">
-										<span>Upload</span>		
-										<input type="file" name="es_lang_file" required/>
-									</div>
-									<br>
-									<?php echo TXT_LANG_FILE_IT; ?>
-									<div class="fileUpload btn btn-primary">
-										<span>Upload</span>		
-										<input type="file" name="it_lang_file" required/>
-									<br>	-->													
-									<input type="submit" class="btn btn-primary" name="set_lang_files_form" value="<?php echo TXT_BUTTON_SEND; ?>">	
-								</form>	 
+									<input class="btn btn-file" type="file" name="de_lang_file" required/>
+									<input type="submit" class="btn btn-primary" name="set_de_lang_file" value="<?php echo TXT_BUTTON_SEND; ?>">
+								</form> -->
 							</div>
 
 							<div class="row thumbnail dl-lang-files">

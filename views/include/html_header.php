@@ -21,7 +21,7 @@
         <link href="css/header.css" rel="stylesheet">
         <script src="js/global.js"></script>
         <script type="text/javascript">
-            if (history.pushState && window.location.href.includes('?')) {
+            if (history.pushState && window.location.href.includes('?') && window.location.href.includes('lang')) {
                history.pushState({}, null, window.location.href.split('?')[0]);
                 }
         </script>
