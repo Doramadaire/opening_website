@@ -51,7 +51,7 @@
     define('TXT_MDP_OUBLIE', "Forgot password?");
     define('TXT_RESET_PSWD_SUCCESS', 'A mail with your new password has been sent');
 
-    define('TXT_H3_SECTION_RECHERCHE', 'Know about opening book');
+    define('TXT_H3_SECTION_RECHERCHE', 'Discover opening book');
     define('TXT_P_RECHERCHE', "Digital collections between the art book and between artist's portfolio");
     //exemple balise liens : <a href="about.php"><b>En savoir plus</b></a>
     define('TXT_BOUTON_VISITOR_COLLECTION', "Extracts");
@@ -193,8 +193,8 @@
     define('TXT_SECTION_ADHESION', 'Join');
     define('TXT_ADHESION_TEXTE', "Follow the link...<br>
             <ul>
-                <li>vous contribuez à soutenir les artistes  </li>
-                <li>vous découvrez les opening books dans leur intégralité </li>
+                <li>you are helping to support the artists  </li>
+                <li>you discover the entire collection </li>
             </ul>
             Cotisation : 30 € by year<br>
             Opening is an association under law 1901 which responds to the general interest criteria according to the conditions prescribed in the articles 200 and 238 bis of the general code of taxation.Donations and subscriptions are tax deductible. The regulations are available for consultation, and please don't hesitate to contact us for further information therein.<br>
