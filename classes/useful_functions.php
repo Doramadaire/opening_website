@@ -3,36 +3,6 @@
     //Fichier pour y mettre mes fonctions maisons
 
     /**
-    * Import des fichiers de classe
-    *
-    * @return void
-    */
-    function includeOnceAllClasses()
-    {
-        //pour le debug sur le serveur ovh
-        //ini_set('display_errors',1);
-        //version php ec-m.fr : 5.6.30
-        //version php wamp Pierre 5.6.25
-        //version beta.opening-book.eu : 5.6.30
-        //grâce à .ovhconfig à la racine du dossier correspondant
-        include_once('classes/User.php');
-        include_once('classes/Author.php');
-        include_once('classes/Book.php');
-        //require("/home/openingbqo/opening_website_assets/database_configuration.php");
-        require("/home/openingbqo/opening_website_assets/beta_database_configuration.php");
-        include_once('classes/SQL_'.DB_TYPE.'.php');
-    }
-
-    // fonction bricole pour la mise en prod
-    /*
-    function setLanguage()
-    {
-        $lang = 'fr';
-        include('./views/include/'.$lang.'-lang.php');
-        return $lang;
-    }*/
-
-    /**
     * Paramétrage de la langue de la page
     *
     * @return void
@@ -40,31 +10,11 @@
 
     function setLanguage()
     {
-        $msg = "";
-        if(isset($_COOKIE['lang'])) {
-            $lang = $_COOKIE['lang'];
-            $msg .= "cookie LANG retrouve; val=";
-            $msg .= $_COOKIE['lang'];
-         } elseif (isset($_COOKIE['lang-test'])) {
-            $lang = $_COOKIE['lang-test'];
-            $msg .= "cookie LANG TEST retrouve; val=";
-            $msg .= $_COOKIE['lang-test'];
-         } elseif (isset($_COOKIE['lang-default'])) {
-            $lang = $_COOKIE['lang-default'];
-            $msg .= "cookie LANG DEFAULT retrouve; val=";
-            $msg .= $_COOKIE['lang-default'];
-         } else {
-            $msg .= "BORDEL Y A AUCUN COOKIE LANG";
-         }
-
-         if (isset($_GET['lang'])) {
-            $msg .= "<br>param LANG dans url lang=".$_GET['lang'];
+        if (isset($_GET['lang'])) {
             $lang = $_GET['lang'];
             switch ($lang) { # filtre pour pas qu'on puisse demander des langues qu'on a pas
                 case 'fr':
-                case 'en':
-                    $msg .= "<br>ça va break";
-                    break;
+                case 'en':                    break;
 
                 default:
                     $lang = "fr"; # on revient en français si on reconnait pas la langue
@@ -74,11 +24,8 @@
             //définition de la durée du cookie (1 an)   
             $expire = 365*24*3600;    
             //enregistrement du cookie au nom de lang
-            $msg .= "<br>on va set cookie suite a demande utilisateur";
             setcookie('lang', $lang, time() + $expire, null, null, false, true);
-            $msg .= "<br>set cookie issue du param";
             } else { # on a pas demandé de langue
-            $msg .= "<br>pas de param LANG dans url";
             if(isset($_COOKIE['lang'])) {
                $lang = $_COOKIE['lang'];
             } else {   
@@ -110,12 +57,10 @@
                 $expire = 365*24*3600;    
                 //enregistrement du cookie au nom de lang   
                 setcookie('lang', $lang, time() + $expire, null, null, false, true);
-                $msg .= "<br>set cookie default";
             }
          }
 
         include('./views/include/'.$lang.'-lang.php');
-        // echo $msg;
         return $lang;
     }
 

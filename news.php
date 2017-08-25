@@ -1,5 +1,5 @@
 <?php
-    include_once('classes/useful_functions.php');
+    include_once('classes/include_function.php');
     includeOnceAllClasses();
     
     require_once('controllers/news.php');
