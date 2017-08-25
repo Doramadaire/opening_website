@@ -236,7 +236,7 @@
 
 		<p>Isabelle SCHNEIDER</p>
 		<p>Artiste, elle mène en parallèle des travaux en peinture et en vidéo. Elle participe à la programmation du festival de vidéo expérimentale Images Contre Nature à Marseille. Elle collabore régulièrement avec des compagnies de théâtre expérimental (Allemagne, Grèce, France.) </p>
-		<p><img src='assets/media/img/portrait_opening.jpg' width='900px'></p>
+		<p><img src='assets/media/img/portrait_opening.jpg' width='700px'></p>
 		<p>Opening reçoit le soutien de la Région Provence-Alpes-Côte d'Azur et du Conseil départemental des Bouches-du-Rhône.</p>");
 
 	//exemple de balise pour mettre une image : <img src='https://coloriage.info/images/ccovers/1460917190bananes-fruit.gif' width='476' height='405'>

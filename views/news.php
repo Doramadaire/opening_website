@@ -58,7 +58,7 @@
                 <div class="row thumbnail">
                     <h3>A noter</h3>
                     <p>
-                    Opening book participera à Paréidolie, salon international du dessin contemporain, espace édition 27-29 Août, bd Boisson, Marseille<br>
+                    Opening book participera à Paréidolie, salon international du dessin contemporain, espace édition 26-27 Août, bd Boisson, Marseille<br>
                     Parution d’un book hors-série avec <b>Anne-Valérie Gasc</b>, artiste invitée de cette 4e édition. 
                     </p>
                 </div>

@@ -79,13 +79,13 @@
             
                 <div class="row thumbnail">
                     <h3><?php echo $book->getBookTitle(); ?></h3>
-                    <?php echo $book_description; ?>
+                    <p><?php echo $book_description; ?></p>
                 </div>
                 <div class="row thumbnail author_cv">
                     <h3><?php echo $book_author->getAuthorName(); ?></h3>
-                    <?php echo $artist_description; ?>
+                    <p><?php echo $artist_description; ?></p>
                     <?php if (isset($cv_link)) { ?>
-                        <a href="<?php echo $cv_link; ?>" target="_blank"><?php echo TXT_ARTIST_CV; ?></a>
+                        <p><a href="<?php echo $cv_link; ?>" target="_blank"><?php echo TXT_ARTIST_CV; ?></a></p>
                     <?php } ?>
                 </div>
                 <!--<div class="row">
