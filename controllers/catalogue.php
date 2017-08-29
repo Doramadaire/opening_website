@@ -64,10 +64,15 @@
         foreach ($sql->getBooksByCollection($collection) as $book) {
             $this_book_authors = array();
             foreach ($book->getBookAuthors() as $this_book_author_id) {
-                $this_book_authors[] = unserialize($sql->getAuthorByID($this_book_author_id));
+                $this_book_author = unserialize($sql->getAuthorByID($this_book_author_id));
+                if ($this_book_author) {
+                    $this_book_authors[] = $this_book_author;
+                }
             }
-            $my_collection_vignettes[] = array( "book" => $book,
-                                                "authors" => $this_book_authors);
+            if (!empty($this_book_authors)) {
+                $my_collection_vignettes[] = array( "book" => $book,
+                                                    "authors" => $this_book_authors);
+            }
         }
 
     } else {
