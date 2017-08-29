@@ -96,7 +96,12 @@
 			$new_user_firstname = isset($_POST['firstname']) ? $_POST['firstname'] : NULL;
 			$new_user_name = isset($_POST['name']) ? $_POST['name'] : NULL;
 
-			createUser($new_user_mail, $new_user_type, $new_user_sub_date, $new_user_firstname, $new_user_name);
+			$result = createUser($new_user_mail, $new_user_type, $new_user_sub_date, $new_user_firstname, $new_user_name);
+			if ($result) {
+				$msg_new_user = "Un nouvel utilisateur a bien été créé, son mail est : ".$new_user_mail." il a le statut=".$new_user_type;
+			} else {
+				$msg_new_user = "Echec de la création du nouvel utilisateur (erreur détaillée en haut de page)";
+			}
 		}
 
 		if (isset($_POST['search_user_form'])) {
