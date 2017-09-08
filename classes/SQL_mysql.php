@@ -960,8 +960,21 @@
          */
         public function deleteUser($user_id)
         {
-            $query = $this->conn->prepare("DELETE FROM users WHERE id_user = ?");     
+            $query = $this->conn->prepare("DELETE FROM users WHERE id_user = ?");
             $query-> bindValue(1, $user_id);
+            return $query->execute();
+        }
+
+        /**
+         * Méthode qui supprime un artiste de la base de données
+         *
+         * @param $artist_id : l'id de l'artiste à supprimer
+         * @return bool : True si la suppression est réussi, False sinon
+         */
+        public function deleteArtist($artist_id)
+        {
+            $query = $this->conn->prepare("DELETE FROM authors WHERE id_author = ?");
+            $query-> bindValue(1, $artist_id);
             return $query->execute();
         }
 

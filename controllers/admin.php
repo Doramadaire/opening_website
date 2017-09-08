@@ -211,6 +211,59 @@
 			}
 		}
 
+		if (isset($_POST['update-artist'])) {
+			$search_artist_msg = "";
+			// $artist = unserialize($sql->getUserByID($_POST['id']));
+
+			// if ($_POST['status'] !== $user->getUserStatus()) {
+			// 	$status_modified = $sql->setUserStatus($user, $_POST['status']);
+			// 	if ($status_modified) {
+			// 		$search_user_msg .= "Statut modifié avec succès, nouveau statut=".$_POST['status']."<br>";
+			// 	} else {
+			// 		$search_user_msg .= "Echec de la modification du statut<br>";
+			// 	}
+			// }
+
+			// $user = unserialize($sql->getUserByID($_POST['id']));
+
+			// $search_artist_msg .= "Cet artiste a désormais les propriétés suivantes :<br>";
+			// $search_artist_msg .= $user->toString();
+		}
+
+		if (isset($_POST['delete-artist'])) {
+			$artist = unserialize($sql->getAuthorByID($_POST['id']));
+			$associated_user = unserialize($sql->getUserByID($artist->getAuthorAccount()));
+
+			# on vérifie si l'artiste a des books
+	        foreach ($sql->getAllBooks() as $book) {
+	            foreach ($book->getBookAuthors() as $book_author_id) {
+	                if(!in_array($book, $retrieved_books)) {
+	                    //on vérifie que le book est pas déjà dans l'array
+	                    //c'est possible s'il a plusieurs auteurs et qu'ils ont été trouvés par la recherhce
+	                    if (in_array($book_author_id, $retrieved_authors_ids)) {
+	                        $retrieved_books[] = $book;
+	                        $authors = array(); //un array contenant les objets auteurs du book
+	                        foreach ($book->getBookAuthors() as $author_id) {
+	                            $authors[] = unserialize($sql->getAuthorByID($author_id));
+	                        }
+	                        $thumbnail_content[] = array( "book" => $book,
+	                                                    "authors" => $authors);
+	                    }
+	                }
+	            }
+	        }
+
+			$search_artist_msg = "";
+			if (isset($_POST['id'])) {
+				$success = $sql->deleteUser($_POST['id']);
+				if ($success) {
+					$search_artist_msg = "Suppression de l'artiste ayant pour id=".$_POST['id']." réussie et de son compte utilisateur associé";
+				} else {
+					$search_artist_msg = "Echec de la suppression de l'utilisateur ayant pour id=".$_POST['id'];
+				}
+			}
+		}
+
 		if (isset($_POST['new_artist_form'])) {
 			$new_author_msg = "";
 			$cv_filename = NULL;

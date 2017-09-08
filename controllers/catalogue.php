@@ -1,4 +1,4 @@
-<?php   
+<?php
 
     $lang = setLanguage();
 
@@ -55,6 +55,7 @@
             $artist_vignettes[] = array(    "book" => $book,
                                             "authors" => $this_book_authors);
         }
+        # on a finis de récupérer nos books on peut les ordonner
 
     } elseif (isset($_GET['collection'])) {
         $sort_type = "by_collection";
@@ -71,11 +72,30 @@
             }
             if (!empty($this_book_authors)) {
                 $my_collection_vignettes[] = array( "book" => $book,
-                                                    "authors" => $this_book_authors);
+                                                    "authors" => $this_book_authors,
+                                                    "publish_date" => $book->getBookPublishDate());
             }
         }
+        function date_sort($a, $b) {
+            return strtotime($a['publish_date']) - strtotime($b['publish_date']);
+        }
 
-    } else {
+        $my_collection_vignettes_sorted = usort($my_collection_vignettes, "date_sort");
+        // # avant sort
+        // echo "AVANT SORT<br>";
+        // foreach ($my_collection_vignettes as $elem) {
+        //     echo $elem['publish_date'];
+        //     echo "<br>";
+        // }
+        // echo "FIN ARRAY<br><br>";
+
+        // $sorted_array = usort($my_collection_vignettes, "date_sort");
+        // echo "APRES SORT<br>";
+        // foreach ($my_collection_vignettes as $elem) {
+        //     echo $elem['publish_date'];
+        //     echo "<br>";
+        // }
+        } else {
         //Accueil de la page catalogue presentation des collections
         $sort_type = "default";
 
