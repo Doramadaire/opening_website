@@ -792,6 +792,21 @@
         }
 
         /**
+         * Méthode qui modifie le lien vers le CV associé à un auteur de la table authors de la base de donnée
+         *
+         * @param $author : un objet de la classe Author.php
+         * @param string : $new_cv_filename - le lien vers le fichier de description associé à l'auteur
+         * @return bool : True si la modification est réussi, False sinon
+         */
+        public function setAuthorCV($author, $new_cv_filename)
+        {
+            $query = $this->conn->prepare("UPDATE authors SET cv_filename = ? WHERE id_author = ?");
+            $query-> bindValue(1,$new_cv_filename);
+            $query-> bindValue(2,$author->getAuthorID());
+            return $query->execute();
+        }
+
+        /**
          * Méthode qui modifie le lien vers le fichier de description associé à un auteur de la table authors de la base de donnée
          *
          * @param $author : un objet de la classe Author.php

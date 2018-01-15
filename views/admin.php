@@ -100,7 +100,7 @@
 								<?php if(isset($search_artist_msg)) echo "<p><b>$search_artist_msg</b><p>"; ?>
 								<div id="retrieved_artist_table"></div>
 								<form action="" method="POST">
-									<label for="author_pseudo"><?php echo TXT_RECHERCHE_AUTHOR_QUESTION; ?></label><br>
+									<label for="author_pseudo">Quel artiste recherchez-vous ?</label><br>
 									<input type="text" name="author_pseudo" placeholder="<?php echo TXT_PLACEHOLDER_ARTIST_NAME; ?>" >
 									<input type="submit" name="search_artist_form" class="btn btn-primary" value="<?php echo TXT_BOUTON_SEARCH_AUTHOR; ?>" >
 								</form>	
@@ -119,16 +119,17 @@
 											<div id="artist-selected-table"></div>
 										</div>
 										<div class="modal-body">
-											<form id="update-artist-form" method="POST">
-												<label for="id">Nouvelles valeurs des propriétés de cet artiste</label><br>
+											<form id="update-artist-form" method="POST" enctype="multipart/form-data">
+												<label>Nouvelles valeurs des propriétés de cet artiste</label><br>
 												<input type="hidden" name="id">
-												<input type="text" name="artist_name" placeholder="<?php echo TXT_PLACEHOLDER_ARTIST_NAME; ?>" required>
+												<label for="name">Nom de l'artiste</label>
+												<input type="text" name="name" placeholder="<?php echo TXT_PLACEHOLDER_ARTIST_NAME; ?>" required>
 												<!-- <input type="text" name="artist_search_name" placeholder="Search name (en général le nom de famille)" required> -->
 												<br><?php echo TXT_AUTHOR_SUBMIT_CV; ?><input class="btn btn-file" type="file" name="artist_cv_file">
 												<br>Fichier .txt de description de l'artiste en français :
 												<input class="btn btn-file" type="file" name="artist_description_file_fr" >
-												<!-- <br>Fichier .txt de description de l'artiste en anglais :
-												<input class="btn btn-file" type="file" name="artist_description_file_en" > -->
+												<br>Fichier .txt de description de l'artiste en anglais :
+												<input class="btn btn-file" type="file" name="artist_description_file_en" >
 												<br>
 												<input type="submit" name="update-artist" class="btn btn-primary" value="Sauvegarder les modifications">
 												<button type="button" class="btn btn-default btn-lg pull-right closeModal" data-dismiss="modal">Fermer</button>
@@ -160,7 +161,7 @@
 
 							<div class="row thumbnail">
 								<h3><?php echo TXT_NOUVEL_ARTISTE; ?></h3>
-								<?php if(isset($new_author_msg)) echo "<b>$new_author_msg</b><br>"; ?>
+								<?php if(isset($new_artist_msg)) echo "<b>$new_artist_msg</b><br>"; ?>
 								<form action="" method="POST" enctype="multipart/form-data">
 									<input type="text" name="firstname" placeholder="<?php echo TXT_PLACEHOLDER_FIRSTNAME; ?>" >
 									<input type="text" name="name" placeholder="<?php echo TXT_PLACEHOLDER_NAME; ?>" required>

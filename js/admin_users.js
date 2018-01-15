@@ -73,8 +73,7 @@ $(function() {
                 userIDSelected = this.innerHTML;
             };
         });
-        var nbRetrievedUsers = retrieved_users.length;
-        for (var i = 0; i < nbRetrievedUsers; i++) {
+        for (var i = 0; i < retrieved_users.length; i++) {
             var user = retrieved_users[i];
             if (userIDSelected === user['id']) {
                 userSelected = user;

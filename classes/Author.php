@@ -209,7 +209,8 @@
 		*/
 		public function toString()
 		{
-			return "Author - id=$this->id; pseudo=$this->name; associated_user_id=$this->user; description_filename=$this->description_filename; news_filename=$this->news_filename; cv_filename=$this->cv_filename";
+			// return "Author - id=$this->id; pseudo=$this->name; associated_user_id=$this->user; description_filename=$this->description_filename; news_filename=$this->news_filename; cv_filename=$this->cv_filename";
+			return "Author - id=$this->id; pseudo=$this->name; associated_user_id=$this->user; description_filename=$this->description_filename; cv_filename=$this->cv_filename";
 		}
 
 		public function toArray() 
