@@ -46,28 +46,30 @@
         $msg_choix_book = "Choix d'un autre book à partager";
         $msg_partager_book = "Partager un autre book";
 
-        $success = false;
+        // $success = false;
         if ($book_shared != null) {
             //erf, pour avoir une durée variable je dois changer ma façon de faire
             //il faut stocker la date de fin de validiter et dans clean token comparer à la date du jour...
             //$share_duration = isset($_POST['duration']) ? $_POST['duration'] : 28;
-            $new_token = generateAccessToken();
-            if ($book_shared->addAccessToken($new_token)) {
-                $authors_ids = $book_shared->getBookAuthors();
-                $i = 0;
-                $authors_string = '';
-                foreach ($authors_ids as $author_id) {
-                    if ($i > 0) {
-                        $authors_string = $authors_string." et ";
-                    }
-                    // DEVDEVDV - vérifier ce truc
-                    $authors_string = $authors_string + unserialize($sql->getAuthorByID($author_id))->getAuthorName();
-
-                    $i++;
-                }
-                $generated_link = "book_viewer.php?id=".$book_shared->getBookID()."&token=".$new_token;
-                $success = true;
-            }
+            //OBSOLETE
+            // $new_token = generateAccessToken();
+            // if ($book_shared->addAccessToken($new_token)) {
+            //     $authors_ids = $book_shared->getBookAuthors();
+            //     $i = 0;
+            //     $authors_string = '';
+            //     foreach ($authors_ids as $author_id) {
+            //         if ($i > 0) {
+            //             $authors_string = $authors_string." et ";
+            //         }
+            //         // DEVDEVDV - vérifier ce truc
+            //         $authors_string = $authors_string + unserialize($sql->getAuthorByID($author_id))->getAuthorName();
+            //         $i++;
+            //     }
+            //     $generated_link = "book_viewer.php?id=".$book_shared->getBookID()."&token=".$new_token;
+            //     $success = true;
+            // }
+            $generated_link = "book_viewer.php?id=".$book_shared->getBookID();
+            $success = true;
         }
     }
 

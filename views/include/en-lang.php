@@ -16,7 +16,7 @@
     define('TXT_NAVBAR_CATALOGUE', 'collection');
     define('TXT_NAVBAR_CONTACT', 'contact');
     define('TXT_NAVBAR_NEWS', 'news');
-    define('TXT_NAVBAR_ADHERER', 'join us');
+    define('TXT_NAVBAR_ADHERER', 'donate');
     define('TXT_NAVBAR_LANGUE', 'language');
 
     define('TXT_MENU', 'you can');
@@ -52,13 +52,13 @@
     define('TXT_RESET_PSWD_SUCCESS', 'A mail with your new password has been sent');
 
     define('TXT_H3_SECTION_RECHERCHE', 'Discover opening book');
-    define('TXT_P_RECHERCHE', "Digital collections between the art book and between artist's portfolio");
+    define('TXT_P_RECHERCHE', "Digital collections where artists portfolios and books of art meet");
     //exemple balise liens : <a href="about.php"><b>En savoir plus</b></a>
-    define('TXT_BOUTON_VISITOR_COLLECTION', "Extracts");
+    define('TXT_BOUTON_VISITOR_COLLECTION', "Collections");
     define('TXT_BOUTON_LOGGED_COLLECTION', "See our collection");
 
     define('TXT_H3_SECTION_ADHERER', "Opening association");
-    define('TXT_P_ADHERER', "Join our association or renew your subscription");
+    define('TXT_P_ADHERER', "Donate");
     define('TXT_BOUTON_ADHERER', "Join");
 
     //---------------------------------------------------------
@@ -188,34 +188,33 @@
     // join.php
     //---------------------------------------------------------
 
-    define('TXT_TAB_JOIN', "Join our association - Opening book");
+    define('TXT_TAB_JOIN', "Opening book");
 
-    define('TXT_SECTION_ADHESION', 'Join');
+    define('TXT_SECTION_ADHESION', 'Donate');
     define('TXT_ADHESION_TEXTE', "Follow the link...<br>
             <ul>
-                <li>you are helping to support the artists  </li>
-                <li>you discover the entire collection </li>
+                <li>You are helping to support the artists</li>
             </ul>
-            Cotisation : 30 € by year<br>
-            Opening is an association under law 1901 which responds to the general interest criteria according to the conditions prescribed in the articles 200 and 238 bis of the general code of taxation.Donations and subscriptions are tax deductible. The regulations are available for consultation, and please don't hesitate to contact us for further information therein.<br>
-            <p>You can also send a check payable to Opening  68 rue des dominicaines 13001 Marseille by indicating your address and phone number as well as an e-mail address. You will receive by email your password to connect.</p>");
+            <br>
+            Opening is an association under law 1901 which responds to the general interest criteria according to the conditions prescribed in the articles 200 and 238 bis of the general code of taxation. Donations are tax deductible.<br>
+            <p>You can also send a check payable to Opening  68 rue des dominicaines 13001 Marseille by indicating your address and phone number as well as an e-mail address.</p>");
 
     //---------------------------------------------------------
     // about.php
     //---------------------------------------------------------
 
-    define('TXT_TAB_ABOUT', "About our association - Opening book");
+    define('TXT_TAB_ABOUT', "Opening book");
 
-    define('TXT_SECTION_EDITO', 'about');
+    define('TXT_SECTION_EDITO', 'Opening book');
     define('TXT_EDITO_TEXTE', "<p>Opening book about.......... </p>
                     <p><b>A digital collection </b>of artists books, conceived in order to offer a visibiity platform for visual arts artists, opening book was born from the vision of a passionate art lover and a professional artist in 2015. Followed in 2016 by opening book photo, it allows both amateur and professional art lovers to discover and explore both emerging and established artists.</p>
 
                     <p>In each book, twelve works of art can be explored in a  refined page layout constructed around the works and their details, with fluid navigation between the pages and a powerful zoom for in depth examination. Opening thereby offers artists essential tools for building and consolidating their reputation : professional quality photographic reproductions and membership of a wide diffusion network.</p>
 
-                    <p><b>Why join? </b></p>
-                    <p>Extracts are freely consultable on the site opening-book.com. Integral versions are reserved for members. Why? Because building this collection with professional means and defending artists has a cost, the cost of our labour and that of our service providers.</p>
+                    <p><b>Why donate? </b></p>
+                    <p>To help us and supporting the artists</p>
 
-                    <p>The annual membership costs 30 Euros. It is a lot yet a little. With this sum of money you will discover up to twelve new artists each year, you will be able to consult a digital art library and you wil be participating in the running of the association, along side our indispensible public partners (at this time, the regional Provence Alps Côte d'Azure council and the departement council Bouches-du-Rhône). You may also make a donation. Donations and memebership fees are tax-deductible, as our association complies with the General Interest criteria.</p>
+                    <p> You will be able to consult a digital art library and you wil be participating in the running of the association, along side our indispensible public partners (at this time, the regional Provence Alps Côte d'Azure council and the departement council Bouches-du-Rhône). Donations are tax-deductible, as our association complies with the General Interest criteria.</p>
 
                     <p><b>Call for applications</b>
                     Artists wishing to integrate the collection are invited to present a coherent selection of twelve works, accompanied by a short text explaining the pertinence of their selection. The definitive selection will be made in collaboration with Opening. Propositions should be addressed to “contact@opening-book.com” with, in the object section of the email, the precision “candidature opening book”. </p>

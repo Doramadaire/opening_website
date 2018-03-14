@@ -20,7 +20,6 @@
         $book = unserialize($sql->getBookByID($_GET['id']));
 
         if ($book) { //on vérifie qu'on a bien récupéré l'objet book
-
             //DEVDEv on prend le 1er auteur c'est moche - faire boucle sur chaque auteur
             $book_author = unserialize($sql->getAuthorByID($book->getBookAuthors()[0]));
             // si il trouve pas getAuthorByID retourne null
@@ -62,23 +61,25 @@
                 } catch (Exception $e) {
                     //exception
                 }
-
+                // OBSOLETE
+                /*
                 if (isset($_GET['token'])) {
                     $token_provided = $_GET['token'];
                     //on vérifie si le token est bon
                     //nettoyage des tokens expirés d'abord
-                    $book->cleanOldTokens();
+                    // $book->cleanOldTokens();
                     $access_tokens = $book->getAcessTokens();
                     foreach ($access_tokens as $token_container) {
                         $token = $token_container[0];
                         $token_creationdate = $token_container[1];
                         if ($token == $token_provided) {
+                            $privileged_access_granted = true;
                             //le token est valide, on vérifie qu'il a pas expiré
                             //cette vérification est inutile puisqu'on vient de faire le ménage dans les tokens...
-                            if ($token_creationdate > time() - (28*24*60*60)) {
+                            // if ($token_creationdate > time() - (28*24*60*60)) {
                                 //ce token a moins de 28jours
-                                $privileged_access_granted = true;
-                            }
+                                // $privileged_access_granted = true;
+                            // }
                         }
                     }
                 }
@@ -148,11 +149,14 @@
                     //book complet!
                     $book_pdf_path = $book_folder.$book->getBookFilename().".pdf";
                     $cover_filename = "/assets/covers/".$book->getBookFilename().".jpg";
-                }
+                }*/
+
+                $book_pdf_path = $book_folder.$book->getBookFilename().".pdf";
+                $cover_filename = "/assets/covers/".$book->getBookFilename().".jpg";
             } else { // on a pas retrouvé l'artiste auteur du book
                 header('Location: catalogue.php');
             }
-        } else { // on a pas retrovué le book
+        } else { // on a pas retrouvé le book
             header('Location: catalogue.php');
         }
     } else {
@@ -160,6 +164,5 @@
         header('Location: catalogue.php');
     }
 
-	include_once('./views/book_viewer.php');
-	
+    include_once('./views/book_viewer.php');
 ?>

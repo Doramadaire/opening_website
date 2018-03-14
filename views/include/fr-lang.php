@@ -17,7 +17,7 @@
 	define('TXT_NAVBAR_CATALOGUE', 'collections');
 	define('TXT_NAVBAR_CONTACT', 'contact');
 	define('TXT_NAVBAR_NEWS', 'actualités');
-	define('TXT_NAVBAR_ADHERER', "adhérer");
+	define('TXT_NAVBAR_ADHERER', "faire un don");
 	define('TXT_NAVBAR_LANGUE', "langue");
 
 	define('TXT_MENU', 'vous pouvez');
@@ -40,7 +40,7 @@
 
 	define('TXT_BONJOUR', 'Bonjour');
 
-	define('TXT_H3_SECTION_CONNEXION', 'Déjà membre?');
+	define('TXT_H3_SECTION_CONNEXION', 'Membre');
 	define('TXT_BOUTON_SE_CONNECTER', "se connecter");
 	define('TXT_BOUTON_SE_DECONNECTER', "se déconnecter");
 
@@ -55,14 +55,14 @@
 	define('TXT_RESET_PSWD_SUCCESS', 'Un nouveau mot de passe vous a été envoyé par mail');
 
 	define('TXT_H3_SECTION_RECHERCHE', 'Découvrir opening book');
-	define('TXT_P_RECHERCHE', 'des collections numériques à la croisée du livre d’art et du book d’artiste');
+	define('TXT_P_RECHERCHE', 'des collections numériques à la croisée du livre d’art et du book d’artiste.');
 	//exemple balise liens : <a href="about.php"><b>En savoir plus</b></a>
-	define('TXT_BOUTON_VISITOR_COLLECTION', "découvrir des extraits");
-	define('TXT_BOUTON_LOGGED_COLLECTION', "découvrir les collections");
+	define('TXT_BOUTON_VISITOR_COLLECTION', "découvrir les collections");
+	define('TXT_BOUTON_LOGGED_COLLECTION', "parcourir les collections");
 
-	define('TXT_H3_SECTION_ADHERER', "Devenir membre");
-	define('TXT_P_ADHERER', "pour accéder à l'ensemble de nos contenus");
-	define('TXT_BOUTON_ADHERER', "adhérer");
+	define('TXT_H3_SECTION_ADHERER', "Faire un don");
+	define('TXT_P_ADHERER', "pour soutenir notre action");
+	define('TXT_BOUTON_ADHERER', "Don");
 	
 	//---------------------------------------------------------
 	// catalogue.php
@@ -188,34 +188,31 @@
 	// join.php
 	//---------------------------------------------------------
 
-	define('TXT_TAB_JOIN', "Adhérez à l'association - Opening book");
+	define('TXT_TAB_JOIN', "Donner à l'association - Opening book");
 
-	define('TXT_SECTION_ADHESION', 'Adhérer');
-	define('TXT_ADHESION_TEXTE', "En adhérant à l’association Opening :<br>
-			<ul>
-				<li>vous contribuez à soutenir les artistes</li>
-				<li>vous découvrez les opening books dans leur intégralité </li>
-			</ul>
-			Montant de la cotisation : 30 € par an<br>
-			Opening est une association loi 1901 répondant aux critères de l’intérêt général, ce qui vous permet de défiscaliser une partie de vos dons et cotisations.<br>
-			<p>Vous pouvez adhérer en remplissant le formulaire ci-dessous ou en envoyant un chèque à l’ordre d’Opening 68 rue des Dominicaines 13001 Marseille en indiquant vos coordonnées ainsi qu’une adresse mail. Vous recevrez ensuite par mail votre identifiant et mot de passe.</p>
-			Laissez-vous guider par le formulaire ci-dessous pour l’adhésion en ligne et le paiement sécurisé<br>");
+	define('TXT_SECTION_ADHESION', 'Devenir donateur·trice');
+	define('TXT_ADHESION_TEXTE', "<br>
+			<p>En donnant à l'association Opening, même une somme modeste, vous contribuez à soutenir les artistes et à faire grandir la collection.</p>
+			<br>
+			Opening est une association loi 1901 répondant aux critères de l’intérêt général, ce qui vous permet de défiscaliser une partie de vos dons.<br>
+			<p>Devenez donateur.trice en remplissant le formulaire ci-dessous ou en envoyant un chèque à l’ordre d’Opening 68 rue des Dominicaines 13001 Marseille en indiquant vos coordonnées ainsi qu’une adresse mail.</p>
+			Laissez-vous guider par le formulaire ci-dessous pour un don en ligne et le paiement sécurisé.<br>");
 
 	//---------------------------------------------------------
 	// about.php
 	//---------------------------------------------------------
 
-	define('TXT_TAB_ABOUT', "A propos de notre association - Opening book");
+	define('TXT_TAB_ABOUT', "Opening book");
 
-	define('TXT_SECTION_EDITO', 'à propos');
+	define('TXT_SECTION_EDITO', 'Opening book');
 	define('TXT_EDITO_TEXTE', "<p><b>Collection numérique </b>de books d’artistes conçue pour offrir une visibilité aux artistes plasticiens, opening book est née en 2015 de la volonté d’une passionnée d’art et d’une artiste. Suivie en 2016 par opening book photo, elle permet à un public d’amateurs et de professionnels de l’art de découvrir des artistes émergents ou déjà reconnus. <p/>
 
 		<p>Dans chaque book, douze oeuvres sont à découvrir dans une mise en page épurée construite autour de l’oeuvre et du détail, avec une navigation fluide entre les pages et un zoom puissant pour observer des détails. Opening offre ainsi aux artistes des atouts essentiels pour construire ou consolider leur cote : des reproductions photographiques de qualité professionnelle et l’inscription dans un large réseau de diffusion.<p/>
 
-		<p><b>Pourquoi adhérer ?</b>
-		Des extraits sont consultables gratuitement sur le site opening-book.com. Les versions intégrales sont réservées aux adhérents.Pourquoi ? Parce que construire cette collection avec des moyens professionnels et défendre les artistes a un prix, le prix de notre travail et celui de nos prestataires. </p>
+		<p><b>Pourquoi devenir donateur ?</b></p>
+		   <p>Par une participation, même modeste, vous contribuez à soutenir les artistes et à faire grandir la collection. </p>
 
-		<p>L’adhésion annuelle coûte 30 €. C’est beaucoup et c’est peu. Avec cette somme vous découvrez jusqu’à 12 nouveaux artistes par an, vous vous constituez une bibliothèque numérique d’art et vous participez au fonctionnement de l’association, aux côtés des indispensables partenaires publics (actuellement, la Région Paca et le Département des Bouches-du-Rhône). Vous pouvez aussi faire un don. Dons et cotisations sont déductibles fiscalement car l’association répond aux critères de l’intérêt général.</p>
+		<p>Vous découvrez jusqu’à 12 nouveaux artistes par an, vous vous constituez une bibliothèque numérique d’art et vous participez au fonctionnement de l’association, aux côtés des indispensables partenaires publics (actuellement, la Région Paca et le Département des Bouches-du-Rhône). Dons et cotisations sont déductibles fiscalement car l’association répond aux critères de l’intérêt général.</p>
 
 		<p><b>Appel à candidature </b>
 		Les artistes souhaitant intégrer la collection sont invités à proposer une sélection cohérente de douze oeuvres, accompagnée d’une courte note expliquant la pertinence de cette sélection. La sélection définitive des oeuvres sera faite avec Opening. Les candidatures doivent être adressées à contact@opening-book.com en précisant dans l’objet du mail «candidature opening book». </p>
