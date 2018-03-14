@@ -16,24 +16,28 @@
                 </div>
                 <div class="row thumbnail">
                     <h3>A paraître prochainement</h3>
-                    <p>
-                    Opening book 008 / Pascale Hugonet<br>
-                    </p>
+                    <p>Openingphoto 010 / Christèle Lerisse</p>
+                    <p>Openingbook 007 / Françoise Semiramoth</p>
                 </div>
                 <div class="row thumbnail">
                     <h3>Actualités des artistes</h3>
-                    <i>août</i>
-                    <p>
-                    Exposition <b>C Mérian</b> du 24 au 27 Août 19 rue de la république, Marseille
-                    <br>Pavillon de l'Exil/a-part Festival International d'art contemporain
-                    </p>
+                    <p><i>Vernissage</i></p>
+                    <p><b>Françoise Buadas</b></p>
+                    <p>Galerie Jean-François Meyer, Marseille</p>
+                    <p>vernissage vendredi 16 mars de 19 h à 21 h</p>
+                    <p><i>Expositions</i></p>
+                    <p><b>Françoise Buadas</b></p>
+                    <p><b>TRACES</b></p>
+                    <p>Exposition du 16 mars au 7 avril 2018</p>
+                    <p><i>Projection</i></p>
+                    <p><b>ANDRE MERIAN</b></p>
+                    <p><b>Autour d'André Mérian</b></p>
+                    <p>le 14 mars 2018 à 19h à la Cité de l’architecture et du patrimoine au Palais de Caillot à Paris</p>
                 </div>
                 <div class="row thumbnail">
                     <h3>A noter</h3>
-                    <p>
-                    Opening book participe à Paréidolie, salon international du dessin contemporain, espace édition 26-27 Août, bd Boisson, Marseille<br>
-                    Parution d’un book hors-série avec <b>Anne-Valérie Gasc</b>, artiste invitée de cette 4e édition. 
-                    </p>
+                    <p><a href="https://lesrecombinants.fr/art-o-rama/">https://lesrecombinants.fr/art-o-rama/</a></p>
+                    <p>Haus Hof Land, édition Analogues, 21 x 21 cm, 72 pages, relié <br>Lien : <a href="http://www.analogues.fr/?p=11474">http://www.analogues.fr/?p=11474</a></p>
                 </div>
             </div>
             <div class="col-xs-1"></div>
