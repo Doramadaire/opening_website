@@ -2,8 +2,9 @@
 <html>
 	<head>
 		<?php include("include/html_header.php"); ?>
+        <meta name="description" content="<?php echo META_DESCRIPTION_CONTACT; ?>">
+        <meta name="keywords" content="<?php echo META_KEYWORDS_CONTACT; ?>">
         <title><?php echo TXT_TAB_CONTACT; ?></title>
-        <!-- Import des fichiers spécifiques à cette page -->
 		<link href="css/contact.css" rel="stylesheet">
 	</head>  
 	<body>

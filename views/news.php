@@ -2,8 +2,9 @@
 <html>
     <head>
         <?php include("include/html_header.php"); ?>
+        <meta name="description" content="<?php echo META_DESCRIPTION_NEWS; ?>">
+        <meta name="keywords" content="<?php echo META_KEYWORDS_NEWS; ?>">
         <title><?php echo TXT_TAB_NEWS; ?></title>
-        <!-- Import des fichiers spécifiques à cette page -->
         <link href="css/news.css" rel="stylesheet">
     </head>
     <body>

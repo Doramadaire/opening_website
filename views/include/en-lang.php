@@ -200,6 +200,19 @@
             <p>You can also send a check payable to Opening  68 rue des dominicaines 13001 Marseille by indicating your address and phone number as well as an e-mail address.</p>");
 
     //---------------------------------------------------------
+    // login.php
+    //---------------------------------------------------------
+
+    define('TXT_TAB_LOGIN', "Se connecter - Opening book");
+
+    define('TXT_SECTION_LOGIN', "Espace membre");
+
+    define('TXT_TITLE_LOGIN', "Se connecter");
+    define('TXT_SHOW_FORGOTTEN_PASSWORD', "Mot de passe oublié ?");
+    define('TXT_FORGOTTEN_PASSWORD_WARNING', "Attention! Cette action génére un nouveau mot de passe qui sera envoyé à l'adresse mail de votre compte");
+    define('TXT_CONFIRM_FORGOTTEN_PASSWORD', "Générer un nouveau mot de passe");
+
+    //---------------------------------------------------------
     // about.php
     //---------------------------------------------------------
 

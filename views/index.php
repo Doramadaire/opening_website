@@ -2,13 +2,13 @@
 <html>
     <head>
         <?php include("include/html_header.php"); ?>
+        <meta name="description" content="<?php echo META_DESCRIPTION_INDEX; ?>">
+        <meta name="keywords" content="<?php echo META_KEYWORDS_INDEX; ?>">
         <title><?php echo TXT_TAB_INDEX; ?></title>
-        <!-- Import des fichiers spécifiques à cette page -->
         <link href="css/index.css" rel="stylesheet">
     </head>
     <body>
         <?php include("include/header.php"); ?>
-
         <div class="container-fluid row">
             <div class="col-xs-1"></div>
             <div class="col-xs-10">
@@ -28,16 +28,16 @@
                     </ol>
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
-                            <img src="assets/diapo/001-1170x445.jpg" alt="Artistes" width="1170" height="445">
+                            <img src="assets/diapo/001-titre.jpg" alt="Artistes" width="1170" height="445">
                         </div>
                         <div class="item">
-                            <img src="assets/diapo/001a.png" width="1170" height="445">
+                            <img src="assets/diapo/002-annonce.jpg" width="1170" height="445">
                         </div>
                         <div class="item">
                             <img src="assets/diapo/002-AM.jpg" width="1170" height="445">
                         </div>
                         <div class="item">
-                            <img src="assets/diapo/003b .png" width="1170" height="445">
+                            <img src="assets/diapo/002-annonce.jpg" width="1170" height="445">
                         </div>
                         <div class="item">
                             <img src="assets/diapo/005-SD.jpg" width="1170" height="445">
@@ -49,7 +49,7 @@
                             <img src="assets/diapo/007-BB.jpg" width="1170" height="445">
                         </div>
                         <div class="item">
-                            <img src="assets/diapo/007b.jpg" width="1170" height="445">
+                            <img src="assets/diapo/002-annonce.jpg" width="1170" height="445">
                         </div>
                         <div class="item">
                             <img src="assets/diapo/008-YT.jpg" width="1170" height="445">

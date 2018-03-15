@@ -2,10 +2,10 @@
 <html>
 	<head>
 		<?php include("include/html_header.php"); ?>
+        <meta name="description" content="<?php echo META_DESCRIPTION_BOOK_MANAGEMENT; ?>">
+        <meta name="keywords" content="<?php echo META_KEYWORDS_BOOK_MANAGEMENT; ?>">
         <title><?php echo TXT_TAB_BOOK_MANAGEMENT; ?></title>
-        <!-- Import des fichiers spécifiques à cette page -->
         <link href="css/book_management.css" rel="stylesheet">
-
         <script type="text/javascript">
 			function copyToClipboard(text) {
 				window.prompt("Copier dans le presse-papier: Ctrl+C", text);

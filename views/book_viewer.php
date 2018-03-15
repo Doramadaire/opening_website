@@ -2,10 +2,9 @@
 <html>
 	<head>
         <?php include("include/html_header.php"); ?>
+        <meta name="description" content="<?php echo META_DESCRIPTION_BOOK_VIEWER; ?>">
+        <meta name="keywords" content="<?php echo META_KEYWORDS_BOOK_VIEWER; ?>">
         <title><?php echo TXT_TAB_BOOK_VIEWER; ?></title>
-        <!-- Import des fichiers spécifiques à cette page -->	      
-
-        <!-- jQuery est déjà inclus pour bootstrap <script type="text/javascript" src="./js/jquery-1.7.1.min.js"></script> -->
         <!-- Wowbook -->
         <script type="text/javascript" src="./wow_book/pdf.combined.min.js"></script>
         <script type="text/javascript" src="./wow_book/wow_book.min.js"></script>
@@ -14,8 +13,6 @@
         <link rel="stylesheet" href="css/book_viewer.css" type="text/css">
         <script>
         $(function(){
-            //var PreviousButtonWidth = document.getElementById('before-fixed-button').offsetWidth;
-            //var fixedButtonWidth = document.getElementById('fixed-button').offsetWidth;
             var fixedButtonWidth = document.getElementById('fixed-button').style.width;
             document.getElementById('pull-right-box').style.width = fixedButtonWidth;
 
@@ -54,9 +51,6 @@
 
 	   <div class="container-fluid row">
             <div class="col-xs-1"></div>
-	        <!-- <h1 class="Section">
-	   	       Page de consultation des Opening book
-	        </h1> -->
             <div class="col-xs-10">
                 <div class="row text-intro">
             <?php   if (!isset($_SESSION['user_logged'])) {
@@ -66,15 +60,13 @@
                     } else {
         				if (!$user_logged->getUserStatus() >= 3) {
                             echo TXT_USER_SUBSCRIPTION_EXPIRED;
-        					//En tant qu'adhérent vous avez accès à l'ensemble des books<br> -->
-                            //DEVEVDV mettre une marge en CSS plutot que un br? -->
                         }
                     }
                     echo TXT_BOOK_VIEWER_EXPLANATION; ?>
                 </div>
                 <div class="row">
                     <img id="show_wowbook" src="<?php echo $cover_filename; ?>" height="600px" width="616px">
-                    <div id="wowbook"></div> <!-- celui avec lightbox et les liens internes -->
+                    <div id="wowbook"></div><!-- celui avec lightbox et les liens internes -->
                 </div>	
             
                 <div class="row thumbnail">

@@ -2,8 +2,9 @@
 <html>
     <head>
         <?php include("include/html_header.php"); ?>
+        <meta name="description" content="<?php echo META_DESCRIPTION_JOIN; ?>">
+        <meta name="keywords" content="<?php echo META_KEYWORDS_JOIN; ?>">
         <title><?php echo TXT_TAB_JOIN; ?></title>
-        <!-- Import des fichiers spécifiques à cette page -->
         <link href="css/join.css" rel="stylesheet">
     </head>
     <body>

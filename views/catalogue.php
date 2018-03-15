@@ -2,6 +2,8 @@
 <html lang="en">
     <head>
         <?php include("include/html_header.php"); ?>
+        <meta name="description" content="<?php echo META_DESCRIPTION_CATALOGUE; ?>">
+        <meta name="keywords" content="<?php echo META_KEYWORDS_CATALOGUE; ?>">
         <title><?php echo TXT_TAB_CATALOGUE; ?></title>
         <link href="css/catalogue.css" rel="stylesheet">
     </head>

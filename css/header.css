@@ -32,7 +32,7 @@ donne le code ci dessous pour les couleurs de la navbar */
 }
 /* Attention cette largeur dépends de la taille des textes/logos de la navbar */
 /*@media (max-width:941px){ valeur sans l'onglet langue */
-@media (max-width:1039px){
+@media (max-width:1140px){
   .social > a {
     padding-left: 5px;
     padding-right: 5px;
@@ -49,7 +49,7 @@ donne le code ci dessous pour les couleurs de la navbar */
 }
 
 /* Pour les small devices, pas trop d'espace dans la liste déroulante */
-@media (max-width:767px){
+@media (max-width:890px){
   .nav > li > a {
     padding: 4px;
   }

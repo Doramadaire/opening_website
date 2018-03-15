@@ -2,11 +2,12 @@
 <html lang="en">
     <head>
         <?php include("include/html_header.php"); ?>
+        <meta name="description" content="<?php echo META_DESCRIPTION_ABOUT; ?>">
+        <meta name="keywords" content="<?php echo META_KEYWORDS_ABOUT; ?>">
         <title><?php echo TXT_TAB_ABOUT; ?></title>
-        <!-- <link href="css/about.css" rel="stylesheet"> -->
     </head>
     <body>
-        <?php include("include/header.php"); ?> 
+        <?php include("include/header.php"); ?>
         <div class="container-fluid row">
             <div class="col-xs-1"></div>
             <div class="col-xs-10">
@@ -16,8 +17,8 @@
                 <div class="row">
                     <?php echo TXT_EDITO_TEXTE; ?>
                 </div>
-            </div>            
+            </div>
             <div class="col-xs-1"></div>
-        </div>        
+        </div>
     </body>
 </html>
