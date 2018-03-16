@@ -26,6 +26,8 @@ donne le code ci dessous pour les couleurs de la navbar */
     margin-bottom: 10px;
 }
 
+.dropdown
+
 .social {
     margin-top: -3px; /* pour positionner la hauteur des logos twitter et fb */
 }
@@ -63,13 +65,6 @@ donne le code ci dessous pour les couleurs de la navbar */
     }
 }
 
-/* Pour les small devices, pas trop d'espace dans la liste déroulante */
-@media (max-width:890px){
-    .nav > li > a {
-        padding: 4px;
-    }
-}
-
 /* Custom navbar breakpoint */
 @media (max-width: 890px) {
   .navbar-header {
@@ -100,8 +95,7 @@ donne le code ci dessous pour les couleurs de la navbar */
       float: none;
   }
   .navbar-nav>li>a {
-      padding-top: 10px;
-      padding-bottom: 10px;
+      padding: 4px 10px;
   }
   .collapse.in{
       display:block !important;
