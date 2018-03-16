@@ -95,6 +95,14 @@ p {
   font-weight: bold
 }
 
+/*.thumbnail {
+  border-radius: 0px;
+}
+
+.btn {
+  border-radius: 0px;
+}*/
+
 .thumbnail h3 {
   margin-top: 0px
 }

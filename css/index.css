@@ -58,3 +58,14 @@
     list-style-type:none; /* item marker : none, square, circle, disc ...... */
     /* list-style-image: url('chemin/image.type');  ou item marker à partir d'un fichier */
 }
+
+.thumbnail p {
+    margin-bottom: 35px;
+}
+
+.thumbnail a {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    margin: 5px 4px;
+}

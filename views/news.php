@@ -46,13 +46,13 @@
                     <p><a href="https://lesrecombinants.fr/art-o-rama/">https://lesrecombinants.fr/art-o-rama/</a></p>
                     <p><b>Brigitte Bauer</b></p>
                     <p>Haus Hof Land, édition Analogues, 21 x 21 cm, 72 pages, relié <br>Lien : <a href="http://www.analogues.fr/?p=11474">http://www.analogues.fr/?p=11474</a></p>
-                    <p><b>Geirmundur Klein </b></>
+                    <p><b>Geirmundur Klein</b></p>
                     <p>Fragments from photographic prose  With a poem by Michel Houellebecq 20 x 23 cm, 42 pages, 23 photographies</p>
                     <p>Livre d'artiste édité à 75 exemplaires numérotés et signés, 85 € <br><a href="http://geirmundurklein.net/fragments">http://geirmundurklein.net/fragments/</a>
                     <p><b>Monique Deregibus</b></p>
-                    <p>La Maison Chypre 2009-2013<p/>
+                    <p>La Maison Chypre 2009-2013</p>
                     <p>Marie-Hélène Brousse, Etienne Copeaux</p>
-                    <p>225 x 285 mm, 168 pages, 100 photographies couleur, 30 € <br><a href="http://filigranes.com/livre/la-maison-chypre/">http://filigranes.com/livre/la-maison-chypre/</a>
+                    <p>225 x 285 mm, 168 pages, 100 photographies couleur, 30 € <br><a href="http://filigranes.com/livre/la-maison-chypre/">http://filigranes.com/livre/la-maison-chypre/</a></p>
                 </div>
             </div>
             <div class="col-xs-1"></div>
