@@ -41,23 +41,6 @@ p {
   text-align: justify;
 }
 
-/*
-a:link {
-    text-decoration: none;
-}
-
-a:visited {
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: none;
-}
-
-a:active {
-    text-decoration: none;
-}*/
-
 /* personnalisation des boutons */
 .btn {
   padding: 2px 6px;
@@ -93,11 +76,6 @@ a:active {
   box-shadow: inset 0 0 0 20rem var(--darken-2), inset 0 3px 4px 0 var(--darken-3), 0 0 1px var(--darken-2);
 }
 
-/*
-.btn-primary:visited {
-  background-color: var(--couleur_bouton_visite);
-}*/
-
 .btn-primary:disabled, 
 .btn-primary.is-disabled {
   opacity: .5;
@@ -119,18 +97,4 @@ a:active {
 
 .thumbnail h3 {
   margin-top: 0px
-}
-
-/*
-.footer {
-  background-color: #FFFFFFF ; //Couleur de fond
-  bottom: 0;
-  width: 100%;
-  color : white;
-  font-family: "Arial", cursive, sans-serif;
-  z-index: 5;
-}*/
-
-.footer > a {
-  float: right;
 }

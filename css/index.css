@@ -1,4 +1,43 @@
-/*l'allure des liens sur la page d'accueil*/
+.container-fluid {
+    margin: 0px;
+}
+
+.page-content {
+    max-width : 1170px;
+    padding: 0px;
+    margin: 0px auto;
+}
+
+.margin-wrapper {
+    margin: 20px 10px;
+}
+
+.carousel {
+    width : 100%;
+    margin: 0px;
+}
+
+.blocks-parent {
+    margin: 0px;
+    display: inline-flex;
+}
+
+.blocks-parent .thumbnail {
+    margin: 0px 10px 10px 10px;
+}
+
+@media (max-width: 768px) {
+    .blocks-parent {
+        display: block;
+    }
+}
+
+/* css pour le diaporama */
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    margin: auto;
+}
+
 .action a:link {
     text-decoration: none;
 }
@@ -14,45 +53,8 @@
 .action a:active {
     text-decoration: underline;
 }
-	
+
 .action ul {
     list-style-type:none; /* item marker : none, square, circle, disc ...... */
-	/* list-style-image: url('chemin/image.type');  ou item marker à partir d'un fichier */ 
+    /* list-style-image: url('chemin/image.type');  ou item marker à partir d'un fichier */
 }
-
-/* css pour le diaporama */
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
-    margin: auto;  
-}
-      
-#myCarousel {
-    width : 100%;
-    max-width : 1170px;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.logging-form input {
-    margin-bottom: 3px;
-}
-
-.blocks-parent {
-    display: flex;
-    margin-bottom: 20px;
-}
-
-.col-sm-4 {
-    align-items: stretch;
-}
-
-.thumbnail {
-    /*height: auto;*/
-    /*height: 100%;*/
-    margin: 0px;
-}
-
-/*.thumbnail btn {
-
-}*/

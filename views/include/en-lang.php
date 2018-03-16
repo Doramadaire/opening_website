@@ -24,12 +24,9 @@
     define('TXT_MENU_OEUVRES', 'Share your books');
     define('TXT_MENU_OEUVRES_ADMIN', 'Share books');
     define('TXT_MENU_ADMIN_PAGE', "Go to the administration page");
-    define('TXT_MENU_RECHERCHE', 'Find book');
-    define('TXT_MENU_RECHERCHE_EXTRAITS', 'Find extract');
 
+    define('TXT_BOUTON_SE_CONNECTER', "log in");
     define('TXT_NAVBAR_DISCONNECT', "Log out");
-
-    define('TXT_FOOTER_BACK_HOME', "Back to home page");
 
     //---------------------------------------------------------
     // index.php
@@ -37,19 +34,12 @@
 
     define('TXT_TAB_INDEX', "Homepage - Opening book association");
 
-    define('TXT_BONJOUR', 'Hello');
-
-    define('TXT_H3_SECTION_CONNEXION', 'Have an account ?');
-    define('TXT_BOUTON_SE_CONNECTER', "log in");
-    define('TXT_BOUTON_SE_DECONNECTER', "log out");
-
     define('TXT_PLACEHOLDER_MAIL', "e-mail");
     define('TXT_PLACEHOLDER_MDP', "password");
 
-    define('TXT_ATTENTION_MDP_OUBLIE', "Warning! Will send a new password to your mailbox");
-    define('TXT_BOUTON_RESET_MDP_OUBLIE', "Send me a new password");
-    define('TXT_MDP_OUBLIE', "Forgot password?");
-    define('TXT_RESET_PSWD_SUCCESS', 'A mail with your new password has been sent');
+    define('TXT_INDEX_BLOC1_TITLE', "Actualités");
+    define('TXT_INDEX_BLOC1_PARAGRAPH', "Pour découvrir les actualités d'Opening, les expositions et vernissages de nos artistes ainsi que les book à paraître");
+    define('TXT_INDEX_BLOC1_BUTTON', "voir les actualités");
 
     define('TXT_H3_SECTION_RECHERCHE', 'Discover opening book');
     define('TXT_P_RECHERCHE', "Digital collections where artists portfolios and books of art meet");
@@ -203,14 +193,15 @@
     // login.php
     //---------------------------------------------------------
 
-    define('TXT_TAB_LOGIN', "Se connecter - Opening book");
+    define('TXT_TAB_LOGIN', "Sign in - Opening book");
 
     define('TXT_SECTION_LOGIN', "Espace membre");
 
-    define('TXT_TITLE_LOGIN', "Se connecter");
-    define('TXT_SHOW_FORGOTTEN_PASSWORD', "Mot de passe oublié ?");
-    define('TXT_FORGOTTEN_PASSWORD_WARNING', "Attention! Cette action génére un nouveau mot de passe qui sera envoyé à l'adresse mail de votre compte");
-    define('TXT_CONFIRM_FORGOTTEN_PASSWORD', "Générer un nouveau mot de passe");
+    define('TXT_TITLE_LOGIN', "Sign in");
+    define('TXT_PLACEHOLDER_MDP', "password");
+    define('TXT_SHOW_FORGOTTEN_PASSWORD', "Send me a new password");
+    define('TXT_FORGOTTEN_PASSWORD_WARNING', "Warning! This will send a new password to your mailbox");
+    define('TXT_CONFIRM_FORGOTTEN_PASSWORD', "A mail with your new password has been sent");
 
     //---------------------------------------------------------
     // about.php

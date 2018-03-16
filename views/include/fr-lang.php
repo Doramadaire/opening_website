@@ -25,12 +25,9 @@
     define('TXT_MENU_OEUVRES', 'Partager vos books');
     define('TXT_MENU_OEUVRES_ADMIN', 'Partager les books');
     define('TXT_MENU_ADMIN_PAGE', "Aller à la page d'administration");
-    define('TXT_MENU_RECHERCHE', 'Parcourir la collection');
-    define('TXT_MENU_RECHERCHE_EXTRAITS', 'Parcourir la collection (seulement des extraits)');
 
+    define('TXT_BOUTON_SE_CONNECTER', "se connecter");
     define('TXT_NAVBAR_DISCONNECT', "vous déconnecter");
-
-    define('TXT_FOOTER_BACK_HOME', "R");
 
     //---------------------------------------------------------
     // index.php
@@ -38,21 +35,9 @@
 
     define('TXT_TAB_INDEX', "Accueil - association Opening book");
 
-    define('TXT_BONJOUR', 'Bonjour');
-
-    define('TXT_H3_SECTION_CONNEXION', 'Membre');
-    define('TXT_BOUTON_SE_CONNECTER', "se connecter");
-    define('TXT_BOUTON_SE_DECONNECTER', "se déconnecter");
-
-    define('TXT_PLACEHOLDER_MAIL', "e-mail");
-    define('TXT_PLACEHOLDER_FIRSTNAME', "Prénom");
-    define('TXT_PLACEHOLDER_NAME', "Nom");
-    define('TXT_PLACEHOLDER_MDP', "mot de passe");
-
-    define('TXT_ATTENTION_MDP_OUBLIE', "Attention! Cette action génére un nouveau mot de passe qui sera envoyé à l'adresse mail de votre compte");
-    define('TXT_BOUTON_RESET_MDP_OUBLIE', "Générer un nouveau mot de passe");
-    define('TXT_MDP_OUBLIE', "Mot de passe oublié?");
-    define('TXT_RESET_PSWD_SUCCESS', 'Un nouveau mot de passe vous a été envoyé par mail');
+    define('TXT_INDEX_BLOC1_TITLE', "Actualités");
+    define('TXT_INDEX_BLOC1_PARAGRAPH', "Pour découvrir les actualités d'Opening, les expositions et vernissages de nos artistes ainsi que les book à paraître");
+    define('TXT_INDEX_BLOC1_BUTTON', "voir les actualités");
 
     define('TXT_H3_SECTION_RECHERCHE', 'Découvrir opening book');
     define('TXT_P_RECHERCHE', 'des collections numériques à la croisée du livre d’art et du book d’artiste.');
@@ -134,6 +119,10 @@
 
     define('TXT_TAB_ADMIN', "Page d'administration - Opening book");
 
+    define('TXT_PLACEHOLDER_MAIL', "e-mail");
+    define('TXT_PLACEHOLDER_FIRSTNAME', "Prénom");
+    define('TXT_PLACEHOLDER_NAME', "Nom");
+
     define('TXT_GESTION_DES_UTILISATEURS', "Page d'administration");
     define('TXT_RECHERCHE_UTILISATEUR', 'Rechercher des informations sur un utilisateur');
     define('TXT_RECHERCHE_USER_QUESTION', "Quel utilisateur recherchez-vous?");
@@ -207,6 +196,7 @@
     define('TXT_SECTION_LOGIN', "Espace membre");
 
     define('TXT_TITLE_LOGIN', "Se connecter");
+    define('TXT_PLACEHOLDER_MDP', "mot de passe");
     define('TXT_SHOW_FORGOTTEN_PASSWORD', "Mot de passe oublié ?");
     define('TXT_FORGOTTEN_PASSWORD_WARNING', "Attention! Cette action génére un nouveau mot de passe qui sera envoyé à l'adresse mail de votre compte");
     define('TXT_CONFIRM_FORGOTTEN_PASSWORD', "Générer un nouveau mot de passe");
