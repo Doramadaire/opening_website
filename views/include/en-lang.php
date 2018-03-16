@@ -237,7 +237,7 @@
                     <p>A qualified art historian, a cultural mediater for the past 14 years, she has co-ordinated numerous publishing projects and art commissions with the Bureau des compétences et désirs (Action Nouveaux commanditaires de la Fondation de France), and before that with centre d'art contemporain du Crestet (co-édition avec Actes Sud).</p>
                     <p>Isabelle SCHNEIDER</p>
                     <p>An artist, she workes concurrently as a painter and videographer. She is part of the Experimental video festival,  Images Contre Nature in Marseilles. She regulary collaborates with experimental theatre companies.(Germany, Greece, France.) </p>
-                    <p><img src='assets/media/img/portrait_opening.jpg' width='700px'></p>
+                    <p><img src='assets/img/portrait_opening.jpg' width='700px'></p>
                     <p>Opening recieves funding from the Regional Provence-Alpes-Côte d'Azur and the Bouches-du-Rhône councils.</p>");
 
     //exemple de balise pour mettre une image : <img src='https://coloriage.info/images/ccovers/1460917190bananes-fruit.gif' width='476' height='405'>

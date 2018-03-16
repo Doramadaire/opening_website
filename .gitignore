@@ -6,6 +6,7 @@ mdp.txt
 
 #DEV files
 change_pswd.php
+*test.php
 
 #But not these files
 !facebook.jpg

@@ -1,8 +1,8 @@
 <?php
 
     // page à propos
-    define("META_DESCRIPTION_ABOUT", "petit texte d'exemple");
-    define("META_KEYWORDS_ABOUT", "mot, clef, mettre des trucs");
+    define("META_DESCRIPTION_ABOUT", "des collections numériques à la croisée du livre d'art et du book d'artiste");
+    define("META_KEYWORDS_ABOUT", "livre d'artiste , photographe, mettre des trucs");
 
     // page partage de book
     define("META_DESCRIPTION_BOOK_MANAGEMENT", "Un artiste a la possibilité de partager ses livres numériques");

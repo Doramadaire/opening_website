@@ -15,51 +15,19 @@
                     <div id="carousel" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
                             <li data-target="#carousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel" data-slide-to="1"></li>
-                            <li data-target="#carousel" data-slide-to="2"></li>
-                            <li data-target="#carousel" data-slide-to="3"></li>
-                            <li data-target="#carousel" data-slide-to="4"></li>
-                            <li data-target="#carousel" data-slide-to="5"></li>
-                            <li data-target="#carousel" data-slide-to="6"></li>
-                            <li data-target="#carousel" data-slide-to="7"></li>
-                            <li data-target="#carousel" data-slide-to="8"></li>
-                            <li data-target="#carousel" data-slide-to="9"></li>
-                            <li data-target="#carousel" data-slide-to="10"></li>
+                            <?php for ($i=1; $i < count($carousel_imgs) + 1; $i++) { ?>
+                            <li data-target="#carousel" data-slide-to="<?php echo $i; ?>"></li>
+                            <?php } ?>
                         </ol>
                         <div class="carousel-inner" role="listbox">
                             <div class="item active">
-                                <img src="assets/diapo/001-titre.jpg" alt="Artistes" width="1170" height="445">
+                                <img src="assets/img/000_cover.jpg" alt="Artistes" width="1170" height="445">
                             </div>
+                            <?php foreach ($carousel_imgs as $file) { ?>
                             <div class="item">
-                                <img src="assets/diapo/002-annonce.jpg" width="1170" height="445">
+                                <img src="<?php echo $file; ?>" width="1170" height="445">
                             </div>
-                            <div class="item">
-                                <img src="assets/diapo/002-AM.jpg" width="1170" height="445">
-                            </div>
-                            <div class="item">
-                                <img src="assets/diapo/002-annonce.jpg" width="1170" height="445">
-                            </div>
-                            <div class="item">
-                                <img src="assets/diapo/005-SD.jpg" width="1170" height="445">
-                            </div>
-                            <div class="item">
-                                <img src="assets/diapo/006JDSS.jpg" width="1170" height="445">
-                            </div>
-                            <div class="item">
-                                <img src="assets/diapo/007-BB.jpg" width="1170" height="445">
-                            </div>
-                            <div class="item">
-                                <img src="assets/diapo/002-annonce.jpg" width="1170" height="445">
-                            </div>
-                            <div class="item">
-                                <img src="assets/diapo/008-YT.jpg" width="1170" height="445">
-                            </div>
-                            <div class="item">
-                                <img src="assets/diapo/009-OR.jpg" width="1170" height="445">
-                            </div>
-                            <div class="item">
-                                <img src="assets/diapo/0010-DP1.jpg" width="1170" height="445">
-                            </div>
+                            <?php } ?>
                         </div>
                         <?php // <!-- Left and right controls --> ?>
                         <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
