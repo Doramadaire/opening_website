@@ -13,7 +13,7 @@
     $sort_type = "default";
     if (isset($_GET['letter'])) {
         // on a une demande par lettre
-        $sort_type = "artist_alphabetical";
+        $sort_type = "letter";
         $letter_query_author = $_GET['letter']."%";
 
         $retrieved_authors = $sql->getAuthorsByName($letter_query_author);

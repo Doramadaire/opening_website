@@ -619,7 +619,7 @@
          * @param $search : la recherche utilisateur
          * @return array(Books) : un array contenant les books trouvés par la recherche
          */
-        // TEST Fonction annulée, remplacée par la partie controller sort_type = "artist_alphabetical"
+        // TEST Fonction annulée, remplacée par la partie controller sort_type = "letter"
         /*
         public function getBookOnAuthorName($search)
         {
