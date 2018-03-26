@@ -10,8 +10,8 @@
     <body>
         <?php include("include/header.php"); ?>
         <div class="container-fluid">
-            <div class="col-xs-1"></div>
-            <div class="col-xs-10">
+            <!-- <div class="col-xs-1"></div>
+            <div class="col-xs-10">  -->
             <?php if ($sort_type === "letter") { ?>
                 <div class="row artist_retrieved"> 
                 <?php if (empty($retrieved_authors)) { ?>
@@ -155,8 +155,8 @@
                         <?php  } ?>
                             </div>
                         </div> -->
-            </div>
-            <div class="col-xs-1"></div>
+            <!-- </div>
+            <div class="col-xs-1"></div> -->
             <!-- L'affichage de toutes les miniatures de la selection par année : on oublie -->
         </div>
     </body>

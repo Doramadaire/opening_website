@@ -5,7 +5,7 @@
 
 .thumbnail {
     /*max-width: 158px;*/
-    min-width: 190px;
+    min-width: 160px;
     margin: auto;
     border: 0px;
 }
@@ -95,6 +95,65 @@
 
 .search_collection_vignette {
     height: 182px;
+}
+
+.container-fluid {
+    padding: 0px 10px;
+}
+
+h1, h3 { /* alignement titres avec images */
+    padding: 0px 4px;
+}
+
+@media (max-width: 351px) { /* Pour les vieux téléphones à petits écrans comme Iphone < 6 */
+    .container-fluid {
+        padding: 0px 3px;
+    }
+
+    .thumbnail {
+        padding: 0px 2px;
+        min-width: 150px;
+    }
+
+    .thumbnail img, .thumbnail a, .thumbnail p {
+        width: 148px;
+    }
+}
+
+@media (min-width: 548px) {
+    .container-fluid {
+        padding: 0px 25px;
+    }
+}
+
+@media (min-width: 578px) and (max-width: 607px) {
+    .thumbnail {
+        margin: 0px 5px;
+    }
+
+    h1, h3 {
+        padding: 0px 9px;
+    }
+}
+
+@media (min-width: 608px) {
+    .thumbnail {
+        margin: 0px 10px;
+    }
+
+    h1, h3 {
+        padding: 0px 14px;
+    }
+}
+
+@media (min-width: 714px) and (max-width: 793px) {
+    .thumbnail {
+        margin: 0px;
+    }
+
+    h1, h3 {
+        padding: 0px 4px;
+    }
 }
 
 /*
