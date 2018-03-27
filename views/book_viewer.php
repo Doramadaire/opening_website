@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-	<head>
+    <head>
         <?php include("include/html_header.php"); ?>
         <meta name="description" content="<?php echo META_DESCRIPTION_BOOK_VIEWER; ?>">
         <meta name="keywords" content="<?php echo META_KEYWORDS_BOOK_VIEWER; ?>">
@@ -25,50 +25,37 @@
                 lightbox: "#show_wowbook",
                 thumbnailsPosition : 'left',
                 gutterShadow: false,     
-				flipSound: 0,
-				slideShowDelay: 3000,
+                flipSound: 0,
+                slideShowDelay: 3000,
                 // The pdf and your webpage must be on the same domain
                 pdf: <?php echo "'$book_pdf_path'"; ?>
             };
             // creates the book
             $('#wowbook').wowBook(bookOptions);
-			/*
-			Pour augmenter la taille du bouton pour fermer la liseuse
-			.wowbook-lightbox > .wowbook-close{
-			height: 2.3em;
-			width: 2.3em;
+            /*
+            Pour augmenter la taille du bouton pour fermer la liseuse
+            .wowbook-lightbox > .wowbook-close{
+            height: 2.3em;
+            width: 2.3em;
 
-			Les 2 valeurs étaient à 1.5em auparavant.
+            Les 2 valeurs étaient à 1.5em auparavant.
 
-			Pour enlever la coloration jaune au passage sur un lien interne du book
-			.wowbook-pdf .linkAnnotation > a:hover {
-			opacity 0;		auparavant : opacity 0.2;*/		
+            Pour enlever la coloration jaune au passage sur un lien interne du book
+            .wowbook-pdf .linkAnnotation > a:hover {
+            opacity 0;      auparavant : opacity 0.2;*/
         })
-        </script>	
-	</head>
-	<body oncontextmenu="return false" >
-	   <?php include("include/header.php"); ?>
-
-	   <div class="container-fluid row">
-            <div class="col-xs-1"></div>
-            <div class="col-xs-10">
+        </script>
+    </head>
+    <body oncontextmenu="return false" >
+        <?php include("include/header.php"); ?>
+        <div class="container-fluid row">
                 <div class="row text-intro">
-            <?php   if (!isset($_SESSION['user_logged'])) {
-                        if (!isset($privileged_access_granted)) {
-                            echo TXT_VISITOR;
-                        }
-                    } else {
-        				if (!$user_logged->getUserStatus() >= 3) {
-                            echo TXT_USER_SUBSCRIPTION_EXPIRED;
-                        }
-                    }
-                    echo TXT_BOOK_VIEWER_EXPLANATION; ?>
+                    <?php echo TXT_BOOK_VIEWER_EXPLANATION; ?>
                 </div>
                 <div class="row">
-                    <img id="show_wowbook" src="<?php echo $cover_filename; ?>" height="600px" width="616px">
+                    <img id="show_wowbook" src="<?php echo $cover_filename; ?>">
                     <div id="wowbook"></div><!-- celui avec lightbox et les liens internes -->
-                </div>	
-            
+                </div>
                 <div class="row thumbnail">
                     <h3><?php echo $book->getBookTitle(); ?></h3>
                     <p><?php echo $book_description; ?></p>
@@ -80,23 +67,19 @@
                         <p><a href="<?php echo $cv_link; ?>" target="_blank"><?php echo TXT_ARTIST_CV; ?></a></p>
                     <?php } ?>
                 </div>
-                <!--<div class="row">
-                    <div class="thumbnail">
-                        <h3>Les autres oeuvres de cet auteur</h3>
-                        <p>Du texte, ou autre?</p>
-                    </div>
-                </div> -->
+                <!-- Les autres oeuvres de cet auteur ? -->
+                <!-- Bouton retour catalogue à cet auteur ? à cette collection ? -->
+                <a class="btn btn-primary" href="catalogue.php"><?php echo TXT_BACK_TO_CATALOGUE; ?></a>
+                <!-- Version initiale pas beau
                 <div class="row back-to-catalogue-links">
                     <div id="positioner-box">
                         <a id="before-fixed-button" class="btn btn-primary" href="catalogue.php"><?php echo TXT_BACK_TO_CATALOGUE; ?></a>
                     </div>
-            <?php //foreach ($book->getBookAuthors() as $artist_id) {echo "<br><a class='btn btn-primary' href='catalogue.php?artist_id=$artist_id'>".TXT_BACK_TO_ARTIST_BOOKS.unserialize($sql->getAuthorByID($artist_id))->getAuthorName()    ."</a>"; } ?>
-                    <br><div id="pull-right-box">
+                    <br>
+                    <div id="pull-right-box">
                         <a id="fixed-button" class="btn btn-primary" href="catalogue.php?collection=<?php echo urlencode($book->getBookCollection()); ?>"><?php echo TXT_BACK_TO_COLLECTION_BOOKS.$book->getBookCollection(); ?></a>
                     </div>
-                </div>
-            </div>
-            <div class="col-xs-1"></div>
-        </div>           
-	</body>
+                </div> -->
+        </div>
+    </body>
 </html>

@@ -1,17 +1,22 @@
-#show_wowbook {
-	display: block;
+.row {
+    max-height: 600px;
+    max-width: 616px;
+    width: 100%;
     margin: auto;
-    margin-top: 20px;
     margin-bottom: 20px;
 }
 
+#show_wowbook {
+    width: 100%;
+}
+
 .wowbook-lightbox > .wowbook-close{
-	height: 2.3em;
-	width: 2.3em;
+    height: 2.3em;
+    width: 2.3em;
 }
 
 .wowbook-pdf .linkAnnotation > a:hover {
-	opacity : 0;
+    opacity : 0;
 }
 
 .text-intro {
@@ -20,6 +25,11 @@
     font-style: italic;
 }
 
+a.btn {
+    margin-bottom: 20px;
+}
+
+/*Version initiale pas beau
 .back-to-catalogue-links .btn {
     margin-bottom: 5px;
     float: right;
@@ -39,3 +49,4 @@
     z-index: 5;
     position: fixed;
 }
+*/
