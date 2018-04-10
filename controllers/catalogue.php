@@ -55,7 +55,7 @@
             $artist_vignettes[] = array(    "book" => $book,
                                             "authors" => $this_book_authors);
         }
-        # on a finis de récupérer nos books on peut les ordonner
+        # on a fini de récupérer nos books on peut les ordonner
 
     } elseif (isset($_GET['collection'])) {
         $sort_type = "by_collection";
@@ -96,41 +96,42 @@
         //     echo "<br>";
         // }
         } else {
-        //Accueil de la page catalogue presentation des collections
-        $sort_type = "default";
+            //Accueil de la page catalogue presentation des collections
+            $sort_type = "default";
 
-        //Pour la section par collection pour l'accueil
-        $collections_vignettes = array();
-        $books = $sql->getAllBooksOrderedByPubDate();
-        $collections_oderedbypubdate = array();
-        foreach ($books as $book) {
-            $collection = $book->getBookCollection();
-            if (!in_array($collection, $collections_oderedbypubdate)) {
-                $collections_oderedbypubdate[] = $collection;
-                $collections_vignettes[] = array(   "collection" => $collection,
-                                                    "book" => $book);
+            //Pour la section par collection pour l'accueil
+            $collections_vignettes = array();
+            $books = $sql->getAllBooksOrderedByPubDate();
+            $collections_oderedbypubdate = array();
+            foreach ($books as $book) {
+                $collection = $book->getBookCollection();
+                if (!in_array($collection, $collections_oderedbypubdate)) {
+                    $collections_oderedbypubdate[] = $collection;
+                    $collections_vignettes[] = array(   "collection" => $collection,
+                                                        "book" => $book);
+                }
             }
-        }
 
-        //Pour la section artiste on affiche TOUS les artistes dans l'ordre alpha
-        $index = 0;
-        $possible_letters = array();
-        foreach ($sql->getAuthorsSortedAlphabetical() as $author) {
-            $letter = $author->getAuthorSearchName()[0];
-            if (!in_array($letter, $possible_letters)) {
-                $possible_letters[] = $letter;
-            }
-            //on cherche les books de chaque ariste
-            foreach ($sql->getAllBooks() as $book) {
-                $this_book_authors_ids = $book->getBookAuthors();
-                if (in_array($author->getAuthorID(), $this_book_authors_ids)) {
-                    $this_book_authors = array();
-                    foreach ($this_book_authors_ids as $this_book_author_id) {
-                        $this_book_authors[] = unserialize($sql->getAuthorByID($this_book_author_id));
+            //Pour la section artiste on affiche TOUS les artistes dans l'ordre alpha
+            $index = 0;
+            $possible_letters = array();
+            foreach ($sql->getAuthorsSortedAlphabetical() as $author) {
+                $letter = $author->getAuthorSearchName()[0];
+                if (!in_array($letter, $possible_letters)) {
+                    $possible_letters[] = $letter;
+                }
+                //on cherche les books de chaque ariste
+                foreach ($sql->getAllBooks() as $book) {
+                    $this_book_authors_ids = $book->getBookAuthors();
+                    if (in_array($author->getAuthorID(), $this_book_authors_ids)) {
+                        $this_book_authors = array();
+                        foreach ($this_book_authors_ids as $this_book_author_id) {
+                            $this_book_authors[] = unserialize($sql->getAuthorByID($this_book_author_id));
+                        }
+                        $thumbnail_content[$index] = array( "book" => $book,
+                                                            "authors" => $this_book_authors);
+                        $index++;
                     }
-                    $thumbnail_content[$index] = array( "book" => $book,
-                                                        "authors" => $this_book_authors);
-                    $index++;
                 }
             }
 
@@ -157,7 +158,6 @@
         $all_books = $sql->getAllBooks();
         shuffle($all_books);
         $rand_books = array_slice($all_books, 0, min(16, count($all_books)));*/
-        }
     }
      
     include_once('./views/catalogue.php');

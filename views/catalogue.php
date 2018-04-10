@@ -10,8 +10,6 @@
     <body>
         <?php include("include/header.php"); ?>
         <div class="container-fluid">
-            <!-- <div class="col-xs-1"></div>
-            <div class="col-xs-10">  -->
             <?php if ($sort_type === "letter") { ?>
                 <div class="row artist_retrieved"> 
                 <?php if (empty($retrieved_authors)) { ?>
@@ -38,7 +36,7 @@
                         <a class="btn btn-primary" href="catalogue.php"><?php echo TXT_BUTTON_BACK; ?></a>
                     </div>
                 </div>
-                <?php } elseif ($sort_type === "artist_id") { ?>
+                <?php } elseif ($sort_type === "artist_id") { // pas utilisé mais fonctionnel ?>
                             <div class="row">
                                 <h3><?php echo $artist->getAuthorName();?></h3>
                             </div>
@@ -58,7 +56,7 @@
                 <?php } ?>
                         </div>
                         <div class="row back_button">
-                            <a href="catalogue.php"><?php echo TXT_BUTTON_BACK; ?></a>
+                            <a class="btn btn-primary" href="catalogue.php"><?php echo TXT_BUTTON_BACK; ?></a>
                         </div>
                 <?php } elseif ($sort_type === "by_collection") { ?>
                             <div class="row">
@@ -133,7 +131,6 @@
                         </div>
                     </div>
             <?php } ?>
-
                         <!-- L'affichage de 2 lignes de vignettes au hasard parmi tous les books -->
                 <!--    <div class="row catalogue_random">
                             <div class="row">
@@ -155,8 +152,6 @@
                         <?php  } ?>
                             </div>
                         </div> -->
-            <!-- </div>
-            <div class="col-xs-1"></div> -->
             <!-- L'affichage de toutes les miniatures de la selection par année : on oublie -->
         </div>
     </body>
