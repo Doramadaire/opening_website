@@ -229,8 +229,8 @@
 									<!-- on peut mettre des labels mais j'aime pas ça fait juste du texte en gras<label for="new_book_form"><?php echo TXT_FICHIER_COMPLET; ?></label> -->
 									<?php echo TXT_FICHIER_COMPLET; ?>
 									<input class="btn btn-file" type="file" name="full_book_file" required>
-									<br><?php echo TXT_FICHIER_EXTRAIT; ?>
-									<input class="btn btn-file" type="file" name="extract_book_file" required>
+<!-- 									<br><?php echo TXT_FICHIER_EXTRAIT; ?>
+									<input class="btn btn-file" type="file" name="extract_book_file" required> -->
 									<!-- <br><?php echo TXT_BOOK_DESCRIPTION_FILE; ?> -->
 									<br>Le fichier de description du book en <b>français</b>:
 									<input class="btn btn-file" type="file" name="description_book_file_fr" required>
@@ -238,8 +238,8 @@
 									<input class="btn btn-file" type="file" name="description_book_file_en" required>
 									<br>La couverture du book (616x600) <b>complet</b>:
 									<input class="btn btn-file" type="file" name="cover_file" required>
-									<br>et celle de <b>l'extrait</b> :
-									<input class="btn btn-file" type="file" name="cover_file_extract" required>
+<!-- 									<br>et celle de <b>l'extrait</b> :
+									<input class="btn btn-file" type="file" name="cover_file_extract" required> -->
 									<br>La vignette du book (450x438) :
 									<input class="btn btn-file" type="file" name="thumbnail_file" required>
 									<br>Titre du book : 

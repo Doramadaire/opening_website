@@ -338,6 +338,19 @@
             }
         }
 
+        if (isset($_POST['delete-book'])) {
+            $search_book_msg = "";
+            if (isset($_POST['id'])) {
+                $book_to_delete = unserialize($sql->getBookByID($_POST['id']));
+                $success = $sql->deleteBook($_POST['id']);
+                if ($success) {
+                    $search_book_msg = "Suppression du book".$book_to_delete->getBookTitle()." ayant pour id=".$_POST['id']." réussie";
+                } else {
+                    $search_book_msg = "Echec de la suppression du book ayant pour id=".$_POST['id'];
+                }
+            }
+        }
+
         if (isset($_POST['new_artist_form'])) {
             $new_artist_msg = "";
             $new_user_name = $_POST['name'];
@@ -433,11 +446,11 @@
             //loo over DL files
             $dl_files = array();
             $dl_files[] = "full_book_file";
-            $dl_files[] = "extract_book_file";
+            // $dl_files[] = "extract_book_file";
             $dl_files[] = "description_book_file_fr";
             $dl_files[] = "description_book_file_en";
             $dl_files[] = "cover_file";
-            $dl_files[] = "cover_file_extract";
+            // $dl_files[] = "cover_file_extract";
             $dl_files[] = "thumbnail_file";
 
             $file_upload_success_sofar = true;
@@ -469,17 +482,17 @@
                 $file_upload_success_sofar = false;
             }
 
-            $move_file = move_uploaded_file($_FILES['cover_file_extract']['tmp_name'], "assets/covers/".$new_book_filename."_EXTRAIT.jpg");
-            if (!$move_file) {
-                $file_upload_success_sofar = false;
-            }
+            // $move_file = move_uploaded_file($_FILES['cover_file_extract']['tmp_name'], "assets/covers/".$new_book_filename."_EXTRAIT.jpg");
+            // if (!$move_file) {
+            //     $file_upload_success_sofar = false;
+            // }
 
-            if ($file_upload_success_sofar) {
-                $move_file = move_uploaded_file($_FILES['extract_book_file']['tmp_name'], "assets/extracts/".$new_book_filename."_EXTRAIT.pdf");
-                if (!$move_file) {
-                    $file_upload_success_sofar = false;
-                }
-            }
+            // if ($file_upload_success_sofar) {
+            //     $move_file = move_uploaded_file($_FILES['extract_book_file']['tmp_name'], "assets/extracts/".$new_book_filename."_EXTRAIT.pdf");
+            //     if (!$move_file) {
+            //         $file_upload_success_sofar = false;
+            //     }
+            // }
 
             if ($file_upload_success_sofar) {
                 $move_file = move_uploaded_file($_FILES['full_book_file']['tmp_name'], "bbff/".$new_book_filename.".pdf");

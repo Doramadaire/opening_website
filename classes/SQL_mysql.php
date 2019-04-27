@@ -1025,7 +1025,7 @@
          */
         public function deleteBook($book_id)
         {
-            $query = $this->conn->prepare("DELETE FROM books WHERE book_id = ?");
+            $query = $this->conn->prepare("DELETE FROM books WHERE id_book = ?");
             $query-> bindValue(1, $book_id);
             return $query->execute();
         }

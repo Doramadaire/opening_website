@@ -71,8 +71,8 @@ $(function() {
                 bookIDSelected = this.innerHTML;
             };
         });
-        for (var i = 0; i < retrieved_book.length; i++) {
-            var book = retrieved_book[i];
+        for (var i = 0; i < retrieved_books.length; i++) {
+            var book = retrieved_books[i];
             if (bookIDSelected === book['id']) {
                 bookSelected = book;
             };
