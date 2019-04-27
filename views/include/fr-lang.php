@@ -36,7 +36,7 @@
     define('TXT_TAB_INDEX', "Accueil - association Opening book");
 
     define('TXT_INDEX_BLOC1_TITLE', "Actualités");
-    define('TXT_INDEX_BLOC1_PARAGRAPH', "Pour découvrir les actualités d'Opening, les expositions et vernissages de nos artistes ainsi que les book à paraître");
+    define('TXT_INDEX_BLOC1_PARAGRAPH', "Anais Lelièvre <b>Vernissage vendredi 26 avril 2019 </b>à partir de 18h30 Centre d'Arts Plastiques Fernand Léger  Port De Bouc");
     define('TXT_INDEX_BLOC1_BUTTON', "voir les actualités");
 
     define('TXT_H3_SECTION_RECHERCHE', 'Découvrir opening book');

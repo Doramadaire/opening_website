@@ -2,7 +2,7 @@
 
     class SQL
     {
-        /** 
+        /**
          * Connexion à la BDD
          *
          * @var PDO
@@ -88,8 +88,8 @@
          */
         public function createTables()
         {
-            $query = $this->conn->prepare("CREATE TABLE IF NOT EXISTS 
-                users(  
+            $query = $this->conn->prepare("CREATE TABLE IF NOT EXISTS
+                users(
                     id_user MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
                     mail VARCHAR(255) NOT NULL UNIQUE,
                     mail_at_account_creation VARCHAR(255) NOT NULL,
@@ -104,32 +104,32 @@
             if (!($query->execute())) {return false;}
             $query->closeCursor();
 
-            $query = $this->conn->prepare("CREATE TABLE IF NOT EXISTS 
+            $query = $this->conn->prepare("CREATE TABLE IF NOT EXISTS
                 authors(
                     id_author MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
                     name VARCHAR(255) NOT NULL UNIQUE,
                     search_name VARCHAR(255) NOT NULL,
-                    user MEDIUMINT UNSIGNED NOT NULL,                     
+                    user MEDIUMINT UNSIGNED NOT NULL,
                     description_filename VARCHAR(255),
                     news_filename VARCHAR(255),
-                    cv_filename VARCHAR(255), 
-                    PRIMARY KEY (id_author),                
+                    cv_filename VARCHAR(255),
+                    PRIMARY KEY (id_author),
                     FOREIGN KEY(user) REFERENCES users(id_user)
                     );");
             if (!($query->execute())) {return false;}
             $query->closeCursor();
 
             //DEVDEV appeller la colonne collections (pluriel) et changer les requetes qui l'utilisent...
-            $query = $this->conn->prepare("CREATE TABLE IF NOT EXISTS 
+            $query = $this->conn->prepare("CREATE TABLE IF NOT EXISTS
                 books(
                     id_book MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
                     title VARCHAR(255) UNIQUE NOT NULL,
                     filename VARCHAR(255) NOT NULL UNIQUE,
-                    authors VARCHAR(255) NOT NULL,                        
-                    collection VARCHAR(255) NOT NULL,                     
+                    authors VARCHAR(255) NOT NULL,
+                    collection VARCHAR(255) NOT NULL,
                     publish_date DATE NOT NULL,
                     token_container TEXT,
-                    PRIMARY KEY (id_book)                
+                    PRIMARY KEY (id_book)
                     );");
             //le champ authors est un array des ids des auteurs serialisé
             //les ids des auteurs devraient être des clefs étrangères, mais comme ils sont en string dans la BDD c'est pas possible...
@@ -139,10 +139,10 @@
             return $query->execute();
         }
 
-        public function showTables() 
+        public function showTables()
         {
-            $query = $this->conn->prepare("SHOW TABLES;");         
-            /*if ($query->execute()) 
+            $query = $this->conn->prepare("SHOW TABLES;");
+            /*if ($query->execute())
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $firstname = $row['firstname'] !== NULL ? $row['firstname'] : NULL;
@@ -158,16 +158,16 @@
          * Méthode qui ajoute un utilisateur dans la table users de la base de donnée
          *
          * @param $user : un objet de la classe User.php
-         * @param string : $password - le mot de passe crypté de l'utilisateur 
+         * @param string : $password - le mot de passe crypté de l'utilisateur
          * @return bool : True si l'ajout est réussi, False sinon
          */
         public function addUser($user, $password)
         {
             $query = $this->conn->prepare("INSERT INTO users(mail, mail_at_account_creation, firstname, name, password, status, subscription_date) VALUES(?,?,?,?,?,?,?);");
-            $query-> bindValue(1,$user->getUserMail());     
-            $query-> bindValue(2,$user->getUserMail());     
-            $query-> bindValue(3,$user->getUserFirstname());    
-            $query-> bindValue(4,$user->getUserName());     
+            $query-> bindValue(1,$user->getUserMail());
+            $query-> bindValue(2,$user->getUserMail());
+            $query-> bindValue(3,$user->getUserFirstname());
+            $query-> bindValue(4,$user->getUserName());
             $query-> bindValue(5,password_hash($password, PASSWORD_BCRYPT));
             $query-> bindValue(6,$user->getUserStatus());
             $query-> bindValue(7,$user->getUserSubscriptionDate());
@@ -193,8 +193,8 @@
         }
 
         /**
-         * Méthode qui ajoute un livre dans la table books de la base de donnée 
-         * 
+         * Méthode qui ajoute un livre dans la table books de la base de donnée
+         *
          *
          * @param $book : un objet de la classe Book.php
          * @return bool : True si l'ajout est réussi, False sinon
@@ -230,22 +230,22 @@
                     $query = $this->conn->prepare("INSERT INTO books(title, filename, authors, collection, publish_date, token_container) VALUES(?,?,?,?,?,?);");
                     $query-> bindValue(1,$book->getBookTitle());
                     $query-> bindValue(2,$book->getBookFilename());
-                    $query-> bindValue(3,serialize($book->getBookAuthors()));                                  
+                    $query-> bindValue(3,serialize($book->getBookAuthors()));
                     $query-> bindValue(4,$book->getBookCollection());
                     $query-> bindValue(5,$book->getBookPublishDate());
                     $query-> bindValue(6, serialize($book->getAcessTokens()));
                     //$query-> bindValue(6,$book->getBookIsFull());
                     //$query-> bindValue(6,$book->getBookCaptions());
                     return $query->execute();
-                }               
-            } 
+                }
+            }
             //un des auteurs du champ "authors" du livre existe pas dans la base
             return FALSE;
         }
 
         /**
         * Méthode qui retourne l'id d'un livre en effectuant une recherche sur les titres
-        * 
+        *
         * @param string : le titre du livre cherché
         * @return int : l'id du livre cherché
         */
@@ -255,7 +255,7 @@
             $query = $this->conn->prepare("SELECT id_book FROM books WHERE title=?;");
             $query-> bindValue($book_title);;
             $id_book = NULL;
-            if ($query->execute()) 
+            if ($query->execute())
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $id_book = $row['id_book'];
@@ -266,17 +266,17 @@
 
         /**
         * Méthode qui récupère un user en le cherchant grâce à son id
-        * 
+        *
         *
         * @param user_id : l'id de l'utilisateur
-        * @return User : l'objet User qui correspond à l'utilisateur trouvé 
+        * @return User : l'objet User qui correspond à l'utilisateur trouvé
         */
         public function getUserByID($user_id)
         {
             $user_serialized = null;
             $query = $this->conn->prepare("SELECT * FROM users WHERE id_user=?;");
             $query-> bindValue(1, $user_id);
-            if ($query->execute()) 
+            if ($query->execute())
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $firstname = $row['firstname'] !== NULL ? $row['firstname'] : NULL;
@@ -291,17 +291,17 @@
 
         /**
         * Méthode qui récupère un user en le cherchant grâce à son mail
-        * 
+        *
         *
         * @param $mail : le mail de l'utilisateur
-        * @return User : l'objet User qui correspond à l'utilisateur trouvé 
+        * @return User : l'objet User qui correspond à l'utilisateur trouvé
         */
         public function getUserByExactMail($mail)
         {
             $user_serialized = null;
             $query = $this->conn->prepare("SELECT * FROM users WHERE mail=?;");
             $query-> bindValue(1,$mail);
-            if ($query->execute()) 
+            if ($query->execute())
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $firstname = $row['firstname'] !== NULL ? $row['firstname'] : NULL;
@@ -316,7 +316,7 @@
 
         /**
         * Méthode qui récupère un  array d'user en cherchant grâce au mail
-        * 
+        *
         *
         * @param $mail : le mail de l'utilisateur
         * @return array(User) : larray d'objets User qui correspond au résultat de la recheche
@@ -326,7 +326,7 @@
             $retrieved_users = array();
             $query = $this->conn->prepare("SELECT * FROM users WHERE mail LIKE ?;");
             $query-> bindValue(1,$mail);
-            if ($query->execute()) 
+            if ($query->execute())
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $firstname = $row['firstname'] !== NULL ? $row['firstname'] : NULL;
@@ -341,7 +341,7 @@
 
         /**
          * Méthode qui vérifie que le mot de passe entrée correspond à l'utilisateur entrée
-         * 
+         *
          *
          * @param $mail : le mail de l'utilisateur
          * @param $pswd : le mot de passe de l'utilisateur
@@ -352,9 +352,9 @@
             $response = false;
             $query = $this->conn->prepare("SELECT password FROM users WHERE mail=?;");
             $query-> bindValue(1,$mail);
-            if ($query->execute()) 
+            if ($query->execute())
             {
-                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {                    
+                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $response = (password_verify($pswd,$row['password'])) ? true : false ;
                 }
             }
@@ -407,17 +407,17 @@
 
         /**
          * Méthode qui récupère un auteur en le cherchant grâce à son nom
-         * 
+         *
          *
          * @param $name : le nom de l'auteur
-         * @return Author : l'objet Author qui correspond à l'auteur trouvé 
+         * @return Author : l'objet Author qui correspond à l'auteur trouvé
          */
         public function getAuthorByExactName($name)
         {
             $author_serialized = null;
             $query = $this->conn->prepare("SELECT * FROM authors WHERE name=?;");
             $query-> bindValue(1,$name);
-            if ($query->execute()) 
+            if ($query->execute())
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
@@ -441,7 +441,7 @@
             $author_serialized = null;
             $query = $this->conn->prepare("SELECT * FROM authors WHERE id_author=?;");
             $query-> bindValue(1, $id);
-            if ($query->execute()) 
+            if ($query->execute())
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $description_filename = $row['description_filename'] !== NULL ? $row['description_filename'] : NULL;
@@ -456,17 +456,17 @@
 
         /**
          * Méthode qui récupère un livre en le cherchant grâce à son titre
-         * 
+         *
          *
          * @param $titre : le titre du livre
-         * @return Book : l'objet Book qui correspond au livre trouvé 
+         * @return Book : l'objet Book qui correspond au livre trouvé
          */
         public function getBookByExactTitle($title)
         {
             $book_serialized = null;
             $query = $this->conn->prepare("SELECT * FROM books WHERE title=?;");
             $query-> bindValue(1,$title);
-            if ($query->execute()) 
+            if ($query->execute())
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $token_container = $row['$token_container'] !== NULL ? unserialize($row['$token_container']) : NULL;
@@ -479,17 +479,17 @@
 
         /**
          * Méthode qui récupère un livre en le cherchant grâce à son id
-         * 
+         *
          *
          * @param $id : l'id du livre
-         * @return Book : l'objet Book qui correspond au livre trouvé 
+         * @return Book : l'objet Book qui correspond au livre trouvé
          */
         public function getBookByID($id)
         {
             $book_serialized = null;
             $query = $this->conn->prepare("SELECT * FROM books WHERE id_book=?;");
             $query-> bindValue(1, $id);
-            if ($query->execute()) 
+            if ($query->execute())
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $token_container = $row['token_container'] !== NULL ? unserialize($row['token_container']) : NULL;
@@ -501,17 +501,17 @@
         }
 
         /**
-         * Méthode qui retourne la liste des book qui ont pour auteur l'id de l'artiste 
-         * 
+         * Méthode qui retourne la liste des book qui ont pour auteur l'id de l'artiste
+         *
          *
          * @param $artist_id : l'id de l'artiste
-         * @return array(Books) : un array contenant tous les books de cet artiste 
+         * @return array(Books) : un array contenant tous les books de cet artiste
          */
         public function getBooksByAuthor($artist_id)
         {
             $retrieved_books = array();
             $query = $this->conn->prepare("SELECT * FROM books;");
-            if ($query->execute()) 
+            if ($query->execute())
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     //on vérifie les auteurs de chaque book
@@ -619,7 +619,7 @@
          * @param $search : la recherche utilisateur
          * @return array(Books) : un array contenant les books trouvés par la recherche
          */
-        // TEST Fonction annulée, remplacée par la partie controller sort_type = "letter"
+        // TEST Fonction annulée, remplacée par la partie controller sort_type = "artist_alphabetical"
         /*
         public function getBookOnAuthorName($search)
         {
@@ -638,7 +638,7 @@
 
         /**
         * Méthode qui récupère un array de tout les books
-        * 
+        *
         *
         * @return array(Books) : un array contenant tous les books
         */
@@ -646,7 +646,7 @@
         {
             $retrieved_books = array();
             $query = $this->conn->prepare("SELECT * FROM books;");
-            if ($query->execute()) 
+            if ($query->execute())
             {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $token_container = $row['$token_container'] !== NULL ? unserialize($row['$token_container']) : NULL;
@@ -661,7 +661,7 @@
          * Méthode qui modifie le mail d'un utilisateur dans la table users de la base de donnée
          *
          * @param $user : un objet de la classe User.php
-         * @param string : $new_mail - le nouveau mail de l'utilisateur 
+         * @param string : $new_mail - le nouveau mail de l'utilisateur
          * @return bool : True si la modification est réussi, False sinon
          */
         public function setUserMail($user, $new_mail)
@@ -680,23 +680,23 @@
                 return FALSE;
             } else {
                 $query = $this->conn->prepare("UPDATE users SET mail = ? WHERE id_user = ?");
-                $query-> bindValue(1,$new_mail);    
+                $query-> bindValue(1,$new_mail);
                 $query-> bindValue(2,$user->getUserID());
                 return $query->execute();
-            }           
+            }
         }
 
         /**
          * Méthode qui modifie le prénom d'un utilisateur dans la table users de la base de donnée
          *
          * @param $user : un objet de la classe User.php
-         * @param string : $new_firstname - le nouveau prénom de l'utilisateur 
+         * @param string : $new_firstname - le nouveau prénom de l'utilisateur
          * @return bool : True si la modification est réussi, False sinon
          */
         public function setUserFirstname($user, $new_firstname)
         {
             $query = $this->conn->prepare("UPDATE users SET firstname = ? WHERE id_user = ?");
-            $query-> bindValue(1,$new_firstname);    
+            $query-> bindValue(1,$new_firstname);
             $query-> bindValue(2,$user->getUserID());
             return $query->execute();
         }
@@ -705,13 +705,13 @@
          * Méthode qui modifie le nom d'un utilisateur dans la table users de la base de donnée
          *
          * @param $user : un objet de la classe User.php
-         * @param string : $new_name - le nouveau nom de l'utilisateur 
+         * @param string : $new_name - le nouveau nom de l'utilisateur
          * @return bool : True si la modification est réussi, False sinon
          */
         public function setUserName($user, $new_name)
         {
             $query = $this->conn->prepare("UPDATE users SET name = ? WHERE id_user = ?");
-            $query-> bindValue(1,$new_name);    
+            $query-> bindValue(1,$new_name);
             $query-> bindValue(2,$user->getUserID());
             return $query->execute();
         }
@@ -720,13 +720,13 @@
          * Méthode qui modifie le mot de passe d'un utilisateur dans la table users de la base de donnée
          *
          * @param $user : un objet de la classe User.php
-         * @param string : $new_pswd - le nouveau mot de passe de l'utilisateur 
+         * @param string : $new_pswd - le nouveau mot de passe de l'utilisateur
          * @return bool : True si la modification est réussi, False sinon
          */
         public function setUserPassword($user, $new_pswd)
         {
             $query = $this->conn->prepare("UPDATE users SET password = ? WHERE id_user = ?");
-            $query-> bindValue(1,$new_pswd);    
+            $query-> bindValue(1,$new_pswd);
             $query-> bindValue(2,$user->getUserID());
             return $query->execute();
         }
@@ -735,13 +735,13 @@
          * Méthode qui modifie le statut d'un utilisateur dans la table users de la base de donnée
          *
          * @param $user : un objet de la classe User.php
-         * @param string : $new_status - le nouveau statut de l'utilisateur 
+         * @param string : $new_status - le nouveau statut de l'utilisateur
          * @return bool : True si la modification est réussi, False sinon
          */
         public function setUserStatus($user, $new_status)
         {
             $query = $this->conn->prepare("UPDATE users SET status = ? WHERE id_user = ?");
-            $query-> bindValue(1,$new_status);  
+            $query-> bindValue(1,$new_status);
             $query-> bindValue(2,$user->getUserID());
             return $query->execute();
         }
@@ -750,13 +750,13 @@
          * Méthode qui modifie le statut d'un utilisateur dans la table users de la base de donnée
          *
          * @param $user : un objet de la classe User.php
-         * @param string : $new_sub_date - la date de la dernière cotisation de l'utilisateur 
+         * @param string : $new_sub_date - la date de la dernière cotisation de l'utilisateur
          * @return bool : True si la modification est réussi, False sinon
          */
         public function setUserSubscriptionDate($user, $new_sub_date)
         {
             $query = $this->conn->prepare("UPDATE users SET subscription_date = ? WHERE id_user = ?");
-            $query-> bindValue(1,$new_sub_date);    
+            $query-> bindValue(1,$new_sub_date);
             $query-> bindValue(2,$user->getUserID());
             return $query->execute();
         }
@@ -771,7 +771,7 @@
         public function setAuthorName($author, $new_name)
         {
             $query = $this->conn->prepare("UPDATE authors SET name = ? WHERE id_author = ?");
-            $query-> bindValue(1,$new_name);    
+            $query-> bindValue(1,$new_name);
             $query-> bindValue(2,$author->getAuthorID());
             return $query->execute();
         }
@@ -786,7 +786,7 @@
         public function setAuthorUser($author, $new_user_id)
         {
             $query = $this->conn->prepare("UPDATE authors SET user = ? WHERE id_author = ?");
-            $query-> bindValue(1,$new_user_id);     
+            $query-> bindValue(1,$new_user_id);
             $query-> bindValue(2,$author->getAuthorID());
             return $query->execute();
         }
@@ -816,7 +816,7 @@
         public function setAuthorDescription($author, $new_description_filename)
         {
             $query = $this->conn->prepare("UPDATE authors SET description_filename = ? WHERE id_author = ?");
-            $query-> bindValue(1,$new_description_filename);    
+            $query-> bindValue(1,$new_description_filename);
             $query-> bindValue(2,$author->getAuthorID());
             return $query->execute();
         }
@@ -831,10 +831,10 @@
         public function setAuthorNews($author, $new_news_filename)
         {
             $query = $this->conn->prepare("UPDATE authors SET news_filename = ? WHERE id_author = ?");
-            $query-> bindValue(1,$new_news_filename);   
+            $query-> bindValue(1,$new_news_filename);
             $query-> bindValue(2,$author->getAuthorID());
             return $query->execute();
-        }                   
+        }
 
         /**
          * Méthode qui modifie le titre d'un livre de la table books de la base de donnée
@@ -846,10 +846,10 @@
         public function setBookTitle($book, $new_title)
         {
             $query = $this->conn->prepare("UPDATE books SET title = ? WHERE id_author = ?");
-            $query-> bindValue(1,$new_title);   
+            $query-> bindValue(1,$new_title);
             $query-> bindValue(2,$book->getBookID());
             return $query->execute();
-        }           
+        }
 
         /**
          * Méthode qui modifie le ou les auteurs du livre d'un livre de la table books de la base de donnée
@@ -883,14 +883,14 @@
                 } else {
                     //tout va bien, on update la table
                     $query = $this->conn->prepare("UPDATE books SET authors = ? WHERE id_author = ?");
-                    $query-> bindValue(1,$new_authors);     
+                    $query-> bindValue(1,$new_authors);
                     $query-> bindValue(2,$book->getBookID());
                     return $query->execute();
-                }               
-            } 
+                }
+            }
             //un des auteurs du champ "authors" du livre existe pas dans la base
-            return FALSE;           
-        }   
+            return FALSE;
+        }
 
         /**
          * Méthode qui modifie la collection d'un livre de la table books de la base de donnée
@@ -902,10 +902,10 @@
         public function setBookCollection($book, $new_collection)
         {
             $query = $this->conn->prepare("UPDATE books SET collection = ? WHERE id_author = ?");
-            $query-> bindValue(1,$new_collection);  
+            $query-> bindValue(1,$new_collection);
             $query-> bindValue(2,$book->getBookID());
             return $query->execute();
-        }       
+        }
 
         /**
          * Méthode qui modifie la date de publication d'un livre de la table books de la base de donnée
@@ -917,7 +917,7 @@
         public function setBookPublishDate($book, $new_publish_date)
         {
             $query = $this->conn->prepare("UPDATE books SET publish_date = ? WHERE id_author = ?");
-            $query-> bindValue(1,$new_publish_date);    
+            $query-> bindValue(1,$new_publish_date);
             $query-> bindValue(2,$book->getBookID());
             return $query->execute();
         }
@@ -932,7 +932,7 @@
         public function setBookIsFull($book, $is_full)
         {
             $query = $this->conn->prepare("UPDATE books SET is_full = ? WHERE id_author = ?");
-            $query-> bindValue(1,$is_full);     
+            $query-> bindValue(1,$is_full);
             $query-> bindValue(2,$book->getBookID());
             return $query->execute();
         }
@@ -947,7 +947,7 @@
         public function setBookAccessTokens($book, $token_container)
         {
             $query = $this->conn->prepare("UPDATE books SET token_container = ? WHERE id_book = ?");
-            $query-> bindValue(1, serialize($token_container));     
+            $query-> bindValue(1, serialize($token_container));
             $query-> bindValue(2, $book->getBookID());
             return $query->execute();
         }
@@ -962,7 +962,7 @@
         /*public function setBookCaptions($book, $new_captions_filename)
         {
             $query = $this->conn->prepare("UPDATE books SET captions_filename = ? WHERE id_author = ?");
-            $query-> bindValue(1,$new_captions_filename);   
+            $query-> bindValue(1,$new_captions_filename);
             $query-> bindValue(2,$book->getBookID());
             return $query->execute();
         }*/
@@ -1006,7 +1006,7 @@
             }
             return $generated_password;
         }
-       
+
 
         /*Structure de ma BDD :
         Tables :
@@ -1019,7 +1019,7 @@
                 -addUser
                 -getUset
                 -editUser
-                -deleteUser             
+                -deleteUser
             -Books
                 -getBook
                 -addBook
@@ -1032,7 +1032,7 @@
                     -getAuthorDescription
                     -getAuthorNews
                 -editAuthor
-                -deleteAuthor       
+                -deleteAuthor
         */
     }
 ?>

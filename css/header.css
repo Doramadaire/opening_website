@@ -65,6 +65,13 @@ donne le code ci dessous pour les couleurs de la navbar */
     }
 }
 
+/* Pour les small devices, pas trop d'espace dans la liste déroulante */
+@media (max-width:890px){
+    .nav .navbar-nav li > a {
+        padding: 4px;
+    }
+}
+
 /* Custom navbar breakpoint */
 @media (max-width: 890px) {
   .navbar-header {

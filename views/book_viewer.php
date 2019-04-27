@@ -13,8 +13,8 @@
         <link rel="stylesheet" href="css/book_viewer.css" type="text/css">
         <script>
         $(function(){
-            var fixedButtonWidth = document.getElementById('fixed-button').style.width;
-            document.getElementById('pull-right-box').style.width = fixedButtonWidth;
+            // var fixedButtonWidth = document.getElementById('fixed-button').style.width;
+            // document.getElementById('pull-right-box').style.width = fixedButtonWidth;
 
             var bookOptions = {
                 height   : 500,

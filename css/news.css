@@ -9,3 +9,12 @@
 .row:first-child {
     margin-top: 20px;
 }
+
+.container-fluid img {
+    max-height: 400px;
+    margin: 0px;
+}
+
+.container-fluid a > img {
+    margin: 0px;
+}

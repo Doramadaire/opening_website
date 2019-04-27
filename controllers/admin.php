@@ -79,8 +79,8 @@
 
     $sql = SQL::getInstance();
     $conn = $sql->getBoolConnexion();
-    
-    session_start();    
+
+    session_start();
     $user_logged = (isset($_SESSION['user_logged'])) ? $_SESSION['user_logged'] : false;
 
     if (isset($_SESSION['user_logged']) and $user_logged->getUserStatus() == 5) {
@@ -275,7 +275,7 @@
                     if ($file_extension != "txt") {
                         $search_artist_msg .= "Fichier de description en anglais invalide, un fichier texte (.txt) est attendu<br>";
                     } else {
-                        $path = "assets/artists_descriptions/fr/".$artist->getAuthorDescription();
+                        $path = "assets/artists_descriptions/en/".$artist->getAuthorDescription();
                         $move_file = move_uploaded_file($_FILES['artist_description_file_en']['tmp_name'], $path);
                         if (!$move_file) {
                             $search_artist_msg .= "Echec lors de l'upload du fichier de description de l'artiste en anglais<br>";

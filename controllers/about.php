@@ -10,7 +10,7 @@
     $user_logged = (isset($_SESSION['user_logged'])) ? $_SESSION['user_logged'] : false;
 
     if (isset($_POST['dl_call_application'])) {
-        $file = 'assets/pdf/candidature_2018.pdf';
+        $file = 'assets/pdf/candidature_2019.pdf';
         if (file_exists($file)) {
             header('Content-Description: File Transfer');
             header('Content-Type: application/octet-stream');

@@ -15,7 +15,7 @@
 }
 
 .thumbnail > a {
-    text-decoration: none;   
+    text-decoration: none;
 }
 
 .thumbnail > a > h4 {
@@ -105,18 +105,14 @@ h1, h3 { /* alignement titres avec images */
     padding: 0px 4px;
 }
 
-@media (max-width: 351px) { /* Pour les vieux téléphones à petits écrans comme Iphone < 6 */
-    .container-fluid {
-        padding: 0px 3px;
+@media (max-width: 351px) { /* Pour les vieux téléphones à petits écrans Iphone < 6 */
+    .container-fluid { /* manque 22px */
+        padding: 0px 3px; /* 7x2 px gagnés */
     }
 
     .thumbnail {
-        padding: 0px 2px;
-        min-width: 150px;
-    }
-
-    .thumbnail img, .thumbnail a, .thumbnail p {
-        width: 148px;
+        padding: 0px 2px; /* 2x2 px gagnés par image : 8 */
+        min-width: 156px;
     }
 }
 
@@ -155,6 +151,16 @@ h1, h3 { /* alignement titres avec images */
         padding: 0px 4px;
     }
 }
+
+/*@media (min-width: 794px) {
+    .thumbnail {
+        margin: 0px 10px;
+    }
+
+    h1, h3 {
+        padding: 0px 10px;
+    }
+}*/
 
 /*
 .random_vignettes_small {
