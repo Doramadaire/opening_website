@@ -324,6 +324,20 @@
             }
         }
 
+
+        if (isset($_POST['search_book_form'])) {
+            $search_book_msg = "";
+            $title_searched = stripslashes($_POST['book_title']);
+            $retrieved_books = $sql->getBookByTitle('%'.$title_searched.'%');
+            if ($retrieved_books != null) {//Trouvé!
+                $search_book_msg .= "Recherche réussie<br>";
+                $json_retrieved_books = json_encode($retrieved_books);
+            } else {
+                //aucun book n'existe avec cette adresse
+                $search_book_msg = "Pas de book correspondant trouvé";
+            }
+        }
+
         if (isset($_POST['new_artist_form'])) {
             $new_artist_msg = "";
             $new_user_name = $_POST['name'];

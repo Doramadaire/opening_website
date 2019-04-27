@@ -132,6 +132,10 @@
     define('TXT_BOUTON_SEARCH_AUTHOR', "Rechercher un auteur");
     define('TXT_NOUVEL_UTILISATEUR', "Création d'un compte utilisateur du site");
 
+    define('TXT_RECHERCHE_BOOK', "Quel book recherchez-vous?");
+    define('TXT_PLACEHOLDER_BOOK_TITLE', "Titre du book");
+    define('TXT_BOUTON_SEARCH_BOOK', "Rechercher un book");
+
     define('TXT_TYPE_COMPTE', "Quel type de compte souhaitez vous créer?");
     define('TXT_TYPE_PRESENTATION', "Compte de présentation (2)");
     define('TXT_TYPE_ADHERENT', "Compte adhérent (cotisant à jour - 3)");

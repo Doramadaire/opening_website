@@ -454,6 +454,29 @@
             return $author_serialized;
         }
 
+
+        /**
+         * Méthode qui récupère des books en les par leur titre
+         *
+         *
+         * @param $titre : le titre du livre
+         * @return array(Book) : l'array d'objets AuthBookor qui correspond aux books trouvés
+         */
+        public function getBookByTitle($title)
+        {
+            $retrieved_books = array();
+            $query = $this->conn->prepare("SELECT * FROM books WHERE title LIKE ?;");
+            $query-> bindValue(1,$title);
+            if ($query->execute()) {
+                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                    $token_container = $row['$token_container'] !== NULL ? unserialize($row['$token_container']) : NULL;
+                    $book = new Book($row['id_book'], $row['title'], $row['filename'], unserialize($row['authors']), $row['collection'], $row['publish_date'], $token_container);
+                    $retrieved_books[] = $book;
+                }
+            }
+            return $retrieved_books;
+        }
+
         /**
          * Méthode qui récupère un livre en le cherchant grâce à son titre
          *
@@ -990,6 +1013,20 @@
         {
             $query = $this->conn->prepare("DELETE FROM authors WHERE id_author = ?");
             $query-> bindValue(1, $artist_id);
+            return $query->execute();
+        }
+
+
+        /**
+         * Méthode qui supprime un book de la base de données
+         *
+         * @param $book_id : l'id de lu book à supprimer
+         * @return bool : True si la suppression est réussi, False sinon
+         */
+        public function deleteBook($book_id)
+        {
+            $query = $this->conn->prepare("DELETE FROM books WHERE book_id = ?");
+            $query-> bindValue(1, $book_id);
             return $query->execute();
         }
 

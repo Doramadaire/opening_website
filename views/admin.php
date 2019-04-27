@@ -11,12 +11,16 @@
 			var json_retrieved_users = '<?php echo $json_retrieved_users; ?>';
 <?php	} elseif (isset($json_retrieved_artists)) { ?>
 			var json_retrieved_artists = '<?php echo $json_retrieved_artists; ?>';
+<?php	} elseif (isset($json_retrieved_books)) { ?>
+			var json_retrieved_books = '<?php echo $json_retrieved_books; ?>';
 <?php	} ?>
 		</script>
 <?php 	if (isset($json_retrieved_users)) {
 			echo "<script src='js/admin_users.js'></script>";
 		} elseif (isset($json_retrieved_artists)) {
 			echo "<script src='js/admin_artists.js'></script>";
+		} elseif (isset($json_retrieved_books)) {
+			echo "<script src='js/admin_books.js'></script>";
 		} ?>
 	</head>	
 	<body>
@@ -132,6 +136,43 @@
 												<input class="btn btn-file" type="file" name="artist_description_file_en" >
 												<br>
 												<input type="submit" name="update-artist" class="btn btn-primary" value="Sauvegarder les modifications">
+												<button type="button" class="btn btn-default btn-lg pull-right closeModal" data-dismiss="modal">Fermer</button>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div id="search_book" class="row thumbnail">
+								<p><?php echo TXT_RECHERCHE_BOOK; ?></p>
+								<?php if(isset($search_book_msg)) echo "<p><b>$search_book_msg</b><p>"; ?>
+								<div id="retrieved_book_table"></div>
+								<form action="" method="POST">
+									<label for="book_title">Quel book recherchez-vous ?</label><br>
+									<input type="text" name="book_title" placeholder="<?php echo TXT_PLACEHOLDER_BOOK_TITLE; ?>" >
+									<input type="submit" name="search_book_form" class="btn btn-primary" value="<?php echo TXT_BOUTON_SEARCH_BOOK; ?>" >
+								</form>
+							</div>
+
+							<div id="updateBookModal" class="modal" role="dialog" aria-labelledby="updateBookLabel">
+								<div class="modal-dialog modal-lg">
+									<div class="modal-content">
+										<div id="update-book-header" class="modal-header">
+											<button type="button" class="close closeModal" data-dismiss="modal">&times;</button>
+											<br><h3 id="updateBookModal">Modification des propriétés d'un book</h3>
+											<form id="delete-book-form" method="POST">
+												<input type="hidden" name="id">
+												<input id="delete-book-button" type="submit" name="delete-book" class="btn btn-danger" value="Supprimer ce book">
+											</form>
+											<div id="book-selected-table"></div>
+										</div>
+										<div class="modal-body">
+											<form id="update-book-form" method="POST" enctype="multipart/form-data">
+												<label>Nouvelles valeurs des propriétés de ce book</label><br>
+												<input type="hidden" name="id">
+												<label for="title">Titre du book</label>
+												<input type="text" name="title" placeholder="<?php echo TXT_PLACEHOLDER_BOOK_TITLE; ?>" required>
+												<input type="submit" name="update-book" class="btn btn-primary" value="Sauvegarder les modifications">
 												<button type="button" class="btn btn-default btn-lg pull-right closeModal" data-dismiss="modal">Fermer</button>
 											</form>
 										</div>
