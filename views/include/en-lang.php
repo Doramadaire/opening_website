@@ -242,6 +242,7 @@
                     <p>Isabelle SCHNEIDER</p>
                     <p>An artist, she workes concurrently as a painter and videographer. She is part of the Experimental video festival,  Images Contre Nature in Marseilles. She regulary collaborates with experimental theatre companies.(Germany, Greece, France.) </p>
                     <p><img src='assets/img/portrait_opening.jpg' width='700px'></p>
+                    <p>Opening website is developped by Guilhem Claverie. Contact : <b>guilhem-claverie[at]orange.fr</b></p>
                     <p>Opening recieves funding from the Regional Provence-Alpes-Côte d'Azur and the Bouches-du-Rhône councils.</p>");
 
     //exemple de balise pour mettre une image : <img src='https://coloriage.info/images/ccovers/1460917190bananes-fruit.gif' width='476' height='405'>
