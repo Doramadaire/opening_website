@@ -37,9 +37,9 @@
     define('TXT_PLACEHOLDER_MAIL', "e-mail");
     define('TXT_PLACEHOLDER_MDP', "password");
 
-    define('TXT_INDEX_BLOC1_TITLE', "Actualités");
-    define('TXT_INDEX_BLOC1_PARAGRAPH', "Pour découvrir les actualités d'Opening, les expositions et vernissages de nos artistes ainsi que les book à paraître");
-    define('TXT_INDEX_BLOC1_BUTTON', "voir les actualités");
+    define('TXT_INDEX_BLOC1_TITLE', "News");
+    define('TXT_INDEX_BLOC1_PARAGRAPH', "Opening of the art exhibit of Anais Lelièvre, Port de Bouc, the 26th of April at 6:30PM");
+    define('TXT_INDEX_BLOC1_BUTTON', "Dates and events");
 
     define('TXT_H3_SECTION_RECHERCHE', 'Discover opening book');
     define('TXT_P_RECHERCHE', "Digital collections where artists portfolios and books of art meet");
@@ -129,6 +129,10 @@
     define('TXT_RECHERCHE_AUTHOR_QUESTION', "Quel auteur recherchez-vous?");
     define('TXT_BOUTON_SEARCH_AUTHOR', "Rechercher un auteur");
     define('TXT_NOUVEL_UTILISATEUR', "Création d'un compte utilisateur du site");
+
+    define('TXT_RECHERCHE_BOOK', "Quel book recherchez-vous?");
+    define('TXT_PLACEHOLDER_BOOK_TITLE', "Titre du book");
+    define('TXT_BOUTON_SEARCH_BOOK', "Rechercher un book");
 
     define('TXT_TYPE_COMPTE', "Quel type de compte souhaitez vous créer?");
     define('TXT_TYPE_PRESENTATION', "Compte de présentation (2)");
