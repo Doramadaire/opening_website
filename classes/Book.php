@@ -314,20 +314,10 @@
 
 		public function toArray() 
 		{
-			$sql = SQL::getInstance();
-			$conn = $sql->getBoolConnexion();
-			$artist = unserialize($sql->getAuthorByID($this->authors[0]));
-			if (gettype($artist) !== "boolean")  {
-				$artist_name = $artist->getAuthorName();
-			} else {
-				$artist_name = "pas dartiste avec id={$this->authors[0]}";
-			}
-
 			return array(
 				'id' => $this->id,
 				'title' => $this->title,
 				'filename' => $this->filename,
-				'artist_name' => $artist_name,
 				'authors' => $this->authors,
 				'collection' => $this->collection,
 				'publish_date' => $this->publish_date,

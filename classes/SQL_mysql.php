@@ -868,7 +868,7 @@
          */
         public function setBookTitle($book, $new_title)
         {
-            $query = $this->conn->prepare("UPDATE books SET title = ? WHERE id_author = ?");
+            $query = $this->conn->prepare("UPDATE books SET title = ? WHERE id_book = ?");
             $query-> bindValue(1,$new_title);
             $query-> bindValue(2,$book->getBookID());
             return $query->execute();
@@ -878,7 +878,7 @@
          * Méthode qui modifie le ou les auteurs du livre d'un livre de la table books de la base de donnée
          *
          * @param $book : un objet de la classe Book.php
-         * @param string : $new_authors - le ou les auteurs du livre
+         * @param array(Author) : $new_authors - le ou les auteurs du livre
          * @return bool : True si la modification est réussi, False sinon
          */
         public function setBookAuthors($book, $new_authors)
@@ -898,22 +898,22 @@
                 }
             }
 
-            if (count($new_authors) === count ($authorsExistsArray)) {
+            if (count($new_authors) === count($authorsExistsArray)) {
                 //les deux listes ont la même taille
                 if (in_array(FALSE, $authorsExistsArray, true)) {
                     //echo "<br>IL Y A UN FALSE DANS L'ARRAY!";
                     //il y a un FALSE, donc au moins un auteur n'a pas été trouvé
                 } else {
                     //tout va bien, on update la table
-                    $query = $this->conn->prepare("UPDATE books SET authors = ? WHERE id_author = ?");
-                    $query-> bindValue(1,$new_authors);
+                    $query = $this->conn->prepare("UPDATE books SET authors = ? WHERE id_book = ?");
+                    $query-> bindValue(1,serialize($new_authors));
                     $query-> bindValue(2,$book->getBookID());
                     return $query->execute();
                 }
             }
             //un des auteurs du champ "authors" du livre existe pas dans la base
             return FALSE;
-        }
+       }
 
         /**
          * Méthode qui modifie la collection d'un livre de la table books de la base de donnée
@@ -924,7 +924,7 @@
          */
         public function setBookCollection($book, $new_collection)
         {
-            $query = $this->conn->prepare("UPDATE books SET collection = ? WHERE id_author = ?");
+            $query = $this->conn->prepare("UPDATE books SET collection = ? WHERE id_book = ?");
             $query-> bindValue(1,$new_collection);
             $query-> bindValue(2,$book->getBookID());
             return $query->execute();
@@ -939,7 +939,7 @@
          */
         public function setBookPublishDate($book, $new_publish_date)
         {
-            $query = $this->conn->prepare("UPDATE books SET publish_date = ? WHERE id_author = ?");
+            $query = $this->conn->prepare("UPDATE books SET publish_date = ? WHERE id_book = ?");
             $query-> bindValue(1,$new_publish_date);
             $query-> bindValue(2,$book->getBookID());
             return $query->execute();
@@ -954,7 +954,7 @@
          */
         public function setBookIsFull($book, $is_full)
         {
-            $query = $this->conn->prepare("UPDATE books SET is_full = ? WHERE id_author = ?");
+            $query = $this->conn->prepare("UPDATE books SET is_full = ? WHERE id_book = ?");
             $query-> bindValue(1,$is_full);
             $query-> bindValue(2,$book->getBookID());
             return $query->execute();

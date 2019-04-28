@@ -1,8 +1,10 @@
-function collectionSelecChange(value) {
-    if (value === "other") {
+function collectionSelecChange($this) {
+    var current_elem = $this;
+    var selected_value = current_elem[current_elem.selectedIndex].value;
+    if (selected_value === "other") {
         var newSpanText = document.createElement("span");
         newSpanText.id = "add-collection-span";
-        newSpanText.innerHTML = "Attention, cette action va créer une nouvelle collection sur la page catalogue<br>";
+        newSpanText.innerHTML = "<br>Attention, cette action va créer une nouvelle collection sur la page catalogue<br>";
 
         var newInputBox = document.createElement("input");
         newInputBox.required = true;
@@ -10,7 +12,7 @@ function collectionSelecChange(value) {
         newInputBox.setAttribute("type", "text");
         newInputBox.setAttribute("name", "new_collection");
 
-        var selectBlock = document.getElementById("select-collection");
+        var selectBlock = current_elem;
         selectBlock.parentNode.insertBefore(newInputBox , selectBlock.nextSibling);
         newInputBox.parentNode.insertBefore(newSpanText , newInputBox.nextSibling);
     } else {

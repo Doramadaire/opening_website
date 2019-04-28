@@ -85,6 +85,8 @@
 
     if (isset($_SESSION['user_logged']) and $user_logged->getUserStatus() == 5) {
         //que si on est connecté en tant qu'admin
+        $existing_artists = $sql->getAuthorsSortedAlphabetical();
+
         if (isset($_POST['new_user_form'])) {
             $new_user_mail = stripslashes($_POST['mail']);
             $new_user_sub_date = $_POST['subscripion_end_date'];
@@ -331,11 +333,107 @@
             $retrieved_books = $sql->getBookByTitle('%'.$title_searched.'%');
             if ($retrieved_books != null) {//Trouvé!
                 $search_book_msg .= "Recherche réussie<br>";
-                $json_retrieved_books = json_encode($retrieved_books);
+                // on va faire un dictionnaire avec en clef l'id artiste et en valeur son nom
+                $artists_names_by_id = array();
+                foreach ($existing_artists as $artist) {
+                    $artists_names_by_id[$artist->getAuthorID()] = $artist->getAuthorName();
+                }
+                // pour ajouter une info (le nom de l'artiste auteur du book) au lieu de faire json_encode de l'array des books
+                // on le fait en 2 temps :
+                // d'abord construction d'un array pour chaque book (sérialisation) + ajout de artist_name
+                // ensuite on json_encode l'array contenant les book sous forme d'array car sérialisés
+                $array_retrieved_books = array();
+                foreach ($retrieved_books as $book) {
+                    // serialisation du book
+                    $serialized_element = $book->jsonSerialize();
+                    // on veut mettre le nom de l'artiste plutot que son id par soucis de lisibilité
+                    $artist_id = $book->getBookAuthors()[0];
+                    if (array_key_exists($artist_id, $artists_names_by_id)) {
+                        $serialized_element["artist_name"] = $artists_names_by_id[$artist_id];
+                    } else {
+                        $serialized_element["artist_name"] = "artiste avec id={$artist_id} pas trouvé";
+                    }
+                    $array_retrieved_books[] = $serialized_element;
+                }
+                // json_encode l'array contenant les book sous forme d'array car sérialisés
+                $json_retrieved_books = json_encode($array_retrieved_books);
             } else {
                 //aucun book n'existe avec cette adresse
                 $search_book_msg = "Pas de book correspondant trouvé";
             }
+        }
+
+        if (isset($_POST['update-book'])) {
+            $search_book_msg = "";
+            $book = unserialize($sql->getBookByID($_POST['id']));
+            if (isset($_POST['title'])) {
+                if ($_POST['title'] !== $book->getBookTitle()) {
+                    $title_modified = $sql->setBookTitle($book, $_POST['title']);
+                    if ($title_modified) {
+                        $search_book_msg .= "Titre du book modifié avec succès, nouveau titre=".$_POST['title']."<br>";
+                    } else {
+                        $search_book_msg .= "Echec de la modification du Titre<br>";
+                    }
+                }
+            }
+
+            if (isset($_POST['artist'])) {
+                // the value of $_POST['artist'] is the artist_id
+                if ($_POST['artist'] !== $book->getBookAuthors()[0]) {
+                    $artist = unserialize($sql->getAuthorByID($_POST['artist']));
+                    $artist_modified = $sql->setBookAuthors($book, array($_POST['artist']));
+                    if ($artist_modified) {
+                        $search_book_msg .= "Artiste auteur du book modifié avec succès, nouveau artiste_id=".$_POST['artist']." artist_name=".$artist->getAuthorName()."<br>";
+                    } else {
+                        $search_book_msg .= "Echec de la modification de l'artiste du book<br>";
+                    }
+                }
+            }
+
+            if (isset($_POST['collection'])) {
+                if ($_POST['collection'] !== $book->getBookCollection()) {
+                    $collection_is_valid = true;
+                    // verif nouvelle collection
+                    $collection = $_POST['collection'];
+                    if ($collection === "other") {
+                        if (isset($_POST['new_collection'])) {
+                            $collection = $_POST['new_collection'];
+                        } else {
+                            $collection_is_valid = false;
+                            $search_book_msg .= "Erreur : pas de nom specifie pour la nouvelle collection<br>";
+                        }
+                    }
+                    // on essaye de modifier collection que si on a toutes les infos
+                    if ($collection_is_valid) {
+                        $collection_modified = $sql->setBookCollection($book, $collection);
+                        if ($collection_modified) {
+                            $search_book_msg .= "Collection du book modifié avec succès, nouvelle collection=".$collection."<br>";
+                        } else {
+                            $search_book_msg .= "Echec de la modification de la collection du book<br>";
+                        }
+                    }
+                }
+            }
+
+            if (isset($_POST['publish_date'])) {
+                if ($_POST['publish_date'] !== $book->getBookPublishDate()) {
+                    $publish_date = $_POST['publish_date'];
+                    $date_format = '%Y-%m-%d';
+                    // first we check if the date seems correct
+                    if (strptime($publish_date, $date_format)) {
+                        // date valide, tout est bon on mettre à jour la publish date du book
+                        $publish_date_modified = $sql->setBookPublishDate($book, $_POST['publish_date']);
+                        if ($publish_date_modified) {
+                            $search_book_msg .= "Date de publication du book modifié avec succès : publish_date=".$_POST['publish_date']."<br>";
+                        } else {
+                            $search_book_msg .= "Echec de la modification de la date de publication du book<br>";
+                        }
+                    } else {
+                        $search_book_msg .= "Erreur : la date specifie n'est pas au format valide<br>";
+                    }
+                }
+            }
+            // eventuellement on pourrais rajouter l'upload des fichiers du book : le pdf complet, la vignette, la couverture et les descriptions
         }
 
         if (isset($_POST['delete-book'])) {

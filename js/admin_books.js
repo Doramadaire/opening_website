@@ -53,7 +53,7 @@ function createBookTable(retrieved_books, parentID, childID) {
 }
 
 $(function() {
-    //console.log("ready!");
+    //// console.log("ready!");
     createBookTable(retrieved_books, "search_book", "retrieved_book_table");
 
     var updateBookModal = document.getElementById('updateBookModal');
@@ -94,10 +94,30 @@ $(function() {
                     }
                 }
             } else if (node.tagName === "SELECT") {
-                //donc le select index dépend du nombre d'option
-                //le -2 est une valeur hardcoded pour que ça marche sans se prendre la tête
-                //sinon il faut itérer sur les options pour trouver la bonne... la flemme
-                node.selectedIndex = bookSelected['status']-2;
+                var nodeNameAttribute = node.getAttribute("name");
+                if (nodeNameAttribute === "artist") {
+                    // node name is artist, infos about artist is book array are :
+                    // - authors : an array with the id of the artists who made the book
+                    // - artist_name : a string, the name of the first artist in the authors array (there should be exactly one id in the array)  
+                    var selector = 'option' + '[value="' + bookSelected["authors"][0] + '"]';
+                } else {
+                    var selector = 'option' + '[value="' + bookSelected[nodeNameAttribute] + '"]';
+                }
+                var option_to_be_selected = node.querySelector(selector);
+                if (option_to_be_selected) {
+                    // console.log("option_to_be_selected found");
+                    option_to_be_selected.selected = true;
+                } else {
+                    var additional_option = document.createElement("option");
+                    additional_option.id = "additional_option_to_be_deleted";
+                    if (nodeNameAttribute === "artist") {  // see node above about artist node name
+                        additional_option.text = bookSelected["artist_name"];
+                    } else {
+                        additional_option.text = bookSelected[nodeNameAttribute];
+                    }
+                    additional_option.selected = true;
+                    node.add(additional_option);
+                }
             };
         };
         //besoin du book_id dans mon formulaire pour supprimer un book
@@ -121,5 +141,9 @@ $(function() {
         //reset les valeurs du formulaire avant de le fermer
         document.getElementById("update-book-form").reset();
         updateBookModal.style.display = "none";
+        var additional_option_to_be_deleted = document.getElementById("additional_option_to_be_deleted");
+        if (additional_option_to_be_deleted) {
+            additional_option_to_be_deleted.parentNode.removeChild(additional_option_to_be_deleted);
+        }
     });
 });
